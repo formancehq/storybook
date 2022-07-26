@@ -1,7 +1,14 @@
 {
-  "name": "design-system",
+  "name": "@numary/storybook",
   "version": "0.1.0",
-  "private": true,
+  "private": false,
+  "files": [
+    "dist"
+  ],
+  "main": "dist/index.js",
+  "publishConfig": {
+    "registry":"https://npm.pkg.github.com"
+  },
   "dependencies": {
     "@emotion/react": "^11.9.3",
     "@emotion/styled": "^11.9.3",
