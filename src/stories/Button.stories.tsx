@@ -1,5 +1,5 @@
 import React from 'react';
-import LoadingButton from '../components/LoadingButton';
+import { LoadingButton } from '../components/LoadingButton';
 import { AddOutlined, DeleteOutlined } from '@mui/icons-material';
 import { Box } from '@mui/material';
 

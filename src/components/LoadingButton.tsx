@@ -1,9 +1,27 @@
 import { LoadingButton as MuiLoadingButton } from '@mui/lab';
-import React, { FunctionComponent, useEffect, useRef, useState } from 'react';
-import { LoadingButtonProps } from './types';
+import React, {
+  FunctionComponent,
+  ReactElement,
+  useEffect,
+  useRef,
+  useState,
+} from 'react';
 import { useTheme } from '@mui/material';
+import { ButtonVariants } from '../types';
 
-const LoadingButton: FunctionComponent<LoadingButtonProps> = ({
+export type LoadingButtonProps = {
+  content?: string | ReactElement;
+  startIcon?: React.ReactNode;
+  endIcon?: React.ReactNode;
+  onClick?: any;
+  variant?: ButtonVariants;
+  disabled?: boolean;
+  type?: string;
+  id?: string;
+  fullwidth?: boolean;
+};
+
+export const LoadingButton: FunctionComponent<LoadingButtonProps> = ({
   content,
   startIcon,
   endIcon,
@@ -119,5 +137,3 @@ const LoadingButton: FunctionComponent<LoadingButtonProps> = ({
     </MuiLoadingButton>
   );
 };
-
-export default LoadingButton;

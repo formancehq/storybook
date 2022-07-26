@@ -1,13 +1,11 @@
 {
   "name": "@numary/storybook",
-  "version": "0.1.0",
-  "private": false,
-  "files": [
-    "dist"
-  ],
+  "version": "0.1.1",
   "main": "dist/index.js",
+  "module": "dist/index.esm.js",
+  "private": false,
   "publishConfig": {
-    "registry":"https://npm.pkg.github.com"
+    "registry": "https://npm.pkg.github.com"
   },
   "dependencies": {
     "@emotion/react": "^11.9.3",
@@ -27,7 +25,8 @@
   },
   "scripts": {
     "start": "react-scripts start",
-    "build": "cross-env BABEL_ENV=production babel src -d dist",
+    "build": "rollup -c",
+    "prebuild": "rimraf dist",
     "test": "react-scripts test",
     "eject": "react-scripts eject",
     "lint": "eslint '*/**/*.{js,ts,tsx}' --quiet --fix",
@@ -64,22 +63,9 @@
       "last 1 safari version"
     ]
   },
-  "babel": {
-    "presets": [
-      [
-        "react-app",
-        {
-          "absoluteRuntime": false
-        }
-      ]
-    ]
-  },
   "devDependencies": {
-    "@babel/cli": "^7.18.9",
-    "@storybook/addon-actions": "^6.5.9",
-    "@storybook/addon-essentials": "^6.5.9",
-    "@storybook/addon-interactions": "^6.5.9",
-    "@storybook/addon-links": "^6.5.9",
+    "@rollup/plugin-commonjs": "^22.0.1",
+    "@rollup/plugin-node-resolve": "^13.3.0",
     "@storybook/builder-webpack5": "^6.5.9",
     "@storybook/manager-webpack5": "^6.5.9",
     "@storybook/node-logger": "^6.5.9",
@@ -91,13 +77,17 @@
     "@types/react": "^18.0.15",
     "@types/react-dom": "^18.0.6",
     "babel-plugin-named-exports-order": "^0.0.2",
-    "cross-env": "^7.0.3",
     "eslint-config-prettier": "^8.5.0",
     "eslint-plugin-prettier": "^4.2.1",
     "eslint-plugin-react": "^7.30.1",
     "husky": "^8.0.1",
+    "postcss": "^8.4.14",
     "prettier": "^2.7.1",
     "prop-types": "^15.8.1",
+    "rimraf": "^3.0.2",
+    "rollup": "^2.77.2",
+    "rollup-plugin-peer-deps-external": "^2.2.4",
+    "rollup-plugin-typescript2": "^0.32.1",
     "webpack": "^5.73.0"
   }
 }
