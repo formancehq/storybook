@@ -1,8 +1,7 @@
-# Storybook design system
+# Storybook
 
 ## Run
 
 `yarn`
 
 `yarn storybook`
-
