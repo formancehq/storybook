@@ -1,5 +1,5 @@
 import React from 'react';
-import { Txid } from '../components/Txid';
+import { Txid } from './index';
 
 export default {
   title: 'Design System/Sections/Txid',

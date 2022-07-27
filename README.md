@@ -1,4 +1,4 @@
-# Storybook design system
+# Storybook
 
 ## Run
 
