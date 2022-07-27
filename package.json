@@ -1,12 +1,9 @@
 {
-  "name": "@numary/storybook",
+  "name": "@numaryhq/storybook",
   "version": "0.1.1",
   "main": "dist/index.js",
   "module": "dist/index.esm.js",
   "private": false,
-  "publishConfig": {
-    "registry": "https://npm.pkg.github.com"
-  },
   "dependencies": {
     "@emotion/react": "^11.9.3",
     "@emotion/styled": "^11.9.3",
