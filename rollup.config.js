@@ -32,6 +32,15 @@ export default [
       terser(),
       peerDepsExternal(),
     ],
+    external: [
+      'react',
+      'react-dom',
+      '@emotion/react',
+      '@emotion/styled',
+      '@mui/icons-material',
+      '@mui/lab',
+      '@mui/material',
+    ],
   },
   {
     input: 'dist/esm/types/index.d.ts',
