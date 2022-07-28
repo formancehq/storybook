@@ -1,14 +1,9 @@
-import {
-  CalendarMonthOutlined,
-  KeyboardArrowDown,
-  KeyboardArrowUp,
-  Search,
-} from '@mui/icons-material';
-import { ClickAwayListener, List, Paper, TextField } from '@mui/material';
+import {CalendarMonthOutlined, KeyboardArrowDown, KeyboardArrowUp, Search,} from '@mui/icons-material';
+import {ClickAwayListener, List, Paper, TextField} from '@mui/material';
 import Box from '@mui/material/Box';
-import React, { FunctionComponent, useState } from 'react';
-import { LoadingButton } from '../LoadingButton';
-import { ButtonVariants, CFunction } from '../types';
+import React, {FunctionComponent, useState} from 'react';
+import {LoadingButton} from '../LoadingButton';
+import {ButtonVariants, CFunction} from '../types';
 
 export type SelectButtonItem = {
   id: string;
@@ -77,6 +72,8 @@ export const SelectButton: FunctionComponent<SelectButtonProps> = ({
               width: '290px',
               maxHeight: '380px',
               minHeight: '250px',
+              position: 'absolute',
+              zIndex: 999,
             }}
           >
             <TextField
