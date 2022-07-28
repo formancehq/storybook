@@ -45,7 +45,15 @@ export default [
   {
     input: 'dist/esm/types/index.d.ts',
     output: [{ file: 'dist/index.d.ts', format: 'esm' }],
-    external: [/\.css$/],
+    external: [
+      'react',
+      'react-dom',
+      '@emotion/react',
+      '@emotion/styled',
+      '@mui/icons-material',
+      '@mui/lab',
+      '@mui/material',
+    ],
     plugins: [dts()],
   },
 ];
