@@ -269,6 +269,54 @@ export const theme = createTheme({
         disableRipple: true,
       },
     },
+    MuiPaper: {
+      defaultProps: {
+        elevation: 0,
+      },
+      styleOverrides: {
+        root: {
+          backgroundColor: palette.neutral[0],
+          border: `1px solid ${palette.neutral[200]} !important`,
+          borderRadius: 0,
+          marginTop: 12,
+          marginLeft: 3,
+          padding: '8px 16px',
+        },
+      },
+    },
+    MuiInputBase: {
+      styleOverrides: {
+        root: {
+          height: '40px',
+          borderRadius: '0px !important',
+        },
+      },
+    },
+    MuiTextField: {
+      defaultProps: {
+        InputLabelProps: {
+          shrink: true,
+        },
+      },
+      styleOverrides: {
+        root: {
+          borderColor: palette.neutral[200],
+          borderRadius: 0,
+          '.Mui-focused fieldset': {
+            borderWidth: '1px !important',
+            borderColor: `${palette.neutral[900]} !important`,
+          },
+        },
+      },
+    },
+    MuiList: {
+      styleOverrides: {
+        root: {
+          marginTop: '8px',
+          marginBottom: '8px',
+        },
+      },
+    },
     MuiChip: {
       variants: [
         {

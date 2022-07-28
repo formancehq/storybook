@@ -6,19 +6,22 @@ import React, {
   useRef,
   useState,
 } from 'react';
-import { useTheme } from '@mui/material';
-import { ButtonVariants } from '../types';
+import { SxProps, Theme, useTheme } from '@mui/material';
+import { ButtonVariants, CFunction } from '../types';
 
 export type LoadingButtonProps = {
   content?: string | ReactElement;
   startIcon?: React.ReactNode;
   endIcon?: React.ReactNode;
-  onClick?: any;
+  onClick?: CFunction<any>;
   variant?: ButtonVariants;
   disabled?: boolean;
   type?: string;
   id?: string;
   fullwidth?: boolean;
+  sx?: SxProps<Theme>;
+  onMouseEnter?: CFunction<any>;
+  onMouseLeave?: CFunction<any>;
 };
 
 export const LoadingButton: FunctionComponent<LoadingButtonProps> = ({
@@ -31,23 +34,26 @@ export const LoadingButton: FunctionComponent<LoadingButtonProps> = ({
   disabled = false,
   id,
   fullwidth = false,
+  sx,
+  onMouseEnter,
+  onMouseLeave,
 }) => {
   const [loading, setLoading] = useState(false);
   const _isMounted = useRef(true);
   const theme = useTheme();
 
   const commonStyles = {
+    margin: '1px',
+    padding: '8px 16px',
     minWidth: 40,
     height: 40,
     borderRadius: 0,
-    marginLeft: 0.5,
-    marginRight: 0.5,
     '& .MuiButton-endIcon': {
       marginRight: 0,
-      marginLeft: 0,
+      marginLeft: content ? 1 : 0,
     },
     '& .MuiButton-startIcon': {
-      marginRight: 0,
+      marginRight: content ? 1 : 0,
       marginLeft: 0,
     },
     '&.Mui-disabled': {
@@ -56,6 +62,7 @@ export const LoadingButton: FunctionComponent<LoadingButtonProps> = ({
       border: 'none',
     },
     textTransform: 'none',
+    ...sx,
   };
   const lightStyles = {
     ...commonStyles,
@@ -131,7 +138,9 @@ export const LoadingButton: FunctionComponent<LoadingButtonProps> = ({
       startIcon={startIcon}
       endIcon={endIcon}
       onClick={handleClick}
-      href="#"
+      onMouseEnter={onMouseEnter}
+      onMouseLeave={onMouseLeave}
+      href=""
     >
       {content}
     </MuiLoadingButton>

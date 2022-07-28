@@ -1,10 +1,14 @@
 import React from 'react';
 import { LoadingButton } from './index';
-import { AddOutlined, DeleteOutlined } from '@mui/icons-material';
+import {
+  AddOutlined,
+  ArrowDropDown,
+  DeleteOutlined,
+} from '@mui/icons-material';
 import { Box } from '@mui/material';
 
 export default {
-  title: 'Design System/CTA',
+  title: 'Design System/Buttons/Loading',
   component: LoadingButton,
 };
 
@@ -16,6 +20,23 @@ export const LightLoadingButtons = () => (
         id="light-disabled"
         onClick={() => true}
         content="Show light disabled"
+        disabled
+      />
+    </Box>
+    <Box mt={2}>
+      <LoadingButton
+        id="light-content-start-end-icon"
+        onClick={() => true}
+        content="Show light start end icon"
+        startIcon={<AddOutlined />}
+        endIcon={<ArrowDropDown />}
+      />
+      <LoadingButton
+        id="light-content-start-icon-end-disabled"
+        onClick={() => true}
+        content="Show light start icon end disabled"
+        startIcon={<AddOutlined />}
+        endIcon={<ArrowDropDown />}
         disabled
       />
     </Box>
@@ -85,6 +106,25 @@ export const StrokeLoadingButtons = () => (
         variant="stroke"
         onClick={() => true}
         content="Show stroke disabled"
+        disabled
+      />
+    </Box>
+    <Box mt={2}>
+      <LoadingButton
+        id="stroke-content-start-end-icon"
+        variant="stroke"
+        onClick={() => true}
+        content="Show stroke start end icon"
+        startIcon={<AddOutlined />}
+        endIcon={<ArrowDropDown />}
+      />
+      <LoadingButton
+        id="stroke-content-start-icon-end-disabled"
+        variant="stroke"
+        onClick={() => true}
+        content="Show stroke start icon end disabled"
+        startIcon={<AddOutlined />}
+        endIcon={<ArrowDropDown />}
         disabled
       />
     </Box>
@@ -166,6 +206,25 @@ export const PrimaryLoadingButtons = () => (
     </Box>
     <Box mt={2}>
       <LoadingButton
+        id="primary-content-start-end-icon"
+        variant="primary"
+        onClick={() => true}
+        content="Show primary start end icon"
+        startIcon={<AddOutlined />}
+        endIcon={<ArrowDropDown />}
+      />
+      <LoadingButton
+        id="primary-content-start-icon-end-disabled"
+        variant="primary"
+        onClick={() => true}
+        content="Show primary start icon end disabled"
+        startIcon={<AddOutlined />}
+        endIcon={<ArrowDropDown />}
+        disabled
+      />
+    </Box>
+    <Box mt={2}>
+      <LoadingButton
         id="primary-content-start-icon"
         variant="primary"
         onClick={() => true}
@@ -237,6 +296,25 @@ export const DarkLoadingButtons = () => (
         variant="dark"
         onClick={() => true}
         content="Show dark disabled"
+        disabled
+      />
+    </Box>
+    <Box mt={2}>
+      <LoadingButton
+        id="dark-content-start-end-icon"
+        variant="dark"
+        onClick={() => true}
+        content="Show dark start end icon"
+        startIcon={<AddOutlined />}
+        endIcon={<ArrowDropDown />}
+      />
+      <LoadingButton
+        id="dark-content-start-icon-end-disabled"
+        variant="dark"
+        onClick={() => true}
+        content="Show dark start icon end disabled"
+        startIcon={<AddOutlined />}
+        endIcon={<ArrowDropDown />}
         disabled
       />
     </Box>
