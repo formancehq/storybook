@@ -1,6 +1,6 @@
 {
   "name": "@numaryhq/storybook",
-  "version": "0.1.6",
+  "version": "0.1.7",
   "main": "dist/cjs/index.js",
   "module": "dist/esm/index.js",
   "files": [
@@ -8,20 +8,14 @@
   ],
   "types": "dist/index.d.ts",
   "private": false,
-  "dependencies": {
+  "peerDependencies": {
     "@emotion/react": "^11.9.3",
     "@emotion/styled": "^11.9.3",
     "@mui/icons-material": "^5.8.4",
     "@mui/lab": "^5.0.0-alpha.92",
     "@mui/material": "^5.9.1",
-    "@testing-library/jest-dom": "^5.16.4",
-    "@testing-library/react": "^13.3.0",
-    "@testing-library/user-event": "^13.5.0",
     "react": "^18.2.0",
-    "react-dom": "^18.2.0",
-    "react-scripts": "5.0.1",
-    "typescript": "^4.7.4",
-    "web-vitals": "^2.1.4"
+    "react-dom": "^18.2.0"
   },
   "scripts": {
     "start": "react-scripts start",
@@ -86,6 +80,19 @@
     "rollup": "^2.77.2",
     "rollup-plugin-terser": "^7.0.2",
     "webpack": "^5.73.0",
-    "rollup-plugin-dts": "^4.2.2"
+    "rollup-plugin-dts": "^4.2.2",
+    "@emotion/react": "^11.9.3",
+    "@emotion/styled": "^11.9.3",
+    "@mui/icons-material": "^5.8.4",
+    "@mui/lab": "^5.0.0-alpha.92",
+    "@mui/material": "^5.9.1",
+    "@testing-library/jest-dom": "^5.16.4",
+    "@testing-library/react": "^13.3.0",
+    "@testing-library/user-event": "^13.5.0",
+    "react": "^18.2.0",
+    "react-dom": "^18.2.0",
+    "react-scripts": "5.0.1",
+    "typescript": "^4.7.4",
+    "web-vitals": "^2.1.4"
   }
 }
