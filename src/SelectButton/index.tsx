@@ -60,7 +60,7 @@ export const SelectButton: FunctionComponent<SelectButtonProps> = ({
   };
 
   return (
-    <>
+    <Box>
       <LoadingButton
         content={selectedLabel}
         id={id}
@@ -68,17 +68,19 @@ export const SelectButton: FunctionComponent<SelectButtonProps> = ({
         variant={variant}
         endIcon={toggle ? <KeyboardArrowUp /> : <KeyboardArrowDown />}
         startIcon={<CalendarMonthOutlined />}
+        sx={{ width: '260px' }}
       />
       {toggle && (
         <ClickAwayListener onClickAway={() => setToggle(false)}>
           <Paper
             elevation={0}
             sx={{
-              width: '290px',
+              width: '228px',
               maxHeight: '380px',
               minHeight: '250px',
               position: 'absolute',
               zIndex: 999,
+              marginLeft: 0,
             }}
           >
             <TextField
@@ -126,6 +128,6 @@ export const SelectButton: FunctionComponent<SelectButtonProps> = ({
           </Paper>
         </ClickAwayListener>
       )}
-    </>
+    </Box>
   );
 };

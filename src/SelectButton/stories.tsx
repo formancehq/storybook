@@ -69,7 +69,6 @@ export const LightSelectButton = () => (
         sideAction={{ onClick: noop, icon: <ContentCopyTwoTone /> }}
       />
     </Box>
-
     <Box mt={2}>
       <SelectButton
         label="Light select with side action and footer action"

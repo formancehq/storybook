@@ -98,7 +98,6 @@ export const LoadingButton: FunctionComponent<LoadingButtonProps> = ({
     },
     ':focus': {
       backgroundColor: theme.palette.neutral[700],
-      border: `1px solid ${theme.palette.neutral[600]}`,
     },
   };
 
