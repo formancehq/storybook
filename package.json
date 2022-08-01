@@ -20,6 +20,8 @@
   "scripts": {
     "start": "react-scripts start",
     "build": "npm run clean && rollup -c",
+    "build:local:control": "rm -rf ../control-cloud/node_modules/@numaryhq/storybook/dist && npm run clean && rollup -c && cp -r dist ../control-cloud/node_modules/@numaryhq/storybook/dist",
+    "build:local:remix": "rm -rf ../poc/my-remix-app/node_modules/@numaryhq/storybook/dist && npm run clean && rollup -c && cp -r dist ../poc/my-remix-app/node_modules/@numaryhq/storybook/dist",
     "clean": "rimraf dist",
     "test": "react-scripts test",
     "eject": "react-scripts eject",
