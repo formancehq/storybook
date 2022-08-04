@@ -1,9 +1,21 @@
-import {CalendarMonthOutlined, KeyboardArrowDown, KeyboardArrowUp, Search,} from '@mui/icons-material';
-import {ClickAwayListener, List, Paper, SxProps, TextField, Theme} from '@mui/material';
+import {
+  CalendarMonthOutlined,
+  KeyboardArrowDown,
+  KeyboardArrowUp,
+  Search,
+} from '@mui/icons-material';
+import {
+  ClickAwayListener,
+  List,
+  Paper,
+  SxProps,
+  TextField,
+  Theme,
+} from '@mui/material';
 import Box from '@mui/material/Box';
-import React, {FunctionComponent, useState} from 'react';
-import {LoadingButton} from '../LoadingButton';
-import {ButtonVariants, CFunction} from '../types';
+import React, { FunctionComponent, useState } from 'react';
+import { LoadingButton } from '../LoadingButton';
+import { ButtonVariants, CFunction } from '../types';
 
 export type SelectButtonItem = {
   id: string;
@@ -38,9 +50,9 @@ export const SelectButton: FunctionComponent<SelectButtonProps> = ({
   variant,
   sideAction,
   footerAction,
-    loadingButtonSx,
-    paperSx,
-    search = true
+  loadingButtonSx,
+  paperSx,
+  search = true,
 }) => {
   const [toggle, setToggle] = useState<boolean>(false);
   const [selectedLabel, setSelectedLabel] = useState<string>(label);
@@ -82,15 +94,17 @@ export const SelectButton: FunctionComponent<SelectButtonProps> = ({
               position: 'absolute',
               zIndex: 999,
               marginLeft: 0,
-              ...paperSx
+              ...paperSx,
             }}
           >
-            {search && <TextField
-              placeholder="Search"
-              fullWidth
-              InputProps={{ startAdornment: <Search /> }}
-              onChange={handleOnChange}
-            />}
+            {search && (
+              <TextField
+                placeholder="Search"
+                fullWidth
+                InputProps={{ startAdornment: <Search /> }}
+                onChange={handleOnChange}
+              />
+            )}
             <List sx={{ height: '250px', overflowY: 'auto' }}>
               {filteredItems.map((item: SelectButtonItem) => (
                 <Box
