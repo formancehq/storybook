@@ -11,9 +11,9 @@ export type Suggestion = {
     action: () => void;
     label: string;
   };
-  total: number;
+  total?: number;
   items: {
-    id: number;
+    id: number | string;
     label: string;
     onClick: (id: number | string) => void;
   }[];
@@ -135,15 +135,17 @@ export const Search: FunctionComponent<SearchProps> = ({
                       />
                     </Box>
                   ))}
-                <Box display="flex" justifyContent="end" mr={2}>
-                  <Typography
-                    ml={1}
-                    variant="footNote"
-                    sx={{ color: ({ palette }) => palette.neutral[400] }}
-                  >
-                    {suggestion.total} results
-                  </Typography>
-                </Box>
+                {suggestion.total && (
+                  <Box display="flex" justifyContent="end" mr={2}>
+                    <Typography
+                      ml={1}
+                      variant="footNote"
+                      sx={{ color: ({ palette }) => palette.neutral[400] }}
+                    >
+                      {suggestion.total} results
+                    </Typography>
+                  </Box>
+                )}
               </Box>
             ))}
           </Box>
