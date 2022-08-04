@@ -7,6 +7,7 @@ export * from './Amount';
 export * from './Date';
 export * from './SourceDestination';
 export * from './EmptyState';
+export * from './Search';
 export * from './SectionWrapper';
 export * from './utils';
 export * from './muiTheme';
