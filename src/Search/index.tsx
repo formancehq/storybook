@@ -14,11 +14,13 @@ export type Suggestion = {
   label: string;
   icon: ReactElement;
   total?: number;
-  items: {
-    id: number | string;
-    label: string;
-    onClick: (id: number | string) => void;
-  }[];
+  items:
+    | {
+        id: number | string;
+        label: string;
+        onClick: (id: number | string) => void;
+      }[]
+    | [];
 };
 
 export type SearchProps = {
@@ -119,56 +121,64 @@ export const Search: FunctionComponent<SearchProps> = ({
               </Box>
             ) : (
               <Box>
-                {suggestions.map((suggestion, index) => (
-                  <Box
-                    key={index}
-                    p={2}
-                    sx={{
-                      backgroundColor: ({ palette }) => palette.neutral[0],
-                      borderBottom: ({ palette }) =>
-                        `1px solid ${palette.neutral[100]}`,
-                    }}
-                  >
-                    <Box
-                      display="flex"
-                      justifyContent="space-between"
-                      alignItems="center"
-                    >
+                {suggestions.map((suggestion, index) => {
+                  if (suggestion.items.length > 0) {
+                    return (
                       <Box
-                        display="flex"
-                        justifyContent="flex-start"
-                        alignItems="center"
+                        key={index}
+                        p={2}
+                        sx={{
+                          backgroundColor: ({ palette }) => palette.neutral[0],
+                          borderBottom: ({ palette }) =>
+                            `1px solid ${palette.neutral[100]}`,
+                        }}
                       >
-                        <Typography
-                          ml={1}
-                          sx={{ color: ({ palette }) => palette.neutral[600] }}
+                        <Box
+                          display="flex"
+                          justifyContent="space-between"
+                          alignItems="center"
                         >
-                          {suggestion.label}
-                        </Typography>
-                      </Box>
-                      {suggestion.total && (
-                        <Typography
-                          ml={1}
-                          variant="footNote"
-                          sx={{ color: ({ palette }) => palette.neutral[400] }}
-                        >
-                          {suggestion.total} results
-                        </Typography>
-                      )}
-                    </Box>
-                    {suggestions &&
-                      suggestions.length > 0 &&
-                      suggestion.items.map((item) => (
-                        <Box key={item.id}>
-                          <LoadingButton
-                            startIcon={suggestion.icon}
-                            content={item.label}
-                            onClick={() => item.onClick(item.id)}
-                          />
+                          <Box
+                            display="flex"
+                            justifyContent="flex-start"
+                            alignItems="center"
+                          >
+                            <Typography
+                              ml={1}
+                              sx={{
+                                color: ({ palette }) => palette.neutral[600],
+                              }}
+                            >
+                              {suggestion.label}
+                            </Typography>
+                          </Box>
+                          {suggestion.total && (
+                            <Typography
+                              ml={1}
+                              variant="footNote"
+                              sx={{
+                                color: ({ palette }) => palette.neutral[400],
+                              }}
+                            >
+                              {suggestion.total} results
+                            </Typography>
+                          )}
                         </Box>
-                      ))}
-                  </Box>
-                ))}
+                        {suggestions &&
+                          suggestions.length > 0 &&
+                          suggestion.items.map((item) => (
+                            <Box key={item.id}>
+                              <LoadingButton
+                                startIcon={suggestion.icon}
+                                content={item.label}
+                                onClick={() => item.onClick(item.id)}
+                              />
+                            </Box>
+                          ))}
+                      </Box>
+                    );
+                  }
+                })}
               </Box>
             )}
           </>

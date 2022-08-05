@@ -32,7 +32,6 @@ export const StatsCard: FunctionComponent<StatsCardProps> = ({
       sx={{ width: 258, height: 212, backgroundColor: palette.neutral[800] }}
       display="flex"
       flexDirection="column"
-      gap={12}
     >
       <Box display="flex" alignItems="center" justifyContent="space-between">
         <Box
@@ -55,7 +54,7 @@ export const StatsCard: FunctionComponent<StatsCardProps> = ({
           />
         )}
       </Box>
-      <Box>
+      <Box mt={8}>
         <Typography
           sx={{ textTransform: 'uppercase', color: palette.neutral[400] }}
         >

@@ -172,12 +172,40 @@ const suggestions2: Suggestion[] = [
     ],
   },
 ];
+const suggestions3: Suggestion[] = [
+  {
+    label: 'Payment',
+    icon: <DriveFileRenameOutline />,
+    items: [
+      {
+        id: 1,
+        label: 'payin:679472',
+        onClick: (id: number | string) => {
+          console.log('click', id);
+        },
+      },
+      {
+        id: 2,
+        label: 'payout:679473',
+        onClick: (id: number | string) => {
+          console.log('click', id);
+        },
+      },
+    ],
+  },
+  {
+    label: 'Transaction',
+    icon: <DoneAll />,
+    items: [],
+  },
+];
 
 export const DefaultSpotlight = () => {
   const [open, setOpen] = useState(false);
   const handleOpen = () => setOpen(true);
   const handleClose = () => setOpen(false);
   const handleOnChange = () => noop();
+  const handleOnKeyDown = () => noop();
 
   return (
     <Box>
@@ -188,8 +216,9 @@ export const DefaultSpotlight = () => {
       />
       <Search
         open={open}
-        onChange={handleOnChange}
         onClose={handleClose}
+        onChange={handleOnChange}
+        onKeyDown={handleOnKeyDown}
         suggestions={suggestions}
       />
     </Box>
@@ -201,8 +230,6 @@ export const SpotlightWithoutTotalResults = () => {
   const [open, setOpen] = useState(false);
   const handleOpen = () => setOpen(true);
   const handleClose = () => setOpen(false);
-  const handleOnChange = () => noop();
-  const handleOnKeyDown = () => noop();
 
   return (
     <Box>
@@ -211,13 +238,7 @@ export const SpotlightWithoutTotalResults = () => {
         onClick={handleOpen}
         variant="primary"
       />
-      <Search
-        open={open}
-        onKeyDown={handleOnKeyDown}
-        onChange={handleOnChange}
-        onClose={handleClose}
-        suggestions={suggestions2}
-      />
+      <Search open={open} onClose={handleClose} suggestions={suggestions2} />
     </Box>
   );
 };
@@ -227,19 +248,11 @@ export const SpotlightWithNoResults = () => {
   const [open, setOpen] = useState(false);
   const handleOpen = () => setOpen(true);
   const handleClose = () => setOpen(false);
-  const handleOnChange = () => noop();
-  const handleOnKeyDown = () => noop();
 
   return (
     <Box>
       <LoadingButton startIcon={<SearchOutlined />} onClick={handleOpen} />
-      <Search
-        open={open}
-        onKeyDown={handleOnKeyDown}
-        onChange={handleOnChange}
-        onClose={handleClose}
-        suggestions={[]}
-      />
+      <Search open={open} onClose={handleClose} suggestions={[]} />
     </Box>
   );
 };
@@ -251,8 +264,6 @@ export const SpotlightWithLoader = () => {
   const [loading, _setLLoading] = useState(true);
   const handleOpen = () => setOpen(true);
   const handleClose = () => setOpen(false);
-  const handleOnChange = () => noop();
-  const handleOnKeyDown = () => noop();
 
   return (
     <Box>
@@ -263,8 +274,6 @@ export const SpotlightWithLoader = () => {
       />
       <Search
         open={open}
-        onKeyDown={handleOnKeyDown}
-        onChange={handleOnChange}
         onClose={handleClose}
         suggestions={[]}
         loading={loading}
@@ -272,4 +281,22 @@ export const SpotlightWithLoader = () => {
     </Box>
   );
 };
-SpotlightWithoutTotalResults.storyName = 'Without total results';
+SpotlightWithLoader.storyName = 'With Loader';
+
+export const SpotlightWithEmptyItemsCategory = () => {
+  const [open, setOpen] = useState(false);
+  const handleOpen = () => setOpen(true);
+  const handleClose = () => setOpen(false);
+
+  return (
+    <Box>
+      <LoadingButton
+        startIcon={<SearchOutlined />}
+        onClick={handleOpen}
+        variant="primary"
+      />
+      <Search open={open} onClose={handleClose} suggestions={suggestions3} />
+    </Box>
+  );
+};
+SpotlightWithEmptyItemsCategory.storyName = 'With empty category items';
