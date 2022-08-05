@@ -9,5 +9,6 @@ export * from './SourceDestination';
 export * from './EmptyState';
 export * from './Search';
 export * from './SectionWrapper';
+export * from './StatsCard';
 export * from './utils';
 export * from './muiTheme';
