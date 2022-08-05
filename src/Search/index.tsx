@@ -23,6 +23,7 @@ export type SearchProps = {
   open: boolean;
   onClose: () => void;
   onChange: CFunction<any>;
+  onKeyDown?: CFunction<any>;
   children?: ReactElement;
   suggestions: Suggestion[];
 };
@@ -31,6 +32,7 @@ export const Search: FunctionComponent<SearchProps> = ({
   onClose,
   open,
   onChange,
+  onKeyDown,
   suggestions,
 }) => {
   const [searchValue, setSearchValue] = useState(undefined);
@@ -64,6 +66,7 @@ export const Search: FunctionComponent<SearchProps> = ({
           fullWidth
           onChange={handleOnChange}
           autoComplete="off"
+          onKeyDown={onKeyDown}
           InputProps={{
             sx: {
               height: 56,

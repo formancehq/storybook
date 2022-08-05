@@ -151,6 +151,7 @@ export const SpotlightWithoutTotalResults = () => {
   const handleOpen = () => setOpen(true);
   const handleClose = () => setOpen(false);
   const handleOnChange = () => noop();
+  const handleOnKeyDown = () => noop();
 
   return (
     <Box>
@@ -161,6 +162,7 @@ export const SpotlightWithoutTotalResults = () => {
       />
       <Search
         open={open}
+        onKeyDown={handleOnKeyDown}
         onChange={handleOnChange}
         onClose={handleClose}
         suggestions={suggestions2}
