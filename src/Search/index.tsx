@@ -18,7 +18,7 @@ export type Suggestion = {
 export type SearchProps = {
   open: boolean;
   onClose: () => void;
-  onChange: CFunction<any>;
+  onChange?: CFunction<any>;
   onKeyDown?: CFunction<any>;
   children?: ReactElement;
   suggestions: Suggestion[];
@@ -35,7 +35,7 @@ export const Search: FunctionComponent<SearchProps> = ({
 
   const handleOnChange = (event: any) => {
     setSearchValue(event.target.value);
-    onChange(event);
+    onChange && onChange(event);
   };
 
   return (
