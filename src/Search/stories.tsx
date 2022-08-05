@@ -35,6 +35,62 @@ const suggestions: Suggestion[] = [
           console.log('click', id);
         },
       },
+      {
+        id: 3,
+        label: 'payout:679474',
+        onClick: (id: number | string) => {
+          console.log('click', id);
+        },
+      },
+      {
+        id: 4,
+        label: 'payout:679475',
+        onClick: (id: number | string) => {
+          console.log('click', id);
+        },
+      },
+      {
+        id: 5,
+        label: 'payout:679476',
+        onClick: (id: number | string) => {
+          console.log('click', id);
+        },
+      },
+      {
+        id: 6,
+        label: 'payout:679477',
+        onClick: (id: number | string) => {
+          console.log('click', id);
+        },
+      },
+      {
+        id: 7,
+        label: 'payout:679478',
+        onClick: (id: number | string) => {
+          console.log('click', id);
+        },
+      },
+      {
+        id: 8,
+        label: 'payout:679479',
+        onClick: (id: number | string) => {
+          console.log('click', id);
+        },
+      },
+      {
+        id: 10,
+        label: 'payout:6794711',
+        onClick: (id: number | string) => {
+          console.log('click', id);
+        },
+      },
+      {
+        id: 11,
+        label: 'payout:6794712',
+        onClick: (id: number | string) => {
+          console.log('click', id);
+        },
+      },
     ],
   },
   {

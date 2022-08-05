@@ -53,6 +53,8 @@ export const Search: FunctionComponent<SearchProps> = ({
           transform: 'translate(-50%, -50%)',
           width: 600,
           margin: 0,
+          overflowY: 'scroll',
+          maxHeight: 500,
         }}
       >
         <TextField
