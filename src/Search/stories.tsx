@@ -245,3 +245,31 @@ export const SpotlightWithNoResults = () => {
 };
 
 SpotlightWithNoResults.storyName = 'With no results';
+
+export const SpotlightWithLoader = () => {
+  const [open, setOpen] = useState(false);
+  const [loading, _setLLoading] = useState(true);
+  const handleOpen = () => setOpen(true);
+  const handleClose = () => setOpen(false);
+  const handleOnChange = () => noop();
+  const handleOnKeyDown = () => noop();
+
+  return (
+    <Box>
+      <LoadingButton
+        startIcon={<SearchOutlined />}
+        onClick={handleOpen}
+        variant="primary"
+      />
+      <Search
+        open={open}
+        onKeyDown={handleOnKeyDown}
+        onChange={handleOnChange}
+        onClose={handleClose}
+        suggestions={[]}
+        loading={loading}
+      />
+    </Box>
+  );
+};
+SpotlightWithoutTotalResults.storyName = 'Without total results';

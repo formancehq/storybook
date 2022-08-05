@@ -1,5 +1,11 @@
 import React, { FunctionComponent, ReactElement, useState } from 'react';
-import { Box, Modal, TextField, Typography } from '@mui/material';
+import {
+  Box,
+  CircularProgress,
+  Modal,
+  TextField,
+  Typography,
+} from '@mui/material';
 import { SearchOutlined } from '@mui/icons-material';
 import { CFunction } from '../types';
 import { LoadingButton } from '../LoadingButton';
@@ -22,6 +28,7 @@ export type SearchProps = {
   onKeyDown?: CFunction<any>;
   children?: ReactElement;
   suggestions: Suggestion[];
+  loading?: boolean;
 };
 
 export const Search: FunctionComponent<SearchProps> = ({
@@ -30,6 +37,7 @@ export const Search: FunctionComponent<SearchProps> = ({
   onChange,
   onKeyDown,
   suggestions,
+  loading = false,
 }) => {
   const [searchValue, setSearchValue] = useState(undefined);
 
@@ -101,7 +109,13 @@ export const Search: FunctionComponent<SearchProps> = ({
                   backgroundColor: ({ palette }) => palette.neutral[0],
                 }}
               >
-                <Typography variant="caption">No results</Typography>
+                {!loading ? (
+                  <Typography variant="caption">No results</Typography>
+                ) : (
+                  <Box display="flex" justifyContent="center">
+                    <CircularProgress size={20} />
+                  </Box>
+                )}
               </Box>
             ) : (
               <Box>
