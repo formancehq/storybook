@@ -19,7 +19,6 @@ const suggestions: Suggestion[] = [
   {
     label: 'Payment',
     icon: <DriveFileRenameOutline />,
-    more: { action: () => console.log('go to payments'), label: 'More' },
     total: 140,
     items: [
       {
@@ -41,7 +40,6 @@ const suggestions: Suggestion[] = [
   {
     label: 'Transaction',
     icon: <DoneAll />,
-    more: { action: () => console.log('go to transaction'), label: 'More' },
     total: 14,
     items: [
       {
@@ -63,7 +61,6 @@ const suggestions: Suggestion[] = [
   {
     label: 'Accounts',
     icon: <EditLocation />,
-    more: { action: () => console.log('go to accounts'), label: 'More' },
     total: 180,
 
     items: [
@@ -88,7 +85,6 @@ const suggestions2: Suggestion[] = [
   {
     label: 'Payment',
     icon: <DriveFileRenameOutline />,
-    more: { action: () => console.log('go to payments'), label: 'More' },
     items: [
       {
         id: 1,
@@ -109,7 +105,6 @@ const suggestions2: Suggestion[] = [
   {
     label: 'Transaction',
     icon: <DoneAll />,
-    more: { action: () => console.log('go to transaction'), label: 'More' },
     items: [
       {
         id: 1,
@@ -171,3 +166,26 @@ export const SpotlightWithoutTotalResults = () => {
   );
 };
 SpotlightWithoutTotalResults.storyName = 'Without total results';
+
+export const SpotlightWithNoResults = () => {
+  const [open, setOpen] = useState(false);
+  const handleOpen = () => setOpen(true);
+  const handleClose = () => setOpen(false);
+  const handleOnChange = () => noop();
+  const handleOnKeyDown = () => noop();
+
+  return (
+    <Box>
+      <LoadingButton startIcon={<SearchOutlined />} onClick={handleOpen} />
+      <Search
+        open={open}
+        onKeyDown={handleOnKeyDown}
+        onChange={handleOnChange}
+        onClose={handleClose}
+        suggestions={[]}
+      />
+    </Box>
+  );
+};
+
+SpotlightWithNoResults.storyName = 'With no results';

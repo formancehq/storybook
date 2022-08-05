@@ -7,10 +7,6 @@ import { LoadingButton } from '../LoadingButton';
 export type Suggestion = {
   label: string;
   icon: ReactElement;
-  more: {
-    action: () => void;
-    label: string;
-  };
   total?: number;
   items: {
     id: number | string;
@@ -87,71 +83,79 @@ export const Search: FunctionComponent<SearchProps> = ({
             ),
           }}
         />
-        <Box
-          sx={{
-            borderTop: ({ palette }) => `1px solid ${palette.neutral[100]}`,
-          }}
-        />
+        {suggestions.length > 0 && (
+          <Box
+            sx={{
+              borderTop: ({ palette }) => `1px solid ${palette.neutral[100]}`,
+            }}
+          />
+        )}
         {searchValue && (
-          <Box>
-            {suggestions.map((suggestion, index) => (
+          <>
+            {suggestions.length === 0 ? (
               <Box
-                key={index}
                 p={2}
                 sx={{
                   backgroundColor: ({ palette }) => palette.neutral[0],
-                  borderBottom: ({ palette }) =>
-                    `1px solid ${palette.neutral[100]}`,
                 }}
               >
-                <Box
-                  display="flex"
-                  justifyContent="space-between"
-                  alignItems="center"
-                >
-                  <Box
-                    display="flex"
-                    justifyContent="flex-start"
-                    alignItems="center"
-                  >
-                    <Typography
-                      ml={1}
-                      sx={{ color: ({ palette }) => palette.neutral[600] }}
-                    >
-                      {suggestion.label}
-                    </Typography>
-                  </Box>
-                  <LoadingButton
-                    variant="dark"
-                    content={suggestion.more.label}
-                    onClick={suggestion.more.action}
-                  />
-                </Box>
-                {suggestions &&
-                  suggestions.length > 0 &&
-                  suggestion.items.map((item) => (
-                    <Box key={item.id}>
-                      <LoadingButton
-                        startIcon={suggestion.icon}
-                        content={item.label}
-                        onClick={() => item.onClick(item.id)}
-                      />
-                    </Box>
-                  ))}
-                {suggestion.total && (
-                  <Box display="flex" justifyContent="end" mr={2}>
-                    <Typography
-                      ml={1}
-                      variant="footNote"
-                      sx={{ color: ({ palette }) => palette.neutral[400] }}
-                    >
-                      {suggestion.total} results
-                    </Typography>
-                  </Box>
-                )}
+                <Typography variant="caption">No results</Typography>
               </Box>
-            ))}
-          </Box>
+            ) : (
+              <Box>
+                {suggestions.map((suggestion, index) => (
+                  <Box
+                    key={index}
+                    p={2}
+                    sx={{
+                      backgroundColor: ({ palette }) => palette.neutral[0],
+                      borderBottom: ({ palette }) =>
+                        `1px solid ${palette.neutral[100]}`,
+                    }}
+                  >
+                    <Box
+                      display="flex"
+                      justifyContent="space-between"
+                      alignItems="center"
+                    >
+                      <Box
+                        display="flex"
+                        justifyContent="flex-start"
+                        alignItems="center"
+                      >
+                        <Typography
+                          ml={1}
+                          sx={{ color: ({ palette }) => palette.neutral[600] }}
+                        >
+                          {suggestion.label}
+                        </Typography>
+                      </Box>
+                      {suggestion.total && (
+                        <Typography
+                          ml={1}
+                          variant="footNote"
+                          sx={{ color: ({ palette }) => palette.neutral[400] }}
+                        >
+                          {suggestion.total} results
+                        </Typography>
+                      )}
+                    </Box>
+                    {suggestions &&
+                      suggestions.length > 0 &&
+                      suggestion.items.map((item) => (
+                        <Box key={item.id}>
+                          <LoadingButton
+                            startIcon={suggestion.icon}
+                            content={item.label}
+                            onClick={() => item.onClick(item.id)}
+                          />
+                        </Box>
+                      ))}
+                  </Box>
+                ))}
+              </Box>
+            )}
+          </>
         )}
       </Box>
     </Modal>
