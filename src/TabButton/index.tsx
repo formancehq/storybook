@@ -30,6 +30,6 @@ export const TabButton: FunctionComponent<TabButtonProps> = ({
     }}
     onClick={() => onClick()}
   >
-    <Typography variant="small">{label}</Typography>{' '}
+    <Typography variant="h2">{label}</Typography>{' '}
   </ListItemButton>
 );
