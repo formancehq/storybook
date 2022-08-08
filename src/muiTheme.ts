@@ -1,4 +1,4 @@
-import {createTheme} from '@mui/material/styles';
+import { createTheme } from '@mui/material/styles';
 
 interface ColorType {
   darker: string;
@@ -215,7 +215,7 @@ const typography = {
   heading: {
     fontSize: '14px',
     lineHeight: '24px',
-    letterSpacing: "0.08em",
+    letterSpacing: '0.08em',
     fontWeight: 700,
     fontFamily,
   },
