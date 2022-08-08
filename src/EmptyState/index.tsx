@@ -43,7 +43,7 @@ export const EmptyState: FunctionComponent<EmptyStateProps> = ({
         backgroundColor: color.backgroundColor,
       }}
     >
-      <Typography variant="small" sx={{ color: color.title }}>
+      <Typography variant="h2" sx={{ color: color.title }}>
         {title}
       </Typography>
       <Typography variant="body1" sx={{ color: color.description }}>
