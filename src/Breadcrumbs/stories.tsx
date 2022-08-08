@@ -14,11 +14,10 @@ const links = [
   },
   {
     label: 'World',
-    onClick: () => noop(),
+    onClick: () => console.log('world'),
   },
   {
     label: '12345',
-    onClick: () => noop(),
   },
 ];
 
