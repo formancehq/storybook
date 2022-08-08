@@ -23,7 +23,7 @@ H1.storyName = 'H1';
 export const H2 = () => <Typography variant="h2">Title</Typography>;
 H2.storyName = 'H2';
 
-export const Small = () => <Typography variant="small">Title</Typography>;
+export const Small = () => <Typography variant="h2">Title</Typography>;
 Small.storyName = 'Small';
 
 export const Headline = () => <Typography variant="headline">Title</Typography>;

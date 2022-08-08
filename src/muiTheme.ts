@@ -63,7 +63,6 @@ declare module '@mui/material/styles' {
     large2x?: React.CSSProperties;
     large1x?: React.CSSProperties;
     large?: React.CSSProperties;
-    small?: React.CSSProperties;
     headline?: React.CSSProperties;
     heading?: React.CSSProperties;
     action?: React.CSSProperties;
@@ -77,7 +76,6 @@ declare module '@mui/material/Typography' {
     large2x: true;
     large1x: true;
     large: true;
-    small: true;
     headline: true;
     heading: true;
     action: true;
