@@ -10,5 +10,6 @@ export * from './EmptyState';
 export * from './Search';
 export * from './SectionWrapper';
 export * from './StatsCard';
+export * from './Breadcrumbs';
 export * from './utils';
 export * from './muiTheme';
