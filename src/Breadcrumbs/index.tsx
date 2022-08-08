@@ -5,11 +5,12 @@ import {
   useTheme,
 } from '@mui/material';
 import React, { FunctionComponent } from 'react';
-import { CFunction } from '../types';
+
+export type BreadcrumbsLink = { onClick?: () => void; label: string };
 
 export type BreadcrumbsProps = {
   id?: string;
-  links: { onClick: CFunction<any>; label: string }[];
+  links: BreadcrumbsLink[];
 };
 
 export const Breadcrumbs: FunctionComponent<BreadcrumbsProps> = ({
@@ -29,7 +30,7 @@ export const Breadcrumbs: FunctionComponent<BreadcrumbsProps> = ({
         display: 'flex',
         alignItems: 'center',
         justifyContent: 'flex-start',
-        padding: '16px 40px',
+        padding: '4px 40px',
       }}
     >
       <MuiBreadcrumbs
@@ -46,7 +47,7 @@ export const Breadcrumbs: FunctionComponent<BreadcrumbsProps> = ({
             <Link
               underline="hover"
               sx={{ color }}
-              onClick={link.onClick}
+              onClick={link.onClick && link.onClick}
               key={index}
             >
               {link.label}
