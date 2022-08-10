@@ -11,6 +11,7 @@ export * from './Search';
 export * from './Containers/SectionWrapper';
 export * from './Dataviz/StatsCard';
 export * from './Breadcrumbs';
+export * from './Modal';
 export * from './Forms/TextFields';
 export * from './utils';
 export * from './muiTheme';
