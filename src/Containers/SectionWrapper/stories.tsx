@@ -4,7 +4,7 @@ import { Box } from '@mui/material';
 import { EmptyState } from '../EmptyState';
 
 export default {
-  title: 'Design System/Sections/Wrapper',
+  title: 'Design System/Containers/Wrapper',
   component: SectionWrapper,
 };
 

@@ -1,6 +1,6 @@
 import React from 'react';
 import { Page } from './index';
-import { noop } from '../utils';
+import { noop } from '../../utils';
 import { Typography } from '@mui/material';
 
 export default {

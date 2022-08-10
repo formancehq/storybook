@@ -3,7 +3,7 @@ import { Box, Typography } from '@mui/material';
 import React, { FunctionComponent, ReactElement, ReactNode } from 'react';
 import { SxProps } from '@mui/system';
 import { Theme } from '@mui/material/styles';
-import { LoadingButton } from '../LoadingButton';
+import { LoadingButton } from '../../Buttons/LoadingButton';
 
 export type PageProps = {
   children: ReactElement;

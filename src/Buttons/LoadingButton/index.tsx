@@ -7,7 +7,7 @@ import React, {
   useState,
 } from 'react';
 import { SxProps, Theme, useTheme } from '@mui/material';
-import { ButtonVariants, CFunction } from '../types';
+import { ButtonVariants, CFunction } from '../../types';
 
 export type LoadingButtonProps = {
   content?: string | ReactElement;

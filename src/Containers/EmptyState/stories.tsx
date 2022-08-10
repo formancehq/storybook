@@ -1,7 +1,7 @@
 import React from 'react';
 import { EmptyState } from './index';
-import { LoadingButton } from '../LoadingButton';
-import { noop } from '../utils';
+import { LoadingButton } from '../../Buttons/LoadingButton';
+import { noop } from '../../utils';
 import { Box } from '@mui/material';
 
 export default {
