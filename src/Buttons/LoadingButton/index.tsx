@@ -13,7 +13,7 @@ export type LoadingButtonProps = {
   content?: string | ReactElement;
   startIcon?: React.ReactNode;
   endIcon?: React.ReactNode;
-  onClick?: CFunction<any>;
+  onClick?: CFunction<any> | (() => void);
   variant?: ButtonVariants;
   disabled?: boolean;
   type?: string;
