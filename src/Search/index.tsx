@@ -8,7 +8,7 @@ import {
 } from '@mui/material';
 import { SearchOutlined } from '@mui/icons-material';
 import { CFunction } from '../types';
-import { LoadingButton } from '../LoadingButton';
+import { LoadingButton } from '../Buttons/LoadingButton';
 
 export type Suggestion = {
   label: string;

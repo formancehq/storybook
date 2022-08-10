@@ -7,9 +7,7 @@ export default {
 };
 
 export const SourceDestinationSection = () => (
-  <div>
-    <SourceDestination label="world" />
-  </div>
+  <SourceDestination label="world" />
 );
 
 SourceDestinationSection.storyName = 'Default';

@@ -1,7 +1,7 @@
 import React from 'react';
 import { SelectButton } from './index';
 import { Box } from '@mui/material';
-import { noop } from '../utils';
+import { noop } from '../../utils';
 import { ContentCopy, ContentCopyTwoTone } from '@mui/icons-material';
 
 export default {

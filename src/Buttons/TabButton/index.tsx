@@ -1,6 +1,6 @@
 import React, { FunctionComponent } from 'react';
 import { ListItemButton, Typography } from '@mui/material';
-import { ObjectOf } from '../types';
+import { ObjectOf } from '../../types';
 
 export type TabButtonProps = {
   type: string;

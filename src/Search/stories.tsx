@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { Search, Suggestion } from './index';
-import { LoadingButton } from '../LoadingButton';
+import { LoadingButton } from '../Buttons/LoadingButton';
 import {
   DoneAll,
   DriveFileRenameOutline,

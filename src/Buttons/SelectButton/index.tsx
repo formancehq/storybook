@@ -15,7 +15,7 @@ import {
 import Box from '@mui/material/Box';
 import React, { FunctionComponent, useState } from 'react';
 import { LoadingButton } from '../LoadingButton';
-import { ButtonVariants, CFunction } from '../types';
+import { ButtonVariants, CFunction } from '../../types';
 
 export type SelectButtonItem = {
   id: string;

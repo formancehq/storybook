@@ -3,7 +3,7 @@ import { StatsCard } from './index';
 import { Topic } from '@mui/icons-material';
 
 export default {
-  title: 'Design System/Stats/Card',
+  title: 'Design System/Dataviz/Card',
   component: StatsCard,
 };
 
