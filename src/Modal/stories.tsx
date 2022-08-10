@@ -18,13 +18,6 @@ const Form = () => (
       placeholder="Jean"
     />
     <TextField name="lastname" label="Lastname" fullWidth />
-    <TextField
-      name="years"
-      label="Years"
-      fullWidth
-      error
-      helperText="Try again!"
-    />
   </Box>
 );
 
@@ -72,4 +65,41 @@ export const ModalWithFooter = () => {
     </>
   );
 };
-ModalWithFooter.storyName = 'With footer';
+ModalWithFooter.storyName = 'With actions';
+
+export const ModalWithDisabledSaveButton = () => {
+  const [open, setOpen] = useState(false);
+  const handleOpen = () => setOpen(true);
+  const handleClose = () => setOpen(false);
+
+  return (
+    <>
+      <LoadingButton content="Open modal" onClick={handleOpen} variant="dark" />
+      <Modal
+        open={open}
+        onClose={handleClose}
+        title="Update foo"
+        actions={{
+          cancel: {
+            onClick: handleClose,
+            label: 'Cancel',
+          },
+          save: {
+            onClick: () => console.log('save!'),
+            label: 'Save',
+            disabled: true,
+          },
+        }}
+      >
+        <TextField
+          name="years"
+          label="Years"
+          fullWidth
+          error
+          helperText="Try again!"
+        />
+      </Modal>
+    </>
+  );
+};
+ModalWithDisabledSaveButton.storyName = 'With disabled save action';
