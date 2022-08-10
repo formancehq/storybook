@@ -283,27 +283,53 @@ export const theme = createTheme({
         },
       },
     },
-    MuiInputBase: {
+    MuiInputLabel: {
       styleOverrides: {
         root: {
-          height: '40px',
-          borderRadius: '0px !important',
+          ...typography.body2,
+          color: palette.neutral[900],
+          left: '3px',
+          '&.Mui-error': {
+            color: palette.red.normal,
+          },
         },
       },
     },
-    MuiTextField: {
+    MuiFormHelperText: {
+      styleOverrides: {
+        root: {
+          ...typography.caption,
+          color: palette.red.normal,
+        },
+      },
+    },
+    MuiOutlinedInput: {
       defaultProps: {
-        InputLabelProps: {
+        inputProps: {
           shrink: true,
         },
       },
       styleOverrides: {
         root: {
-          borderColor: palette.neutral[200],
+          height: '40px',
           borderRadius: 0,
-          '.Mui-focused fieldset': {
+          '&.Mui-focused': {
+            borderWidth: 1,
+          },
+          '&.Mui-focused fieldset': {
             borderWidth: '1px !important',
-            borderColor: `${palette.neutral[900]} !important`,
+          },
+          '&.Mui-error fieldset': {
+            border: `1px solid ${palette.red.normal} !important`,
+          },
+          fieldset: {
+            border: `1px solid ${palette.neutral[200]}`,
+          },
+          '.MuiInputAdornment-root': {
+            color: palette.neutral[900],
+          },
+          '&.Mui-disabled .MuiInputAdornment-root': {
+            color: palette.neutral[500],
           },
         },
       },
