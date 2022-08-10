@@ -4,7 +4,7 @@ export * from './Buttons/TabButton';
 export * from './Buttons/SelectButton';
 export * from './Containers/Page';
 export * from './Sections/Amount';
-export * from './Date';
+export * from './Sections/Date';
 export * from './Sections/SourceDestination';
 export * from './Containers/EmptyState';
 export * from './Search';
