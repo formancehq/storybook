@@ -5,6 +5,7 @@ import {
   DialogContent,
   DialogProps,
   DialogTitle,
+  useTheme,
 } from '@mui/material';
 import React, { FunctionComponent } from 'react';
 import { LoadingButton } from '../Buttons/LoadingButton';
@@ -19,7 +20,7 @@ export type ModalActionsProps = {
 export type ModalProps = DialogProps & {
   actions?: {
     cancel?: ModalActionsProps;
-    save?: ModalActionsProps;
+    save?: ModalActionsProps & { disabled?: boolean };
   };
 };
 
@@ -30,35 +31,40 @@ export const Modal: FunctionComponent<ModalProps> = ({
   title,
   children,
   actions,
-}) => (
-  <Dialog open={open} onClose={onClose} id={id}>
-    <Box display="flex" justifyContent="space-between" alignItems="center">
-      <DialogTitle>{title}</DialogTitle>
-      <LoadingButton
-        startIcon={<Close />}
-        onClick={onClose as CFunction<any>}
-      />
-    </Box>
-    <DialogContent>{children}</DialogContent>
-    {actions && (
-      <DialogActions sx={{ padding: '20px 24px' }}>
-        {actions.cancel && (
-          <LoadingButton
-            content={actions.cancel.label}
-            variant="stroke"
-            onClick={actions.cancel.onClick}
-            sx={{ width: '50%' }}
-          />
-        )}
-        {actions.save && (
-          <LoadingButton
-            content={actions.save.label}
-            variant="dark"
-            onClick={actions.save.onClick}
-            sx={{ width: '50%' }}
-          />
-        )}
-      </DialogActions>
-    )}
-  </Dialog>
-);
+}) => {
+  const { typography } = useTheme();
+
+  return (
+    <Dialog open={open} onClose={onClose} id={id}>
+      <Box display="flex" justifyContent="space-between" alignItems="center">
+        <DialogTitle sx={{ ...typography.headline }}>{title}</DialogTitle>
+        <LoadingButton
+          startIcon={<Close />}
+          onClick={onClose as CFunction<any>}
+        />
+      </Box>
+      <DialogContent>{children}</DialogContent>
+      {actions && (
+        <DialogActions sx={{ padding: '20px 24px' }}>
+          {actions.cancel && (
+            <LoadingButton
+              content={actions.cancel.label}
+              variant="stroke"
+              onClick={actions.cancel.onClick}
+              sx={{ width: '50%' }}
+            />
+          )}
+          {actions.save && (
+            <LoadingButton
+              content={actions.save.label}
+              variant="dark"
+              onClick={actions.save.onClick}
+              sx={{ width: '50%' }}
+              disabled={actions.save.disabled || false}
+            />
+          )}
+        </DialogActions>
+      )}
+    </Dialog>
+  );
+};
