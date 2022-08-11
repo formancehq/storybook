@@ -15,21 +15,31 @@ export const PageWithAction = () => (
     actionId="add-lorem"
     onClick={() => noop()}
     actionEvent="add_lorem_action"
+    title="PageTitle"
   >
-    <>
-      <Typography variant="h1">Title</Typography>
-      <Typography>Content</Typography>
-    </>
+    <div>PageTitle</div>
   </Page>
 );
 PageWithAction.storyName = 'Page with action';
 
+export const PageWithSubtitle = () => (
+  <Page
+    id="page-with-subtitle"
+    actionLabel="Add lorem"
+    actionId="add-lorem"
+    onClick={() => noop()}
+    actionEvent="add_lorem_action"
+    title="PageTitle"
+    subtitle="PageSubtitle"
+  >
+    <div>PageSubTitle</div>
+  </Page>
+);
+PageWithSubtitle.storyName = 'Page with subtitle';
+
 export const DefaultPage = () => (
-  <Page id="page-with-action">
-    <>
-      <Typography variant="h1">Title</Typography>
-      <Typography>Content</Typography>
-    </>
+  <Page id="page-with-action" title="toto">
+    <>toto</>
   </Page>
 );
 DefaultPage.storyName = 'Default';

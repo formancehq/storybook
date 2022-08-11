@@ -31,7 +31,13 @@ export const Page: FunctionComponent<PageProps> = ({
   const renderTitle = () => {
     if (typeof title === 'string') {
       return (
-        <Typography variant="h1" mr={1}>
+        <Typography
+          variant="h1"
+          mr={1}
+          sx={{
+            textTransform: 'capitalize',
+          }}
+        >
           {title}
         </Typography>
       );
@@ -49,7 +55,7 @@ export const Page: FunctionComponent<PageProps> = ({
         justifyContent="space-between"
         alignItems="center"
       >
-        <Box display="flex">
+        <Box>
           {renderTitle()}
           {subtitle && (
             <Typography variant="h2" color="primary" mr={1}>
@@ -57,8 +63,8 @@ export const Page: FunctionComponent<PageProps> = ({
             </Typography>
           )}
         </Box>
-        <Box>
-          {onClick && actionLabel && actionEvent && (
+        {onClick && actionLabel && actionEvent && (
+          <Box>
             <LoadingButton
               startIcon={<Clear style={{ transform: 'rotate(-45deg)' }} />}
               onClick={onClick}
@@ -66,8 +72,8 @@ export const Page: FunctionComponent<PageProps> = ({
               variant="dark"
               id={actionId}
             />
-          )}
-        </Box>
+          </Box>
+        )}
       </Box>
       <Box pl={3} pr={3} mt={4} mb={4}>
         {children}
