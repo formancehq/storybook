@@ -5,12 +5,13 @@ import { LocalFlorist } from '@mui/icons-material';
 import { ButtonVariants } from '../../types';
 
 export type JsonTextAreaProps = {
-  button?: {
+  button: {
     label: string;
     variant?: ButtonVariants;
   };
   textarea: {
-    onChange?: (value: string, error?: boolean, errorText?: string) => void;
+    onChange?: (value?: string, error?: boolean, errorText?: string) => void;
+    onPrettify?: (value?: string, error?: boolean, errorText?: string) => void;
     placeholder?: string;
     required?: boolean;
     minRows?: number;
@@ -45,34 +46,36 @@ export const JsonTextArea: FunctionComponent<JsonTextAreaProps> = ({
       setError(true);
       setErrorText(`${e}`);
     }
+    if (textarea.onPrettify) textarea.onPrettify(value, error, errorText);
   };
 
   useEffect(() => {
     if (value) {
       handlePrettify();
     }
-  }, [value]);
+  }, []);
 
   const handleOnChange = (e: any) => {
-    if (value) {
-      setValue(e.currentTarget.value);
+    const val = e.currentTarget.value;
+    setValue(val);
+    if (val) {
       if (textarea.onChange) textarea.onChange(value, error, errorText);
+    } else {
+      setError(textarea.required || false);
     }
   };
 
   return (
     <>
-      {button && (
-        <Box display="flex" justifyContent="end" mb={1}>
-          <LoadingButton
-            id="prettify"
-            startIcon={<LocalFlorist />}
-            content={button.label}
-            onClick={handlePrettify}
-            variant={button.variant}
-          />
-        </Box>
-      )}
+      <Box display="flex" justifyContent="end" mb={1}>
+        <LoadingButton
+          id="prettify"
+          startIcon={<LocalFlorist />}
+          content={button.label}
+          onClick={handlePrettify}
+          variant={button.variant}
+        />
+      </Box>
       <TextareaAutosize
         name={textarea.name}
         onChange={handleOnChange}
