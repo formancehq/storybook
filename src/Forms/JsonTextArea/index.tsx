@@ -2,7 +2,7 @@ import { Box, FormHelperText, TextareaAutosize, useTheme } from '@mui/material';
 import React, { FunctionComponent, useEffect, useState } from 'react';
 import { LoadingButton } from '../../Buttons/LoadingButton';
 import { LocalFlorist } from '@mui/icons-material';
-import { ButtonVariants, CFunction } from '../../types';
+import { ButtonVariants } from '../../types';
 
 export type JsonTextAreaProps = {
   button?: {
@@ -10,7 +10,7 @@ export type JsonTextAreaProps = {
     variant?: ButtonVariants;
   };
   textarea: {
-    onChange?: CFunction<any>;
+    onChange?: (value: string, error?: boolean, errorText?: string) => void;
     placeholder?: string;
     required?: boolean;
     minRows?: number;
@@ -54,8 +54,10 @@ export const JsonTextArea: FunctionComponent<JsonTextAreaProps> = ({
   }, [value]);
 
   const handleOnChange = (e: any) => {
-    setValue(e.currentTarget.value);
-    if (textarea.onChange) textarea.onChange(value);
+    if (value) {
+      setValue(e.currentTarget.value);
+      if (textarea.onChange) textarea.onChange(value, error, errorText);
+    }
   };
 
   return (
