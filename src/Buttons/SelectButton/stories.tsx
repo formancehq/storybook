@@ -23,6 +23,8 @@ const items = [
   { id: '11', label: 'Lorem ipsum 11' },
 ];
 
+const noResult = 'No results';
+
 export const DarkSelectButton = () => (
   <>
     <Box>
@@ -31,6 +33,7 @@ export const DarkSelectButton = () => (
         variant="dark"
         items={items}
         onClick={noop}
+        noResult={noResult}
       />
     </Box>
     <Box mt={2}>
@@ -40,6 +43,7 @@ export const DarkSelectButton = () => (
         items={items}
         onClick={noop}
         sideAction={{ onClick: noop, icon: <ContentCopy /> }}
+        noResult={noResult}
       />
     </Box>
     <Box mt={2}>
@@ -50,6 +54,7 @@ export const DarkSelectButton = () => (
         onClick={noop}
         sideAction={{ onClick: noop, icon: <ContentCopy /> }}
         footerAction={{ onClick: noop, label: 'New action' }}
+        noResult={noResult}
       />
     </Box>
   </>
@@ -59,13 +64,19 @@ DarkSelectButton.storyName = 'Dark';
 export const LightSelectButton = () => (
   <>
     <Box>
-      <SelectButton label="Light select" items={items} onClick={noop} />
+      <SelectButton
+        label="Light select"
+        items={items}
+        onClick={noop}
+        noResult={noResult}
+      />
     </Box>
     <Box mt={2}>
       <SelectButton
         label="Light select with sideAction"
         items={items}
         onClick={noop}
+        noResult={noResult}
         sideAction={{ onClick: noop, icon: <ContentCopyTwoTone /> }}
       />
     </Box>
@@ -74,6 +85,7 @@ export const LightSelectButton = () => (
         label="Light select with side action and footer action"
         items={items}
         onClick={noop}
+        noResult={noResult}
         sideAction={{ onClick: noop, icon: <ContentCopyTwoTone /> }}
         footerAction={{ onClick: noop, label: 'New action' }}
       />
@@ -88,6 +100,7 @@ export const StrokeSelectButton = () => (
     <Box>
       <SelectButton
         label="Stroke select"
+        noResult={noResult}
         variant="stroke"
         items={items}
         onClick={noop}
@@ -98,6 +111,7 @@ export const StrokeSelectButton = () => (
         label="Stroke select with sideAction"
         variant="stroke"
         items={items}
+        noResult={noResult}
         onClick={() => null}
         sideAction={{ onClick: noop, icon: <ContentCopyTwoTone /> }}
       />
@@ -108,6 +122,7 @@ export const StrokeSelectButton = () => (
         variant="stroke"
         items={items}
         onClick={noop}
+        noResult={noResult}
         sideAction={{ onClick: noop, icon: <ContentCopyTwoTone /> }}
         footerAction={{ onClick: noop, label: 'New action' }}
       />
@@ -120,6 +135,7 @@ export const PrimarySelectButton = () => (
   <>
     <Box>
       <SelectButton
+        noResult={noResult}
         label="Primary select"
         variant="primary"
         items={items}
@@ -128,6 +144,7 @@ export const PrimarySelectButton = () => (
     </Box>
     <Box mt={2}>
       <SelectButton
+        noResult={noResult}
         label="Primary select with sideAction"
         variant="primary"
         items={items}
@@ -137,6 +154,7 @@ export const PrimarySelectButton = () => (
     </Box>
     <Box mt={2}>
       <SelectButton
+        noResult={noResult}
         label="Primary select with side action and footer action"
         variant="primary"
         items={items}
@@ -148,3 +166,15 @@ export const PrimarySelectButton = () => (
   </>
 );
 PrimarySelectButton.storyName = 'Primary';
+
+export const SelectButtonWithNoData = () => (
+  <SelectButton
+    noResult={noResult}
+    search={false}
+    label="Primary select"
+    variant="primary"
+    items={[]}
+    onClick={noop}
+  />
+);
+SelectButtonWithNoData.storyName = 'Without data';

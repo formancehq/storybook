@@ -11,6 +11,7 @@ import {
   SxProps,
   TextField,
   Theme,
+  Typography,
 } from '@mui/material';
 import Box from '@mui/material/Box';
 import React, { FunctionComponent, useState } from 'react';
@@ -40,6 +41,7 @@ export type SelectButtonProps = {
   loadingButtonSx?: SxProps<Theme>;
   paperSx?: SxProps<Theme>;
   search?: boolean;
+  noResult?: string;
 };
 
 export const SelectButton: FunctionComponent<SelectButtonProps> = ({
@@ -53,6 +55,7 @@ export const SelectButton: FunctionComponent<SelectButtonProps> = ({
   loadingButtonSx,
   paperSx,
   search = true,
+  noResult = 'No results',
 }) => {
   const [toggle, setToggle] = useState<boolean>(false);
   const [selectedLabel, setSelectedLabel] = useState<string>(label);
@@ -81,16 +84,14 @@ export const SelectButton: FunctionComponent<SelectButtonProps> = ({
         variant={variant}
         endIcon={toggle ? <KeyboardArrowUp /> : <KeyboardArrowDown />}
         startIcon={<CalendarMonthOutlined />}
-        sx={{ width: '260px', ...loadingButtonSx }}
+        sx={{ ...loadingButtonSx }}
       />
       {toggle && (
         <ClickAwayListener onClickAway={() => setToggle(false)}>
           <Paper
             elevation={0}
             sx={{
-              width: '228px',
               maxHeight: '380px',
-              minHeight: '250px',
               position: 'absolute',
               zIndex: 999,
               marginLeft: 0,
@@ -105,31 +106,35 @@ export const SelectButton: FunctionComponent<SelectButtonProps> = ({
                 onChange={handleOnChange}
               />
             )}
-            <List sx={{ height: '250px', overflowY: 'auto' }}>
-              {filteredItems.map((item: SelectButtonItem) => (
-                <Box
-                  key={item.id}
-                  display="flex"
-                  alignItems="center"
-                  justifyContent={sideAction ? 'space-between' : 'initial'}
-                >
-                  <LoadingButton
-                    content={item.label}
-                    id={`item-${item.id}`}
-                    onClick={() => handleClick(item)}
-                    fullwidth
-                    sx={{ justifyContent: 'flex-start' }}
-                  />
-                  {sideAction && (
+            {filteredItems.length > 0 ? (
+              <List sx={{ height: '250px', overflowY: 'auto' }}>
+                {filteredItems.map((item: SelectButtonItem) => (
+                  <Box
+                    key={item.id}
+                    display="flex"
+                    alignItems="center"
+                    justifyContent={sideAction ? 'space-between' : 'initial'}
+                  >
                     <LoadingButton
-                      id={`item-${item.id}-side-action`}
-                      onClick={sideAction.onClick}
-                      startIcon={sideAction.icon}
+                      content={item.label}
+                      id={`item-${item.id}`}
+                      onClick={() => handleClick(item)}
+                      fullwidth
+                      sx={{ justifyContent: 'flex-start' }}
                     />
-                  )}
-                </Box>
-              ))}
-            </List>
+                    {sideAction && (
+                      <LoadingButton
+                        id={`item-${item.id}-side-action`}
+                        onClick={sideAction.onClick}
+                        startIcon={sideAction.icon}
+                      />
+                    )}
+                  </Box>
+                ))}
+              </List>
+            ) : (
+              <Typography variant="caption">{noResult}</Typography>
+            )}
             {footerAction && (
               <Box display="flex" justifyContent="center">
                 <LoadingButton
