@@ -17,7 +17,7 @@ export const EmptyState: FunctionComponent<EmptyStateProps> = ({
   const { palette } = useTheme();
   const variantsMap = {
     light: {
-      border: palette.neutral[600],
+      border: palette.neutral[200],
       title: palette.neutral[800],
       description: palette.neutral[600],
       backgroundColor: palette.neutral[0],
