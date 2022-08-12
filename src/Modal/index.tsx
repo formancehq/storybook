@@ -31,15 +31,17 @@ export const Modal: FunctionComponent<ModalProps> = ({
   title,
   children,
   actions,
+  PaperProps,
 }) => {
   const { typography } = useTheme();
+  const paperSx = PaperProps ? PaperProps.sx : {};
 
   return (
     <Dialog
       open={open}
       onClose={onClose}
       id={id}
-      PaperProps={{ sx: { minWidth: '300px' } }}
+      PaperProps={{ sx: { minWidth: '300px', ...paperSx } }}
     >
       <Box display="flex" justifyContent="space-between" alignItems="center">
         <DialogTitle sx={{ ...typography.headline }}>{title}</DialogTitle>

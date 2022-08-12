@@ -78,6 +78,7 @@ export const ModalWithDisabledSaveButton = () => {
       <Modal
         open={open}
         onClose={handleClose}
+        PaperProps={{ sx: { width: '500px' } }}
         title="Update foo"
         actions={{
           cancel: {
