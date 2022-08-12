@@ -35,7 +35,12 @@ export const Modal: FunctionComponent<ModalProps> = ({
   const { typography } = useTheme();
 
   return (
-    <Dialog open={open} onClose={onClose} id={id}>
+    <Dialog
+      open={open}
+      onClose={onClose}
+      id={id}
+      PaperProps={{ sx: { minWidth: '300px' } }}
+    >
       <Box display="flex" justifyContent="space-between" alignItems="center">
         <DialogTitle sx={{ ...typography.headline }}>{title}</DialogTitle>
         <LoadingButton
@@ -43,7 +48,7 @@ export const Modal: FunctionComponent<ModalProps> = ({
           onClick={onClose as CFunction<any>}
         />
       </Box>
-      <DialogContent>{children}</DialogContent>
+      <DialogContent sx={{ overflowY: 'initial' }}>{children}</DialogContent>
       {actions && (
         <DialogActions sx={{ padding: '20px 24px' }}>
           {actions.cancel && (
