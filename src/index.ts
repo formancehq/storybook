@@ -4,6 +4,7 @@ export * from './Buttons/SelectButton';
 
 export * from './Sections/Amount';
 export * from './Sections/Date';
+export * from './Sections/DividerWithSpace';
 export * from './Sections/SourceDestination';
 export * from './Sections/Txid';
 

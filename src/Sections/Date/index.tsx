@@ -6,16 +6,20 @@ export type DateProps = {
   timestamp: string | Date;
   format?: string;
   message?: string;
+  color?: string;
 };
 
 export const Date: FunctionComponent<DateProps> = ({
   timestamp,
   format = 'ddd MMM D YYYY',
   message = '',
+  color,
 }) => (
   <Tooltip title={`${timestamp}`} placement="top">
-    <Typography sx={{ color: ({ palette }) => palette.neutral[600] }}>{`${
-      message ? `${message} ` : ''
-    }${dayjs(timestamp).format(format)}`}</Typography>
+    <Typography
+      sx={{ color: ({ palette }) => color || palette.neutral[600] }}
+    >{`${message ? `${message} ` : ''}${dayjs(timestamp).format(
+      format
+    )}`}</Typography>
   </Tooltip>
 );
