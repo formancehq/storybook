@@ -1,5 +1,6 @@
 import React from 'react';
 import { SourceDestination } from './index';
+import { storyDocsParameters } from '../../utils';
 
 export default {
   title: 'Design System/Sections/SourceDestination',
@@ -11,3 +12,4 @@ export const SourceDestinationSection = () => (
 );
 
 SourceDestinationSection.storyName = 'Default';
+SourceDestinationSection.parameters = storyDocsParameters;

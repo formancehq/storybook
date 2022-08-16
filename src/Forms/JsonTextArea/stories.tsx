@@ -1,5 +1,6 @@
 import React from 'react';
 import { JsonTextArea } from './index';
+import { storyDocsParameters } from '../../utils';
 
 export default {
   title: 'Design System/Forms/JsonTextArea',
@@ -25,6 +26,7 @@ export const DefaultJsonArea = () => (
   />
 );
 DefaultJsonArea.storyName = 'Default';
+DefaultJsonArea.parameters = storyDocsParameters;
 
 export const JsonAreaRequired = () => (
   <JsonTextArea
@@ -39,6 +41,7 @@ export const JsonAreaRequired = () => (
   />
 );
 JsonAreaRequired.storyName = 'Required';
+JsonAreaRequired.parameters = storyDocsParameters;
 
 export const JsonAreaWithButton = () => (
   <JsonTextArea
@@ -54,6 +57,7 @@ export const JsonAreaWithButton = () => (
   />
 );
 JsonAreaWithButton.storyName = 'With button';
+JsonAreaWithButton.parameters = storyDocsParameters;
 
 export const JsonAreaWithData = () => (
   <JsonTextArea
@@ -67,6 +71,7 @@ export const JsonAreaWithData = () => (
   />
 );
 JsonAreaWithData.storyName = 'With data';
+JsonAreaWithData.parameters = storyDocsParameters;
 
 export const JsonAreaWithError = () => (
   <JsonTextArea
@@ -79,4 +84,6 @@ export const JsonAreaWithError = () => (
     }}
   />
 );
+
 JsonAreaWithError.storyName = 'With error';
+JsonAreaWithError.parameters = storyDocsParameters;

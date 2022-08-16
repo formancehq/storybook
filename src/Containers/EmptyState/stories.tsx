@@ -1,7 +1,7 @@
 import React from 'react';
 import { EmptyState } from './index';
 import { LoadingButton } from '../../Buttons/LoadingButton';
-import { noop } from '../../utils';
+import { noop, storyDocsParameters } from '../../utils';
 import { Box } from '@mui/material';
 
 export default {
@@ -16,6 +16,7 @@ export const LighttEmptyState = () => (
   />
 );
 LighttEmptyState.storyName = 'Light';
+LighttEmptyState.parameters = storyDocsParameters;
 
 export const DarkEmptyState = () => (
   <EmptyState
@@ -25,6 +26,7 @@ export const DarkEmptyState = () => (
   />
 );
 DarkEmptyState.storyName = 'Dark';
+DarkEmptyState.parameters = storyDocsParameters;
 
 export const DarkWithChildrenEmptyState = () => (
   <EmptyState
@@ -42,3 +44,4 @@ export const DarkWithChildrenEmptyState = () => (
   </EmptyState>
 );
 DarkWithChildrenEmptyState.storyName = 'Dark with children';
+DarkWithChildrenEmptyState.parameters = storyDocsParameters;

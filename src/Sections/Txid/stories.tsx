@@ -1,5 +1,6 @@
 import React from 'react';
 import { Txid } from './index';
+import { storyDocsParameters } from '../../utils';
 
 export default {
   title: 'Design System/Sections/Txid',
@@ -13,3 +14,4 @@ export const TxidSection = () => (
 );
 
 TxidSection.storyName = 'Txid';
+TxidSection.parameters = storyDocsParameters;

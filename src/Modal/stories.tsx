@@ -3,6 +3,7 @@ import { Modal } from './index';
 import { LoadingButton } from '../Buttons/LoadingButton';
 import { Box } from '@mui/material';
 import { TextField } from '../Forms/TextFields';
+import { storyDocsParameters } from '../utils';
 
 export default {
   title: 'Design System/Modal',
@@ -36,6 +37,7 @@ export const DefaultModal = () => {
   );
 };
 DefaultModal.storyName = 'Default';
+DefaultModal.parameters = storyDocsParameters;
 
 export const ModalWithFooter = () => {
   const [open, setOpen] = useState(false);
@@ -66,6 +68,7 @@ export const ModalWithFooter = () => {
   );
 };
 ModalWithFooter.storyName = 'With actions';
+ModalWithFooter.parameters = storyDocsParameters;
 
 export const ModalWithDisabledSaveButton = () => {
   const [open, setOpen] = useState(false);
@@ -104,3 +107,4 @@ export const ModalWithDisabledSaveButton = () => {
   );
 };
 ModalWithDisabledSaveButton.storyName = 'With disabled save action';
+ModalWithDisabledSaveButton.parameters = storyDocsParameters;

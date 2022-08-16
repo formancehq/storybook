@@ -2,6 +2,7 @@ import React from 'react';
 import { SectionWrapper } from './index';
 import { Box } from '@mui/material';
 import { EmptyState } from '../EmptyState';
+import { storyDocsParameters } from '../../utils';
 
 export default {
   title: 'Design System/Containers/Wrapper',
@@ -20,3 +21,4 @@ export const DefaultSectionWrapper = () => (
 );
 
 DefaultSectionWrapper.storyName = 'Default';
+DefaultSectionWrapper.parameters = storyDocsParameters;

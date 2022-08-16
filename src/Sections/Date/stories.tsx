@@ -1,5 +1,6 @@
 import React from 'react';
 import { Date } from './index';
+import { storyDocsParameters } from '../../utils';
 
 export default {
   title: 'Design System/Sections/Date',
@@ -12,6 +13,7 @@ export const DateWithMessageSection = () => (
   </div>
 );
 DateWithMessageSection.storyName = 'With message';
+DateWithMessageSection.parameters = storyDocsParameters;
 
 export const DefaultDateSection = () => (
   <div>
@@ -19,3 +21,4 @@ export const DefaultDateSection = () => (
   </div>
 );
 DefaultDateSection.storyName = 'Default';
+DefaultDateSection.parameters = storyDocsParameters;

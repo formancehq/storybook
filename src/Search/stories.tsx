@@ -8,7 +8,7 @@ import {
   SearchOutlined,
 } from '@mui/icons-material';
 import { Box } from '@mui/material';
-import { noop } from '../utils';
+import { noop, storyDocsParameters } from '../utils';
 
 export default {
   title: 'Design System/Search/Spotlight',
@@ -225,6 +225,7 @@ export const DefaultSpotlight = () => {
   );
 };
 DefaultSpotlight.storyName = 'Default';
+DefaultSpotlight.parameters = storyDocsParameters;
 
 export const SpotlightWithoutTotalResults = () => {
   const [open, setOpen] = useState(false);
@@ -243,6 +244,7 @@ export const SpotlightWithoutTotalResults = () => {
   );
 };
 SpotlightWithoutTotalResults.storyName = 'Without total results';
+SpotlightWithoutTotalResults.parameters = storyDocsParameters;
 
 export const SpotlightWithNoResults = () => {
   const [open, setOpen] = useState(false);
@@ -256,8 +258,8 @@ export const SpotlightWithNoResults = () => {
     </Box>
   );
 };
-
 SpotlightWithNoResults.storyName = 'With no results';
+SpotlightWithNoResults.parameters = storyDocsParameters;
 
 export const SpotlightWithLoader = () => {
   const [open, setOpen] = useState(false);
@@ -282,6 +284,7 @@ export const SpotlightWithLoader = () => {
   );
 };
 SpotlightWithLoader.storyName = 'With Loader';
+SpotlightWithLoader.parameters = storyDocsParameters;
 
 export const SpotlightWithEmptyItemsCategory = () => {
   const [open, setOpen] = useState(false);
@@ -300,3 +303,4 @@ export const SpotlightWithEmptyItemsCategory = () => {
   );
 };
 SpotlightWithEmptyItemsCategory.storyName = 'With empty category items';
+SpotlightWithEmptyItemsCategory.parameters = storyDocsParameters;
