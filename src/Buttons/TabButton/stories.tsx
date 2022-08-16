@@ -1,6 +1,7 @@
 import React from 'react';
 import { TabButton } from './index';
 import { Box } from '@mui/material';
+import { storyDocsParameters } from '../../utils';
 
 export default {
   title: 'Design System/Buttons/Tab',
@@ -23,8 +24,8 @@ export const ActiveTabButton = () => (
     />
   </Box>
 );
-
 ActiveTabButton.storyName = 'Active';
+ActiveTabButton.parameters = storyDocsParameters;
 
 export const DefaultTabButton = () => (
   <Box>
@@ -37,5 +38,5 @@ export const DefaultTabButton = () => (
     />
   </Box>
 );
-
 DefaultTabButton.storyName = 'Default';
+DefaultTabButton.parameters = storyDocsParameters;

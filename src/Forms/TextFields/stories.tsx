@@ -2,6 +2,7 @@ import React from 'react';
 import { TextField } from './index';
 import { CircleNotifications, LocationCity } from '@mui/icons-material';
 import { InputAdornment } from '@mui/material';
+import { storyDocsParameters } from '../../utils';
 
 export default {
   title: 'Design System/Forms/TextField',
@@ -20,6 +21,7 @@ export const DefaultTextField = () => (
   </>
 );
 DefaultTextField.storyName = 'Default';
+DefaultTextField.parameters = storyDocsParameters;
 
 export const ErrorTextField = () => (
   <TextField
@@ -31,11 +33,13 @@ export const ErrorTextField = () => (
   />
 );
 ErrorTextField.storyName = 'Error';
+ErrorTextField.parameters = storyDocsParameters;
 
 export const DisabledTextField = () => (
   <TextField name="city" label="City" defaultValue="Los Angeles" disabled />
 );
 DisabledTextField.storyName = 'Disabled';
+DisabledTextField.parameters = storyDocsParameters;
 
 export const StartIconTextField = () => (
   <>
@@ -75,6 +79,7 @@ export const StartIconTextField = () => (
   </>
 );
 StartIconTextField.storyName = 'Start icon';
+StartIconTextField.parameters = storyDocsParameters;
 
 export const FormTextField = () => (
   <>
@@ -118,3 +123,4 @@ export const FormTextField = () => (
   </>
 );
 FormTextField.storyName = 'Form';
+FormTextField.parameters = storyDocsParameters;

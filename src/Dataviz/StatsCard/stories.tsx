@@ -1,6 +1,7 @@
 import React from 'react';
 import { StatsCard } from './index';
 import { Topic } from '@mui/icons-material';
+import { storyDocsParameters } from '../../utils';
 
 export default {
   title: 'Design System/Dataviz/Card',
@@ -16,6 +17,7 @@ export const GreenStatsCard = () => (
   />
 );
 GreenStatsCard.storyName = 'Green';
+GreenStatsCard.parameters = storyDocsParameters;
 
 export const BrownStatsCard = () => (
   <StatsCard
@@ -27,6 +29,7 @@ export const BrownStatsCard = () => (
   />
 );
 BrownStatsCard.storyName = 'Brown';
+BrownStatsCard.parameters = storyDocsParameters;
 
 export const BlueStatsCard = () => (
   <StatsCard
@@ -38,6 +41,7 @@ export const BlueStatsCard = () => (
   />
 );
 BlueStatsCard.storyName = 'Blue';
+BlueStatsCard.parameters = storyDocsParameters;
 
 export const VioletStatsCard = () => (
   <StatsCard
@@ -49,6 +53,7 @@ export const VioletStatsCard = () => (
   />
 );
 VioletStatsCard.storyName = 'Violet';
+VioletStatsCard.parameters = storyDocsParameters;
 
 export const StatsCardWithoutChip = () => (
   <StatsCard
@@ -59,3 +64,4 @@ export const StatsCardWithoutChip = () => (
   />
 );
 StatsCardWithoutChip.storyName = 'Without chip';
+StatsCardWithoutChip.parameters = storyDocsParameters;

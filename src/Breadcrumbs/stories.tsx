@@ -1,6 +1,6 @@
 import React from 'react';
 import { Breadcrumbs } from './index';
-import { noop } from '../utils';
+import { noop, storyDocsParameters } from '../utils';
 
 export default {
   title: 'Design System/Breadcrumbs',
@@ -24,5 +24,5 @@ const links = [
 export const DefaultBreadcrumbs = () => (
   <Breadcrumbs id="default" links={links} />
 );
-
 DefaultBreadcrumbs.storyName = 'Default';
+DefaultBreadcrumbs.parameters = storyDocsParameters;

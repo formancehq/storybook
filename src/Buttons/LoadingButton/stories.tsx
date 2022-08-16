@@ -6,6 +6,7 @@ import {
   DeleteOutlined,
 } from '@mui/icons-material';
 import { Box } from '@mui/material';
+import { storyDocsParameters } from '../../utils';
 
 export default {
   title: 'Design System/Buttons/Loading',
@@ -91,6 +92,7 @@ export const LightLoadingButtons = () => (
   </>
 );
 LightLoadingButtons.storyName = 'Light';
+LightLoadingButtons.parameters = storyDocsParameters;
 
 export const StrokeLoadingButtons = () => (
   <>
@@ -186,6 +188,7 @@ export const StrokeLoadingButtons = () => (
   </>
 );
 StrokeLoadingButtons.storyName = 'Stroke';
+StrokeLoadingButtons.parameters = storyDocsParameters;
 
 export const PrimaryLoadingButtons = () => (
   <>
@@ -281,6 +284,7 @@ export const PrimaryLoadingButtons = () => (
   </>
 );
 PrimaryLoadingButtons.storyName = 'Primary';
+PrimaryLoadingButtons.parameters = storyDocsParameters;
 
 export const DarkLoadingButtons = () => (
   <>
@@ -376,3 +380,4 @@ export const DarkLoadingButtons = () => (
   </>
 );
 DarkLoadingButtons.storyName = 'Dark';
+DarkLoadingButtons.parameters = storyDocsParameters;

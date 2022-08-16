@@ -1,7 +1,6 @@
 import React from 'react';
 import { Page } from './index';
-import { noop } from '../../utils';
-import { Typography } from '@mui/material';
+import { noop, storyDocsParameters } from '../../utils';
 
 export default {
   title: 'Design System/Containers/Page',
@@ -21,6 +20,7 @@ export const PageWithAction = () => (
   </Page>
 );
 PageWithAction.storyName = 'Page with action';
+PageWithAction.parameters = storyDocsParameters;
 
 export const PageWithSubtitle = () => (
   <Page
@@ -36,6 +36,7 @@ export const PageWithSubtitle = () => (
   </Page>
 );
 PageWithSubtitle.storyName = 'Page with subtitle';
+PageWithSubtitle.parameters = storyDocsParameters;
 
 export const DefaultPage = () => (
   <Page id="page-with-action" title="toto">
@@ -43,3 +44,4 @@ export const DefaultPage = () => (
   </Page>
 );
 DefaultPage.storyName = 'Default';
+DefaultPage.parameters = storyDocsParameters;
