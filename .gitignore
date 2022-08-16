@@ -11,7 +11,7 @@ playwright.state.json
 
 # production
 /dist
-
+/storybook-static
 # misc
 .DS_Store
 .env

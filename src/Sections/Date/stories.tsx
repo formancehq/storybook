@@ -1,6 +1,7 @@
 import React from 'react';
 import { Date } from './index';
 import { storyDocsParameters } from '../../utils';
+import { theme } from '../../muiTheme';
 
 export default {
   title: 'Design System/Sections/Date',
@@ -22,3 +23,15 @@ export const DefaultDateSection = () => (
 );
 DefaultDateSection.storyName = 'Default';
 DefaultDateSection.parameters = storyDocsParameters;
+
+export const DateWithColorAndFormat = () => (
+  <div>
+    <Date
+      timestamp="123456789"
+      format="DD/MM/YYYY"
+      color={theme.palette.violet.bright}
+    />
+  </div>
+);
+DateWithColorAndFormat.storyName = 'With color and format';
+DateWithColorAndFormat.parameters = storyDocsParameters;
