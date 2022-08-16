@@ -13,7 +13,7 @@ export * from './Containers/Page';
 export * from './Containers/SectionWrapper';
 
 export * from './Forms/TextFields';
-export * from './Forms/JsonTextArea';
+export * from './Forms/TextArea';
 
 export * from './Dataviz/StatsCard';
 export * from './Search';
