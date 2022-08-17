@@ -8,6 +8,53 @@ export type EmptyStateProps = {
   children?: ReactElement;
 };
 
+export const Placeholder: FunctionComponent = () => (
+  <Box
+    sx={{
+      border: ({ palette }) => `1px solid ${palette.neutral[200]}`,
+      width: 200,
+      height: 50,
+      display: 'flex',
+      justifyContent: 'space-between',
+      alignItems: 'center',
+      p: 1,
+    }}
+  >
+    <Box
+      sx={{
+        background: ({ palette }) => palette.neutral[300],
+        width: 40,
+        height: 40,
+        borderRadius: '50%',
+      }}
+    />
+    <Box
+      sx={{
+        display: 'flex',
+        flexDirection: 'column',
+      }}
+    >
+      <Box
+        sx={{
+          background: ({ palette }) => palette.neutral[400],
+          width: 80,
+          height: 8,
+          borderRadius: 2,
+        }}
+      />
+      <Box
+        sx={{
+          mt: 1,
+          background: ({ palette }) => palette.neutral[300],
+          width: 150,
+          height: 8,
+          borderRadius: 2,
+        }}
+      />
+    </Box>
+  </Box>
+);
+
 export const EmptyState: FunctionComponent<EmptyStateProps> = ({
   title,
   description,
@@ -45,7 +92,10 @@ export const EmptyState: FunctionComponent<EmptyStateProps> = ({
       }}
     >
       <Box>
-        <img src="/images/emptyState2.svg" alt="my image" />
+        <Box ml={4} mb={2}>
+          <Placeholder />
+        </Box>
+        <Placeholder />
       </Box>
       <Typography variant="h2" sx={{ color: color.title }} mt={4}>
         {title}
