@@ -15,7 +15,7 @@ const Form = () => (
     <TextField
       name="firstname"
       label="Firstname"
-      onChange={(e: any) => console.log('on change', e.currentTarget.value)}
+      onChange={(e: any) => e}
       placeholder="Jean"
     />
     <TextField name="lastname" label="Lastname" fullWidth />
@@ -57,7 +57,7 @@ export const ModalWithFooter = () => {
             label: 'Cancel',
           },
           save: {
-            onClick: () => console.log('save!'),
+            onClick: () => null,
             label: 'Save',
           },
         }}
@@ -89,7 +89,7 @@ export const ModalWithDisabledSaveButton = () => {
             label: 'Cancel',
           },
           save: {
-            onClick: () => console.log('save!'),
+            onClick: () => null,
             label: 'Save',
             disabled: true,
           },

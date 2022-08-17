@@ -15,6 +15,8 @@ export default {
   component: Search,
 };
 
+const onClick = (id: number | string) => id;
+
 const suggestions: Suggestion[] = [
   {
     label: 'Payment',
@@ -24,72 +26,52 @@ const suggestions: Suggestion[] = [
       {
         id: 1,
         label: 'payin:679472',
-        onClick: (id: number | string) => {
-          console.log('click', id);
-        },
+        onClick,
       },
       {
         id: 2,
         label: 'payout:679473',
-        onClick: (id: number | string) => {
-          console.log('click', id);
-        },
+        onClick,
       },
       {
         id: 3,
         label: 'payout:679474',
-        onClick: (id: number | string) => {
-          console.log('click', id);
-        },
+        onClick,
       },
       {
         id: 4,
         label: 'payout:679475',
-        onClick: (id: number | string) => {
-          console.log('click', id);
-        },
+        onClick,
       },
       {
         id: 5,
         label: 'payout:679476',
-        onClick: (id: number | string) => {
-          console.log('click', id);
-        },
+        onClick,
       },
       {
         id: 6,
         label: 'payout:679477',
-        onClick: (id: number | string) => {
-          console.log('click', id);
-        },
+        onClick,
       },
       {
         id: 7,
         label: 'payout:679478',
-        onClick: (id: number | string) => {
-          console.log('click', id);
-        },
+        onClick,
       },
       {
         id: 8,
         label: 'payout:679479',
-        onClick: (id: number | string) => {
-          console.log('click', id);
-        },
+        onClick,
       },
       {
         id: 10,
         label: 'payout:6794711',
-        onClick: (id: number | string) => {
-          console.log('click', id);
-        },
+        onClick,
       },
       {
         id: 11,
         label: 'payout:6794712',
-        onClick: (id: number | string) => {
-          console.log('click', id);
-        },
+        onClick,
       },
     ],
   },
@@ -101,16 +83,12 @@ const suggestions: Suggestion[] = [
       {
         id: 1,
         label: '000679472',
-        onClick: (id: number | string) => {
-          console.log('click', id);
-        },
+        onClick,
       },
       {
         id: 2,
         label: '000679473',
-        onClick: (id: number | string) => {
-          console.log('click', id);
-        },
+        onClick,
       },
     ],
   },
@@ -123,16 +101,12 @@ const suggestions: Suggestion[] = [
       {
         id: 1,
         label: '000679472',
-        onClick: (id: number | string) => {
-          console.log('click', id);
-        },
+        onClick,
       },
       {
         id: 2,
         label: '000679473',
-        onClick: (id: number | string) => {
-          console.log('click', id);
-        },
+        onClick,
       },
     ],
   },
@@ -145,16 +119,12 @@ const suggestions2: Suggestion[] = [
       {
         id: 1,
         label: 'payin:679472',
-        onClick: (id: number | string) => {
-          console.log('click', id);
-        },
+        onClick,
       },
       {
         id: 2,
         label: 'payout:679473',
-        onClick: (id: number | string) => {
-          console.log('click', id);
-        },
+        onClick,
       },
     ],
   },
@@ -165,9 +135,7 @@ const suggestions2: Suggestion[] = [
       {
         id: 1,
         label: '000679472',
-        onClick: (id: number | string) => {
-          console.log('click', id);
-        },
+        onClick,
       },
     ],
   },
@@ -180,16 +148,12 @@ const suggestions3: Suggestion[] = [
       {
         id: 1,
         label: 'payin:679472',
-        onClick: (id: number | string) => {
-          console.log('click', id);
-        },
+        onClick,
       },
       {
         id: 2,
         label: 'payout:679473',
-        onClick: (id: number | string) => {
-          console.log('click', id);
-        },
+        onClick,
       },
     ],
   },
@@ -263,6 +227,7 @@ SpotlightWithNoResults.parameters = storyDocsParameters;
 
 export const SpotlightWithLoader = () => {
   const [open, setOpen] = useState(false);
+  // eslint-disable-next-line @typescript-eslint/no-unused-vars
   const [loading, _setLLoading] = useState(true);
   const handleOpen = () => setOpen(true);
   const handleClose = () => setOpen(false);
