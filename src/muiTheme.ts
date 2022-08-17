@@ -89,7 +89,8 @@ declare module '@mui/material/Chip' {
   }
 }
 
-export const fontFamily = 'Inter,sans-serif';
+export const bodyFontFamily = 'Inter,sans-serif';
+export const titleFontFamily = 'Poppins,sans-serif';
 
 const palette = {
   neutral: {
@@ -160,74 +161,74 @@ const palette = {
 };
 
 const typography = {
-  fontFamily,
+  fontFamily: [bodyFontFamily, titleFontFamily].join(','),
   large3x: {
     fontSize: '64px',
     lineHeight: '72px',
     letterSpacing: '-0.01em',
     fontWeight: 500,
-    fontFamily,
+    fontFamily: titleFontFamily,
   },
   large2x: {
     fontSize: '56px',
     lineHeight: '64px',
     letterSpacing: '-0.01em',
     fontWeight: 500,
-    fontFamily,
+    fontFamily: titleFontFamily,
   },
   large1x: {
     fontSize: '48px',
     lineHeight: '56px',
     letterSpacing: '-0.01em',
     fontWeight: 500,
-    fontFamily,
+    fontFamily: titleFontFamily,
   },
   large: {
     fontSize: '40px',
     lineHeight: '48px',
     letterSpacing: '-0.01em',
     fontWeight: 500,
-    fontFamily,
+    fontFamily: titleFontFamily,
   },
   h1: {
     fontSize: '32px',
     lineHeight: '40px',
     letterSpacing: '-0.01em',
     fontWeight: 500,
-    fontFamily,
+    fontFamily: titleFontFamily,
   },
   h2: {
     fontSize: '24px',
     lineHeight: '32px',
     letterSpacing: '-0.01em',
     fontWeight: 500,
-    fontFamily,
+    fontFamily: titleFontFamily,
   },
   headline: {
     fontSize: '18px',
     lineHeight: '24px',
     letterSpacing: '-0.01em',
     fontWeight: 500,
-    fontFamily,
+    fontFamily: titleFontFamily,
   },
   heading: {
     fontSize: '14px',
     lineHeight: '24px',
     letterSpacing: '0.08em',
     fontWeight: 700,
-    fontFamily,
+    fontFamily: titleFontFamily,
   },
   body2: {
     fontSize: '16px',
     lineHeight: '24px',
     fontWeight: 400,
     letterSpacing: '-0.01em',
-    fontFamily,
+    fontFamily: bodyFontFamily,
   },
   body1: {
     fontSize: '14px',
     lineHeight: '24px',
-    fontFamily,
+    fontFamily: bodyFontFamily,
     fontWeight: 400,
     letterSpacing: '-0.01em',
   },
@@ -236,20 +237,20 @@ const typography = {
     lineHeight: '24px',
     fontWeight: 500,
     letterSpacing: '-0.01em',
-    fontFamily,
+    fontFamily: bodyFontFamily,
   },
   caption: {
     fontSize: '12px',
     lineHeight: '20px',
     fontWeight: 500,
     letterSpacing: '-0.01em',
-    fontFamily,
+    fontFamily: bodyFontFamily,
   },
   footNote: {
     fontSize: '12px',
     lineHeight: '20px',
     fontWeight: 400,
-    fontFamily,
+    fontFamily: bodyFontFamily,
   },
 };
 
