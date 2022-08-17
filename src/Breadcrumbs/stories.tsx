@@ -14,7 +14,7 @@ const links = [
   },
   {
     label: 'World',
-    onClick: () => console.log('world'),
+    onClick: () => null,
   },
   {
     label: '12345',

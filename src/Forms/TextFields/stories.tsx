@@ -14,7 +14,7 @@ export const DefaultTextField = () => (
     <TextField
       name="firstname"
       label="Firstname"
-      onChange={(e: any) => console.log('on change', e.currentTarget.value)}
+      onChange={(e: any) => e}
       placeholder="Jean"
     />
     <TextField name="firstname" label="Firstname" fullWidth />
@@ -86,7 +86,7 @@ export const FormTextField = () => (
     <TextField
       name="firstname"
       label="Firstname"
-      onChange={(e: any) => console.log('on change', e.currentTarget.value)}
+      onChange={(e: any) => e}
       placeholder="Jean"
     />
     <TextField name="lastname" label="Lastname" fullWidth />
