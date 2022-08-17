@@ -31,8 +31,8 @@ DarkEmptyState.parameters = storyDocsParameters;
 export const DarkWithChildrenEmptyState = () => (
   <EmptyState
     variant="dark"
-    title="Choose a ledger to get started"
-    description="Lorem Ipsum is simply dummy text of the printing and typesetting industry."
+    title="There is nothing here, yet."
+    description="Connect your tools, set up tasks and start right away. As a guide you can see the set-up section above."
   >
     <Box mt={3}>
       <LoadingButton

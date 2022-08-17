@@ -35,21 +35,25 @@ export const EmptyState: FunctionComponent<EmptyStateProps> = ({
     <Box
       sx={{
         border: `1px solid ${color.border}`,
-        height: '200px',
         display: 'flex',
         justifyContent: 'center',
         alignItems: 'center',
+        textAlign: 'center',
         flexFlow: 'column',
         backgroundColor: color.backgroundColor,
+        p: 6,
       }}
     >
-      <Typography variant="h2" sx={{ color: color.title }}>
+      <Box>
+        <img src="/images/emptyState2.svg" alt="my image" />
+      </Box>
+      <Typography variant="h2" sx={{ color: color.title }} mt={4}>
         {title}
       </Typography>
-      <Typography variant="body1" sx={{ color: color.description }}>
+      <Typography variant="body1" sx={{ color: color.description, width: 530 }}>
         {description}
       </Typography>
-      {children && <Box>{children}</Box>}
+      {children && <Box mt={2}>{children}</Box>}
     </Box>
   );
 };
