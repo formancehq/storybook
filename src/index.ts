@@ -1,6 +1,5 @@
 export * from './Buttons/LoadingButton';
 export * from './Buttons/TabButton';
-export * from './Buttons/SelectButton';
 
 export * from './Sections/Amount';
 export * from './Sections/Date';
