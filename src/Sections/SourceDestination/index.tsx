@@ -3,7 +3,7 @@ import React, { FunctionComponent } from 'react';
 
 export type SourceDestinationProps = {
   label: string;
-  ellipse: boolean;
+  ellipse?: boolean;
   onClick?: () => void;
   sx?: SxProps<Theme>;
 };
