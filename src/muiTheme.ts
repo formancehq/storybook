@@ -67,6 +67,8 @@ declare module '@mui/material/styles' {
     heading?: React.CSSProperties;
     action?: React.CSSProperties;
     footNote?: React.CSSProperties;
+    bold?: React.CSSProperties;
+    money?: React.CSSProperties;
   }
 }
 
@@ -80,6 +82,8 @@ declare module '@mui/material/Typography' {
     heading: true;
     action: true;
     footNote: true;
+    bold: true;
+    money: true;
   }
 }
 
@@ -90,7 +94,7 @@ declare module '@mui/material/Chip' {
 }
 
 export const bodyFontFamily = 'Inter,sans-serif';
-export const titleFontFamily = 'Poppins,sans-serif';
+export const titleFontFamily = 'Roboto';
 
 const palette = {
   neutral: {
@@ -161,13 +165,13 @@ const palette = {
 };
 
 const typography = {
-  fontFamily: [bodyFontFamily, titleFontFamily].join(','),
+  fontFamily: [bodyFontFamily, titleFontFamily, 'Roboto Mono'].join(','),
   large3x: {
     fontSize: '64px',
     lineHeight: '72px',
     letterSpacing: '-0.01em',
     fontWeight: 500,
-    fontFamily: titleFontFamily,
+    fontFamily: 'Roboto',
   },
   large2x: {
     fontSize: '56px',
@@ -231,6 +235,17 @@ const typography = {
     fontFamily: bodyFontFamily,
     fontWeight: 400,
     letterSpacing: '-0.01em',
+  },
+  bold: {
+    fontSize: '14px',
+    lineHeight: '24px',
+    fontFamily: bodyFontFamily,
+    fontWeight: '800',
+    letterSpacing: '-0.01em',
+  },
+  money: {
+    fontSize: '14px',
+    fontFamily: 'Roboto Mono',
   },
   action: {
     fontSize: '14px',
