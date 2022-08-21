@@ -13,3 +13,10 @@ export const SourceDestinationSection = () => (
 
 SourceDestinationSection.storyName = 'Default';
 SourceDestinationSection.parameters = storyDocsParameters;
+
+export const SourceDestinationSectionBlue = () => (
+  <SourceDestination label="world" color="blue" />
+);
+
+SourceDestinationSectionBlue.storyName = 'Blue';
+SourceDestinationSectionBlue.parameters = storyDocsParameters;

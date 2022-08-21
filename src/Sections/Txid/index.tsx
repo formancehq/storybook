@@ -7,6 +7,7 @@ export type TxidProps = {
 
 export const Txid: FunctionComponent<TxidProps> = ({ id }) => (
   <Typography
-    sx={{ color: ({ palette }) => palette.neutral[600] }}
+    variant="money"
+    sx={{ color: ({ palette }) => palette.blue.darker }}
   >{`000${id}`}</Typography>
 );
