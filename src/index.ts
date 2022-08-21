@@ -16,6 +16,7 @@ export * from './Forms/TextArea';
 
 export * from './Dataviz/StatsCard';
 
+export * from './Chip';
 export * from './Search';
 export * from './Breadcrumbs';
 export * from './Modal';
