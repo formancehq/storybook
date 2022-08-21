@@ -1,12 +1,14 @@
 import { Box, SxProps, Theme, Tooltip } from '@mui/material';
 import React, { FunctionComponent } from 'react';
 import { Chip } from '../../Chip';
+import { ColorVariants } from '../../types';
 
 export type SourceDestinationProps = {
   label: string;
   ellipse?: boolean;
   onClick?: () => void;
   sx?: SxProps<Theme>;
+  color?: ColorVariants;
 };
 
 export const SourceDestination: FunctionComponent<SourceDestinationProps> = ({
@@ -14,6 +16,7 @@ export const SourceDestination: FunctionComponent<SourceDestinationProps> = ({
   ellipse = true,
   onClick,
   sx,
+  color,
 }) => {
   if (!label) return null;
   const length = label.length;
@@ -27,13 +30,16 @@ export const SourceDestination: FunctionComponent<SourceDestinationProps> = ({
   return (
     <Box display="flex" alignItems="center" component="span">
       <Tooltip title={label}>
-        <Chip
-          key={label}
-          label={name}
-          variant="square"
-          onClick={onClick}
-          sx={sx}
-        />
+        <Box component="span">
+          <Chip
+            key={label}
+            label={name}
+            variant="square"
+            onClick={onClick}
+            color={color}
+            sx={sx}
+          />
+        </Box>
       </Tooltip>
     </Box>
   );
