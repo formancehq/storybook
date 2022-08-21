@@ -11,9 +11,9 @@ export type ChipProps = Omit<MuiChipProps, 'color'> & {
 };
 
 export const Chip: FunctionComponent<ChipProps> = ({ color, sx, ...props }) => {
-  const { palette } = useTheme();
+  const { palette, typography } = useTheme();
 
-  const backgroundColor = color ? palette[color].bright : palette.neutral[50];
+  const backgroundColor = color ? palette[color].light : palette.neutral[50];
   const fontColor = color ? palette[color].darker : palette.neutral[900];
 
   return (
@@ -21,6 +21,7 @@ export const Chip: FunctionComponent<ChipProps> = ({ color, sx, ...props }) => {
       component="span"
       sx={{
         backgroundColor,
+        ...typography.footNote,
         color: fontColor,
         '& .MuiChip-icon': {
           color: fontColor,
