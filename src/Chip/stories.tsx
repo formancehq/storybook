@@ -1,6 +1,7 @@
 import React from 'react';
 import { Chip } from './index';
 import { storyDocsParameters } from '../utils';
+import { SouthEast } from '@mui/icons-material';
 
 export default {
   title: 'Design System/Chip',
@@ -17,6 +18,12 @@ export const DefaultBlueChip = () => <Chip label="label" color="blue" />;
 DefaultBlueChip.storyName = 'Default Blue';
 DefaultBlueChip.parameters = storyDocsParameters;
 
-export const Default = () => <Chip label="label" />;
-DefaultBlueChip.storyName = 'Default';
-DefaultBlueChip.parameters = storyDocsParameters;
+export const DefaultChip = () => <Chip label="label" />;
+DefaultChip.storyName = 'Default';
+DefaultChip.parameters = storyDocsParameters;
+
+export const IconChip = () => (
+  <Chip label="label" icon={<SouthEast />} color="green" variant="square" />
+);
+IconChip.storyName = 'Icon';
+IconChip.parameters = storyDocsParameters;

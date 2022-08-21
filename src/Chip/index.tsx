@@ -10,11 +10,7 @@ export type ChipProps = Omit<MuiChipProps, 'color'> & {
   color?: ColorVariants;
 };
 
-export const Chip: FunctionComponent<ChipProps> = ({
-  label,
-  variant,
-  color,
-}) => {
+export const Chip: FunctionComponent<ChipProps> = ({ color, sx, ...props }) => {
   const { palette } = useTheme();
 
   const backgroundColor = color ? palette[color].bright : palette.neutral[50];
@@ -23,12 +19,15 @@ export const Chip: FunctionComponent<ChipProps> = ({
   return (
     <MuiChip
       component="span"
-      label={label}
-      variant={variant}
       sx={{
         backgroundColor,
         color: fontColor,
+        '& .MuiChip-icon': {
+          color: fontColor,
+        },
+        ...sx,
       }}
+      {...props}
     />
   );
 };

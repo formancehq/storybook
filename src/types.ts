@@ -5,7 +5,8 @@ export type ColorVariants =
   | 'default'
   | 'brown'
   | 'yellow'
-  | 'violet';
+  | 'violet'
+  | 'green';
 
 export type ObjectOf<T> = {
   [name: string]: T;
