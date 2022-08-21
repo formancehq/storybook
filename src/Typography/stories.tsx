@@ -61,3 +61,11 @@ Caption.parameters = storyDocsParameters;
 export const FootNote = () => <Typography variant="footNote">Title</Typography>;
 FootNote.storyName = 'FootNote';
 FootNote.parameters = storyDocsParameters;
+
+export const Bold = () => <Typography variant="bold">Title</Typography>;
+Bold.storyName = 'Bold';
+Bold.parameters = storyDocsParameters;
+
+export const Money = () => <Typography variant="money">Title</Typography>;
+Money.storyName = 'Money';
+Money.parameters = storyDocsParameters;

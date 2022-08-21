@@ -7,5 +7,5 @@ export type AmountProps = {
 };
 
 export const Amount: FunctionComponent<AmountProps> = ({ asset, amount }) => (
-  <Typography variant="heading">{`${asset} ${amount}`}</Typography>
+  <Typography variant="money">{`${asset} ${amount}`}</Typography>
 );
