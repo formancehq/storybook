@@ -1,8 +1,10 @@
-import { Box, Chip, Typography, useTheme } from '@mui/material';
+import { Box, Typography, useTheme } from '@mui/material';
 import React, { FunctionComponent, ReactElement } from 'react';
+import { Chip } from '../../Chip';
+import { ColorVariants } from '../../types';
 
 export type StatsCardProps = {
-  variant?: 'green' | 'brown' | 'blue' | 'violet';
+  variant?: ColorVariants;
   icon: ReactElement;
   chipValue?: string;
   title: string;
@@ -22,6 +24,9 @@ export const StatsCard: FunctionComponent<StatsCardProps> = ({
     brown: palette.brown.bright,
     blue: palette.blue.bright,
     violet: palette.violet.bright,
+    red: palette.red.bright,
+    yellow: palette.yellow.bright,
+    default: palette.default.bright,
   };
 
   const color = variant ? variantsMap[variant] : variantsMap.green;
@@ -50,6 +55,7 @@ export const StatsCard: FunctionComponent<StatsCardProps> = ({
         {chipValue && (
           <Chip
             label={chipValue}
+            color={variant}
             sx={{ border: `1px solid ${color}`, color }}
           />
         )}

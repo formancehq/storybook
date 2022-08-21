@@ -1,5 +1,6 @@
-import { Box, Chip, SxProps, Theme, Tooltip } from '@mui/material';
+import { Box, SxProps, Theme, Tooltip } from '@mui/material';
 import React, { FunctionComponent } from 'react';
+import { Chip } from '../../Chip';
 
 export type SourceDestinationProps = {
   label: string;
@@ -24,7 +25,7 @@ export const SourceDestination: FunctionComponent<SourceDestinationProps> = ({
       : label;
 
   return (
-    <Box display="flex" alignItems="center">
+    <Box display="flex" alignItems="center" component="span">
       <Tooltip title={label}>
         <Chip
           key={label}
