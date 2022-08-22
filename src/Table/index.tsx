@@ -40,7 +40,7 @@ export type TableProps = {
   onInit?: () => void;
   onNext: (next: string) => void;
   onPrevious: (previous: string) => void;
-  labels: {
+  labels?: {
     pagination: { showing: string; separator: string; results: string };
     noResults: string;
   };
@@ -124,7 +124,7 @@ export const Table: FunctionComponent<TableProps> = ({
   items,
   onNext,
   onPrevious,
-  labels,
+  labels: labelsProps,
 }) => {
   const [total, setTotal] = useState(0);
   const [hasMore, setHasMore] = useState(false);
@@ -132,7 +132,15 @@ export const Table: FunctionComponent<TableProps> = ({
   const [pageSize, setPageSize] = useState(paginationSize);
   const [data, setData] = useState([]);
   const [metas, setMetas] = useState<{ next: string; previous: string }>();
-
+  const labels =
+    {
+      pagination: {
+        showing: 'Showing',
+        separator: '/',
+        results: 'results',
+      },
+      noResults: 'No results',
+    } || labelsProps;
   const init = async (results?: any) => {
     if (results) {
       const items = get(results, path, results.length > 0 ? results : []);
@@ -177,7 +185,7 @@ export const Table: FunctionComponent<TableProps> = ({
             variant="outlined"
             sx={{
               border: ({ palette }) => `1px solid ${palette.neutral[200]}`,
-              borderRadius: 0,
+              borderRadius: '4px',
             }}
           >
             <TableContainer>

@@ -292,7 +292,7 @@ export const theme = createTheme({
         root: {
           backgroundColor: palette.neutral[0],
           border: `1px solid ${palette.neutral[200]} !important`,
-          borderRadius: 0,
+          borderRadius: '4px',
           marginTop: 12,
           marginLeft: 3,
           padding: '8px 16px',
@@ -328,7 +328,7 @@ export const theme = createTheme({
       styleOverrides: {
         root: {
           height: '40px',
-          borderRadius: 0,
+          borderRadius: '4px',
           '&.Mui-focused': {
             borderWidth: 1,
           },
@@ -364,7 +364,7 @@ export const theme = createTheme({
           props: { variant: 'square' },
           style: {
             cursor: 'pointer',
-            borderRadius: 0,
+            borderRadius: '4px',
             padding: '2px 12px',
             backgroundColor: palette.neutral[50],
             ...typography.caption,

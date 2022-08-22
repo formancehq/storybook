@@ -82,6 +82,7 @@ export const EmptyState: FunctionComponent<EmptyStateProps> = ({
     <Box
       sx={{
         border: `1px solid ${color.border}`,
+        borderRadius: '4px',
         display: 'flex',
         justifyContent: 'center',
         alignItems: 'center',

@@ -28,6 +28,7 @@ export const TextArea: FunctionComponent<JsonTextAreaProps> = ({
         style={{
           width: '100%',
           borderColor: error ? palette.red.normal : 'initial',
+          borderRadius: '4px',
         }}
         {...props}
       />

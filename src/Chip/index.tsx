@@ -21,7 +21,7 @@ export const Chip: FunctionComponent<ChipProps> = ({ color, sx, ...props }) => {
       component="span"
       sx={{
         backgroundColor,
-        ...typography.footNote,
+        ...typography.body1,
         color: fontColor,
         '& .MuiChip-icon': {
           color: fontColor,
