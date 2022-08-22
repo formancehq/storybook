@@ -1,9 +1,9 @@
 import React from 'react';
-import { storyDocsParameters } from '../utils';
+import { storyDocsParameters } from '../../utils';
 import { JsonViewer } from './index';
 
 export default {
-  title: 'Design System/JsonViewer',
+  title: 'Design System/Viewers/Json',
   component: JsonViewer,
 };
 

@@ -14,6 +14,8 @@ export * from './Containers/SectionWrapper';
 export * from './Forms/TextField';
 export * from './Forms/TextArea';
 
+export * from './Viewers/Json';
+
 export * from './Dataviz/StatsCard';
 
 export * from './Chip';
