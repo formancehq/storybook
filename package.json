@@ -1,6 +1,6 @@
 {
   "name": "@numaryhq/storybook",
-  "version": "0.6.8",
+  "version": "0.6.9",
   "main": "dist/cjs/index.js",
   "module": "dist/esm/index.js",
   "files": [
@@ -15,7 +15,8 @@
     "@mui/lab": "^5.0.0-alpha.92",
     "@mui/material": "^5.9.1",
     "react": "^18.2.0",
-    "react-dom": "^18.2.0"
+    "react-dom": "^18.2.0",
+    "react-json-tree": "^0.17.0"
   },
   "scripts": {
     "start": "react-scripts start",
@@ -89,6 +90,7 @@
     "prettier": "^2.7.1",
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
+    "react-json-tree": "^0.17.0",
     "react-scripts": "5.0.1",
     "rimraf": "^3.0.2",
     "rollup": "^2.77.2",
