@@ -30,6 +30,7 @@ export const AutocompleteSelect: FunctionComponent<FilterProps> = ({
           )}
           <TextField
             {...params}
+            autoFocus
             placeholder={props.placeholder}
             InputLabelProps={{
               shrink: true,
