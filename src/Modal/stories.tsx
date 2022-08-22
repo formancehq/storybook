@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import { Modal } from './index';
 import { LoadingButton } from '../Buttons/LoadingButton';
 import { Box } from '@mui/material';
-import { TextField } from '../Forms/TextFields';
+import { TextField } from '../Forms/TextField';
 import { storyDocsParameters } from '../utils';
 
 export default {
