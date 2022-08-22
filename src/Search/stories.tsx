@@ -1,237 +1,182 @@
 import React, { useState } from 'react';
-import { Search, Suggestion } from './index';
+import { Search } from './index';
 import { LoadingButton } from '../Buttons/LoadingButton';
 import {
-  DoneAll,
-  DriveFileRenameOutline,
-  EditLocation,
+  AccountBalance,
+  CreditCard,
   SearchOutlined,
 } from '@mui/icons-material';
-import { Box } from '@mui/material';
-import { noop, storyDocsParameters } from '../utils';
+import { Box, Typography } from '@mui/material';
+import { storyDocsParameters } from '../utils';
+import { Chip } from '../Chip';
+import { Txid } from '../Sections/Txid';
 
 export default {
-  title: 'Design System/Search/Spotlight',
+  title: 'Design System/SearchBar',
   component: Search,
 };
 
 const onClick = (id: number | string) => id;
-
-const suggestions: Suggestion[] = [
-  {
-    label: 'Payment',
-    icon: <DriveFileRenameOutline />,
-    total: 140,
-    items: [
-      {
-        id: 1,
-        label: 'payin:679472',
-        onClick,
-      },
-      {
-        id: 2,
-        label: 'payout:679473',
-        onClick,
-      },
-      {
-        id: 3,
-        label: 'payout:679474',
-        onClick,
-      },
-      {
-        id: 4,
-        label: 'payout:679475',
-        onClick,
-      },
-      {
-        id: 5,
-        label: 'payout:679476',
-        onClick,
-      },
-      {
-        id: 6,
-        label: 'payout:679477',
-        onClick,
-      },
-      {
-        id: 7,
-        label: 'payout:679478',
-        onClick,
-      },
-      {
-        id: 8,
-        label: 'payout:679479',
-        onClick,
-      },
-      {
-        id: 10,
-        label: 'payout:6794711',
-        onClick,
-      },
-      {
-        id: 11,
-        label: 'payout:6794712',
-        onClick,
-      },
-    ],
-  },
-  {
-    label: 'Transaction',
-    icon: <DoneAll />,
-    total: 14,
-    items: [
-      {
-        id: 1,
-        label: '000679472',
-        onClick,
-      },
-      {
-        id: 2,
-        label: '000679473',
-        onClick,
-      },
-    ],
-  },
-  {
-    label: 'Accounts',
-    icon: <EditLocation />,
-    total: 180,
-
-    items: [
-      {
-        id: 1,
-        label: '000679472',
-        onClick,
-      },
-      {
-        id: 2,
-        label: '000679473',
-        onClick,
-      },
-    ],
-  },
-];
-const suggestions2: Suggestion[] = [
-  {
-    label: 'Payment',
-    icon: <DriveFileRenameOutline />,
-    items: [
-      {
-        id: 1,
-        label: 'payin:679472',
-        onClick,
-      },
-      {
-        id: 2,
-        label: 'payout:679473',
-        onClick,
-      },
-    ],
-  },
-  {
-    label: 'Transaction',
-    icon: <DoneAll />,
-    items: [
-      {
-        id: 1,
-        label: '000679472',
-        onClick,
-      },
-    ],
-  },
-];
-const suggestions3: Suggestion[] = [
-  {
-    label: 'Payment',
-    icon: <DriveFileRenameOutline />,
-    items: [
-      {
-        id: 1,
-        label: 'payin:679472',
-        onClick,
-      },
-      {
-        id: 2,
-        label: 'payout:679473',
-        onClick,
-      },
-    ],
-  },
-  {
-    label: 'Transaction',
-    icon: <DoneAll />,
-    items: [],
-  },
-];
-
-export const DefaultSpotlight = () => {
-  const [open, setOpen] = useState(false);
-  const handleOpen = () => setOpen(true);
-  const handleClose = () => setOpen(false);
-  const handleOnChange = () => noop();
-  const handleOnKeyDown = () => noop();
-
-  return (
-    <Box>
-      <LoadingButton
-        startIcon={<SearchOutlined />}
-        onClick={handleOpen}
-        variant="dark"
-      />
-      <Search
-        open={open}
-        onClose={handleClose}
-        onChange={handleOnChange}
-        onKeyDown={handleOnKeyDown}
-        suggestions={suggestions}
-      />
-    </Box>
-  );
+type Suggestion<T> = {
+  label?: string;
+  viewAll: boolean;
+  items: T[] | [];
 };
-DefaultSpotlight.storyName = 'Default';
-DefaultSpotlight.parameters = storyDocsParameters;
 
-export const SpotlightWithoutTotalResults = () => {
-  const [open, setOpen] = useState(false);
-  const handleOpen = () => setOpen(true);
-  const handleClose = () => setOpen(false);
-
-  return (
-    <Box>
-      <LoadingButton
-        startIcon={<SearchOutlined />}
-        onClick={handleOpen}
-        variant="primary"
-      />
-      <Search open={open} onClose={handleClose} suggestions={suggestions2} />
-    </Box>
-  );
+const accounts: Suggestion<any> = {
+  viewAll: true,
+  items: [
+    {
+      id: 1,
+      label: 'world:000679472',
+      ledger: 'main-production',
+      onClick,
+    },
+    {
+      id: 2,
+      label: 'world:000679473',
+      ledger: 'production',
+      onClick,
+    },
+    {
+      id: 2,
+      label: 'world:000679476',
+      ledger: 'production',
+      onClick,
+    },
+  ],
 };
-SpotlightWithoutTotalResults.storyName = 'Without total results';
-SpotlightWithoutTotalResults.parameters = storyDocsParameters;
 
-export const SpotlightWithNoResults = () => {
-  const [open, setOpen] = useState(false);
-  const handleOpen = () => setOpen(true);
-  const handleClose = () => setOpen(false);
-
-  return (
-    <Box>
-      <LoadingButton startIcon={<SearchOutlined />} onClick={handleOpen} />
-      <Search open={open} onClose={handleClose} suggestions={[]} />
-    </Box>
-  );
+const transactions: Suggestion<any> = {
+  viewAll: true,
+  items: [
+    {
+      id: 1,
+      ledger: 'main-production',
+      source: 'world:0006',
+      label: '1',
+      onClick,
+    },
+    {
+      id: 2,
+      ledger: 'production',
+      source: 'world:0006',
+      label: '2',
+      onClick,
+    },
+    {
+      id: 3,
+      label: '3',
+      ledger: 'production',
+      source: 'world:0006',
+      onClick,
+    },
+  ],
 };
-SpotlightWithNoResults.storyName = 'With no results';
-SpotlightWithNoResults.parameters = storyDocsParameters;
 
-export const SpotlightWithLoader = () => {
+export const DefaultSearch = () => {
   const [open, setOpen] = useState(false);
   // eslint-disable-next-line @typescript-eslint/no-unused-vars
   const [loading, _setLLoading] = useState(true);
   const handleOpen = () => setOpen(true);
   const handleClose = () => setOpen(false);
 
+  const renderChildren = (value: string) => (
+    <Box
+      sx={{
+        overflowY: 'auto',
+        display: 'flex',
+        width: 800,
+        mt: 2,
+      }}
+    >
+      <Box
+        p={2}
+        sx={{
+          width: 60,
+          display: 'flex',
+          flexDirection: 'column',
+          backgroundColor: ({ palette }) => palette.neutral[50],
+          borderRight: ({ palette }) => `1px solid ${palette.neutral[200]}`,
+        }}
+      >
+        <LoadingButton
+          variant="dark"
+          startIcon={<AccountBalance />}
+          sx={{ width: 50, marginTop: 2 }}
+        />
+        <LoadingButton
+          variant="stroke"
+          startIcon={<CreditCard />}
+          sx={{ width: 50, marginTop: 2 }}
+        />
+        <LoadingButton
+          variant="stroke"
+          content={<Typography variant="bold">R</Typography>}
+          sx={{ width: 50, marginTop: 2 }}
+        />
+      </Box>
+      <Box
+        sx={{
+          backgroundColor: ({ palette }) => palette.neutral[0],
+          width: 740,
+          height: 400,
+          p: 2,
+          overflowY: 'auto',
+        }}
+      >
+        <Typography variant="bold">
+          Result for {value} accross ledgers
+        </Typography>
+        {renderLedger(accounts, 'Account')}
+        {renderLedger(transactions, 'Transaction')}
+      </Box>
+    </Box>
+  );
+
+  const renderLedger = (data: any, target: string) => (
+    <Box mt={1}>
+      {data.items.map((item: any, index: number) => (
+        <>
+          <Box
+            key={index}
+            sx={{
+              display: 'flex',
+              paddingTop: 1,
+              paddingBottom: 1,
+              columnGap: '100px',
+            }}
+          >
+            <Chip
+              label={target === 'Account' ? 'Account' : 'Transaction'}
+              color={target === 'Account' ? 'default' : 'blue'}
+              variant="square"
+            />
+            {target === 'Account' ? (
+              <Typography>{item.label}</Typography>
+            ) : (
+              <Box display="inline-flex" alignItems="center">
+                <Txid id={item.label} />
+                <Typography ml={1}>{item.source}</Typography>
+              </Box>
+            )}
+            <Chip
+              label={item.ledger}
+              variant="square"
+              icon={<AccountBalance fontSize="small" />}
+              sx={{ '& .MuiChip-icon': ({ palette }) => palette.neutral[300] }}
+            />
+          </Box>
+        </>
+      ))}
+      {data.viewAll && (
+        <Box display="flex" justifyContent="center" mt={1} mb={1}>
+          <LoadingButton content={`View all ${target}`} />
+        </Box>
+      )}
+    </Box>
+  );
+
   return (
     <Box>
       <LoadingButton
@@ -242,30 +187,11 @@ export const SpotlightWithLoader = () => {
       <Search
         open={open}
         onClose={handleClose}
-        suggestions={[]}
         loading={loading}
+        renderChildren={(value) => renderChildren(value)}
       />
     </Box>
   );
 };
-SpotlightWithLoader.storyName = 'With Loader';
-SpotlightWithLoader.parameters = storyDocsParameters;
-
-export const SpotlightWithEmptyItemsCategory = () => {
-  const [open, setOpen] = useState(false);
-  const handleOpen = () => setOpen(true);
-  const handleClose = () => setOpen(false);
-
-  return (
-    <Box>
-      <LoadingButton
-        startIcon={<SearchOutlined />}
-        onClick={handleOpen}
-        variant="primary"
-      />
-      <Search open={open} onClose={handleClose} suggestions={suggestions3} />
-    </Box>
-  );
-};
-SpotlightWithEmptyItemsCategory.storyName = 'With empty category items';
-SpotlightWithEmptyItemsCategory.parameters = storyDocsParameters;
+DefaultSearch.storyName = 'Default';
+DefaultSearch.parameters = storyDocsParameters;
