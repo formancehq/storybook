@@ -32,6 +32,7 @@ const data = [
 
 export const DefaultAutocompleteCheckbox = () => (
   <AutocompleteSelect
+    noOptionsText="Sorry"
     label="Ledgers"
     placeholder="Search a ledger"
     name="ledgers"
