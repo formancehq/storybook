@@ -47,7 +47,7 @@ export const LoadingButton: FunctionComponent<LoadingButtonProps> = ({
     padding: '8px 16px',
     minWidth: 40,
     height: 40,
-    borderRadius: 0,
+    borderRadius: '4px',
     '& .MuiButton-endIcon': {
       marginRight: 0,
       marginLeft: content ? 1 : 0,
@@ -91,13 +91,13 @@ export const LoadingButton: FunctionComponent<LoadingButtonProps> = ({
   };
   const darkStyles = {
     ...commonStyles,
-    backgroundColor: theme.palette.neutral[900],
+    backgroundColor: theme.palette.neutral[700],
     color: theme.palette.neutral[0],
     ':hover': {
-      backgroundColor: theme.palette.neutral[700],
+      backgroundColor: theme.palette.neutral[600],
     },
     ':focus': {
-      backgroundColor: theme.palette.neutral[700],
+      backgroundColor: theme.palette.neutral[600],
     },
   };
 

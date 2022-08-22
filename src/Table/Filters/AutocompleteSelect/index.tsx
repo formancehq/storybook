@@ -44,9 +44,13 @@ export const AutocompleteSelect: FunctionComponent<FilterProps> = ({
       )}
       renderTags={props.renderTags ? props.renderTags : () => null}
       sx={{
-        '& ::placeholder': {
+        '& input::placeholder': {
           color: `${palette.neutral[0]} !important`,
           opacity: 1 /* Firefox */,
+        },
+
+        '& .MuiFormControl-root': {
+          borderRadius: '4px',
         },
         '& .MuiAutocomplete-endAdornment .MuiButtonBase-root': {
           color: palette.neutral[0],
@@ -57,6 +61,9 @@ export const AutocompleteSelect: FunctionComponent<FilterProps> = ({
         },
         '& input': {
           color: palette.neutral[0],
+        },
+        '& .MuiInputBase-root-MuiOutlinedInput-root fieldset': {
+          border: 0,
         },
         '& .MuiInputLabel-root': {
           ...typography.body2,

@@ -34,7 +34,12 @@ export const StatsCard: FunctionComponent<StatsCardProps> = ({
   return (
     <Box
       p={4}
-      sx={{ width: 258, height: 212, backgroundColor: palette.neutral[800] }}
+      sx={{
+        width: 258,
+        height: 212,
+        backgroundColor: palette.neutral[800],
+        borderRadius: '4px',
+      }}
       display="flex"
       flexDirection="column"
     >
