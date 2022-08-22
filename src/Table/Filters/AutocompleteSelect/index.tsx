@@ -3,6 +3,7 @@ import TextField from '@mui/material/TextField';
 import Autocomplete, { AutocompleteProps } from '@mui/material/Autocomplete';
 import { FunctionComponent } from 'react';
 import { InputLabel, useTheme } from '@mui/material';
+import { ImportExport } from '@mui/icons-material';
 
 export type FilterProps = Omit<
   AutocompleteProps<any, any, any, any>,
@@ -19,20 +20,6 @@ export const AutocompleteSelect: FunctionComponent<FilterProps> = ({
 
   return (
     <Autocomplete
-      sx={{
-        '& .MuiAutocomplete-endAdornment .MuiButtonBase-root': {
-          color: palette.neutral[0],
-        },
-        '& input': {
-          color: palette.neutral[0],
-        },
-        '& .MuiInputLabel-root': {
-          ...typography.body2,
-        },
-        '& .MuiOutlinedInput-root .MuiAutocomplete-input': {
-          padding: 0,
-        },
-      }}
       {...props}
       renderInput={(params) => (
         <>
@@ -47,11 +34,37 @@ export const AutocompleteSelect: FunctionComponent<FilterProps> = ({
             InputLabelProps={{
               shrink: true,
             }}
+            InputProps={{
+              ...params.InputProps,
+              startAdornment: <ImportExport />,
+            }}
             sx={{ backgroundColor: ({ palette }) => palette.neutral[900] }}
           />
         </>
       )}
       renderTags={props.renderTags ? props.renderTags : () => null}
+      sx={{
+        '& ::placeholder': {
+          color: `${palette.neutral[0]} !important`,
+          opacity: 1 /* Firefox */,
+        },
+        '& .MuiAutocomplete-endAdornment .MuiButtonBase-root': {
+          color: palette.neutral[0],
+        },
+        '& .MuiSvgIcon-root': {
+          color: palette.neutral[0],
+          marginRight: 2,
+        },
+        '& input': {
+          color: palette.neutral[0],
+        },
+        '& .MuiInputLabel-root': {
+          ...typography.body2,
+        },
+        '& .MuiOutlinedInput-root .MuiAutocomplete-input': {
+          padding: 0,
+        },
+      }}
     />
   );
 };
