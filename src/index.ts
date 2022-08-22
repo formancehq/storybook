@@ -11,7 +11,7 @@ export * from './Containers/EmptyState';
 export * from './Containers/Page';
 export * from './Containers/SectionWrapper';
 
-export * from './Forms/TextFields';
+export * from './Forms/TextField';
 export * from './Forms/TextArea';
 
 export * from './Dataviz/StatsCard';
@@ -20,7 +20,9 @@ export * from './Chip';
 export * from './Search';
 export * from './Breadcrumbs';
 export * from './Modal';
+
 export * from './Table';
+export * from './Table/Filters/AutocompleteSelect';
 
 export * from './utils';
 export * from './muiTheme';
