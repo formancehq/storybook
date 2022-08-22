@@ -77,7 +77,6 @@ const transactions: Suggestion<any> = {
 export const DefaultSearch = () => {
   const [open, setOpen] = useState(false);
   // eslint-disable-next-line @typescript-eslint/no-unused-vars
-  const [loading, _setLLoading] = useState(true);
   const handleOpen = () => setOpen(true);
   const handleClose = () => setOpen(false);
 
@@ -187,7 +186,6 @@ export const DefaultSearch = () => {
       <Search
         open={open}
         onClose={handleClose}
-        loading={loading}
         renderChildren={(value) => renderChildren(value)}
       />
     </Box>
