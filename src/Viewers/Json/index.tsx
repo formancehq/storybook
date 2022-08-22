@@ -1,13 +1,11 @@
 import { useTheme } from '@mui/material';
 import React, { FunctionComponent } from 'react';
-import { ObjectOf } from '../types';
+import { ObjectOf } from '../../types';
 import { JSONTree } from 'react-json-tree';
 
 export type JsonViewerProps = {
   jsonData: ObjectOf<any>;
-  theme?: {
-    [key: string]: string;
-  };
+  theme?: ObjectOf<string>;
 };
 
 export const JsonViewer: FunctionComponent<JsonViewerProps> = ({
