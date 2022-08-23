@@ -347,6 +347,7 @@ export const theme = createTheme({
           '&.Mui-disabled .MuiInputAdornment-root': {
             color: palette.neutral[500],
           },
+          backgroundColor: palette.neutral[0],
         },
       },
     },
