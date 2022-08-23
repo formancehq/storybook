@@ -2,8 +2,7 @@ import * as React from 'react';
 import TextField from '@mui/material/TextField';
 import Autocomplete, { AutocompleteProps } from '@mui/material/Autocomplete';
 import { FunctionComponent } from 'react';
-import { InputLabel, useTheme } from '@mui/material';
-import { ImportExport } from '@mui/icons-material';
+import { InputLabel } from '@mui/material';
 
 export type FilterProps = Omit<
   AutocompleteProps<any, any, any, any>,
@@ -11,67 +10,40 @@ export type FilterProps = Omit<
 > & {
   name: string;
   label?: string;
-  placeholder: string;
+  placeholder?: string;
+  icon?: React.ReactNode;
 };
 export const AutocompleteSelect: FunctionComponent<FilterProps> = ({
+  icon,
   ...props
-}) => {
-  const { palette, typography } = useTheme();
-
-  return (
-    <Autocomplete
-      {...props}
-      renderInput={(params) => (
-        <>
-          {props.label && (
-            <InputLabel shrink htmlFor={props.name}>
-              {props.label}
-            </InputLabel>
-          )}
-          <TextField
-            {...params}
-            placeholder={props.placeholder}
-            InputLabelProps={{
-              shrink: true,
-            }}
-            InputProps={{
-              ...params.InputProps,
-              startAdornment: <ImportExport />,
-            }}
-            sx={{ backgroundColor: ({ palette }) => palette.neutral[900] }}
-          />
-        </>
-      )}
-      renderTags={props.renderTags ? props.renderTags : () => null}
-      sx={{
-        '& input::placeholder': {
-          color: `${palette.neutral[0]} !important`,
-          opacity: 1 /* Firefox */,
-        },
-
-        '& .MuiFormControl-root': {
-          borderRadius: '4px',
-        },
-        '& .MuiAutocomplete-endAdornment .MuiButtonBase-root': {
-          color: palette.neutral[0],
-        },
-        '& .MuiSvgIcon-root': {
-          color: palette.neutral[0],
-          marginRight: 2,
-        },
-        '& input': {
-          color: palette.neutral[0],
-        },
-        '& .MuiOutlinedInput-notchedOutline.MuiOutlinedInput-notchedOutline': {
-          border: 0,
-        },
-        '& .MuiInputLabel-root': {
-          ...typography.body2,
-        },
-        '& .MuiOutlinedInput-root .MuiAutocomplete-input': {
-          padding: 0,
-        },
-      }}
-    />
-  );
-};
+}) => (
+  <Autocomplete
+    {...props}
+    renderInput={(params) => (
+      <>
+        {props.label && (
+          <InputLabel shrink htmlFor={props.name}>
+            {props.label}
+          </InputLabel>
+        )}
+        <TextField
+          {...params}
+          placeholder={props.placeholder}
+          InputLabelProps={{
+            shrink: true,
+          }}
+          InputProps={{
+            ...params.InputProps,
+            startAdornment: icon ? icon : icon,
+          }}
+        />
+      </>
+    )}
+    renderTags={props.renderTags ? props.renderTags : () => null}
+    sx={{
+      '& .MuiOutlinedInput-root .MuiAutocomplete-input': {
+        padding: 0,
+      },
+    }}
+  />
+);

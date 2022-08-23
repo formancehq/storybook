@@ -2,6 +2,7 @@ import React from 'react';
 import { AutocompleteSelect } from './index';
 import { storyDocsParameters } from '../../../utils';
 import Checkbox from '@mui/material/Checkbox';
+import { ImportExport } from '@mui/icons-material';
 
 export default {
   title: 'Design System/Table/Filters',
@@ -39,6 +40,7 @@ export const DefaultAutocompleteCheckbox = () => (
     multiple
     id="checkboxes-tags-demo"
     options={data}
+    icon={<ImportExport />}
     disableCloseOnSelect
     getOptionLabel={(option) => option.title}
     renderOption={(props, option, { selected }) => (
