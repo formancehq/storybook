@@ -62,7 +62,7 @@ export const AutocompleteSelect: FunctionComponent<FilterProps> = ({
         '& input': {
           color: palette.neutral[0],
         },
-        '& .MuiInputBase-root-MuiOutlinedInput-root fieldset': {
+        '& .MuiOutlinedInput-notchedOutline.MuiOutlinedInput-notchedOutline': {
           border: 0,
         },
         '& .MuiInputLabel-root': {
