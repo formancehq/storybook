@@ -1,6 +1,8 @@
 export * from './Buttons/LoadingButton';
 export * from './Buttons/TabButton';
 
+export * from './OnBoarding';
+
 export * from './Sections/Amount';
 export * from './Sections/Date';
 export * from './Sections/DividerWithSpace';
