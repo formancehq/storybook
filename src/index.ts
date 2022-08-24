@@ -6,6 +6,7 @@ export * from './Sections/Date';
 export * from './Sections/DividerWithSpace';
 export * from './Sections/SourceDestination';
 export * from './Sections/Txid';
+export * from './Sections/TitleWithBar';
 
 export * from './Containers/EmptyState';
 export * from './Containers/Page';
