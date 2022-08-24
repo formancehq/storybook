@@ -44,36 +44,34 @@ export const Search: FunctionComponent<SearchProps> = ({
         }}
       >
         <Box width={600} ml={12} mr={12}>
-          <form>
-            <TextField
-              placeholder={'Search'}
-              name="terms"
-              required={true}
-              fullWidth
-              onChange={handleOnChange}
-              autoComplete="off"
-              onKeyDown={onKeyDown}
-              InputProps={{
-                sx: {
-                  height: 56,
-                  '& svg': { color: ({ palette }) => palette.neutral[400] },
-                  backgroundColor: ({ palette }) => palette.neutral[0],
-                  '& fieldset': {
-                    border: 'none',
-                  },
+          <TextField
+            placeholder={'Search'}
+            name="terms"
+            required={true}
+            fullWidth
+            onChange={handleOnChange}
+            autoComplete="off"
+            onKeyDown={onKeyDown}
+            InputProps={{
+              sx: {
+                height: 56,
+                '& svg': { color: ({ palette }) => palette.neutral[400] },
+                backgroundColor: ({ palette }) => palette.neutral[0],
+                '& fieldset': {
+                  border: 'none',
                 },
-                startAdornment: (
-                  <SearchOutlined
-                    color="primary"
-                    sx={{
-                      marginRight: 1,
-                      color: ({ palette }) => palette.neutral[400],
-                    }}
-                  />
-                ),
-              }}
-            />
-          </form>
+              },
+              startAdornment: (
+                <SearchOutlined
+                  color="primary"
+                  sx={{
+                    marginRight: 1,
+                    color: ({ palette }) => palette.neutral[400],
+                  }}
+                />
+              ),
+            }}
+          />
         </Box>
         {searchValue && renderChildren(searchValue)}
       </Box>
