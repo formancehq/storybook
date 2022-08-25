@@ -6,37 +6,26 @@ import React, {
   useRef,
   useState,
 } from 'react';
-import { SxProps, Theme, useTheme } from '@mui/material';
+import { ButtonProps, SxProps, Theme, useTheme } from '@mui/material';
 import { ButtonVariants, CFunction } from '../../types';
 
-export type LoadingButtonProps = {
+export type LoadingButtonProps = Omit<
+  ButtonProps,
+  'variant' | 'onClick' | 'sx'
+> & {
   content?: string | ReactElement;
-  startIcon?: React.ReactNode;
-  endIcon?: React.ReactNode;
-  onClick?: CFunction<any> | (() => void);
   variant?: ButtonVariants;
-  disabled?: boolean;
-  type?: string;
-  id?: string;
-  fullwidth?: boolean;
   sx?: SxProps<Theme>;
-  onMouseEnter?: CFunction<any>;
-  onMouseLeave?: CFunction<any>;
+  onClick?: CFunction<any> | (() => void);
+  id?: string;
 };
-
 export const LoadingButton: FunctionComponent<LoadingButtonProps> = ({
   content,
-  startIcon,
-  endIcon,
-  onClick,
   variant = 'light',
-  type,
-  disabled = false,
   id,
-  fullwidth = false,
+  onClick,
   sx,
-  onMouseEnter,
-  onMouseLeave,
+  ...props
 }) => {
   const [loading, setLoading] = useState(false);
   const _isMounted = useRef(true);
@@ -130,16 +119,9 @@ export const LoadingButton: FunctionComponent<LoadingButtonProps> = ({
       id={id}
       data-testid={id}
       sx={variantsMap[variant]}
-      fullWidth={fullwidth}
       loading={loading}
-      disabled={disabled}
-      type={type}
-      startIcon={startIcon}
-      endIcon={endIcon}
       onClick={handleClick}
-      onMouseEnter={onMouseEnter}
-      onMouseLeave={onMouseLeave}
-      href=""
+      {...props}
     >
       {content}
     </MuiLoadingButton>
