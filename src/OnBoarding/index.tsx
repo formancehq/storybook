@@ -17,7 +17,6 @@ export const OnBoarding: FunctionComponent<OnBoardingProps> = ({
   children,
 }) => (
   <Box
-    mt={5}
     sx={{
       width: width || '45%',
       p: '24px',

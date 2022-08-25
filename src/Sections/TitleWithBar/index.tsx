@@ -3,14 +3,19 @@ import React, { FunctionComponent } from 'react';
 
 export type TitleWithBarProps = {
   title: string;
+  titleColor?: string;
   borderColor?: string;
 };
 
 export const TitleWithBar: FunctionComponent<TitleWithBarProps> = ({
   title,
+  titleColor,
   borderColor,
 }) => (
-  <Typography variant="h1" sx={{ display: 'flex', alignItems: 'center' }}>
+  <Typography
+    variant="h1"
+    sx={{ display: 'flex', alignItems: 'center', color: titleColor }}
+  >
     {title}
     <Divider
       sx={{
