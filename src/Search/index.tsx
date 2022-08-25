@@ -1,13 +1,11 @@
 import React, { FunctionComponent, ReactElement, useState } from 'react';
-import { Box, Modal, TextField } from '@mui/material';
+import { Box, Modal, TextField, TextFieldProps } from '@mui/material';
 import { SearchOutlined } from '@mui/icons-material';
-import { CFunction } from '../types';
+import { isEmpty } from 'lodash';
 
-export type SearchProps = {
+export type SearchProps = TextFieldProps & {
   open: boolean;
   onClose: () => void;
-  onChange?: CFunction<any>;
-  onKeyDown?: CFunction<any>;
   renderChildren: (value: string) => ReactElement;
 };
 
@@ -17,20 +15,48 @@ export const Search: FunctionComponent<SearchProps> = ({
   onChange,
   onKeyDown,
   renderChildren,
+  ...props
 }) => {
-  const [searchValue, setSearchValue] = useState(undefined);
+  const [searchValue, setSearchValue] = useState<string>();
+  const [openDropdown, setOpenDropdown] = useState<boolean>(false);
+
+  const resetSearch = () => {
+    setSearchValue(undefined);
+    setOpenDropdown(false);
+  };
+
+  const handleOnClose = () => {
+    resetSearch();
+    onClose();
+  };
 
   const handleOnChange = (event: any) => {
-    setSearchValue(event.target.value);
+    const value = event.target.value;
+    if (isEmpty(value)) {
+      resetSearch();
+    }
+    if (value && !isEmpty(value)) {
+      setSearchValue(value);
+    }
     onChange && onChange(event);
+  };
+
+  const handleOnKeyDown = (event: any) => {
+    if (event.keyCode === 13) {
+      setOpenDropdown(true);
+    }
+    if (event.keyCode === 27) {
+      resetSearch();
+    }
+    onKeyDown && onKeyDown(event);
   };
 
   return (
     <Modal
       open={open}
-      onClose={onClose}
-      aria-labelledby="modal-modal-title"
-      aria-describedby="modal-modal-description"
+      onClose={handleOnClose}
+      aria-labelledby="search-modal-title"
+      aria-describedby="search-modal-description"
     >
       <Box
         sx={{
@@ -45,13 +71,10 @@ export const Search: FunctionComponent<SearchProps> = ({
       >
         <Box width={600} ml={12} mr={12}>
           <TextField
-            placeholder={'Search'}
-            name="terms"
-            required={true}
             fullWidth
             onChange={handleOnChange}
             autoComplete="off"
-            onKeyDown={onKeyDown}
+            onKeyDown={handleOnKeyDown}
             InputProps={{
               sx: {
                 height: 56,
@@ -71,9 +94,10 @@ export const Search: FunctionComponent<SearchProps> = ({
                 />
               ),
             }}
+            {...props}
           />
         </Box>
-        {searchValue && renderChildren(searchValue)}
+        {openDropdown && searchValue && renderChildren(searchValue)}
       </Box>
     </Modal>
   );
