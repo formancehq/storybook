@@ -19,7 +19,7 @@ export const AutocompleteSelect: FunctionComponent<FilterProps> = ({
   <Autocomplete
     {...props}
     multiple
-    limitTags={2}
+    limitTags={1}
     renderInput={(params) => (
       <>
         {props.label && (
