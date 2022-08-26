@@ -247,35 +247,36 @@ export const Table: FunctionComponent<TableProps> = ({
                 </TableBody>
               </MuiTable>
             </TableContainer>
-            {withPagination && data.length > 0 && (
-              <Box
-                display="flex"
-                justifyContent="space-between"
-                alignItems="center"
-                p={2}
-              >
-                <Box>
-                  <Typography color="primary.light" sx={{ opacity: 0.4 }}>
-                    {`${labels.pagination.showing} ${pageSize} ${labels.pagination.separator} ${total} ${labels.pagination.results}`}
-                  </Typography>
-                </Box>
-                <Box>
-                  <LoadingButton
-                    id="pagination-previous"
-                    disabled={hasPrevious}
-                    onClick={handlePreviousButtonClick}
-                    endIcon={<ArrowLeft />}
-                  />
-                  <LoadingButton
-                    id="pagination-next"
-                    disabled={!hasMore}
-                    onClick={handleNextButtonClick}
-                    endIcon={<ArrowRight />}
-                  />
-                </Box>
-              </Box>
-            )}
           </Paper>
+          {/* Pagination */}
+          {withPagination && data.length > 0 && (
+            <Box
+              display="flex"
+              justifyContent="space-between"
+              alignItems="center"
+              mt={2}
+            >
+              <Box>
+                <Typography color="primary.light" sx={{ opacity: 0.4 }}>
+                  {`${labels.pagination.showing} ${pageSize} ${labels.pagination.separator} ${total} ${labels.pagination.results}`}
+                </Typography>
+              </Box>
+              <Box>
+                <LoadingButton
+                  id="pagination-previous"
+                  disabled={hasPrevious}
+                  onClick={handlePreviousButtonClick}
+                  endIcon={<ArrowLeft />}
+                />
+                <LoadingButton
+                  id="pagination-next"
+                  disabled={!hasMore}
+                  onClick={handleNextButtonClick}
+                  endIcon={<ArrowRight />}
+                />
+              </Box>
+            </Box>
+          )}
         </Box>
       )}
     </>
