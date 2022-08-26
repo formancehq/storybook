@@ -1,8 +1,8 @@
 import React from 'react';
 import { SectionWrapper } from './index';
 import { Box } from '@mui/material';
-import { EmptyState } from '../EmptyState';
 import { storyDocsParameters } from '../../utils';
+import { DefaultTable, EmptyTable } from '../../Table/stories';
 
 export default {
   title: 'Design System/Containers/Wrapper',
@@ -12,10 +12,10 @@ export default {
 export const DefaultSectionWrapper = () => (
   <Box>
     <SectionWrapper title="Title A">
-      <EmptyState title="A" description="Aa" />
+      <EmptyTable />
     </SectionWrapper>
     <SectionWrapper title="Title B">
-      <EmptyState title="B" description="Bb" />
+      <DefaultTable />
     </SectionWrapper>
   </Box>
 );
