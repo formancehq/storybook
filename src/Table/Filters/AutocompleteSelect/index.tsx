@@ -3,6 +3,7 @@ import TextField from '@mui/material/TextField';
 import Autocomplete, { AutocompleteProps } from '@mui/material/Autocomplete';
 import { FunctionComponent } from 'react';
 import { InputLabel } from '@mui/material';
+import { Chip } from '../../../Chip';
 
 export type FilterProps = Omit<
   AutocompleteProps<any, any, any, any>,
@@ -20,6 +21,20 @@ export const AutocompleteSelect: FunctionComponent<FilterProps> = ({
     {...props}
     multiple
     limitTags={1}
+    renderTags={(value, getTagProps, ownerState) => {
+      if (props.renderTags) {
+        return props.renderTags(value, getTagProps, ownerState);
+      } else {
+        return value.map((option, index) => (
+          <Chip
+            label={option.title}
+            size="small"
+            {...getTagProps({ index })}
+            key={index}
+          />
+        ));
+      }
+    }}
     renderInput={(params) => (
       <>
         {props.label && (
@@ -42,7 +57,7 @@ export const AutocompleteSelect: FunctionComponent<FilterProps> = ({
       },
       '& .MuiAutocomplete-tag': {
         padding: 0,
-        mt: '-6px',
+        mt: '-4px',
       },
       '& .MuiAutocomplete-inputFocused': {
         padding: 0,

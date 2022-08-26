@@ -7,16 +7,20 @@ export type StatsCardProps = {
   variant?: ColorVariants;
   icon: ReactElement;
   chipValue?: string;
-  title: string;
-  mainValue: string;
+  title1: string;
+  title2: string;
+  value1: string;
+  value2: string;
 };
 
 export const StatsCard: FunctionComponent<StatsCardProps> = ({
   icon,
   variant,
   chipValue,
-  mainValue,
-  title,
+  title2,
+  title1,
+  value2,
+  value1,
 }) => {
   const { palette } = useTheme();
   const variantsMap = {
@@ -57,22 +61,26 @@ export const StatsCard: FunctionComponent<StatsCardProps> = ({
             {icon}
           </Box>
         </Box>
-        {chipValue && (
-          <Chip
-            label={chipValue}
-            color={variant}
-            sx={{ border: `1px solid ${color}`, color }}
-          />
-        )}
+        {chipValue && <Chip label={chipValue} color={variant} />}
       </Box>
-      <Box mt={8}>
+      <Box mt={3}>
         <Typography
           sx={{ textTransform: 'uppercase', color: palette.neutral[400] }}
         >
-          {title}
+          {title1}
         </Typography>
-        <Typography variant="large" sx={{ color: palette.neutral[0] }}>
-          {mainValue}
+        <Typography variant="h1" sx={{ color: palette.neutral[0] }}>
+          {value1}
+        </Typography>
+      </Box>
+      <Box mt={3}>
+        <Typography
+          sx={{ textTransform: 'uppercase', color: palette.neutral[400] }}
+        >
+          {title2}
+        </Typography>
+        <Typography variant="h1" sx={{ color: palette.neutral[0] }}>
+          {value2}
         </Typography>
       </Box>
     </Box>

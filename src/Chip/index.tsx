@@ -23,7 +23,7 @@ export const Chip: FunctionComponent<ChipProps> = ({ color, sx, ...props }) => {
         backgroundColor,
         ...typography.body1,
         color: fontColor,
-        '& .MuiChip-icon': {
+        '& .MuiChipIcon': {
           color: fontColor,
         },
         ...sx,

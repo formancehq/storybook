@@ -11,9 +11,11 @@ export default {
 export const GreenStatsCard = () => (
   <StatsCard
     icon={<Topic />}
-    title="Transaction volume"
-    mainValue="69,453.12 $"
-    chipValue="+24%"
+    title1="Transaction volume"
+    value1="69,453.12 $"
+    title2="Account volume"
+    value2="69,453.12 $"
+    chipValue="main-production"
   />
 );
 GreenStatsCard.storyName = 'Green';
@@ -21,10 +23,12 @@ GreenStatsCard.parameters = storyDocsParameters;
 
 export const BrownStatsCard = () => (
   <StatsCard
-    icon={<Topic />}
     variant="brown"
-    title="Transaction volume"
-    mainValue="69,453.12 $"
+    icon={<Topic />}
+    title1="Transaction volume"
+    value1="69,453.12 $"
+    title2="Account volume"
+    value2="69,453.12 $"
     chipValue="+24%"
   />
 );
@@ -35,9 +39,11 @@ export const BlueStatsCard = () => (
   <StatsCard
     icon={<Topic />}
     variant="blue"
-    title="Transaction volume"
-    mainValue="69,453.12 $"
-    chipValue="+24%"
+    title1="Transaction volume"
+    value1="69,453.12 $"
+    title2="Account volume"
+    value2="69,453.12 $"
+    chipValue="main-production"
   />
 );
 BlueStatsCard.storyName = 'Blue';
@@ -47,8 +53,10 @@ export const VioletStatsCard = () => (
   <StatsCard
     icon={<Topic />}
     variant="violet"
-    title="Transaction volume"
-    mainValue="69,453.12 $"
+    title1="Transaction volume"
+    value1="69,453.12 $"
+    title2="Account volume"
+    value2="69,453.12 $"
     chipValue="+24%"
   />
 );
@@ -59,8 +67,11 @@ export const StatsCardWithoutChip = () => (
   <StatsCard
     icon={<Topic />}
     variant="violet"
-    title="Transaction volume"
-    mainValue="69,453.12 $"
+    title1="Transaction volume"
+    value1="69,453.12 $"
+    title2="Account volume"
+    value2="69,453.12 $"
+    chipValue="+24%"
   />
 );
 StatsCardWithoutChip.storyName = 'Without chip';
