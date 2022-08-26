@@ -47,37 +47,31 @@ export const Page: FunctionComponent<PageProps> = ({
   };
 
   return (
-    <Box id={id} pt={7} pb={7} pr={20} pl={20} sx={{ ...sx }}>
-      <Box
-        pl={3}
-        pr={3}
-        display="flex"
-        justifyContent="space-between"
-        alignItems="center"
-      >
-        <Box>
-          {renderTitle()}
-          {subtitle && (
-            <Typography variant="h2" color="primary" mr={1}>
-              {subtitle}
-            </Typography>
+    <Box id={id} p="26px" sx={{ ...sx }}>
+      {title && (
+        <Box display="flex" justifyContent="space-between" alignItems="center">
+          <Box>
+            {renderTitle()}
+            {subtitle && (
+              <Typography variant="h2" color="primary" mr={1}>
+                {subtitle}
+              </Typography>
+            )}
+          </Box>
+          {onClick && actionLabel && actionEvent && (
+            <Box>
+              <LoadingButton
+                startIcon={<Clear style={{ transform: 'rotate(-45deg)' }} />}
+                onClick={onClick}
+                content={actionLabel}
+                variant="dark"
+                id={actionId}
+              />
+            </Box>
           )}
         </Box>
-        {onClick && actionLabel && actionEvent && (
-          <Box>
-            <LoadingButton
-              startIcon={<Clear style={{ transform: 'rotate(-45deg)' }} />}
-              onClick={onClick}
-              content={actionLabel}
-              variant="dark"
-              id={actionId}
-            />
-          </Box>
-        )}
-      </Box>
-      <Box pl={3} pr={3} mt={4} mb={4}>
-        {children}
-      </Box>
+      )}
+      {children}
     </Box>
   );
 };

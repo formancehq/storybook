@@ -1,6 +1,7 @@
 import React from 'react';
 import { Page } from './index';
 import { noop, storyDocsParameters } from '../../utils';
+import { DefaultTable } from '../../Table/stories';
 
 export default {
   title: 'Design System/Containers/Page',
@@ -39,8 +40,8 @@ PageWithSubtitle.storyName = 'Page with subtitle';
 PageWithSubtitle.parameters = storyDocsParameters;
 
 export const DefaultPage = () => (
-  <Page id="page-with-action" title="toto">
-    <>toto</>
+  <Page id="default">
+    <DefaultTable />
   </Page>
 );
 DefaultPage.storyName = 'Default';
