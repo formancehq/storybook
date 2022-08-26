@@ -40,11 +40,13 @@ export const JsonViewer: FunctionComponent<JsonViewerProps> = ({
         background: ({ palette }) => palette.neutral[900],
         justifyContent: 'space-between',
         alignItems: 'self-start',
-        p: 2,
+        p: 1,
         '& ul': {
-          marginTop: '0px !important',
+          margin: '0 !important',
+          background: ({ palette }) => `${palette.neutral[900]} !important`,
         },
         '& li': {
+          paddingTop: '0 !important',
           ...typography.money,
         },
       }}
