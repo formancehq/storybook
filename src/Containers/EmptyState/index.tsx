@@ -1,11 +1,13 @@
-import { Box, Typography, useTheme } from '@mui/material';
+import { Box, SxProps, Typography, useTheme } from '@mui/material';
 import React, { FunctionComponent, ReactElement } from 'react';
+import { Theme } from '@emotion/react';
 
 export type EmptyStateProps = {
   title: string;
   description?: string;
   variant?: 'dark' | 'light';
   children?: ReactElement;
+  sx?: SxProps<Theme>;
 };
 
 export const Placeholder: FunctionComponent = () => (
@@ -60,6 +62,7 @@ export const EmptyState: FunctionComponent<EmptyStateProps> = ({
   description,
   children,
   variant,
+  sx,
 }) => {
   const { palette } = useTheme();
   const variantsMap = {
@@ -90,6 +93,7 @@ export const EmptyState: FunctionComponent<EmptyStateProps> = ({
         flexFlow: 'column',
         backgroundColor: color.backgroundColor,
         p: 6,
+        ...sx,
       }}
     >
       <Box>
