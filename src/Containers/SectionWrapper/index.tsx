@@ -16,9 +16,9 @@ export const SectionWrapper: FunctionComponent<SectionWrapperProps> = ({
   return (
     <>
       {children && (
-        <Box mt={4} mb={2} data-testid={label?.toLowerCase()}>
+        <Box mt={3} data-testid={label?.toLowerCase()}>
           {title && <Typography variant="h2">{label}</Typography>}
-          <Box mt={2}>{children}</Box>
+          <Box mt={1}>{children}</Box>
         </Box>
       )}
     </>

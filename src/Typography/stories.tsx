@@ -26,7 +26,12 @@ export const H1 = () => <Typography variant="h1">Title</Typography>;
 H1.storyName = 'Display normal';
 H1.parameters = storyDocsParameters;
 
-export const H2 = () => <Typography variant="h2">Title</Typography>;
+export const H2 = () => (
+  <>
+    <Typography variant="h1">Title H1 example</Typography>
+    <Typography variant="h2">Title H2 example</Typography>
+  </>
+);
 H2.storyName = 'Display small';
 H2.parameters = storyDocsParameters;
 

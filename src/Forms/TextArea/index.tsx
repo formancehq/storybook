@@ -18,7 +18,7 @@ export const TextArea: FunctionComponent<JsonTextAreaProps> = ({
   minRows = 5,
   ...props
 }) => {
-  const { palette } = useTheme();
+  const { palette, typography } = useTheme();
 
   return (
     <>
@@ -29,6 +29,7 @@ export const TextArea: FunctionComponent<JsonTextAreaProps> = ({
           width: '100%',
           borderColor: error ? palette.red.normal : 'initial',
           borderRadius: '4px',
+          ...typography.money,
         }}
         {...props}
       />

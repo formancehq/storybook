@@ -56,6 +56,7 @@ declare module '@mui/material/styles' {
     heading: React.CSSProperties;
     action: React.CSSProperties;
     footNote: React.CSSProperties;
+    money: React.CSSProperties;
   }
 
   interface TypographyVariantsOptions {
@@ -207,6 +208,7 @@ const typography = {
     letterSpacing: '-0.01em',
     fontWeight: 500,
     fontFamily: bodyFontFamily,
+    color: palette.neutral[700],
   },
   headline: {
     fontSize: '18px',

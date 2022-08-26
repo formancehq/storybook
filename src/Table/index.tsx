@@ -179,7 +179,7 @@ export const Table: FunctionComponent<TableProps> = ({
   return (
     <>
       {data && (
-        <Box pb={1} pt={1}>
+        <Box>
           <Paper
             elevation={0}
             variant="outlined"
