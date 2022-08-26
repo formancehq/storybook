@@ -1,10 +1,9 @@
-import { Box, SxProps, Theme, Typography } from '@mui/material';
+import { Box, Typography } from '@mui/material';
 import React, { FunctionComponent, ReactElement } from 'react';
 
 export type SectionWrapperProps = {
   title?: string;
   children: ReactElement;
-  sx?: SxProps<Theme>;
 };
 
 export const SectionWrapper: FunctionComponent<SectionWrapperProps> = ({

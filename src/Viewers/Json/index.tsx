@@ -1,4 +1,4 @@
-import { useTheme } from '@mui/material';
+import { Box, useTheme } from '@mui/material';
 import React, { FunctionComponent } from 'react';
 import { ObjectOf } from '../../types';
 import { JSONTree } from 'react-json-tree';
@@ -12,7 +12,7 @@ export const JsonViewer: FunctionComponent<JsonViewerProps> = ({
   jsonData,
   theme,
 }) => {
-  const { palette } = useTheme();
+  const { palette, typography } = useTheme();
 
   const defaultTheme = {
     base00: palette.neutral[0], // background of the whole container
@@ -33,5 +33,23 @@ export const JsonViewer: FunctionComponent<JsonViewerProps> = ({
     base0F: palette.default.bright,
   };
 
-  return <JSONTree data={jsonData} theme={theme || defaultTheme} />;
+  return (
+    <Box
+      sx={{
+        display: 'flex',
+        background: ({ palette }) => palette.neutral[900],
+        justifyContent: 'space-between',
+        alignItems: 'self-start',
+        p: 2,
+        '& ul': {
+          marginTop: '0px !important',
+        },
+        '& li': {
+          ...typography.money,
+        },
+      }}
+    >
+      <JSONTree data={jsonData} theme={theme || defaultTheme} />
+    </Box>
+  );
 };
