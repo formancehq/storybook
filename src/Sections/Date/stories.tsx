@@ -8,13 +8,13 @@ export default {
   component: Date,
 };
 
-export const DateWithMessageSection = () => (
+export const DateWithMessageAndVariant = () => (
   <div>
-    <Date timestamp="123456789" message="Created on" />
+    <Date timestamp="123456789" message="Created on" variant="h1" />
   </div>
 );
-DateWithMessageSection.storyName = 'With message';
-DateWithMessageSection.parameters = storyDocsParameters;
+DateWithMessageAndVariant.storyName = 'With message and variant';
+DateWithMessageAndVariant.parameters = storyDocsParameters;
 
 export const DefaultDateSection = () => (
   <div>
