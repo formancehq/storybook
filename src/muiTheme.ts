@@ -206,7 +206,7 @@ const typography = {
     lineHeight: '32px',
     letterSpacing: '-0.01em',
     fontWeight: 500,
-    fontFamily: titleFontFamily,
+    fontFamily: bodyFontFamily,
   },
   headline: {
     fontSize: '18px',
@@ -240,7 +240,7 @@ const typography = {
     fontSize: '14px',
     lineHeight: '24px',
     fontFamily: bodyFontFamily,
-    fontWeight: '800',
+    fontWeight: '500',
     letterSpacing: '-0.01em',
   },
   money: {
