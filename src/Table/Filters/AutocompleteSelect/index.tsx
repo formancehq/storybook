@@ -14,11 +14,12 @@ export type FilterProps = Omit<
   icon?: React.ReactNode;
 };
 export const AutocompleteSelect: FunctionComponent<FilterProps> = ({
-  icon,
   ...props
 }) => (
   <Autocomplete
     {...props}
+    multiple
+    limitTags={2}
     renderInput={(params) => (
       <>
         {props.label && (
@@ -32,17 +33,28 @@ export const AutocompleteSelect: FunctionComponent<FilterProps> = ({
           InputLabelProps={{
             shrink: true,
           }}
-          InputProps={{
-            ...params.InputProps,
-            startAdornment: icon ? icon : icon,
-          }}
         />
       </>
     )}
-    renderTags={props.renderTags ? props.renderTags : () => null}
     sx={{
-      '& .MuiOutlinedInput-root .MuiAutocomplete-input': {
+      '.MuiPaper-root': {
+        mt: 0,
+      },
+      '& .MuiAutocomplete-tag': {
         padding: 0,
+        mt: '-6px',
+      },
+      '& .MuiAutocomplete-inputFocused': {
+        padding: 0,
+        mt: '-8px',
+      },
+
+      '& .MuiButtonBase-root': {
+        mt: '-3px',
+        backgroundColor: ({ palette }) => palette.neutral[0],
+      },
+      '.MuiAutocomplete-endAdornment': {
+        top: '10px',
       },
     }}
   />

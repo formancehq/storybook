@@ -295,7 +295,6 @@ export const theme = createTheme({
           backgroundColor: palette.neutral[0],
           border: `1px solid ${palette.neutral[200]} !important`,
           borderRadius: '4px',
-          marginTop: 10,
         },
       },
     },
