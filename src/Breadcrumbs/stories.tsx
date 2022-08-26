@@ -19,6 +19,9 @@ const links = [
   {
     label: '12345',
   },
+  {
+    label: 'test',
+  },
 ];
 
 export const DefaultBreadcrumbs = () => (

@@ -206,9 +206,9 @@ const typography = {
     fontSize: '24px',
     lineHeight: '32px',
     letterSpacing: '-0.01em',
-    fontWeight: 500,
+    fontWeight: 300,
     fontFamily: bodyFontFamily,
-    color: palette.neutral[700],
+    color: palette.neutral[600],
   },
   headline: {
     fontSize: '18px',

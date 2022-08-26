@@ -35,7 +35,12 @@ export const Breadcrumbs: FunctionComponent<BreadcrumbsProps> = ({
     >
       <MuiBreadcrumbs
         aria-label="breadcrumb"
-        sx={{ '& .MuiBreadcrumbs-separator': { color: palette.neutral[500] } }}
+        sx={{
+          '& .MuiBreadcrumbs-separator': { color: palette.neutral[500] },
+          '& .MuiLink-root': {
+            textDecoration: 'none',
+          },
+        }}
       >
         {links.map((link, index) => {
           const color =
@@ -45,8 +50,15 @@ export const Breadcrumbs: FunctionComponent<BreadcrumbsProps> = ({
 
           return (
             <Link
-              underline="hover"
-              sx={{ color }}
+              sx={{
+                ':hover': {
+                  color: link.onClick
+                    ? palette.neutral[0]
+                    : palette.neutral[500],
+                  cursor: link.onClick ? 'pointer' : 'initial',
+                },
+                color,
+              }}
               onClick={link.onClick && link.onClick}
               key={index}
             >
