@@ -363,7 +363,6 @@ export const theme = createTheme({
         {
           props: { variant: 'square' },
           style: {
-            cursor: 'pointer',
             borderRadius: '4px',
             padding: '2px 12px',
             backgroundColor: palette.neutral[50],

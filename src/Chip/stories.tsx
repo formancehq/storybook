@@ -22,8 +22,14 @@ export const DefaultChip = () => <Chip label="label" />;
 DefaultChip.storyName = 'Default';
 DefaultChip.parameters = storyDocsParameters;
 
-export const IconChip = () => (
-  <Chip label="label" icon={<SouthEast />} color="green" variant="square" />
+export const IconChipClickable = () => (
+  <Chip
+    label="label"
+    icon={<SouthEast />}
+    color="brown"
+    variant="square"
+    onClick={() => null}
+  />
 );
-IconChip.storyName = 'Icon';
-IconChip.parameters = storyDocsParameters;
+IconChipClickable.storyName = 'Clickable with icon';
+IconChipClickable.parameters = storyDocsParameters;

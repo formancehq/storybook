@@ -23,8 +23,11 @@ export const Chip: FunctionComponent<ChipProps> = ({ color, sx, ...props }) => {
         backgroundColor,
         ...typography.body1,
         color: fontColor,
-        '& .MuiChipIcon': {
+        '& .MuiSvgIcon-root': {
           color: fontColor,
+        },
+        ':hover': {
+          cursor: props.onClick ? 'pointer' : 'initial',
         },
         ...sx,
       }}
