@@ -111,6 +111,8 @@ export const LoadingButton: FunctionComponent<LoadingButtonProps> = ({
       if (_isMounted.current) {
         setLoading(false);
       }
+    } else {
+      setLoading(false);
     }
   };
 

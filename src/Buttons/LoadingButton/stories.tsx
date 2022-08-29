@@ -5,7 +5,7 @@ import {
   ArrowDropDown,
   DeleteOutlined,
 } from '@mui/icons-material';
-import { Box } from '@mui/material';
+import { Box, Link } from '@mui/material';
 import { storyDocsParameters } from '../../utils';
 
 export default {
@@ -381,3 +381,28 @@ export const DarkLoadingButtons = () => (
 );
 DarkLoadingButtons.storyName = 'Dark';
 DarkLoadingButtons.parameters = storyDocsParameters;
+
+export const HrefButton = () => (
+  <Link
+    href="https://docs.formance.com/oss/payments/reference/api"
+    underline="none"
+    target="_blank"
+    rel="noopener"
+  >
+    <LoadingButton variant="dark" content="Click me!" />
+  </Link>
+);
+HrefButton.storyName = 'Href';
+HrefButton.parameters = storyDocsParameters;
+
+export const LoadingStateButton = () => (
+  <LoadingButton
+    variant="dark"
+    content="Load !"
+    onClick={() =>
+      new Promise((resolve) => setTimeout(() => resolve('done'), 1000))
+    }
+  />
+);
+LoadingStateButton.storyName = 'Loading';
+LoadingStateButton.parameters = storyDocsParameters;
