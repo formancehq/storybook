@@ -31,13 +31,7 @@ export const Page: FunctionComponent<PageProps> = ({
   const renderTitle = () => {
     if (typeof title === 'string') {
       return (
-        <Typography
-          variant="h1"
-          mr={1}
-          sx={{
-            textTransform: 'capitalize',
-          }}
-        >
+        <Typography variant="h1" mr={1}>
           {title}
         </Typography>
       );
