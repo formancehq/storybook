@@ -14,6 +14,11 @@ export type FilterProps = Omit<
   placeholder?: string;
   icon?: React.ReactNode;
 };
+
+export type AutocompleteOption = {
+  id: string;
+  label: string;
+};
 export const AutocompleteSelect: FunctionComponent<FilterProps> = ({
   ...props
 }) => (
@@ -21,13 +26,13 @@ export const AutocompleteSelect: FunctionComponent<FilterProps> = ({
     {...props}
     multiple
     limitTags={1}
-    renderTags={(value, getTagProps, ownerState) => {
+    renderTags={(value: AutocompleteOption[], getTagProps, ownerState) => {
       if (props.renderTags) {
         return props.renderTags(value, getTagProps, ownerState);
       } else {
         return value.map((option, index) => (
           <Chip
-            label={option.title}
+            label={option.label}
             size="small"
             {...getTagProps({ index })}
             key={index}
