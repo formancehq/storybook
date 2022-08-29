@@ -30,7 +30,7 @@ export const Breadcrumbs: FunctionComponent<BreadcrumbsProps> = ({
         display: 'flex',
         alignItems: 'center',
         justifyContent: 'flex-start',
-        padding: '4px 40px',
+        padding: '4px 26px',
       }}
     >
       <MuiBreadcrumbs
