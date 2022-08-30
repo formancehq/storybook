@@ -281,6 +281,11 @@ export const theme = createTheme({
         disableRipple: true,
       },
     },
+    MuiButtonBase: {
+      defaultProps: {
+        disableRipple: true,
+      },
+    },
     MuiListItemButton: {
       defaultProps: {
         disableRipple: true,

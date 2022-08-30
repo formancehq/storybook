@@ -124,3 +124,11 @@ export const FormTextField = () => (
 );
 FormTextField.storyName = 'Form';
 FormTextField.parameters = storyDocsParameters;
+
+export const TextFieldWithoutLabel = () => (
+  <>
+    <TextField name="firstname" placeholder="Jean" />
+  </>
+);
+TextFieldWithoutLabel.storyName = 'Without label';
+TextFieldWithoutLabel.parameters = storyDocsParameters;

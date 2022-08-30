@@ -16,6 +16,7 @@ export * from './Containers/SectionWrapper';
 
 export * from './Forms/TextField';
 export * from './Forms/TextArea';
+export * from './Forms/DatePicker';
 
 export * from './Viewers/Json';
 
