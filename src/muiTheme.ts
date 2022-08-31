@@ -285,6 +285,14 @@ export const theme = createTheme({
       defaultProps: {
         disableRipple: true,
       },
+      styleOverrides: {
+        root: {
+          ':hover': {
+            borderRadius: '4px',
+          },
+          borderRadius: '4px',
+        },
+      },
     },
     MuiListItemButton: {
       defaultProps: {

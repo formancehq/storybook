@@ -31,10 +31,9 @@ const data = [
   { label: 'Interstellar', year: 2014 },
 ];
 
-export const DefaultAutocompleteCheckbox = () => (
+export const LightAutocompleteCheckbox = () => (
   <AutocompleteSelect
     noOptionsText="Sorry"
-    label="Ledgers"
     placeholder="Search a ledger"
     name="ledgers"
     multiple
@@ -52,5 +51,29 @@ export const DefaultAutocompleteCheckbox = () => (
     style={{ width: 500 }}
   />
 );
-DefaultAutocompleteCheckbox.storyName = 'Default';
-DefaultAutocompleteCheckbox.parameters = storyDocsParameters;
+LightAutocompleteCheckbox.storyName = 'Light';
+LightAutocompleteCheckbox.parameters = storyDocsParameters;
+
+export const DarkAutocompleteCheckbox = () => (
+  <AutocompleteSelect
+    noOptionsText="Sorry"
+    variant="dark"
+    placeholder="Search a ledger"
+    name="ledgers"
+    multiple
+    id="checkboxes-tags-demo"
+    options={data}
+    icon={<ImportExport />}
+    disableCloseOnSelect
+    getOptionLabel={(option: AutocompleteOption) => option.label}
+    renderOption={(props, option: AutocompleteOption, { selected }) => (
+      <li {...props}>
+        <Checkbox style={{ marginRight: 8 }} checked={selected} />
+        {option.label}
+      </li>
+    )}
+    style={{ width: 500 }}
+  />
+);
+DarkAutocompleteCheckbox.storyName = 'Dark';
+DarkAutocompleteCheckbox.parameters = storyDocsParameters;
