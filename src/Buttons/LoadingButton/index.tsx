@@ -91,6 +91,7 @@ export const LoadingButton: FunctionComponent<LoadingButtonProps> = ({
   };
 
   const transparentStyles = {
+    ...commonStyles,
     background: 'transparent',
   };
 
