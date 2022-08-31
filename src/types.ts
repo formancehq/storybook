@@ -4,7 +4,6 @@ export type ButtonVariants =
   | 'primary'
   | 'dark'
   | 'transparent';
-
 export type ColorVariants =
   | 'red'
   | 'blue'

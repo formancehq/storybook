@@ -52,7 +52,7 @@ export const LoadingButton: FunctionComponent<LoadingButtonProps> = ({
     },
     textTransform: 'none',
     ...sx,
-  };
+  } as SxProps;
   const lightStyles = {
     ...commonStyles,
     backgroundColor: theme.palette.neutral[0],
@@ -60,7 +60,7 @@ export const LoadingButton: FunctionComponent<LoadingButtonProps> = ({
     ':hover': {
       backgroundColor: theme.palette.neutral[50],
     },
-  };
+  } as SxProps;
   const strokeStyles = {
     ...commonStyles,
     backgroundColor: theme.palette.neutral[0],
@@ -69,7 +69,7 @@ export const LoadingButton: FunctionComponent<LoadingButtonProps> = ({
     ':hover': {
       border: `1px solid ${theme.palette.neutral[900]}`,
     },
-  };
+  } as SxProps;
   const primaryStyles = {
     ...commonStyles,
     backgroundColor: theme.palette.default.bright,
@@ -77,7 +77,7 @@ export const LoadingButton: FunctionComponent<LoadingButtonProps> = ({
     ':hover': {
       backgroundColor: theme.palette.default.normal,
     },
-  };
+  } as SxProps;
   const darkStyles = {
     ...commonStyles,
     backgroundColor: theme.palette.neutral[700],
@@ -88,7 +88,7 @@ export const LoadingButton: FunctionComponent<LoadingButtonProps> = ({
     ':focus': {
       backgroundColor: theme.palette.neutral[600],
     },
-  };
+  } as SxProps;
 
   const transparentStyles = {
     ...commonStyles,
