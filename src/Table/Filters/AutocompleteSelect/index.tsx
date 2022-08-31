@@ -3,7 +3,6 @@ import TextField from '@mui/material/TextField';
 import Autocomplete, { AutocompleteProps } from '@mui/material/Autocomplete';
 import { FunctionComponent } from 'react';
 import { InputLabel } from '@mui/material';
-import { Chip } from '../../../Chip';
 
 export type FilterProps = Omit<
   AutocompleteProps<any, any, any, any>,
@@ -13,6 +12,7 @@ export type FilterProps = Omit<
   label?: string;
   placeholder?: string;
   icon?: React.ReactNode;
+  variant?: 'light' | 'dark';
 };
 
 export type AutocompleteOption = {
@@ -20,26 +20,14 @@ export type AutocompleteOption = {
   label: string;
 };
 export const AutocompleteSelect: FunctionComponent<FilterProps> = ({
+  variant = 'light',
   ...props
 }) => (
   <Autocomplete
     {...props}
     multiple
-    limitTags={1}
-    renderTags={(value: AutocompleteOption[], getTagProps, ownerState) => {
-      if (props.renderTags) {
-        return props.renderTags(value, getTagProps, ownerState);
-      } else {
-        return value.map((option, index) => (
-          <Chip
-            label={option.label}
-            size="small"
-            {...getTagProps({ index })}
-            key={index}
-          />
-        ));
-      }
-    }}
+    size="small"
+    limitTags={2}
     renderInput={(params) => (
       <>
         {props.label && (
@@ -47,34 +35,30 @@ export const AutocompleteSelect: FunctionComponent<FilterProps> = ({
             {props.label}
           </InputLabel>
         )}
-        <TextField
-          {...params}
-          placeholder={props.placeholder}
-          InputLabelProps={{
-            shrink: true,
-          }}
-        />
+        <TextField {...params} placeholder={props.placeholder} />
       </>
     )}
     sx={{
-      '.MuiPaper-root': {
-        mt: 0,
+      '& .MuiButtonBase-root.MuiChip-root': {
+        borderRadius: '4px',
+        backgroundColor: ({ palette }) =>
+          variant === 'light' ? palette.neutral[50] : palette.neutral[900],
+        color: ({ palette }) =>
+          variant === 'light' ? palette.neutral[700] : palette.neutral[0],
       },
-      '& .MuiAutocomplete-tag': {
-        padding: 0,
-        mt: '-4px',
+      '& .MuiButtonBase-root.MuiChip-root .MuiSvgIcon-root': {
+        color: ({ palette }) => palette.default.bright,
       },
-      '& .MuiAutocomplete-inputFocused': {
-        padding: 0,
-        mt: '-8px',
-      },
-
-      '& .MuiButtonBase-root': {
-        mt: '-3px',
-        backgroundColor: ({ palette }) => palette.neutral[0],
-      },
-      '.MuiAutocomplete-endAdornment': {
-        top: '10px',
+      '& .MuiButtonBase-root.MuiIconButton-root.MuiAutocomplete-clearIndicator:hover':
+        {
+          background: 'transparent',
+          color: ({ palette }) => palette.neutral[900],
+        },
+      '& .MuiButtonBase-root:hover': {
+        background: ({ palette }) =>
+          variant === 'light' ? palette.neutral[50] : palette.neutral[900],
+        color: ({ palette }) =>
+          variant === 'light' ? palette.neutral[700] : palette.neutral[0],
       },
     }}
   />
