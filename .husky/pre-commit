@@ -3,3 +3,5 @@
 
 npx yarn prettier
 npx yarn lint
+npx yarn build
+npx yarn build-storybook
