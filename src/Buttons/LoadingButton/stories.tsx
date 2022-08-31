@@ -382,6 +382,102 @@ export const DarkLoadingButtons = () => (
 DarkLoadingButtons.storyName = 'Dark';
 DarkLoadingButtons.parameters = storyDocsParameters;
 
+export const TransparentLoadingButtons = () => (
+  <>
+    <Box>
+      <LoadingButton
+        id="transparent"
+        variant="transparent"
+        onClick={() => true}
+        content="Show transparent"
+      />
+      <LoadingButton
+        id="transparent-disabled"
+        variant="transparent"
+        onClick={() => true}
+        content="Show transparent disabled"
+        disabled
+      />
+    </Box>
+    <Box mt={2}>
+      <LoadingButton
+        id="transparent-content-start-end-icon"
+        variant="transparent"
+        onClick={() => true}
+        content="Show transparent start end icon"
+        startIcon={<AddOutlined />}
+        endIcon={<ArrowDropDown />}
+      />
+      <LoadingButton
+        id="transparent-content-start-icon-end-disabled"
+        variant="transparent"
+        onClick={() => true}
+        content="Show transparent start icon end disabled"
+        startIcon={<AddOutlined />}
+        endIcon={<ArrowDropDown />}
+        disabled
+      />
+    </Box>
+    <Box mt={2}>
+      <LoadingButton
+        id="transparent-content-start-icon"
+        variant="transparent"
+        onClick={() => true}
+        content="Show transparent start icon"
+        startIcon={<AddOutlined />}
+      />
+      <LoadingButton
+        id="transparent-content-start-icon-disabled"
+        variant="transparent"
+        onClick={() => true}
+        content="Show transparent start icon disabled"
+        startIcon={<AddOutlined />}
+        disabled
+      />
+    </Box>
+    <Box mt={2}>
+      <LoadingButton
+        id="transparent-content-end-icon"
+        variant="transparent"
+        onClick={() => true}
+        content="Show transparent end icon"
+        endIcon={<DeleteOutlined />}
+      />
+      <LoadingButton
+        id="transparent-content-end-icon-disabled"
+        variant="transparent"
+        onClick={() => true}
+        content="Show transparent end icon disabled"
+        disabled
+        endIcon={<DeleteOutlined />}
+      />
+    </Box>
+    <Box mt={2}>
+      <LoadingButton
+        id="transparent-start-icon"
+        variant="transparent"
+        onClick={() => true}
+        startIcon={<AddOutlined />}
+      />
+      <LoadingButton
+        id="transparent-end-icon"
+        variant="transparent"
+        onClick={() => true}
+        endIcon={<DeleteOutlined />}
+      />
+      <LoadingButton
+        id="transparent-end-icon-disabled"
+        variant="transparent"
+        onClick={() => true}
+        disabled
+        endIcon={<DeleteOutlined />}
+      />
+    </Box>
+  </>
+);
+TransparentLoadingButtons.storyName = 'Transparent';
+TransparentLoadingButtons.parameters = storyDocsParameters;
+
 export const HrefButton = () => (
   <Link
     href="https://docs.formance.com/oss/payments/reference/api"

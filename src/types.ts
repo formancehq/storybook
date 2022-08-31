@@ -1,4 +1,10 @@
-export type ButtonVariants = 'light' | 'stroke' | 'primary' | 'dark';
+export type ButtonVariants =
+  | 'light'
+  | 'stroke'
+  | 'primary'
+  | 'dark'
+  | 'transparent';
+
 export type ColorVariants =
   | 'red'
   | 'blue'

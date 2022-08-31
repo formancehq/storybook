@@ -90,10 +90,15 @@ export const LoadingButton: FunctionComponent<LoadingButtonProps> = ({
     },
   };
 
+  const transparentStyles = {
+    background: 'transparent',
+  };
+
   const variantsMap = {
     light: lightStyles,
     stroke: strokeStyles,
     primary: primaryStyles,
+    transparent: transparentStyles,
     dark: darkStyles,
   };
 
