@@ -3,6 +3,7 @@ import { AutocompleteOption, AutocompleteSelect } from './index';
 import { storyDocsParameters } from '../../../utils';
 import Checkbox from '@mui/material/Checkbox';
 import { ImportExport } from '@mui/icons-material';
+import { Box } from '@mui/material';
 
 export default {
   title: 'Design System/Table/Filters',
@@ -55,25 +56,27 @@ LightAutocompleteCheckbox.storyName = 'Light';
 LightAutocompleteCheckbox.parameters = storyDocsParameters;
 
 export const DarkAutocompleteCheckbox = () => (
-  <AutocompleteSelect
-    noOptionsText="Sorry"
-    variant="dark"
-    placeholder="Search a ledger"
-    name="ledgers"
-    multiple
-    id="checkboxes-tags-demo"
-    options={data}
-    icon={<ImportExport />}
-    disableCloseOnSelect
-    getOptionLabel={(option: AutocompleteOption) => option.label}
-    renderOption={(props, option: AutocompleteOption, { selected }) => (
-      <li {...props}>
-        <Checkbox style={{ marginRight: 8 }} checked={selected} />
-        {option.label}
-      </li>
-    )}
-    style={{ width: 500 }}
-  />
+  <Box sx={{ height: 100, backgroundColor: 'black', p: 3 }}>
+    <AutocompleteSelect
+      noOptionsText="Sorry"
+      variant="dark"
+      placeholder="Search a ledger"
+      name="ledgers"
+      multiple
+      id="checkboxes-tags-demo"
+      options={data}
+      icon={<ImportExport />}
+      disableCloseOnSelect
+      getOptionLabel={(option: AutocompleteOption) => option.label}
+      renderOption={(props, option: AutocompleteOption, { selected }) => (
+        <li {...props}>
+          <Checkbox style={{ marginRight: 8 }} checked={selected} />
+          {option.label}
+        </li>
+      )}
+      style={{ width: 500 }}
+    />
+  </Box>
 );
 DarkAutocompleteCheckbox.storyName = 'Dark';
 DarkAutocompleteCheckbox.parameters = storyDocsParameters;
