@@ -44,6 +44,7 @@ export type TableProps = {
     pagination: { showing: string; separator: string; results: string };
     noResults: string;
   };
+  activeFilters?: ReactElement;
 };
 
 export type RowProps = {
@@ -125,6 +126,7 @@ export const Table: FunctionComponent<TableProps> = ({
   onNext,
   onPrevious,
   labels: labelsProps,
+  activeFilters,
 }) => {
   const [total, setTotal] = useState(0);
   const [hasMore, setHasMore] = useState(false);
@@ -188,6 +190,7 @@ export const Table: FunctionComponent<TableProps> = ({
               borderRadius: '4px',
             }}
           >
+            {activeFilters && <Box p={1}>{activeFilters}</Box>}
             <TableContainer>
               <MuiTable aria-label="table" id={id}>
                 {withHeader && (
