@@ -49,7 +49,7 @@ export const LightAutocompleteCheckbox = () => (
         {option.label}
       </li>
     )}
-    style={{ width: 500 }}
+    style={{ width: 250 }}
   />
 );
 LightAutocompleteCheckbox.storyName = 'Light';
