@@ -83,7 +83,8 @@ export const EmptyTable = () => (
     labels={labels}
     id="no-result"
     items={[]}
-    columns={columns}
+    withHeader={false}
+    columns={[]}
     onNext={() => null}
     onPrevious={() => null}
     renderItem={(user: User, index) => (
