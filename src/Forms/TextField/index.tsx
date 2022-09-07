@@ -7,6 +7,7 @@ import {
   OutlinedInput,
 } from '@mui/material';
 import React, { FunctionComponent } from 'react';
+import { omit } from '../../utils';
 
 export type TextFieldProps = InputBaseProps &
   InputLabelProps & { label?: string; helperText?: string };
@@ -29,7 +30,7 @@ export const TextField: FunctionComponent<TextFieldProps> = ({
           color: ({ palette }) =>
             props.error ? palette.red.normal : palette.neutral[900],
         }}
-        {...props}
+        {...omit(props, ['fullWidth'])}
       >
         {label}
       </InputLabel>
