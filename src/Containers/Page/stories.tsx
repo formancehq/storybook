@@ -1,7 +1,7 @@
 import React from 'react';
 import { Page } from './index';
 import { noop, storyDocsParameters } from '../../utils';
-import { DefaultTable } from '../../Table/stories';
+import { ActiveFiltersTable } from '../../Table/stories';
 
 export default {
   title: 'Design System/Containers/Page',
@@ -17,23 +17,36 @@ export const PageWithAction = () => (
     actionEvent="add_lorem_action"
     title="PageTitle"
   >
-    <div>PageTitle</div>
+    <></>
   </Page>
 );
 PageWithAction.storyName = 'Page with action';
 PageWithAction.parameters = storyDocsParameters;
+
+export const PageWithActionWithoutTitle = () => (
+  <Page
+    id="page-with-action"
+    actionLabel="Add lorem"
+    actionId="add-lorem"
+    onClick={() => noop()}
+    actionEvent="add_lorem_action"
+  >
+    <ActiveFiltersTable />
+  </Page>
+);
+PageWithActionWithoutTitle.storyName = 'Page with action without title';
+PageWithActionWithoutTitle.parameters = storyDocsParameters;
 
 export const PageWithSubtitle = () => (
   <Page
     id="page-with-subtitle"
     actionLabel="Add lorem"
     actionId="add-lorem"
-    onClick={() => noop()}
     actionEvent="add_lorem_action"
     title="PageTitle"
     subtitle="PageSubtitle"
   >
-    <div>PageSubTitle</div>
+    <></>
   </Page>
 );
 PageWithSubtitle.storyName = 'Page with subtitle';
@@ -41,7 +54,7 @@ PageWithSubtitle.parameters = storyDocsParameters;
 
 export const DefaultPage = () => (
   <Page id="default">
-    <DefaultTable />
+    <></>
   </Page>
 );
 DefaultPage.storyName = 'Default';

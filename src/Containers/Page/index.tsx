@@ -28,6 +28,7 @@ export const Page: FunctionComponent<PageProps> = ({
   actionId,
   sx = {},
 }) => {
+  const header = title || onClick;
   const renderTitle = () => {
     if (typeof title === 'string') {
       return (
@@ -42,7 +43,7 @@ export const Page: FunctionComponent<PageProps> = ({
 
   return (
     <Box id={id} p="26px" sx={{ ...sx }}>
-      {title && (
+      {header && (
         <Box display="flex" justifyContent="space-between" alignItems="center">
           <Box>
             {renderTitle()}
