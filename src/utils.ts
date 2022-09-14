@@ -1,6 +1,8 @@
 // eslint-disable-next-line @typescript-eslint/no-unused-vars
 export const noop: any = (_item?: any) => undefined;
 
+export const isArray = (value: any) => !!value && value.constructor === Array;
+
 export const storyDocsParameters = {
   docs: {
     source: {
