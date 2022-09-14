@@ -1,3 +1,5 @@
+import React, { FunctionComponent } from 'react';
+
 import {
   FormControl,
   FormHelperText,
@@ -6,7 +8,7 @@ import {
   InputLabelProps,
   OutlinedInput,
 } from '@mui/material';
-import React, { FunctionComponent } from 'react';
+
 import { omit } from '../../utils';
 
 export type TextFieldProps = InputBaseProps &

@@ -1,6 +1,8 @@
 import React from 'react';
-import { Txid } from './index';
+
 import { storyDocsParameters } from '../../utils';
+
+import { Txid } from './index';
 
 export default {
   title: 'Design System/Sections/Txid',

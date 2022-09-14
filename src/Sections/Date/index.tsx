@@ -1,5 +1,6 @@
-import { Tooltip, Typography, TypographyVariant } from '@mui/material';
 import React, { FunctionComponent } from 'react';
+
+import { Tooltip, Typography, TypographyVariant } from '@mui/material';
 import dayjs from 'dayjs';
 
 export type DateProps = {

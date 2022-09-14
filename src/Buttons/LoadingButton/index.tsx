@@ -1,4 +1,3 @@
-import { LoadingButton as MuiLoadingButton } from '@mui/lab';
 import React, {
   FunctionComponent,
   ReactElement,
@@ -6,7 +5,10 @@ import React, {
   useRef,
   useState,
 } from 'react';
+
+import { LoadingButton as MuiLoadingButton } from '@mui/lab';
 import { ButtonProps, SxProps, Theme, useTheme } from '@mui/material';
+
 import { ButtonVariants, CFunction } from '../../types';
 
 export type LoadingButtonProps = Omit<

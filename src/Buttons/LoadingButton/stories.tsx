@@ -1,12 +1,15 @@
 import React from 'react';
-import { LoadingButton } from './index';
+
 import {
   AddOutlined,
   ArrowDropDown,
   DeleteOutlined,
 } from '@mui/icons-material';
 import { Box, Link } from '@mui/material';
+
 import { storyDocsParameters } from '../../utils';
+
+import { LoadingButton } from './index';
 
 export default {
   title: 'Design System/Buttons/Loading',

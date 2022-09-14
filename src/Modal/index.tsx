@@ -1,3 +1,6 @@
+import React, { FunctionComponent } from 'react';
+
+import { Close } from '@mui/icons-material';
 import {
   Box,
   Dialog,
@@ -7,9 +10,8 @@ import {
   DialogTitle,
   useTheme,
 } from '@mui/material';
-import React, { FunctionComponent } from 'react';
+
 import { LoadingButton } from '../Buttons/LoadingButton';
-import { Close } from '@mui/icons-material';
 import { CFunction } from '../types';
 
 export type ModalActionsProps = {

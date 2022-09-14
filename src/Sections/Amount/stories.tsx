@@ -1,6 +1,8 @@
 import React from 'react';
-import { Amount } from './index';
+
 import { storyDocsParameters } from '../../utils';
+
+import { Amount } from './index';
 
 export default {
   title: 'Design System/Sections/Amount',

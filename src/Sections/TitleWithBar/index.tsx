@@ -1,5 +1,6 @@
-import { Divider, Typography } from '@mui/material';
 import React, { FunctionComponent } from 'react';
+
+import { Divider, Typography } from '@mui/material';
 
 export type TitleWithBarProps = {
   title: string;

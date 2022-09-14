@@ -1,5 +1,7 @@
-import { Box, Typography, useTheme } from '@mui/material';
 import React, { FunctionComponent, ReactElement } from 'react';
+
+import { Box, Typography, useTheme } from '@mui/material';
+
 import { Chip } from '../../Chip';
 import { ColorVariants } from '../../types';
 

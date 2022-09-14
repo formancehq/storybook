@@ -1,6 +1,7 @@
 import React, { FunctionComponent, ReactElement, useState } from 'react';
-import { Box, Modal, TextField, TextFieldProps } from '@mui/material';
+
 import { SearchOutlined } from '@mui/icons-material';
+import { Box, Modal, TextField, TextFieldProps } from '@mui/material';
 import { isEmpty } from 'lodash';
 
 export type SearchProps = TextFieldProps & {

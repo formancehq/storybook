@@ -1,7 +1,9 @@
 import React from 'react';
-import { Page } from './index';
-import { noop, storyDocsParameters } from '../../utils';
+
 import { ActiveFiltersTable } from '../../Table/stories';
+import { noop, storyDocsParameters } from '../../utils';
+
+import { Page } from './index';
 
 export default {
   title: 'Design System/Containers/Page',

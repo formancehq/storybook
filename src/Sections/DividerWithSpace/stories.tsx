@@ -1,6 +1,8 @@
 import React from 'react';
-import { storyDocsParameters } from '../../utils';
+
 import { theme } from '../../muiTheme';
+import { storyDocsParameters } from '../../utils';
+
 import { DividerWithSpace } from './index';
 
 export default {

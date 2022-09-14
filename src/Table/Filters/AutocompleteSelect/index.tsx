@@ -1,8 +1,9 @@
 import * as React from 'react';
-import TextField from '@mui/material/TextField';
-import Autocomplete, { AutocompleteProps } from '@mui/material/Autocomplete';
 import { FunctionComponent, useState } from 'react';
+
 import { InputLabel, useTheme } from '@mui/material';
+import Autocomplete, { AutocompleteProps } from '@mui/material/Autocomplete';
+import TextField from '@mui/material/TextField';
 
 export type FilterProps = Omit<
   AutocompleteProps<any, any, any, any>,

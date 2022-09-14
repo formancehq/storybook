@@ -1,7 +1,10 @@
 import React from 'react';
-import { Chip } from './index';
-import { storyDocsParameters } from '../utils';
+
 import { SouthEast } from '@mui/icons-material';
+
+import { Chip } from './index';
+
+import { storyDocsParameters } from '../utils';
 
 export default {
   title: 'Design System/Chip',

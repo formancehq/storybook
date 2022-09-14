@@ -1,8 +1,11 @@
+import React from 'react';
+
 import { Add } from '@mui/icons-material';
 import { Box, Button } from '@mui/material';
-import React from 'react';
-import { storyDocsParameters } from '../utils';
+
 import { OnBoarding } from './index';
+
+import { storyDocsParameters } from '../utils';
 
 export default {
   title: 'Design System/OnBoarding',

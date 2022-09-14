@@ -1,10 +1,14 @@
 import React from 'react';
+
+import { Box } from '@mui/material';
+
+import { LightAutocompleteCheckbox } from './Filters/AutocompleteSelect/stories';
+
 import { Row, Table } from './index';
+
+import { Chip } from '../Chip';
 import { SourceDestination } from '../Sections/SourceDestination';
 import { storyDocsParameters } from '../utils';
-import { Chip } from '../Chip';
-import { Box } from '@mui/material';
-import { LightAutocompleteCheckbox } from './Filters/AutocompleteSelect/stories';
 
 export default {
   title: 'Design System/Table',

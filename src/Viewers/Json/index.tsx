@@ -1,7 +1,9 @@
-import { Box, useTheme } from '@mui/material';
 import React, { FunctionComponent } from 'react';
-import { ObjectOf } from '../../types';
+
+import { Box, useTheme } from '@mui/material';
 import { JSONTree } from 'react-json-tree';
+
+import { ObjectOf } from '../../types';
 
 export type JsonViewerProps = {
   jsonData: ObjectOf<any>;

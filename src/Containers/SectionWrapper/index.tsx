@@ -1,5 +1,6 @@
-import { Box, Typography } from '@mui/material';
 import React, { FunctionComponent, ReactElement } from 'react';
+
+import { Box, Typography } from '@mui/material';
 
 export type SectionWrapperProps = {
   title?: string;

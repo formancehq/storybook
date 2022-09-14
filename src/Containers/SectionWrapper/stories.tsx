@@ -1,8 +1,11 @@
 import React from 'react';
-import { SectionWrapper } from './index';
+
 import { Box } from '@mui/material';
-import { storyDocsParameters } from '../../utils';
+
 import { DefaultTable, EmptyTable } from '../../Table/stories';
+import { storyDocsParameters } from '../../utils';
+
+import { SectionWrapper } from './index';
 
 export default {
   title: 'Design System/Containers/Wrapper',

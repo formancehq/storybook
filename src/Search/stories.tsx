@@ -1,15 +1,18 @@
 import React, { useState } from 'react';
-import { Search } from './index';
-import { LoadingButton } from '../Buttons/LoadingButton';
+
 import {
   AccountBalance,
   CreditCard,
   SearchOutlined,
 } from '@mui/icons-material';
 import { Box, Typography } from '@mui/material';
-import { storyDocsParameters } from '../utils';
+
+import { Search } from './index';
+
+import { LoadingButton } from '../Buttons/LoadingButton';
 import { Chip } from '../Chip';
 import { Txid } from '../Sections/Txid';
+import { storyDocsParameters } from '../utils';
 
 export default {
   title: 'Design System/SearchBar',
