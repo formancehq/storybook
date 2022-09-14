@@ -1,5 +1,6 @@
-import { Divider } from '@mui/material';
 import React, { FunctionComponent } from 'react';
+
+import { Divider } from '@mui/material';
 
 export type DividerWithSpaceProps = {
   mb?: string;

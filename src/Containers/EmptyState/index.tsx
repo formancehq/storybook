@@ -1,6 +1,7 @@
-import { Box, SxProps, Typography, useTheme } from '@mui/material';
 import React, { FunctionComponent, ReactElement } from 'react';
+
 import { Theme } from '@emotion/react';
+import { Box, SxProps, Typography, useTheme } from '@mui/material';
 
 export type EmptyStateProps = {
   title: string;

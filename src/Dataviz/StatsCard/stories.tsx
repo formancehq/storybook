@@ -1,7 +1,10 @@
 import React from 'react';
-import { StatsCard } from './index';
+
 import { Topic } from '@mui/icons-material';
+
 import { storyDocsParameters } from '../../utils';
+
+import { StatsCard } from './index';
 
 export default {
   title: 'Design System/Dataviz/Card',

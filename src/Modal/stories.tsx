@@ -1,7 +1,10 @@
 import React, { useState } from 'react';
-import { Modal } from './index';
-import { LoadingButton } from '../Buttons/LoadingButton';
+
 import { Box } from '@mui/material';
+
+import { Modal } from './index';
+
+import { LoadingButton } from '../Buttons/LoadingButton';
 import { TextField } from '../Forms/TextField';
 import { storyDocsParameters } from '../utils';
 

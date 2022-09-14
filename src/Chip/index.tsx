@@ -1,9 +1,11 @@
+import React, { FunctionComponent } from 'react';
+
 import {
   Chip as MuiChip,
   ChipProps as MuiChipProps,
   useTheme,
 } from '@mui/material';
-import React, { FunctionComponent } from 'react';
+
 import { ColorVariants } from '../types';
 
 export type ChipProps = Omit<MuiChipProps, 'color'> & {

@@ -1,6 +1,8 @@
 import React from 'react';
-import { TextArea } from './index';
+
 import { storyDocsParameters } from '../../utils';
+
+import { TextArea } from './index';
 
 export default {
   title: 'Design System/Forms/TextArea',

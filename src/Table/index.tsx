@@ -1,3 +1,11 @@
+import React, {
+  FunctionComponent,
+  ReactElement,
+  useEffect,
+  useState,
+} from 'react';
+
+import { ArrowLeft, ArrowRight } from '@mui/icons-material';
 import {
   Box,
   Paper,
@@ -11,14 +19,8 @@ import {
   Theme,
   Typography,
 } from '@mui/material';
-import React, {
-  FunctionComponent,
-  ReactElement,
-  useEffect,
-  useState,
-} from 'react';
 import { get, isEmpty } from 'lodash';
-import { ArrowLeft, ArrowRight } from '@mui/icons-material';
+
 import { LoadingButton } from '../Buttons/LoadingButton';
 
 export enum TableConfig {

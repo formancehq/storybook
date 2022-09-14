@@ -1,5 +1,7 @@
-import { Box, SxProps, Theme, Tooltip } from '@mui/material';
 import React, { FunctionComponent } from 'react';
+
+import { Box, SxProps, Theme, Tooltip } from '@mui/material';
+
 import { Chip } from '../../Chip';
 import { ColorVariants } from '../../types';
 

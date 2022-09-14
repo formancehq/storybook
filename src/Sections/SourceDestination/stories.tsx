@@ -1,6 +1,8 @@
 import React from 'react';
-import { SourceDestination } from './index';
+
 import { storyDocsParameters } from '../../utils';
+
+import { SourceDestination } from './index';
 
 export default {
   title: 'Design System/Sections/SourceDestination',

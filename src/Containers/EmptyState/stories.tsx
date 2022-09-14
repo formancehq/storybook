@@ -1,8 +1,11 @@
 import React from 'react';
-import { EmptyState } from './index';
+
+import { Box } from '@mui/material';
+
 import { LoadingButton } from '../../Buttons/LoadingButton';
 import { noop, storyDocsParameters } from '../../utils';
-import { Box } from '@mui/material';
+
+import { EmptyState } from './index';
 
 export default {
   title: 'Design System/Containers/EmptyState',

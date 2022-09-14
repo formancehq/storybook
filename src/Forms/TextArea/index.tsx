@@ -1,10 +1,11 @@
+import React, { FunctionComponent } from 'react';
+
 import {
   FormHelperText,
   TextareaAutosize,
   TextareaAutosizeProps,
   useTheme,
 } from '@mui/material';
-import React, { FunctionComponent } from 'react';
 
 export type JsonTextAreaProps = TextareaAutosizeProps & {
   helperText?: string;

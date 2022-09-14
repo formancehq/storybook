@@ -1,7 +1,10 @@
 import React from 'react';
-import { TabButton } from './index';
+
 import { Box } from '@mui/material';
+
 import { storyDocsParameters } from '../../utils';
+
+import { TabButton } from './index';
 
 export default {
   title: 'Design System/Buttons/Tab',

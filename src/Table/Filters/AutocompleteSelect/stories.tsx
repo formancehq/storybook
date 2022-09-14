@@ -1,9 +1,12 @@
 import React from 'react';
-import { AutocompleteOption, AutocompleteSelect } from './index';
-import { storyDocsParameters } from '../../../utils';
-import Checkbox from '@mui/material/Checkbox';
+
 import { ImportExport } from '@mui/icons-material';
 import { Box } from '@mui/material';
+import Checkbox from '@mui/material/Checkbox';
+
+import { storyDocsParameters } from '../../../utils';
+
+import { AutocompleteOption, AutocompleteSelect } from './index';
 
 export default {
   title: 'Design System/Table/Filters',

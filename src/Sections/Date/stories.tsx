@@ -1,7 +1,9 @@
 import React from 'react';
-import { Date } from './index';
-import { storyDocsParameters } from '../../utils';
+
 import { theme } from '../../muiTheme';
+import { storyDocsParameters } from '../../utils';
+
+import { Date } from './index';
 
 export default {
   title: 'Design System/Sections/Date',

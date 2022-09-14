@@ -1,10 +1,11 @@
+import React, { FunctionComponent } from 'react';
+
 import {
   Box,
   Breadcrumbs as MuiBreadcrumbs,
   Link,
   useTheme,
 } from '@mui/material';
-import React, { FunctionComponent } from 'react';
 
 export type BreadcrumbsLink = { onClick?: () => void; label: string };
 
