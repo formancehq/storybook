@@ -1,3 +1,8 @@
+import React from 'react';
+
+import ArrowDropDownIcon from '@mui/icons-material/ArrowDropDown';
+import NotificationsIcon from '@mui/icons-material/Notifications';
+import SearchIcon from '@mui/icons-material/Search';
 import {
   IconButton,
   Avatar,
@@ -6,22 +11,28 @@ import {
   Typography,
   Menu,
 } from '@mui/material';
-import React from 'react';
+
 import { Navbar } from '.';
-import { storyDocsParameters } from '../utils';
+
 import { theme } from '../muiTheme';
-import NotificationsIcon from '@mui/icons-material/Notifications';
-import SearchIcon from '@mui/icons-material/Search';
-import ArrowDropDownIcon from '@mui/icons-material/ArrowDropDown';
+import { storyDocsParameters } from '../utils';
 
 const routesMock = [
-  { label: 'Overview', path: '/overview', id: 'overview' },
+  { label: 'Overview', path: ['/overview', '/'], id: 'overview' },
   { label: 'Users', path: '/users', id: 'users' },
   { label: 'Groups', path: '/groups', id: 'groups' },
   { label: 'Settings', path: '/settings', id: 'settings' },
 ];
 
 const settings = ['Profile', 'Account', 'Dashboard', 'Logout'];
+
+const locationMock = {
+  pathname: '/transactions',
+  search: '',
+  hash: '',
+  state: null,
+  key: 'ulorypj3',
+};
 
 export default {
   title: 'Design System/Navbar',
@@ -41,7 +52,7 @@ export const NavbarWithItemsAvatarAndDropDownMenu = () => {
   };
 
   return (
-    <Navbar routes={routesMock} linkWrapper={<a></a>}>
+    <Navbar routes={routesMock} linkWrapper={<a></a>} location={locationMock}>
       <Box
         sx={{
           display: 'flex',
@@ -96,7 +107,7 @@ NavbarWithItemsAvatarAndDropDownMenu.storyName =
 NavbarWithItemsAvatarAndDropDownMenu.parameters = storyDocsParameters;
 
 export const NavBarWithNavigation = () => (
-  <Navbar routes={routesMock} linkWrapper={<a></a>} />
+  <Navbar routes={routesMock} linkWrapper={<a></a>} location={locationMock} />
 );
 
 NavBarWithNavigation.storyName = 'With actions';
