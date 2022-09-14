@@ -1,17 +1,16 @@
 import React, { FunctionComponent } from 'react';
 
 import {
-  FormHelperText,
   TextareaAutosize,
   TextareaAutosizeProps,
   useTheme,
 } from '@mui/material';
 
-export type JsonTextAreaProps = TextareaAutosizeProps & {
-  helperText?: string;
-  error?: boolean;
-  errorMessage?: string;
-};
+import { FormFieldErrorProps } from '../../types';
+
+import { FormHelper } from '../FormHelper';
+
+export type JsonTextAreaProps = TextareaAutosizeProps & FormFieldErrorProps;
 
 export const TextArea: FunctionComponent<JsonTextAreaProps> = ({
   errorMessage,
@@ -34,11 +33,7 @@ export const TextArea: FunctionComponent<JsonTextAreaProps> = ({
         }}
         {...props}
       />
-      {error && (
-        <FormHelperText error={error} sx={{ color: palette.red.normal }}>
-          {errorMessage}
-        </FormHelperText>
-      )}
+      <FormHelper error={error} errorMessage={errorMessage} />
     </>
   );
 };
