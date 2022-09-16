@@ -18,6 +18,7 @@ export * from './Forms/TextField';
 export * from './Forms/TextArea';
 export * from './Forms/DatePicker';
 export * from './Forms/RadioGroup';
+export * from './Forms/DebouncedAutocomplete';
 
 export * from './Viewers/Json';
 
