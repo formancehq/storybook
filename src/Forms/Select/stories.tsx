@@ -37,3 +37,15 @@ export const DefaultSelect = () => (
 );
 DefaultSelect.storyName = 'Default';
 DefaultSelect.parameters = storyDocsParameters;
+
+export const ErrorSelect = () => (
+  <Select
+    select={{ name: 'error' }}
+    items={items}
+    error
+    errorMessage="You must choose a value"
+    placeholder="Select a foobar"
+  />
+);
+ErrorSelect.storyName = 'Error';
+ErrorSelect.parameters = storyDocsParameters;

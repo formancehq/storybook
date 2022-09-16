@@ -20,7 +20,6 @@ export type ObjectOf<T> = {
 export type CFunction<T> = (_item?: T) => void;
 
 export type FormFieldErrorProps = {
-  helperText?: string;
   error?: boolean;
   errorMessage?: string;
 };

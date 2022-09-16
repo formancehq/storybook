@@ -1,4 +1,6 @@
 // eslint-disable-next-line @typescript-eslint/no-unused-vars
+import { theme } from './muiTheme';
+
 export const noop: any = (_item?: any) => undefined;
 
 export const isArray = (value: any) => !!value && value.constructor === Array;
@@ -37,3 +39,27 @@ export const omit = <T, TKeys extends keyof T>(
     { ...obj }
   );
 };
+
+/**
+ * Given a delay and a function returns a new function
+ * that will only call the source function after delay
+ * milliseconds have passed without any invocations
+ */
+export const debounce = <TArgs extends any[]>(
+  { delay }: { delay: number },
+  func: (...args: TArgs) => any
+): ((...args: TArgs) => void) => {
+  let timer: any = null;
+  const debounced = (...args: TArgs) => {
+    clearTimeout(timer);
+    timer = setTimeout(() => func(...args), delay);
+  };
+
+  return debounced as unknown as (...args: TArgs) => void;
+};
+
+export const formFieldsetErrorSx = (error = false) => ({
+  '& fieldset': {
+    borderColor: error ? `${theme.palette.red.normal} !important` : 'inherit',
+  },
+});
