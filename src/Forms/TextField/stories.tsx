@@ -32,7 +32,7 @@ export const ErrorTextField = () => (
     label="Lastname"
     defaultValue="Dupont"
     error
-    helperText="Wrong lastname"
+    errorMessage="Wrong lastname"
   />
 );
 ErrorTextField.storyName = 'Error';
@@ -61,7 +61,7 @@ export const StartIconTextField = () => (
       label="City"
       defaultValue="Los Angeles"
       error
-      helperText="Oops !"
+      errorMessage="Oops !"
       startAdornment={
         <InputAdornment position="start">
           <LocationCity />
@@ -98,9 +98,9 @@ export const FormTextField = () => (
       label="Years"
       fullWidth
       error
-      helperText="Try again!"
+      errorMessage="Try again!"
     />
-    <TextField name="city" label="City" error helperText="Wrong!" />
+    <TextField name="city" label="City" error errorMessage="Wrong!" />
     <TextField name="country" label="Country" disabled />
     <TextField
       name="foo"

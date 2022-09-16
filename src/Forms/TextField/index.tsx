@@ -2,21 +2,26 @@ import React, { FunctionComponent } from 'react';
 
 import {
   FormControl,
-  FormHelperText,
   InputBaseProps,
   InputLabel,
   InputLabelProps,
   OutlinedInput,
 } from '@mui/material';
 
-import { omit } from '../../utils';
+import { FormFieldErrorProps } from '../../types';
+import { formFieldsetErrorSx, omit } from '../../utils';
+
+import { FormHelper } from '../FormHelper';
 
 export type TextFieldProps = InputBaseProps &
-  InputLabelProps & { label?: string; helperText?: string };
+  InputLabelProps & {
+    label?: string;
+  } & FormFieldErrorProps;
 
 export const TextField: FunctionComponent<TextFieldProps> = ({
   label,
-  helperText,
+  error,
+  errorMessage,
   ...props
 }) => (
   <FormControl
@@ -30,16 +35,20 @@ export const TextField: FunctionComponent<TextFieldProps> = ({
         htmlFor={props.name}
         sx={{
           color: ({ palette }) =>
-            props.error ? palette.red.normal : palette.neutral[900],
+            error ? palette.red.normal : palette.neutral[900],
         }}
         {...omit(props, ['fullWidth'])}
       >
         {label}
       </InputLabel>
     )}
-    <OutlinedInput sx={{ marginTop: '18px' }} {...props} />
-    {props.error && (
-      <FormHelperText sx={{ marginTop: 1 }}>{helperText}</FormHelperText>
-    )}
+    <OutlinedInput
+      sx={{
+        marginTop: '18px',
+        ...formFieldsetErrorSx(error),
+      }}
+      {...props}
+    />
+    <FormHelper error={error} errorMessage={errorMessage} />
   </FormControl>
 );

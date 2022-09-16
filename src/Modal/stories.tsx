@@ -103,7 +103,7 @@ export const ModalWithDisabledSaveButton = () => {
           label="Years"
           fullWidth
           error
-          helperText="Try again!"
+          errorMessage="Try again!"
         />
       </Modal>
     </>

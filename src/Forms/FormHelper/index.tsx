@@ -12,7 +12,12 @@ export const FormHelper: FunctionComponent<FormFieldErrorProps> = ({
     {error && (
       <FormHelperText
         error={error}
-        sx={{ color: ({ palette }) => palette.red.normal }}
+        sx={{
+          color: ({ palette }) => palette.red.normal,
+          '&.Mui-error': {
+            color: ({ palette }) => palette.red.normal,
+          },
+        }}
       >
         {errorMessage}
       </FormHelperText>

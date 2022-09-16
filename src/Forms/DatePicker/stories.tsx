@@ -12,3 +12,9 @@ export default {
 export const DefaultDatePicker = () => <DatePicker onChange={() => null} />;
 DefaultDatePicker.storyName = 'Default';
 DefaultDatePicker.parameters = storyDocsParameters;
+
+export const ErrorDatePicker = () => (
+  <DatePicker onChange={() => null} error errorMessage="Date required" />
+);
+ErrorDatePicker.storyName = 'Error';
+ErrorDatePicker.parameters = storyDocsParameters;

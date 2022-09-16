@@ -10,12 +10,21 @@ import {
 import { LocalizationProvider } from '@mui/x-date-pickers/LocalizationProvider';
 import dayjs, { Dayjs } from 'dayjs';
 
+import { FormFieldErrorProps } from '../../types';
+import { formFieldsetErrorSx } from '../../utils';
+
+import { FormHelper } from '../FormHelper';
+
 export type DatePickerProps = Omit<
   DesktopDatePickerProps<any, any>,
   'renderInput' | 'value'
-> & { onChange?: (value?: Dayjs) => void };
+> & { onChange?: (value?: Dayjs) => void } & FormFieldErrorProps;
 
-export const DatePicker: FunctionComponent<DatePickerProps> = (props) => {
+export const DatePicker: FunctionComponent<DatePickerProps> = ({
+  error,
+  errorMessage,
+  ...props
+}) => {
   const [value, setValue] = React.useState<Dayjs | null>(dayjs());
 
   const handleChange = (newValue: Dayjs | null) => {
@@ -24,34 +33,39 @@ export const DatePicker: FunctionComponent<DatePickerProps> = (props) => {
   };
 
   return (
-    <LocalizationProvider dateAdapter={AdapterDayjs}>
-      <DesktopDatePicker
-        {...props}
-        PaperProps={{
-          sx: {
-            '& button': {
-              borderRadius: '4px',
+    <>
+      <LocalizationProvider dateAdapter={AdapterDayjs}>
+        <DesktopDatePicker
+          {...props}
+          PaperProps={{
+            sx: {
+              '& button': {
+                borderRadius: '4px',
+              },
             },
-          },
-        }}
-        InputAdornmentProps={{
-          sx: {
-            '& button': {
-              borderRadius: '4px',
+          }}
+          InputAdornmentProps={{
+            sx: {
+              '& button': {
+                borderRadius: '4px',
+              },
+              '& button:hover': {
+                color: ({ palette }) => palette.neutral[500],
+                backgroundColor: () => 'transparent',
+              },
+              '& .MuiSvgIcon-root': {
+                color: ({ palette }) => palette.neutral[900],
+              },
             },
-            '& button:hover': {
-              color: ({ palette }) => palette.neutral[500],
-              backgroundColor: () => 'transparent',
-            },
-            '& .MuiSvgIcon-root': {
-              color: ({ palette }) => palette.neutral[900],
-            },
-          },
-        }}
-        value={value}
-        onChange={handleChange}
-        renderInput={(params: any) => <TextField {...params} />}
-      />
-    </LocalizationProvider>
+          }}
+          value={value}
+          onChange={handleChange}
+          renderInput={(params: any) => (
+            <TextField {...params} sx={formFieldsetErrorSx(error)} />
+          )}
+        />
+      </LocalizationProvider>
+      <FormHelper error={error} errorMessage={errorMessage} />
+    </>
   );
 };
