@@ -3,7 +3,8 @@ export type ButtonVariants =
   | 'stroke'
   | 'primary'
   | 'dark'
-  | 'transparent';
+  | 'transparent'
+  | 'error';
 export type ColorVariants =
   | 'red'
   | 'blue'

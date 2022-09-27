@@ -23,6 +23,7 @@ export type ModalProps = DialogProps & {
   actions?: {
     cancel?: ModalActionsProps;
     save?: ModalActionsProps & { disabled?: boolean };
+    delete?: ModalActionsProps;
   };
 };
 
@@ -65,11 +66,21 @@ export const Modal: FunctionComponent<ModalProps> = ({
           )}
           {actions.save && (
             <LoadingButton
+              type="submit"
               content={actions.save.label}
               variant="dark"
               onClick={actions.save.onClick}
               sx={{ width: '50%' }}
               disabled={actions.save.disabled || false}
+            />
+          )}
+          {actions.delete && (
+            <LoadingButton
+              type="submit"
+              content={actions.delete.label}
+              variant="error"
+              onClick={actions.delete.onClick}
+              sx={{ width: '50%' }}
             />
           )}
         </DialogActions>
