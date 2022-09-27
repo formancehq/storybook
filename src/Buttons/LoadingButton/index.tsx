@@ -97,12 +97,25 @@ export const LoadingButton: FunctionComponent<LoadingButtonProps> = ({
     background: 'transparent',
   };
 
+  const errorStyles = {
+    ...commonStyles,
+    background: theme.palette.red.normal,
+    color: theme.palette.neutral[0],
+    ':hover': {
+      backgroundColor: theme.palette.red.bright,
+    },
+    ':focus': {
+      backgroundColor: theme.palette.red.bright,
+    },
+  };
+
   const variantsMap = {
     light: lightStyles,
     stroke: strokeStyles,
     primary: primaryStyles,
     transparent: transparentStyles,
     dark: darkStyles,
+    error: errorStyles,
   };
 
   useEffect(
