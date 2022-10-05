@@ -15,6 +15,7 @@ export * from './Containers/ModalWrapper/Confirmation';
 export * from './Containers/Page';
 export * from './Containers/SectionWrapper';
 
+export * from './Forms/Select';
 export * from './Forms/TextField';
 export * from './Forms/TextArea';
 export * from './Forms/DatePicker';
