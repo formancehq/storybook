@@ -28,16 +28,17 @@ export type NavbarProps = {
   };
   onLogoClick?: () => void;
   children?: JSX.Element;
+  logo?: React.ReactNode;
 };
 
 // TODO  Add a burger menu for responsive design
-
 export const Navbar: FunctionComponent<NavbarProps> = ({
   routes,
   linkWrapper,
   onLogoClick,
   // Reason behind this alias is to avoid confusion with the global object locations
   location: pLocation,
+  logo,
   children,
 }) => {
   const { palette } = useTheme();
@@ -66,16 +67,26 @@ export const Navbar: FunctionComponent<NavbarProps> = ({
           }}
         >
           <Box>
-            {/* TODO replace by logo*/}
-            <Typography
-              variant="h6"
-              noWrap
-              sx={{ cursor: 'pointer' }}
-              component="div"
-              onClick={onLogoClick}
-            >
-              FORMANCE
-            </Typography>
+            {/* TODO replace with CDN logo asset link when CDN is ready. Use your own asset in the mid time*/}
+            {logo ? (
+              <Box
+                sx={{ cursor: 'pointer' }}
+                component="span"
+                onClick={onLogoClick}
+              >
+                {logo}
+              </Box>
+            ) : (
+              <Typography
+                variant="h6"
+                noWrap
+                sx={{ cursor: 'pointer' }}
+                component="div"
+                onClick={onLogoClick}
+              >
+                FORMANCE
+              </Typography>
+            )}
           </Box>
           <Box sx={{ display: 'flex', flexWrap: 'wrap' }}>
             {routes.map(({ label, path, id }) => {

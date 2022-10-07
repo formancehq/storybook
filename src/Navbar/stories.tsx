@@ -107,7 +107,17 @@ NavbarWithItemsAvatarAndDropDownMenu.storyName =
 NavbarWithItemsAvatarAndDropDownMenu.parameters = storyDocsParameters;
 
 export const NavBarWithNavigation = () => (
-  <Navbar routes={routesMock} linkWrapper={<a></a>} location={locationMock} />
+  <Navbar
+    routes={routesMock}
+    linkWrapper={<a></a>}
+    location={locationMock}
+    logo={
+      <img
+        alt="logo"
+        src="https://www.formance.com/_next/image?url=%2F_next%2Fstatic%2Fmedia%2Fformance-logo-8.f0604b6c.svg&w=256&q=75"
+      />
+    }
+  />
 );
 
 NavBarWithNavigation.storyName = 'With actions';
