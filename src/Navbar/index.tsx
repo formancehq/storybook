@@ -16,6 +16,7 @@ export type NavbarProps = {
     label: string;
     path: string | string[];
     id: string;
+    icon?: React.ReactNode;
   }>;
   linkWrapper: ReactElement<any, any>;
   // Reason behind this weird naming is to avoid confusion with the global locations
@@ -89,7 +90,7 @@ export const Navbar: FunctionComponent<NavbarProps> = ({
             )}
           </Box>
           <Box sx={{ display: 'flex', flexWrap: 'wrap' }}>
-            {routes.map(({ label, path, id }) => {
+            {routes.map(({ label, path, id, icon }) => {
               const selected = isArray(path)
                 ? path[0] === pLocation.pathname
                 : path === pLocation.pathname;
@@ -103,7 +104,14 @@ export const Navbar: FunctionComponent<NavbarProps> = ({
                   color: selected ? palette.neutral[900] : 'inherit',
                 },
                 <Button
+                  startIcon={icon}
                   sx={{
+                    '& .MuiButton-startIcon .MuiSvgIcon-root': {
+                      color: `${palette.neutral[300]} !important`,
+                    },
+                    '& .MuiButton-startIcon': {
+                      marginRight: 0,
+                    },
                     gap: '8px',
                     padding: '8px 16px',
                     margin: '0px 4px 0px 4px',

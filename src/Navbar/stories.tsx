@@ -1,5 +1,12 @@
 import React from 'react';
 
+import {
+  AccountBalance,
+  CreditCard,
+  Home,
+  HomeOutlined,
+  MonitorOutlined,
+} from '@mui/icons-material';
 import ArrowDropDownIcon from '@mui/icons-material/ArrowDropDown';
 import NotificationsIcon from '@mui/icons-material/Notifications';
 import SearchIcon from '@mui/icons-material/Search';
@@ -18,9 +25,14 @@ import { theme } from '../muiTheme';
 import { storyDocsParameters } from '../utils';
 
 const routesMock = [
-  { label: 'Overview', path: ['/overview', '/'], id: 'overview' },
-  { label: 'Users', path: '/users', id: 'users' },
-  { label: 'Groups', path: '/groups', id: 'groups' },
+  {
+    label: 'Overview',
+    path: ['/overview', '/'],
+    id: 'overview',
+    icon: <Home />,
+  },
+  { label: 'Users', path: '/users', id: 'users', icon: <AccountBalance /> },
+  { label: 'Groups', path: '/groups', id: 'groups', icon: <CreditCard /> },
   { label: 'Settings', path: '/settings', id: 'settings' },
 ];
 
