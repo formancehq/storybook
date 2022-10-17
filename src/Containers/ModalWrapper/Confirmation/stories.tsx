@@ -37,9 +37,10 @@ export const ModalWithDeleteConfirmationWrapper = () => {
             onClick: handleClose,
             label: 'Cancel',
           },
-          delete: {
+          save: {
             onClick: () => null,
             label: 'Delete',
+            variant: 'error',
           },
         }}
       >
