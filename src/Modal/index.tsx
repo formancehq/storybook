@@ -12,7 +12,7 @@ import {
 } from '@mui/material';
 
 import { LoadingButton } from '../Buttons/LoadingButton';
-import { CFunction } from '../types';
+import { ButtonVariants, CFunction } from '../types';
 
 export type ModalActionsProps = {
   label: string;
@@ -22,8 +22,7 @@ export type ModalActionsProps = {
 export type ModalProps = DialogProps & {
   actions?: {
     cancel?: ModalActionsProps;
-    save?: ModalActionsProps & { disabled?: boolean };
-    delete?: ModalActionsProps;
+    save?: ModalActionsProps & { disabled?: boolean; variant?: ButtonVariants };
   };
 };
 
@@ -68,19 +67,10 @@ export const Modal: FunctionComponent<ModalProps> = ({
             <LoadingButton
               type="submit"
               content={actions.save.label}
-              variant="dark"
+              variant={actions.save?.variant || 'dark'}
               onClick={actions.save.onClick}
               sx={{ width: '50%' }}
               disabled={actions.save.disabled || false}
-            />
-          )}
-          {actions.delete && (
-            <LoadingButton
-              type="submit"
-              content={actions.delete.label}
-              variant="error"
-              onClick={actions.delete.onClick}
-              sx={{ width: '50%' }}
             />
           )}
         </DialogActions>

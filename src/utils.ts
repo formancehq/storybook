@@ -1,9 +1,13 @@
 // eslint-disable-next-line @typescript-eslint/no-unused-vars
 import { theme } from './muiTheme';
 
+// eslint-disable-next-line @typescript-eslint/no-unused-vars
 export const noop: any = (_item?: any) => undefined;
 
 export const isArray = (value: any) => !!value && value.constructor === Array;
+
+export const copyTokenToClipboard = async (value: string): Promise<void> =>
+  await navigator.clipboard.writeText(value);
 
 export const storyDocsParameters = {
   docs: {
