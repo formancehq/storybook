@@ -52,9 +52,11 @@ export const Modal: FunctionComponent<ModalProps> = ({
           onClick={onClose as CFunction<any>}
         />
       </Box>
-      <DialogContent sx={{ overflowY: 'initial' }}>{children}</DialogContent>
+      <DialogContent sx={{ overflowY: 'initial', p: '0px 26px' }}>
+        {children}
+      </DialogContent>
       {actions && (
-        <DialogActions sx={{ padding: '20px 24px' }}>
+        <DialogActions sx={{ padding: '20px 26px' }}>
           {actions.cancel && (
             <LoadingButton
               content={actions.cancel.label}
