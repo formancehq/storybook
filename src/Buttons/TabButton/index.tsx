@@ -1,12 +1,9 @@
 import React, { FunctionComponent } from 'react';
 
-import { ListItemButton, Typography } from '@mui/material';
-
-import { ObjectOf } from '../../types';
+import { Button } from '@mui/material';
 
 export type TabButtonProps = {
   type: string;
-  map: ObjectOf<any>;
   label: string;
   onClick: () => void;
   active?: boolean;
@@ -18,12 +15,16 @@ export const TabButton: FunctionComponent<TabButtonProps> = ({
   onClick,
   active = false,
 }) => (
-  <ListItemButton
+  <Button
     id={type.toLowerCase()}
     sx={{
+      borderRadius: 0,
+      textTransform: 'none',
+      fontSize: ({ typography }) => typography.h2.fontSize,
       ':hover': {
         color: ({ palette }) => palette.neutral[900],
         backgroundColor: 'transparent',
+        borderRadius: 0,
       },
       color: ({ palette }) =>
         active ? palette.neutral[900] : palette.neutral[500],
@@ -32,6 +33,6 @@ export const TabButton: FunctionComponent<TabButtonProps> = ({
     }}
     onClick={() => onClick()}
   >
-    <Typography variant="h2">{label}</Typography>{' '}
-  </ListItemButton>
+    {label}
+  </Button>
 );

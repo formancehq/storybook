@@ -1,5 +1,6 @@
 export * from './Buttons/LoadingButton';
 export * from './Buttons/TabButton';
+export * from './Buttons/Tabs';
 
 export * from './OnBoarding';
 
