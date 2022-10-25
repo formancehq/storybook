@@ -1,7 +1,5 @@
 import React from 'react';
 
-import { Box } from '@mui/material';
-
 import { storyDocsParameters } from '../../utils';
 
 import { TabButton } from './index';
@@ -11,35 +9,24 @@ export default {
   component: TabButton,
 };
 
-const stateMap = {
-  transaction: true,
-  accounts: true,
-};
-
 export const ActiveTabButton = () => (
-  <Box>
-    <TabButton
-      type="transaction"
-      map={stateMap}
-      label="Transaction"
-      onClick={() => null}
-      active={true}
-    />
-  </Box>
+  <TabButton
+    type="transaction"
+    label="Transaction"
+    onClick={() => null}
+    active
+  />
 );
-ActiveTabButton.storyName = 'Active';
+ActiveTabButton.storyName = 'Active button tab';
 ActiveTabButton.parameters = storyDocsParameters;
 
-export const DefaultTabButton = () => (
-  <Box>
-    <TabButton
-      type="transaction"
-      map={stateMap}
-      label="Transaction"
-      onClick={() => null}
-      active={false}
-    />
-  </Box>
+export const UnactiveTabButton = () => (
+  <TabButton
+    type="transaction"
+    label="Transaction"
+    onClick={() => null}
+    active={false}
+  />
 );
-DefaultTabButton.storyName = 'Default';
-DefaultTabButton.parameters = storyDocsParameters;
+UnactiveTabButton.storyName = 'Unactive button tab';
+UnactiveTabButton.parameters = storyDocsParameters;
