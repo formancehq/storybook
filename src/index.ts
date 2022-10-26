@@ -12,7 +12,6 @@ export * from './Sections/Txid';
 export * from './Sections/TitleWithBar';
 
 export * from './Containers/EmptyState';
-export * from './Containers/ModalWrapper/Confirmation';
 export * from './Containers/Page';
 export * from './Containers/SectionWrapper';
 
@@ -22,6 +21,8 @@ export * from './Forms/TextArea';
 export * from './Forms/DatePicker';
 export * from './Forms/RadioGroup';
 export * from './Forms/DebouncedAutocomplete';
+
+export * from './Alerts/Snackbar';
 
 export * from './Viewers/Json';
 
