@@ -92,7 +92,7 @@ export const Navbar: FunctionComponent<NavbarProps> = ({
           <Box sx={{ display: 'flex', flexWrap: 'wrap' }}>
             {routes.map(({ label, path, id, icon }) => {
               const selected = isArray(path)
-                ? path[0] === pLocation.pathname
+                ? path.includes(pLocation.pathname)
                 : path === pLocation.pathname;
 
               return React.cloneElement(
