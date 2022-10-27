@@ -1,13 +1,12 @@
-import React, { FunctionComponent } from 'react';
+import React, { FunctionComponent, ReactElement } from 'react';
 
 import { Box } from '@mui/material';
 
-import { LoadingButton, LoadingButtonProps } from '../LoadingButton';
 import { TabButton, TabButtonProps } from '../TabButton';
 
 export type TabsProps = {
   config: TabButtonProps[];
-  action?: LoadingButtonProps;
+  action?: ReactElement;
 };
 
 export const Tabs: FunctionComponent<TabsProps> = ({ config, action }) => (
@@ -29,6 +28,6 @@ export const Tabs: FunctionComponent<TabsProps> = ({ config, action }) => (
         />
       ))}
     </Box>
-    {action && <LoadingButton {...action} />}
+    {action && action}
   </Box>
 );

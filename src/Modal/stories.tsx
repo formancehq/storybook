@@ -13,7 +13,7 @@ export default {
   component: Modal,
 };
 
-const Form = () => (
+export const Form = () => (
   <Box>
     <TextField
       name="firstname"

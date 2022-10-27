@@ -1,10 +1,12 @@
 import React, { useState } from 'react';
 
-import { Add } from '@mui/icons-material';
-
+import { Modal } from '../../Modal';
+import { Form } from '../../Modal/stories';
 import { storyDocsParameters } from '../../utils';
 
 import { Tabs } from './index';
+
+import { LoadingButton } from '../LoadingButton';
 
 export default {
   title: 'Design System/Buttons/Tabs',
@@ -42,7 +44,9 @@ export const TabsWithAction = () => {
     transaction: boolean;
     account: boolean;
   }>({ transaction: true, account: false });
-
+  const [open, setOpen] = useState(false);
+  const handleOpen = () => setOpen(true);
+  const handleClose = () => setOpen(false);
   const config = [
     {
       type: 'transaction',
@@ -61,7 +65,18 @@ export const TabsWithAction = () => {
   return (
     <Tabs
       config={config}
-      action={{ content: 'Action', startIcon: <Add />, variant: 'dark' }}
+      action={
+        <>
+          <LoadingButton
+            content="Open modal"
+            onClick={handleOpen}
+            variant="dark"
+          />
+          <Modal open={open} onClose={handleClose} title="Update foo">
+            <Form />
+          </Modal>
+        </>
+      }
     />
   );
 };
