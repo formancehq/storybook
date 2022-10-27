@@ -37,7 +37,7 @@ export const TextField: FunctionComponent<TextFieldProps> = ({
           color: ({ palette }) =>
             error ? palette.red.normal : palette.neutral[900],
         }}
-        {...omit(props, ['fullWidth'])}
+        {...omit(props, ['fullWidth', 'inputRef'])}
       >
         {label}
       </InputLabel>
