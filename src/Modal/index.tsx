@@ -35,7 +35,7 @@ export const Modal: FunctionComponent<ModalProps> = ({
   actions,
   PaperProps,
 }) => {
-  const { typography } = useTheme();
+  const { typography, palette } = useTheme();
   const paperSx = PaperProps ? PaperProps.sx : {};
 
   return (
@@ -49,6 +49,13 @@ export const Modal: FunctionComponent<ModalProps> = ({
         <DialogTitle sx={{ ...typography.headline }}>{title}</DialogTitle>
         <LoadingButton
           startIcon={<Close />}
+          variant="transparent"
+          sx={{
+            ':hover': {
+              background: 'transparent',
+              color: palette.neutral[600],
+            },
+          }}
           onClick={onClose as CFunction<any>}
         />
       </Box>
