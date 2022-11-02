@@ -13,6 +13,7 @@ export const FormHelper: FunctionComponent<FormFieldErrorProps> = ({
       <FormHelperText
         error={error}
         sx={{
+          marginLeft: '14px',
           color: ({ palette }) => palette.red.normal,
           '&.Mui-error': {
             color: ({ palette }) => palette.red.normal,

@@ -11,9 +11,6 @@ import { LocalizationProvider } from '@mui/x-date-pickers/LocalizationProvider';
 import dayjs, { Dayjs } from 'dayjs';
 
 import { FormFieldErrorProps } from '../../types';
-import { formFieldsetErrorSx } from '../../utils';
-
-import { FormHelper } from '../FormHelper';
 
 export type DatePickerProps = Omit<
   DesktopDatePickerProps<any, any>,
@@ -61,11 +58,10 @@ export const DatePicker: FunctionComponent<DatePickerProps> = ({
           value={value}
           onChange={handleChange}
           renderInput={(params: any) => (
-            <TextField {...params} sx={formFieldsetErrorSx(error)} />
+            <TextField {...params} error={error} helperText={errorMessage} />
           )}
         />
       </LocalizationProvider>
-      <FormHelper error={error} errorMessage={errorMessage} />
     </>
   );
 };
