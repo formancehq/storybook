@@ -5,6 +5,7 @@ import { Box, Button } from '@mui/material';
 
 import { OnBoarding } from './index';
 
+import { LoadingButton } from '../Buttons/LoadingButton';
 import { storyDocsParameters } from '../utils';
 
 export default {
@@ -14,9 +15,12 @@ export default {
 
 export const SimpleUsage = () => (
   <OnBoarding title="title" description="subtitle">
-    <Button variant="outlined" sx={{ mt: '12px' }} startIcon={<Add />}>
-      Go to connectors
-    </Button>
+    <LoadingButton
+      variant="stroke"
+      sx={{ mt: '12px' }}
+      startIcon={<Add />}
+      content="Go to connectors"
+    />
   </OnBoarding>
 );
 

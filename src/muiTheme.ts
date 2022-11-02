@@ -319,6 +319,18 @@ export const theme = createTheme({
         },
       },
     },
+    MuiOutlinedInput: {
+      defaultProps: {
+        inputProps: {
+          shrink: true,
+        },
+      },
+      styleOverrides: {
+        root: {
+          height: '40px',
+        },
+      },
+    },
     MuiList: {
       styleOverrides: {
         root: {
