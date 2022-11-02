@@ -18,7 +18,8 @@ export * from './Containers/SectionWrapper';
 export * from './Forms/Select';
 export * from './Forms/TextField';
 export * from './Forms/TextArea';
-export * from './Forms/DatePicker';
+export * from './Forms/Pickers/DatePicker';
+export * from './Forms/Pickers/DateTimePicker';
 export * from './Forms/RadioGroup';
 export * from './Forms/DebouncedAutocomplete';
 
