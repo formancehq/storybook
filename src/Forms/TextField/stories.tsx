@@ -1,6 +1,6 @@
 import React from 'react';
 
-import { CircleNotifications, LocationCity } from '@mui/icons-material';
+import { LocationCity } from '@mui/icons-material';
 import { InputAdornment } from '@mui/material';
 
 import { storyDocsParameters } from '../../utils';
@@ -50,11 +50,13 @@ export const StartIconTextField = () => (
       name="city"
       label="City"
       defaultValue="Los Angeles"
-      startAdornment={
-        <InputAdornment position="start">
-          <LocationCity />
-        </InputAdornment>
-      }
+      InputProps={{
+        startAdornment: (
+          <InputAdornment position="start">
+            <LocationCity />
+          </InputAdornment>
+        ),
+      }}
     />
     <TextField
       name="city"
@@ -62,22 +64,26 @@ export const StartIconTextField = () => (
       defaultValue="Los Angeles"
       error
       errorMessage="Oops !"
-      startAdornment={
-        <InputAdornment position="start">
-          <LocationCity />
-        </InputAdornment>
-      }
+      InputProps={{
+        endAdornment: (
+          <InputAdornment position="end">
+            <LocationCity />
+          </InputAdornment>
+        ),
+      }}
     />
     <TextField
       name="city"
       label="City"
       defaultValue="Los Angeles"
       disabled
-      startAdornment={
-        <InputAdornment position="start">
-          <LocationCity />
-        </InputAdornment>
-      }
+      InputProps={{
+        startAdornment: (
+          <InputAdornment position="start">
+            <LocationCity />
+          </InputAdornment>
+        ),
+      }}
     />
   </>
 );
@@ -107,21 +113,25 @@ export const FormTextField = () => (
       label="Bar"
       defaultValue="Foobar"
       disabled
-      startAdornment={
-        <InputAdornment position="start">
-          <LocationCity />
-        </InputAdornment>
-      }
+      InputProps={{
+        startAdornment: (
+          <InputAdornment position="start">
+            <LocationCity />
+          </InputAdornment>
+        ),
+      }}
     />
     <TextField
       name="bar"
       label="Foo"
       error
-      endAdornment={
-        <InputAdornment position="end">
-          <CircleNotifications />
-        </InputAdornment>
-      }
+      InputProps={{
+        endAdornment: (
+          <InputAdornment position="end">
+            <LocationCity />
+          </InputAdornment>
+        ),
+      }}
     />
   </>
 );

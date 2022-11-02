@@ -6,9 +6,7 @@ import Autocomplete, { AutocompleteProps } from '@mui/material/Autocomplete';
 import TextField from '@mui/material/TextField';
 
 import { FormFieldErrorProps } from '../../types';
-import { debounce, formFieldsetErrorSx } from '../../utils';
-
-import { FormHelper } from '../FormHelper';
+import { debounce } from '../../utils';
 
 export type AutocompleteSuggestion = {
   label: string;
@@ -58,13 +56,13 @@ export const DebouncedAutocomplete: FunctionComponent<
       <Autocomplete
         noOptionsText="No results"
         {...props}
-        size="small"
         renderInput={(params) => (
           <TextField
-            sx={formFieldsetErrorSx(error)}
             {...params}
             placeholder={props.placeholder}
             onChange={handleOnChange}
+            error={error}
+            helperText={errorMessage}
             InputProps={{
               ...params.InputProps,
               startAdornment: (
@@ -82,7 +80,6 @@ export const DebouncedAutocomplete: FunctionComponent<
         )}
         options={suggestions || []}
       />
-      <FormHelper error={error} errorMessage={errorMessage} />
     </>
   );
 };

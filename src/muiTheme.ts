@@ -153,7 +153,7 @@ const palette = {
   },
   red: {
     darker: '#9E3131',
-    normal: '#C75656',
+    normal: '#d32f2f',
     bright: '#DB9898',
     light: '#FBEFEF',
   },
@@ -311,50 +311,11 @@ export const theme = createTheme({
         },
       },
     },
-    MuiInputLabel: {
-      styleOverrides: {
-        root: {
-          ...typography.body2,
-          color: palette.neutral[900],
-          left: '3px',
-          '&.Mui-error': {
-            color: palette.red.normal,
-          },
-        },
-      },
-    },
     MuiFormHelperText: {
       styleOverrides: {
         root: {
           ...typography.caption,
           color: palette.red.normal,
-        },
-      },
-    },
-    MuiOutlinedInput: {
-      styleOverrides: {
-        root: {
-          height: '40px',
-          borderRadius: '4px',
-          '&.Mui-focused': {
-            borderWidth: 1,
-          },
-          '&.Mui-focused fieldset': {
-            borderWidth: '1px !important',
-          },
-          '&.Mui-error fieldset': {
-            border: `1px solid ${palette.red.normal} !important`,
-          },
-          fieldset: {
-            border: `1px solid ${palette.neutral[200]}`,
-          },
-          '.MuiInputAdornment-root': {
-            color: palette.neutral[900],
-          },
-          '&.Mui-disabled .MuiInputAdornment-root': {
-            color: palette.neutral[500],
-          },
-          backgroundColor: palette.neutral[0],
         },
       },
     },
