@@ -53,6 +53,9 @@ export const LoadingButton: FunctionComponent<LoadingButtonProps> = ({
       border: 'none',
     },
     textTransform: 'none',
+    ':hover': {
+      transition: '0.5s',
+    },
     ...sx,
   } as SxProps;
   const lightStyles = {
@@ -67,9 +70,9 @@ export const LoadingButton: FunctionComponent<LoadingButtonProps> = ({
     ...commonStyles,
     backgroundColor: theme.palette.neutral[0],
     color: theme.palette.neutral[900],
-    border: `1px solid ${theme.palette.neutral[200]}`,
+    border: `2px solid ${theme.palette.neutral[200]}`,
     ':hover': {
-      border: `1px solid ${theme.palette.neutral[900]}`,
+      border: `2px solid ${theme.palette.neutral[900]}`,
     },
   } as SxProps;
   const primaryStyles = {
@@ -78,6 +81,7 @@ export const LoadingButton: FunctionComponent<LoadingButtonProps> = ({
     color: theme.palette.neutral[900],
     ':hover': {
       backgroundColor: theme.palette.default.normal,
+      color: theme.palette.neutral[0],
     },
   } as SxProps;
   const darkStyles = {
@@ -95,6 +99,10 @@ export const LoadingButton: FunctionComponent<LoadingButtonProps> = ({
   const transparentStyles = {
     ...commonStyles,
     background: 'transparent',
+    ':hover': {
+      backgroundColor: 'transparent',
+      color: theme.palette.neutral[500],
+    },
   };
 
   const errorStyles = {

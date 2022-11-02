@@ -1,6 +1,7 @@
 import React, { FunctionComponent } from 'react';
 
 import {
+  Box,
   TextareaAutosize,
   TextareaAutosizeProps,
   useTheme,
@@ -21,19 +22,32 @@ export const TextArea: FunctionComponent<JsonTextAreaProps> = ({
   const { palette, typography } = useTheme();
 
   return (
-    <>
+    <Box
+      sx={{
+        'textarea:focus-visible': {
+          outlineColor: error ? palette.red.normal : palette.neutral[900],
+        },
+        'textarea:hover': {
+          border: `1px solid ${
+            error ? palette.red.normal : palette.neutral[900]
+          } !important`,
+        },
+      }}
+    >
       <TextareaAutosize
         aria-label="text-area"
         minRows={minRows}
         style={{
           width: '100%',
-          borderColor: error ? palette.red.normal : 'initial',
+          border: `1px solid ${
+            error ? palette.red.normal : 'rgba(0, 0, 0, 0.23)'
+          }`,
           borderRadius: '4px',
           ...typography.money,
         }}
         {...props}
       />
       <FormHelper error={error} errorMessage={errorMessage} />
-    </>
+    </Box>
   );
 };
