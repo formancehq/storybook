@@ -1,11 +1,11 @@
 import React from 'react';
 
-import { storyDocsParameters } from '../../utils';
+import { storyDocsParameters } from '../../../utils';
 
 import { DatePicker } from './index';
 
 export default {
-  title: 'Design System/Forms/DatePicker',
+  title: 'Design System/Forms/Pickers/Date',
   component: DatePicker,
 };
 
