@@ -67,3 +67,12 @@ export const formFieldsetErrorSx = (error = false) => ({
     borderColor: error ? `${theme.palette.red.normal} !important` : 'inherit',
   },
 });
+
+export const upperCaseFirstLetter = (str: string) =>
+  str.charAt(0).toUpperCase() + str.slice(1);
+
+export const camelCaseToSentence = (str: string) =>
+  str
+    .replace(/([A-Z])/g, ' $1')
+    .toLocaleLowerCase()
+    .replace(/^./, (str) => upperCaseFirstLetter(str));
