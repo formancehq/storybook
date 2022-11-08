@@ -32,6 +32,7 @@ export const DateWithColorAndFormat = () => (
       timestamp="123456789"
       format="DD/MM/YYYY"
       color={theme.palette.violet.bright}
+      tooltip={false}
     />
   </div>
 );
