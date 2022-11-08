@@ -1,6 +1,6 @@
 import React, { FunctionComponent } from 'react';
 
-import { Tooltip, Typography, TypographyVariant } from '@mui/material';
+import { Box, Tooltip, Typography, TypographyVariant } from '@mui/material';
 import dayjs from 'dayjs';
 
 export type DateProps = {
@@ -19,17 +19,23 @@ export const Date: FunctionComponent<DateProps> = ({
   color,
   variant = 'body1',
   tooltip = true,
-}) => (
-  <>
-    {tooltip && (
-      <Tooltip title={`${timestamp}`} placement="top">
-        <Typography
-          variant={variant}
-          sx={{ color: ({ palette }) => color || palette.neutral[600] }}
-        >{`${message ? `${message} ` : ''}${dayjs(timestamp).format(
-          format
-        )}`}</Typography>
-      </Tooltip>
-    )}
-  </>
-);
+}) => {
+  const renderTypo = () => (
+    <Typography
+      variant={variant}
+      sx={{ color: ({ palette }) => color || palette.neutral[600] }}
+    >{`${message ? `${message} ` : ''}${dayjs(timestamp).format(
+      format
+    )}`}</Typography>
+  );
+
+  return (
+    <Box display="flex" alignItems="center" component="span">
+      {tooltip ? (
+        <Tooltip title={`${timestamp}`}>{renderTypo()}</Tooltip>
+      ) : (
+        renderTypo()
+      )}
+    </Box>
+  );
+};
