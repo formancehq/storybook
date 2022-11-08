@@ -40,8 +40,8 @@ export type TableProps = {
   path?: string;
   withHeader?: boolean;
   onInit?: () => void;
-  onNext: (next: string) => void;
-  onPrevious: (previous: string) => void;
+  onNext?: (next: string) => void;
+  onPrevious?: (previous: string) => void;
   labels?: {
     pagination: { showing: string; separator: string; results: string };
     noResults: string;
@@ -173,11 +173,11 @@ export const Table: FunctionComponent<TableProps> = ({
   }, [items]);
 
   const handleNextButtonClick = () => {
-    if (metas && metas.next) onNext(metas.next);
+    if (metas && metas.next && onNext) onNext(metas.next);
   };
 
   const handlePreviousButtonClick = () => {
-    if (metas && metas.previous) onPrevious(metas.previous);
+    if (metas && metas.previous && onPrevious) onPrevious(metas.previous);
   };
 
   return (
@@ -267,18 +267,22 @@ export const Table: FunctionComponent<TableProps> = ({
                 </Typography>
               </Box>
               <Box>
-                <LoadingButton
-                  id="pagination-previous"
-                  disabled={hasPrevious}
-                  onClick={handlePreviousButtonClick}
-                  endIcon={<ArrowLeft />}
-                />
-                <LoadingButton
-                  id="pagination-next"
-                  disabled={!hasMore}
-                  onClick={handleNextButtonClick}
-                  endIcon={<ArrowRight />}
-                />
+                {onPrevious && (
+                  <LoadingButton
+                    id="pagination-previous"
+                    disabled={hasPrevious}
+                    onClick={handlePreviousButtonClick}
+                    endIcon={<ArrowLeft />}
+                  />
+                )}
+                {onNext && (
+                  <LoadingButton
+                    id="pagination-next"
+                    disabled={!hasMore}
+                    onClick={handleNextButtonClick}
+                    endIcon={<ArrowRight />}
+                  />
+                )}
               </Box>
             </Box>
           )}
