@@ -36,24 +36,27 @@ const data = [
 ];
 
 export const LightAutocompleteCheckbox = () => (
-  <AutocompleteSelect
-    noOptionsText="Sorry"
-    placeholder="Search a ledger"
-    name="ledgers"
-    multiple
-    id="checkboxes-tags-demo"
-    options={data}
-    icon={<ImportExport />}
-    disableCloseOnSelect
-    getOptionLabel={(option: AutocompleteOption) => option.label}
-    renderOption={(props, option: AutocompleteOption, { selected }) => (
-      <li {...props}>
-        <Checkbox style={{ marginRight: 8 }} checked={selected} />
-        {option.label}
-      </li>
-    )}
-    style={{ width: 250 }}
-  />
+  <Box>
+    <AutocompleteSelect
+      noOptionsText="Sorry"
+      variant="light"
+      placeholder="Search a ledger"
+      name="ledgers"
+      multiple
+      id="checkboxes-tags-demo"
+      options={data}
+      icon={<ImportExport />}
+      disableCloseOnSelect
+      getOptionLabel={(option: AutocompleteOption) => option.label}
+      renderOption={(props, option: AutocompleteOption, { selected }) => (
+        <li {...props}>
+          <Checkbox style={{ marginRight: 8 }} checked={selected} />
+          {option.label}
+        </li>
+      )}
+      style={{ width: 500 }}
+    />
+  </Box>
 );
 LightAutocompleteCheckbox.storyName = 'Light';
 LightAutocompleteCheckbox.parameters = storyDocsParameters;
