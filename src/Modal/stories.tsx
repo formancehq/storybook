@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 
-import { Box } from '@mui/material';
+import { Delete } from '@mui/icons-material';
+import { Box, Typography } from '@mui/material';
 
 import { Modal } from './index';
 
@@ -111,3 +112,40 @@ export const ModalWithDisabledSaveButton = () => {
 };
 ModalWithDisabledSaveButton.storyName = 'With disabled save action';
 ModalWithDisabledSaveButton.parameters = storyDocsParameters;
+
+export const ConfirmModal = () => {
+  const [open, setOpen] = useState(false);
+  const handleOpen = () => setOpen(true);
+  const handleClose = () => setOpen(false);
+
+  return (
+    <>
+      <LoadingButton
+        content="Delete"
+        onClick={handleOpen}
+        variant="error"
+        startIcon={<Delete />}
+      />
+      <Modal
+        open={open}
+        onClose={handleClose}
+        title="Delete foo"
+        actions={{
+          cancel: {
+            onClick: handleClose,
+            label: 'Cancel',
+          },
+          save: {
+            onClick: () => null,
+            label: 'Confirm',
+            variant: 'error',
+          },
+        }}
+      >
+        <Typography>Are you sure you want to delete foo ?</Typography>
+      </Modal>
+    </>
+  );
+};
+ConfirmModal.storyName = 'Confirm';
+ConfirmModal.parameters = storyDocsParameters;

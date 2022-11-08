@@ -14,6 +14,7 @@ export * from './Sections/TitleWithBar';
 export * from './Containers/EmptyState';
 export * from './Containers/Page';
 export * from './Containers/SectionWrapper';
+export * from './Containers/ActionZone';
 
 export * from './Forms/Select';
 export * from './Forms/TextField';
