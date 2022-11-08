@@ -35,7 +35,9 @@ export const ActionZone: FunctionComponent<ActionZoneProps> = ({ actions }) => {
           keys={[
             <Box component="span" key={index}>
               <Typography variant="bold">{action.title}</Typography>
-              <Typography>{action.description}</Typography>
+              <Typography sx={{ color: ({ palette }) => palette.neutral[500] }}>
+                {action.description}
+              </Typography>
             </Box>,
           ]}
           item={action}
