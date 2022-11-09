@@ -25,6 +25,10 @@ export const DefaultChip = () => <Chip label="label" />;
 DefaultChip.storyName = 'Default';
 DefaultChip.parameters = storyDocsParameters;
 
+export const UndefinedChip = () => <Chip label={undefined} />;
+UndefinedChip.storyName = 'Undefined';
+UndefinedChip.parameters = storyDocsParameters;
+
 export const IconChipClickable = () => (
   <Chip
     label="label"

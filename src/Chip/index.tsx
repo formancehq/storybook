@@ -15,6 +15,8 @@ export type ChipProps = Omit<MuiChipProps, 'color'> & {
 export const Chip: FunctionComponent<ChipProps> = ({ color, sx, ...props }) => {
   const { palette, typography } = useTheme();
 
+  if (!props.label) return null;
+
   const backgroundColor = color ? palette[color].light : palette.neutral[50];
   const fontColor = color ? palette[color].darker : palette.neutral[900];
 
