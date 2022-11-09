@@ -76,3 +76,9 @@ Bold.parameters = storyDocsParameters;
 export const Money = () => <Typography variant="money">Title</Typography>;
 Money.storyName = 'Money';
 Money.parameters = storyDocsParameters;
+
+export const Placeholder = () => (
+  <Typography variant="placeholder">Title</Typography>
+);
+Placeholder.storyName = 'Placeholder';
+Placeholder.parameters = storyDocsParameters;

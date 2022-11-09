@@ -4,9 +4,9 @@ import { Search } from '@mui/icons-material';
 import { CircularProgress } from '@mui/material';
 import Autocomplete, { AutocompleteProps } from '@mui/material/Autocomplete';
 import TextField from '@mui/material/TextField';
+import { debounce } from 'lodash';
 
 import { FormFieldErrorProps } from '../../types';
-import { debounce } from '../../utils';
 
 export type AutocompleteSuggestion = {
   label: string;
@@ -31,7 +31,7 @@ export const DebouncedAutocomplete: FunctionComponent<
   const [loading, setLoading] = useState<boolean>(false);
 
   const debouncedRequest = useCallback(
-    debounce({ delay: 500 }, async (value: string) => {
+    debounce(async (value: string) => {
       const data = await load(value);
       if (data.length > 0) {
         setSuggestions(data);
@@ -39,7 +39,7 @@ export const DebouncedAutocomplete: FunctionComponent<
         setSuggestions(undefined);
       }
       setLoading(false);
-    }),
+    }, 500),
     []
   );
 

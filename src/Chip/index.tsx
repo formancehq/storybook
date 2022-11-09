@@ -5,8 +5,10 @@ import {
   ChipProps as MuiChipProps,
   useTheme,
 } from '@mui/material';
+import { get } from 'lodash';
 
 import { ColorVariants } from '../types';
+import { darkKey } from '../utils';
 
 export type ChipProps = Omit<MuiChipProps, 'color'> & {
   color?: ColorVariants;
@@ -17,8 +19,12 @@ export const Chip: FunctionComponent<ChipProps> = ({ color, sx, ...props }) => {
 
   if (!props.label) return null;
 
-  const backgroundColor = color ? palette[color].light : palette.neutral[50];
-  const fontColor = color ? palette[color].darker : palette.neutral[900];
+  const backgroundColor = color
+    ? get(palette, `${color}.light`)
+    : palette.neutral[50];
+  const fontColor = color
+    ? get(palette, `${color}.${darkKey(color)}`)
+    : palette.neutral[900];
 
   return (
     <MuiChip

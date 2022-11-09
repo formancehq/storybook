@@ -1,8 +1,10 @@
 import React from 'react';
 
+import { noop } from 'lodash';
+
 import { Breadcrumbs } from './index';
 
-import { noop, storyDocsParameters } from '../utils';
+import { storyDocsParameters } from '../utils';
 
 export default {
   title: 'Design System/Breadcrumbs',
