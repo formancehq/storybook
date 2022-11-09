@@ -11,15 +11,19 @@ import { FormFieldErrorProps } from '../../types';
 
 import { FormHelper } from '../FormHelper';
 
-export type JsonTextAreaProps = TextareaAutosizeProps & FormFieldErrorProps;
+export type TextAreaProps = TextareaAutosizeProps &
+  FormFieldErrorProps & { json?: boolean };
 
-export const TextArea: FunctionComponent<JsonTextAreaProps> = ({
+export const TextArea: FunctionComponent<TextAreaProps> = ({
   errorMessage,
   error = false,
   minRows = 5,
+  json = false,
   ...props
 }) => {
   const { palette, typography } = useTheme();
+
+  const typo = json ? typography.money : typography.body1;
 
   return (
     <Box
@@ -43,7 +47,8 @@ export const TextArea: FunctionComponent<JsonTextAreaProps> = ({
             error ? palette.red.normal : 'rgba(0, 0, 0, 0.23)'
           }`,
           borderRadius: '4px',
-          ...typography.money,
+          padding: '16.5px 14px',
+          ...typo,
         }}
         {...props}
       />
