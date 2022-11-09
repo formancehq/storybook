@@ -5,6 +5,7 @@ export * from './Buttons/Tabs';
 export * from './OnBoarding';
 
 export * from './Sections/Amount';
+export * from './Sections/Secret';
 export * from './Sections/Date';
 export * from './Sections/DividerWithSpace';
 export * from './Sections/SourceDestination';
@@ -40,4 +41,5 @@ export * from './Table';
 export * from './Table/Filters/AutocompleteSelect';
 
 export * from './utils';
+export * from './types';
 export * from './muiTheme';
