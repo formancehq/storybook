@@ -5,7 +5,7 @@ import { storyDocsParameters } from '../../utils';
 import { SelectItems, Select } from './index';
 
 export default {
-  title: 'Design System/Forms/Select',
+  title: 'Design System/Forms/Select/Unique',
   component: Select,
 };
 

@@ -18,7 +18,7 @@ export * from './Containers/SectionWrapper';
 export * from './Containers/ActionZone';
 
 export * from './Forms/Select';
-export * from './Forms/Switch';
+export * from './Forms/SelectMultiple';
 export * from './Forms/TextField';
 export * from './Forms/TextArea';
 export * from './Forms/Pickers/DatePicker';
