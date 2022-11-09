@@ -70,6 +70,7 @@ declare module '@mui/material/styles' {
     footNote?: React.CSSProperties;
     bold?: React.CSSProperties;
     money?: React.CSSProperties;
+    placeholder?: React.CSSProperties;
   }
 }
 
@@ -85,6 +86,7 @@ declare module '@mui/material/Typography' {
     footNote: true;
     bold: true;
     money: true;
+    placeholder: true;
   }
 }
 
@@ -125,6 +127,7 @@ const palette = {
   secondary: {
     darker: '#4A4E56',
     main: '#EEF1F5',
+    normal: '#EEF1F5',
     light: '#FFFFFF',
   },
   brown: {
@@ -268,6 +271,15 @@ const typography = {
     lineHeight: '20px',
     fontWeight: 400,
     fontFamily: bodyFontFamily,
+  },
+  placeholder: {
+    fontSize: '14px',
+    lineHeight: '24px',
+    fontFamily: bodyFontFamily,
+    fontWeight: 400,
+    letterSpacing: '-0.01em',
+    color: palette.neutral[500],
+    fontStyle: 'italic',
   },
 };
 

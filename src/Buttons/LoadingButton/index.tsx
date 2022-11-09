@@ -8,6 +8,7 @@ import React, {
 
 import { LoadingButton as MuiLoadingButton } from '@mui/lab';
 import { ButtonProps, SxProps, Theme, useTheme } from '@mui/material';
+import { get } from 'lodash';
 
 import { ButtonVariants, CFunction } from '../../types';
 
@@ -149,7 +150,7 @@ export const LoadingButton: FunctionComponent<LoadingButtonProps> = ({
     <MuiLoadingButton
       id={id}
       data-testid={id}
-      sx={variantsMap[variant]}
+      sx={get(variantsMap, variant)}
       loading={loading}
       onClick={handleClick}
       {...props}

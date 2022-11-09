@@ -1,6 +1,7 @@
 import React, { FunctionComponent, ReactElement } from 'react';
 
 import { Box, Typography, useTheme } from '@mui/material';
+import { get } from 'lodash';
 
 import { Chip } from '../../Chip';
 import { ColorVariants } from '../../types';
@@ -35,7 +36,11 @@ export const StatsCard: FunctionComponent<StatsCardProps> = ({
     default: palette.default.bright,
   };
 
-  const color = variant ? variantsMap[variant] : variantsMap.green;
+  const color = get(
+    variantsMap,
+    variant ? variant : 'green',
+    variantsMap.green
+  );
 
   return (
     <Box

@@ -2,6 +2,7 @@ export type ButtonVariants =
   | 'light'
   | 'stroke'
   | 'primary'
+  | 'secondary'
   | 'dark'
   | 'transparent'
   | 'error';
@@ -9,6 +10,8 @@ export type ColorVariants =
   | 'red'
   | 'blue'
   | 'default'
+  | 'primary'
+  | 'secondary'
   | 'brown'
   | 'yellow'
   | 'violet'

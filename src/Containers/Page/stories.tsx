@@ -1,7 +1,9 @@
 import React from 'react';
 
+import { noop } from 'lodash';
+
 import { ActiveFiltersTable } from '../../Table/stories';
-import { noop, storyDocsParameters } from '../../utils';
+import { storyDocsParameters } from '../../utils';
 
 import { Page } from './index';
 

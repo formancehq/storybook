@@ -8,8 +8,7 @@ import {
   Typography,
   useTheme,
 } from '@mui/material';
-
-import { isArray } from '../utils';
+import { isArray } from 'lodash';
 
 export type NavbarProps = {
   routes: Array<{

@@ -74,7 +74,6 @@ export const StatsCardWithoutChip = () => (
     value1="69,453.12 $"
     title2="Account volume"
     value2="69,453.12 $"
-    chipValue="+24%"
   />
 );
 StatsCardWithoutChip.storyName = 'Without chip';

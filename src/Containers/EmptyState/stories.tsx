@@ -1,9 +1,10 @@
 import React from 'react';
 
 import { Box } from '@mui/material';
+import { noop } from 'lodash';
 
 import { LoadingButton } from '../../Buttons/LoadingButton';
-import { noop, storyDocsParameters } from '../../utils';
+import { storyDocsParameters } from '../../utils';
 
 import { EmptyState } from './index';
 
@@ -12,14 +13,14 @@ export default {
   component: EmptyState,
 };
 
-export const LighttEmptyState = () => (
+export const LightEmptyState = () => (
   <EmptyState
     title="Choose a ledger to get started"
     description="Lorem Ipsum is simply dummy text of the printing and typesetting industry."
   />
 );
-LighttEmptyState.storyName = 'Light';
-LighttEmptyState.parameters = storyDocsParameters;
+LightEmptyState.storyName = 'Light';
+LightEmptyState.parameters = storyDocsParameters;
 
 export const DarkEmptyState = () => (
   <EmptyState
