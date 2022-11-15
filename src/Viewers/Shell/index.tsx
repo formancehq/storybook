@@ -20,6 +20,8 @@ export const ShellViewer: FunctionComponent<ShellViewerProps> = ({ data }) => (
       display: 'flex',
       borderRadius: '4px',
       justifyContent: 'space-between',
+      gap: '12px',
+      alignSelf: 'center',
     }}
   >
     <Typography variant="money">{data}</Typography>
