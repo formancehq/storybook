@@ -3,6 +3,8 @@ import React from 'react';
 import { Add } from '@mui/icons-material';
 import { Box } from '@mui/material';
 
+import { LoadingButton } from '../../Buttons/LoadingButton';
+import { Chip } from '../../Chip';
 import { DefaultTable, EmptyTable } from '../../Table/stories';
 import { storyDocsParameters } from '../../utils';
 
@@ -31,7 +33,9 @@ export const SectionWrapperWithActionAndTitle = () => (
   <Box>
     <SectionWrapper
       title="Title A"
-      button={{ content: 'Action', startIcon: <Add />, variant: 'dark' }}
+      element={
+        <LoadingButton content="Action" startIcon={<Add />} variant="dark" />
+      }
     >
       <EmptyTable />
     </SectionWrapper>
@@ -55,7 +59,9 @@ SectionWrapperNoTitleNoAction.parameters = storyDocsParameters;
 export const SectionWrapperWithOnlyAction = () => (
   <Box>
     <SectionWrapper
-      button={{ content: 'Action', startIcon: <Add />, variant: 'dark' }}
+      element={
+        <LoadingButton content="Action" startIcon={<Add />} variant="dark" />
+      }
     >
       <EmptyTable />
     </SectionWrapper>
@@ -64,3 +70,17 @@ export const SectionWrapperWithOnlyAction = () => (
 
 SectionWrapperWithOnlyAction.storyName = 'With action without title';
 SectionWrapperWithOnlyAction.parameters = storyDocsParameters;
+
+export const SectionWrapperWithInfo = () => (
+  <Box>
+    <SectionWrapper
+      title="Status"
+      element={<Chip label="error" color="red" variant="square" />}
+    >
+      <EmptyTable />
+    </SectionWrapper>
+  </Box>
+);
+
+SectionWrapperWithInfo.storyName = 'With info';
+SectionWrapperWithInfo.parameters = storyDocsParameters;
