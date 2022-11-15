@@ -30,6 +30,7 @@ export * from './Forms/DebouncedAutocomplete';
 export * from './Alerts/Snackbar';
 
 export * from './Viewers/Json';
+export * from './Viewers/Shell';
 
 export * from './Dataviz/StatsCard';
 
