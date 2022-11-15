@@ -1,6 +1,6 @@
 {
   "name": "@numaryhq/storybook",
-  "version": "0.6.75",
+  "version": "0.7.0",
   "main": "dist/cjs/index.js",
   "module": "dist/esm/index.js",
   "files": [
