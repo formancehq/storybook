@@ -2,25 +2,23 @@ import React, { FunctionComponent, ReactElement } from 'react';
 
 import { Box, Typography } from '@mui/material';
 
-import { LoadingButton, LoadingButtonProps } from '../../Buttons/LoadingButton';
-
 export type SectionWrapperProps = {
   title?: string;
-  button?: LoadingButtonProps;
+  element?: ReactElement;
   children: ReactElement;
 };
 
 export const SectionWrapper: FunctionComponent<SectionWrapperProps> = ({
   title,
-  button,
+  element,
   children,
 }) => {
   const label = title || '';
   let justifyContent = 'space-between';
-  if (!title && button) {
+  if (!title && element) {
     justifyContent = 'end';
   }
-  if (title && !button) {
+  if (title && !element) {
     justifyContent = 'start';
   }
 
@@ -30,7 +28,7 @@ export const SectionWrapper: FunctionComponent<SectionWrapperProps> = ({
         <Box mt={3} data-testid={label?.toLowerCase()}>
           <Box display="flex" justifyContent={justifyContent}>
             {title && <Typography variant="h2">{label}</Typography>}
-            {button && <LoadingButton {...button} />}
+            {element && element}
           </Box>
           <Box mt={1}>{children}</Box>
         </Box>
