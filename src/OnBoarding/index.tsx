@@ -20,7 +20,8 @@ export const OnBoarding: FunctionComponent<OnBoardingProps> = ({
   <Box
     sx={{
       width: width || '45%',
-      p: '24px',
+      borderRadius: '4px',
+      p: '26px',
       border: ({ palette }) => `1px ${palette.neutral[200]} solid`,
       background: ({ palette }) => palette.neutral[0],
     }}
