@@ -77,6 +77,7 @@ export const Search: FunctionComponent<SearchProps> = ({
             autoComplete="off"
             onKeyDown={handleOnKeyDown}
             InputProps={{
+              autoFocus: true,
               sx: {
                 height: 56,
                 '& svg': { color: ({ palette }) => palette.neutral[400] },
