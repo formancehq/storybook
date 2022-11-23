@@ -1,6 +1,7 @@
-import React from 'react';
+import React, { useState } from 'react';
 
 import { Box } from '@mui/material';
+import { get, reverse, sortBy } from 'lodash';
 
 import { LightAutocompleteCheckbox } from './Filters/AutocompleteSelect/stories';
 
@@ -81,6 +82,71 @@ export const DefaultTable = () => (
 );
 DefaultTable.storyName = 'Default';
 DefaultTable.parameters = storyDocsParameters;
+
+export const SortTable = () => {
+  const [data, setData] = useState(items);
+  const [idSort, setIdSort] = useState('asc');
+  const [lastnameSort, setLastnameSort] = useState('asc');
+
+  return (
+    <Table
+      labels={labels}
+      id="default"
+      items={data}
+      columns={[
+        {
+          key: 'id',
+          label: 'Uniq Id',
+          sort: {
+            order: idSort as any,
+            onSort: (key: string, order: 'desc' | 'asc') => {
+              setIdSort(order);
+              if (order === 'asc') {
+                setData(sortBy(data, (d) => get(d, key)));
+              } else {
+                setData(reverse(items));
+              }
+            },
+          },
+        },
+        {
+          key: 'name',
+          label: 'Lastname',
+          sort: {
+            order: lastnameSort as any,
+            onSort: (key: string, order: 'desc' | 'asc') => {
+              setLastnameSort(order);
+              if (order === 'asc') {
+                setData(sortBy(data, (d) => get(d, key)));
+              } else {
+                setData(reverse(items));
+              }
+            },
+          },
+        },
+      ]}
+      onNext={() => null}
+      onPrevious={() => null}
+      renderItem={(user: User, index) => (
+        <Row
+          key={index}
+          keys={[
+            'id',
+            'name',
+            <SourceDestination
+              key={user.id}
+              label={user.status}
+              onClick={() => null}
+            />,
+          ]}
+          item={user}
+        />
+      )}
+    />
+  );
+};
+SortTable.storyName = 'Sort';
+SortTable.parameters = storyDocsParameters;
 
 export const EmptyTable = () => (
   <Table

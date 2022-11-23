@@ -5,7 +5,12 @@ import React, {
   useState,
 } from 'react';
 
-import { ArrowLeft, ArrowRight } from '@mui/icons-material';
+import {
+  ArrowLeft,
+  ArrowRight,
+  KeyboardArrowDown,
+  KeyboardArrowUp,
+} from '@mui/icons-material';
 import {
   Box,
   Paper,
@@ -28,9 +33,19 @@ export enum TableConfig {
 }
 
 export type TableLoad = () => Promise<any>;
+export type Column = {
+  key: string;
+  width?: number;
+  hidden?: boolean;
+  label: string;
+  sort?: {
+    onSort: (key: string, sortedBy: 'desc' | 'asc') => void;
+    order: 'asc' | 'desc';
+  };
+};
 export type TableProps = {
   renderItem: (_item: any, key: number, data: any) => void;
-  columns: { key: string; width?: number; hidden?: boolean; label: string }[];
+  columns: Column[];
   load?: TableLoad;
   id?: string;
   withPagination?: boolean;
@@ -135,6 +150,12 @@ export const Table: FunctionComponent<TableProps> = ({
   const [hasPrevious, setHasPrevious] = useState(false);
   const [pageSize, setPageSize] = useState(paginationSize);
   const [data, setData] = useState([]);
+  const [activeSort, setActiveSort] = useState(
+    columns.reduce(
+      (o, column) => ({ ...o, [column.key]: column.sort?.order }),
+      {}
+    )
+  );
   const [metas, setMetas] = useState<{ next: string; previous: string }>();
   const labels =
     {
@@ -180,6 +201,17 @@ export const Table: FunctionComponent<TableProps> = ({
     if (metas && metas.previous && onPrevious) onPrevious(metas.previous);
   };
 
+  const handleSorting = (column: Column) => {
+    if (column.sort?.onSort) {
+      const order = column.sort.order === 'asc' ? 'desc' : 'asc';
+      setActiveSort({
+        ...activeSort,
+        [column.key]: order,
+      });
+      column.sort?.onSort(column.key, order);
+    }
+  };
+
   return (
     <>
       {data && (
@@ -217,11 +249,29 @@ export const Table: FunctionComponent<TableProps> = ({
                                 palette.neutral[200],
                             }}
                           >
-                            {!column.hidden && (
-                              <Typography color="primary.light">
-                                {column.label}
-                              </Typography>
-                            )}
+                            <Box
+                              component="span"
+                              sx={{ display: 'flex', alignItems: 'center' }}
+                            >
+                              {!column.hidden && (
+                                <Typography color="primary.light">
+                                  {column.label}
+                                </Typography>
+                              )}
+                              {column.sort?.onSort && (
+                                <LoadingButton
+                                  startIcon={
+                                    get(activeSort, column.key) === 'asc' ? (
+                                      <KeyboardArrowUp />
+                                    ) : (
+                                      <KeyboardArrowDown />
+                                    )
+                                  }
+                                  onClick={() => handleSorting(column)}
+                                  variant="transparent"
+                                />
+                              )}
+                            </Box>
                           </TableCell>
                         );
                       })}
