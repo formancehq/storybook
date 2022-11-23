@@ -1,6 +1,6 @@
 {
   "name": "@numaryhq/storybook",
-  "version": "0.7.3",
+  "version": "0.7.4",
   "main": "dist/cjs/index.js",
   "module": "dist/esm/index.js",
   "files": [
@@ -20,7 +20,6 @@
   "scripts": {
     "start": "react-scripts start",
     "build": "npm run clean && rollup -c",
-    "build:local:control": "rm -rf ../control-cloud/node_modules/@numaryhq/storybook/dist && npm run clean && rollup -c && cp -r dist ../control-cloud/node_modules/@numaryhq/storybook/dist",
     "clean": "rimraf dist",
     "test": "react-scripts test",
     "eject": "react-scripts eject",
