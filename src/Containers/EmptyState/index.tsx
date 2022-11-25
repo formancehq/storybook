@@ -20,15 +20,17 @@ export const Placeholder: FunctionComponent = () => (
       display: 'flex',
       justifyContent: 'space-between',
       alignItems: 'center',
-      p: 1,
+      gap: 1,
+      p: '8px 16px',
+      borderRadius: '4px',
     }}
   >
     <Box
       sx={{
         background: ({ palette }) => palette.neutral[300],
-        width: 40,
-        height: 40,
-        borderRadius: '50%',
+        width: 30,
+        height: 30,
+        borderRadius: '4px',
       }}
     />
     <Box
@@ -42,7 +44,7 @@ export const Placeholder: FunctionComponent = () => (
           background: ({ palette }) => palette.neutral[400],
           width: 80,
           height: 8,
-          borderRadius: 2,
+          borderRadius: '2px',
         }}
       />
       <Box
@@ -51,7 +53,7 @@ export const Placeholder: FunctionComponent = () => (
           background: ({ palette }) => palette.neutral[300],
           width: 150,
           height: 8,
-          borderRadius: 2,
+          borderRadius: '2px',
         }}
       />
     </Box>
