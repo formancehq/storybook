@@ -77,7 +77,7 @@ export const RadioGroup: FunctionComponent<RadioGroupProps> = ({
                 marginTop: 2,
                 marginRight: '26px',
                 cursor: 'pointer',
-                borderRadius: '4px',
+                borderRadius: '6px',
                 border: getBorder(error, disabled),
               }}
             >

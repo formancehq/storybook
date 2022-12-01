@@ -1,5 +1,6 @@
 // eslint-disable-next-line @typescript-eslint/no-unused-vars
-import { theme } from './muiTheme';
+import { Theme } from '@mui/material';
+
 import { ColorVariants } from './types';
 
 export const darkKey = (variant: ColorVariants) =>
@@ -11,6 +12,7 @@ export const copyTokenToClipboard = async (value: string): Promise<void> =>
   await navigator.clipboard.writeText(value);
 
 export const storyDocsParameters = {
+  backgrounds: { default: 'control' },
   docs: {
     source: {
       type: 'dynamic',
@@ -20,7 +22,12 @@ export const storyDocsParameters = {
 
 export const formFieldsetErrorSx = (error = false) => ({
   '& fieldset': {
-    borderColor: error ? `${theme.palette.red.normal} !important` : 'inherit',
+    borderRadius: '6px',
+    borderWidth: '2px',
+    borderColor: (theme: Theme) =>
+      error
+        ? `${theme.palette.red.normal} !important`
+        : theme.palette.neutral[200],
   },
 });
 

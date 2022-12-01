@@ -22,7 +22,7 @@ export const Placeholder: FunctionComponent = () => (
       alignItems: 'center',
       gap: 1,
       p: '8px 16px',
-      borderRadius: '4px',
+      borderRadius: '6px',
     }}
   >
     <Box
@@ -30,7 +30,7 @@ export const Placeholder: FunctionComponent = () => (
         background: ({ palette }) => palette.neutral[300],
         width: 30,
         height: 30,
-        borderRadius: '4px',
+        borderRadius: '6px',
       }}
     />
     <Box
@@ -88,7 +88,7 @@ export const EmptyState: FunctionComponent<EmptyStateProps> = ({
     <Box
       sx={{
         border: `1px solid ${color.border}`,
-        borderRadius: '4px',
+        borderRadius: '6px',
         display: 'flex',
         justifyContent: 'center',
         alignItems: 'center',

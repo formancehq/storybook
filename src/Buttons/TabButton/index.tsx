@@ -20,7 +20,7 @@ export const TabButton: FunctionComponent<TabButtonProps> = ({
     sx={{
       borderRadius: 0,
       textTransform: 'none',
-      fontSize: ({ typography }) => typography.h2.fontSize,
+      fontSize: ({ typography }) => typography.headline.fontSize,
       ':hover': {
         color: ({ palette }) => palette.neutral[900],
         backgroundColor: 'transparent',

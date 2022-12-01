@@ -1,10 +1,6 @@
 import React, { useState } from 'react';
 
-import {
-  AccountBalance,
-  CreditCard,
-  SearchOutlined,
-} from '@mui/icons-material';
+import { AccountBalance, CreditCard } from '@mui/icons-material';
 import { Box, Typography } from '@mui/material';
 
 import { Search } from './index';
@@ -80,7 +76,6 @@ const transactions: Suggestion<any> = {
 export const DefaultSearch = () => {
   const [open, setOpen] = useState(false);
   // eslint-disable-next-line @typescript-eslint/no-unused-vars
-  const handleOpen = () => setOpen(true);
   const handleClose = () => setOpen(false);
 
   const renderChildren = (value: string) => (
@@ -88,7 +83,7 @@ export const DefaultSearch = () => {
       sx={{
         overflowY: 'auto',
         display: 'flex',
-        width: 800,
+        width: 600,
         mt: 2,
       }}
     >
@@ -180,19 +175,15 @@ export const DefaultSearch = () => {
   );
 
   return (
-    <Box>
-      <LoadingButton
-        startIcon={<SearchOutlined />}
-        onClick={handleOpen}
-        variant="primary"
-      />
-      <Search
-        open={open}
-        onClose={handleClose}
-        renderChildren={(value) => renderChildren(value)}
-      />
-    </Box>
+    <Search
+      open={open}
+      onClose={handleClose}
+      renderChildren={(value) => renderChildren(value)}
+    />
   );
 };
 DefaultSearch.storyName = 'Default';
-DefaultSearch.parameters = storyDocsParameters;
+DefaultSearch.parameters = {
+  ...storyDocsParameters,
+  backgrounds: { default: 'light' },
+};

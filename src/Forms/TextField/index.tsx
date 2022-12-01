@@ -18,7 +18,16 @@ export const TextField: FunctionComponent<TextFieldProps> = ({
     InputLabelProps={{ shrink: true }}
     error={error}
     helperText={errorMessage}
-    sx={{ mt: 1, mb: 1, ...props.sx }}
+    sx={{
+      mt: 1,
+      mb: 1,
+      ...props.sx,
+      '& fieldset': {
+        borderRadius: '6px',
+        borderWidth: '2px',
+        borderColor: ({ palette }) => palette.neutral[200],
+      },
+    }}
     {...props}
   />
 );

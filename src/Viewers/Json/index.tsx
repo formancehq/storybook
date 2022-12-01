@@ -51,7 +51,7 @@ export const JsonViewer: FunctionComponent<JsonViewerProps> = ({
           paddingTop: '0 !important',
           ...typography.money,
         },
-        borderRadius: '4px',
+        borderRadius: '6px',
       }}
     >
       <JSONTree data={jsonData} theme={theme || defaultTheme} />

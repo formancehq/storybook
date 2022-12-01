@@ -1,7 +1,6 @@
 import * as React from 'react';
 import { FunctionComponent } from 'react';
 
-import TextField from '@mui/material/TextField';
 import { AdapterDayjs } from '@mui/x-date-pickers/AdapterDayjs';
 import {
   DateTimePicker as MuiDateTimePicker,
@@ -11,6 +10,7 @@ import { LocalizationProvider } from '@mui/x-date-pickers/LocalizationProvider';
 import dayjs, { Dayjs } from 'dayjs';
 
 import { FormFieldErrorProps } from '../../../types';
+import { TextField } from '../../TextField';
 
 export type DateTimePickerProps = Omit<
   MuiDateTimePickerProps<any, any>,
@@ -37,14 +37,14 @@ export const DateTimePicker: FunctionComponent<DateTimePickerProps> = ({
           PaperProps={{
             sx: {
               '& button': {
-                borderRadius: '4px',
+                borderRadius: '6px',
               },
             },
           }}
           InputAdornmentProps={{
             sx: {
               '& button': {
-                borderRadius: '4px',
+                borderRadius: '6px',
               },
               '& button:hover': {
                 color: ({ palette }) => palette.neutral[500],

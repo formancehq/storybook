@@ -18,7 +18,7 @@ export const ShellViewer: FunctionComponent<ShellViewerProps> = ({ data }) => (
       padding: '16.5px 14px',
       minHeight: '200px',
       display: 'flex',
-      borderRadius: '4px',
+      borderRadius: '6px',
       justifyContent: 'space-between',
       gap: '12px',
       alignSelf: 'center',

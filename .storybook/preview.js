@@ -1,4 +1,4 @@
-import { theme } from '../src/muiTheme';
+import { theme } from '../src';
 import { ThemeProvider } from '@mui/material/styles';
 
 export const parameters = {
@@ -8,6 +8,23 @@ export const parameters = {
       color: /(background|color)$/i,
       date: /Date$/,
     },
+  },
+  backgrounds: {
+    default: 'control',
+    values: [
+      {
+        name: 'control',
+        value: theme.palette.neutral[100],
+      },
+      {
+        name: 'light',
+        value: theme.palette.neutral[0],
+      },
+      {
+        name: 'dark',
+        value: theme.palette.neutral[900],
+      },
+    ],
   },
 };
 

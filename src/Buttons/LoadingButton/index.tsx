@@ -39,7 +39,7 @@ export const LoadingButton: FunctionComponent<LoadingButtonProps> = ({
     padding: '8px 16px',
     minWidth: 40,
     height: 40,
-    borderRadius: '4px',
+    borderRadius: '6px',
     '& .MuiButton-endIcon': {
       marginRight: 0,
       marginLeft: content ? 1 : 0,

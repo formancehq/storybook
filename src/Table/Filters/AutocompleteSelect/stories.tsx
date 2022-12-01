@@ -35,34 +35,41 @@ const data = [
   { label: 'Interstellar', year: 2014 },
 ];
 
-export const LightAutocompleteCheckbox = () => (
-  <Box>
-    <AutocompleteSelect
-      noOptionsText="Sorry"
-      variant="light"
-      placeholder="Search a ledger"
-      name="ledgers"
-      multiple
-      id="checkboxes-tags-demo"
-      options={data}
-      icon={<ImportExport />}
-      disableCloseOnSelect
-      getOptionLabel={(option: AutocompleteOption) => option.label}
-      renderOption={(props, option: AutocompleteOption, { selected }) => (
-        <li {...props}>
-          <Checkbox style={{ marginRight: 8 }} checked={selected} />
-          {option.label}
-        </li>
-      )}
-      style={{ width: 500 }}
-    />
-  </Box>
+const AutocompleteCheckbox = () => (
+  <AutocompleteSelect
+    noOptionsText="Sorry"
+    variant="light"
+    placeholder="Search a ledger"
+    name="ledgers"
+    multiple
+    id="checkboxes-tags-demo"
+    options={data}
+    icon={<ImportExport />}
+    disableCloseOnSelect
+    getOptionLabel={(option: AutocompleteOption) => option.label}
+    renderOption={(props, option: AutocompleteOption, { selected }) => (
+      <li {...props}>
+        <Checkbox style={{ marginRight: 8 }} checked={selected} />
+        {option.label}
+      </li>
+    )}
+    style={{ width: 500 }}
+  />
 );
+
+export const LightAutocompleteCheckbox = () => <AutocompleteCheckbox />;
 LightAutocompleteCheckbox.storyName = 'Light';
 LightAutocompleteCheckbox.parameters = storyDocsParameters;
 
+export const DefaultAutocompleteCheckbox = () => <AutocompleteCheckbox />;
+DefaultAutocompleteCheckbox.storyName = 'Default';
+DefaultAutocompleteCheckbox.parameters = {
+  ...storyDocsParameters,
+  backgrounds: { default: 'light' },
+};
+
 export const DarkAutocompleteCheckbox = () => (
-  <Box sx={{ height: 100, backgroundColor: 'black', p: 3 }}>
+  <Box sx={{ height: 100, p: 3 }}>
     <AutocompleteSelect
       noOptionsText="Sorry"
       variant="dark"
@@ -85,4 +92,7 @@ export const DarkAutocompleteCheckbox = () => (
   </Box>
 );
 DarkAutocompleteCheckbox.storyName = 'Dark';
-DarkAutocompleteCheckbox.parameters = storyDocsParameters;
+DarkAutocompleteCheckbox.parameters = {
+  ...storyDocsParameters,
+  backgrounds: { default: 'dark' },
+};

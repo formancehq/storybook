@@ -32,7 +32,7 @@ export const TextArea: FunctionComponent<TextAreaProps> = ({
           outlineColor: error ? palette.red.normal : palette.neutral[900],
         },
         'textarea:hover': {
-          border: `1px solid ${
+          border: `2px solid ${
             error ? palette.red.normal : palette.neutral[900]
           } !important`,
         },
@@ -43,10 +43,10 @@ export const TextArea: FunctionComponent<TextAreaProps> = ({
         minRows={minRows}
         style={{
           width: '100%',
-          border: `1px solid ${
-            error ? palette.red.normal : 'rgba(0, 0, 0, 0.23)'
+          border: `2px solid ${
+            error ? palette.red.normal : palette.neutral[200]
           }`,
-          borderRadius: '4px',
+          borderRadius: '6px',
           padding: '16.5px 14px',
           ...typo,
         }}

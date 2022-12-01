@@ -25,8 +25,6 @@ export const Breadcrumbs: FunctionComponent<BreadcrumbsProps> = ({
       role="presentation"
       id={id}
       sx={{
-        borderTop: `1px solid ${palette.neutral[700]}`,
-        backgroundColor: palette.neutral[900],
         height: '56px',
         display: 'flex',
         alignItems: 'center',
@@ -35,6 +33,7 @@ export const Breadcrumbs: FunctionComponent<BreadcrumbsProps> = ({
       }}
     >
       <MuiBreadcrumbs
+        separator="›"
         aria-label="breadcrumb"
         sx={{
           '& .MuiBreadcrumbs-separator': { color: palette.neutral[500] },
@@ -46,7 +45,7 @@ export const Breadcrumbs: FunctionComponent<BreadcrumbsProps> = ({
         {links.map((link, index) => {
           const color =
             index === links.length - 1
-              ? palette.neutral[0]
+              ? palette.neutral[800]
               : palette.neutral[500];
 
           return (
@@ -54,9 +53,10 @@ export const Breadcrumbs: FunctionComponent<BreadcrumbsProps> = ({
               sx={{
                 ':hover': {
                   color: link.onClick
-                    ? palette.neutral[0]
+                    ? palette.neutral[800]
                     : palette.neutral[500],
                   cursor: link.onClick ? 'pointer' : 'initial',
+                  fontWeight: 500,
                 },
                 color,
               }}

@@ -300,9 +300,9 @@ export const theme = createTheme({
       styleOverrides: {
         root: {
           ':hover': {
-            borderRadius: '4px',
+            borderRadius: '6px',
           },
-          borderRadius: '4px',
+          borderRadius: '6px',
         },
       },
     },
@@ -318,8 +318,7 @@ export const theme = createTheme({
       styleOverrides: {
         root: {
           backgroundColor: palette.neutral[0],
-          border: `1px solid ${palette.neutral[200]} !important`,
-          borderRadius: '4px',
+          borderRadius: '6px',
         },
       },
     },
@@ -334,7 +333,7 @@ export const theme = createTheme({
     MuiOutlinedInput: {
       defaultProps: {
         inputProps: {
-          shrink: true,
+          shrink: 'true',
         },
       },
       styleOverrides: {
@@ -356,7 +355,7 @@ export const theme = createTheme({
         {
           props: { variant: 'square' },
           style: {
-            borderRadius: '4px',
+            borderRadius: '6px',
             padding: '2px 12px',
             backgroundColor: palette.neutral[50],
             ...typography.caption,
