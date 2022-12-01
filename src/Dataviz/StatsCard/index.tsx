@@ -49,7 +49,7 @@ export const StatsCard: FunctionComponent<StatsCardProps> = ({
         width: 258,
         height: 212,
         backgroundColor: palette.neutral[800],
-        borderRadius: '4px',
+        borderRadius: '6px',
       }}
       display="flex"
       flexDirection="column"

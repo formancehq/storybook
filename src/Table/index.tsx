@@ -220,8 +220,8 @@ export const Table: FunctionComponent<TableProps> = ({
             elevation={0}
             variant="outlined"
             sx={{
-              border: ({ palette }) => `1px solid ${palette.neutral[200]}`,
-              borderRadius: '4px',
+              border: 0,
+              borderRadius: '6px',
             }}
           >
             {activeFilters && <Box p={1}>{activeFilters}</Box>}

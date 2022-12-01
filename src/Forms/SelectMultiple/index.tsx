@@ -70,7 +70,14 @@ export const SelectMultiple: FunctionComponent<SelectMultipleProps> = ({
               notched
               id="select-event"
               label={outlinedInputLabel}
-              sx={{ height: item.length > 2 ? 'auto' : '40px' }}
+              sx={{
+                height: item.length > 2 ? 'auto' : '40px',
+                '& fieldset': {
+                  borderRadius: '6px',
+                  borderWidth: '2px',
+                  borderColor: ({ palette }) => palette.neutral[200],
+                },
+              }}
             />
           }
           renderValue={(selected) => (

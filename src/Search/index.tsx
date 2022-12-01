@@ -1,8 +1,10 @@
 import React, { FunctionComponent, ReactElement, useState } from 'react';
 
 import { SearchOutlined } from '@mui/icons-material';
-import { Box, Modal, TextField, TextFieldProps } from '@mui/material';
+import { Box, ClickAwayListener } from '@mui/material';
 import { isEmpty } from 'lodash';
+
+import { TextField, TextFieldProps } from '../Forms/TextField';
 
 export type SearchProps = TextFieldProps & {
   open: boolean;
@@ -11,8 +13,6 @@ export type SearchProps = TextFieldProps & {
 };
 
 export const Search: FunctionComponent<SearchProps> = ({
-  onClose,
-  open,
   onChange,
   onKeyDown,
   renderChildren,
@@ -24,11 +24,6 @@ export const Search: FunctionComponent<SearchProps> = ({
   const resetSearch = () => {
     setSearchValue(undefined);
     setOpenDropdown(false);
-  };
-
-  const handleOnClose = () => {
-    resetSearch();
-    onClose();
   };
 
   const handleOnChange = (event: any) => {
@@ -53,54 +48,28 @@ export const Search: FunctionComponent<SearchProps> = ({
   };
 
   return (
-    <Modal
-      open={open}
-      onClose={handleOnClose}
-      aria-labelledby="search-modal-title"
-      aria-describedby="search-modal-description"
-    >
-      <Box
-        sx={{
-          position: 'absolute' as const,
-          top: '50%',
-          left: '50%',
-          transform: 'translate(-50%, -50%)',
-          width: 800,
-          margin: 0,
-          maxHeight: 400,
-        }}
-      >
-        <Box width={600} ml={12} mr={12}>
-          <TextField
-            fullWidth
-            onChange={handleOnChange}
-            autoComplete="off"
-            onKeyDown={handleOnKeyDown}
-            InputProps={{
-              autoFocus: true,
-              sx: {
-                height: 56,
-                '& svg': { color: ({ palette }) => palette.neutral[400] },
-                backgroundColor: ({ palette }) => palette.neutral[0],
-                '& fieldset': {
-                  border: 'none',
-                },
-              },
-              startAdornment: (
-                <SearchOutlined
-                  color="primary"
-                  sx={{
-                    marginRight: 1,
-                    color: ({ palette }) => palette.neutral[400],
-                  }}
-                />
-              ),
-            }}
-            {...props}
-          />
-        </Box>
+    <ClickAwayListener onClickAway={() => setOpenDropdown(false)}>
+      <Box width={400}>
+        <TextField
+          onChange={handleOnChange}
+          autoComplete="off"
+          onKeyDown={handleOnKeyDown}
+          InputProps={{
+            autoFocus: true,
+            startAdornment: (
+              <SearchOutlined
+                color="primary"
+                sx={{
+                  marginRight: 1,
+                  color: ({ palette }) => palette.neutral[400],
+                }}
+              />
+            ),
+          }}
+          {...props}
+        />
         {openDropdown && searchValue && renderChildren(searchValue)}
       </Box>
-    </Modal>
+    </ClickAwayListener>
   );
 };

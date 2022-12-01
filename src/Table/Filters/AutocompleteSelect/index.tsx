@@ -3,7 +3,8 @@ import { FunctionComponent, useState } from 'react';
 
 import { InputLabel, useTheme } from '@mui/material';
 import Autocomplete, { AutocompleteProps } from '@mui/material/Autocomplete';
-import TextField from '@mui/material/TextField';
+
+import { TextField } from '../../../Forms/TextField';
 
 export type FilterProps = Omit<
   AutocompleteProps<any, any, any, any>,
@@ -56,7 +57,7 @@ export const AutocompleteSelect: FunctionComponent<FilterProps> = ({
       color: palette.neutral[0],
     },
     '& .MuiButtonBase-root.MuiChip-root': {
-      borderRadius: '4px',
+      borderRadius: '6px',
     },
   };
 

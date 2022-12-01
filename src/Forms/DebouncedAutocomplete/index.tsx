@@ -3,10 +3,11 @@ import React, { FunctionComponent, useCallback, useState } from 'react';
 import { Search } from '@mui/icons-material';
 import { CircularProgress } from '@mui/material';
 import Autocomplete, { AutocompleteProps } from '@mui/material/Autocomplete';
-import TextField from '@mui/material/TextField';
 import { debounce } from 'lodash';
 
 import { FormFieldErrorProps } from '../../types';
+
+import { TextField } from '../TextField';
 
 export type AutocompleteSuggestion = {
   label: string;

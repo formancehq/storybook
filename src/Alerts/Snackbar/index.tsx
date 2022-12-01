@@ -16,6 +16,10 @@ export const Snackbar: FunctionComponent<SnackbarProps> = (props) => {
       {...props}
       anchorOrigin={{ vertical: 'bottom', horizontal: 'right' }}
       sx={{
+        '.MuiSnackbarContent-root': {
+          borderRadius: '6px',
+          background: ({ palette }) => palette.neutral[700],
+        },
         '.MuiSnackbarContent-message': {
           ...typography.body1,
         },
