@@ -23,7 +23,7 @@ export const storyDocsParameters = {
 export const formFieldsetErrorSx = (error = false) => ({
   '& fieldset': {
     borderRadius: '6px',
-    borderWidth: '2px',
+    borderWidth: '1px',
     borderColor: (theme: Theme) =>
       error
         ? `${theme.palette.red.normal} !important`

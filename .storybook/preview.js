@@ -10,12 +10,8 @@ export const parameters = {
     },
   },
   backgrounds: {
-    default: 'control',
+    default: 'light',
     values: [
-      {
-        name: 'control',
-        value: theme.palette.neutral[100],
-      },
       {
         name: 'light',
         value: theme.palette.neutral[0],

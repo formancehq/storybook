@@ -216,14 +216,7 @@ export const Table: FunctionComponent<TableProps> = ({
     <>
       {data && (
         <Box>
-          <Paper
-            elevation={0}
-            variant="outlined"
-            sx={{
-              border: 0,
-              borderRadius: '6px',
-            }}
-          >
+          <Paper elevation={0} variant="outlined">
             {activeFilters && <Box p={1}>{activeFilters}</Box>}
             <TableContainer>
               <MuiTable aria-label="table" id={id}>

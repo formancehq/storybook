@@ -36,10 +36,7 @@ export const DefaultSelect = () => (
   />
 );
 DefaultSelect.storyName = 'Default';
-DefaultSelect.parameters = {
-  ...storyDocsParameters,
-  backgrounds: { default: 'light' },
-};
+DefaultSelect.parameters = storyDocsParameters;
 
 export const ErrorSelect = () => (
   <Select
