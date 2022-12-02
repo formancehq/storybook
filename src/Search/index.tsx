@@ -1,10 +1,13 @@
 import React, { FunctionComponent, ReactElement, useState } from 'react';
 
 import { SearchOutlined } from '@mui/icons-material';
-import { Box, ClickAwayListener } from '@mui/material';
+import {
+  Box,
+  ClickAwayListener,
+  TextField,
+  TextFieldProps,
+} from '@mui/material';
 import { isEmpty } from 'lodash';
-
-import { TextField, TextFieldProps } from '../Forms/TextField';
 
 export type SearchProps = TextFieldProps & {
   open: boolean;
@@ -55,7 +58,27 @@ export const Search: FunctionComponent<SearchProps> = ({
           autoComplete="off"
           onKeyDown={handleOnKeyDown}
           InputProps={{
-            autoFocus: true,
+            sx: {
+              '& ::placeholder': {
+                color: ({ palette }) => `${palette.neutral[500]} !important`,
+                opacity: 1 /* Firefox */,
+              },
+              color: ({ palette }) => `${palette.neutral[500]} !important`,
+              borderRadius: '6px',
+              '& fieldset': {
+                borderColor: ({ palette }) =>
+                  `${palette.neutral[700]} !important`,
+              },
+              '&:hover fieldset': {
+                borderColor: ({ palette }) =>
+                  `${palette.neutral[500]} !important`,
+              },
+              '&.Mui-focused fieldset': {
+                borderColor: ({ palette }) =>
+                  `${palette.neutral[700]} !important`,
+              },
+              background: ({ palette }) => palette.neutral[700],
+            },
             startAdornment: (
               <SearchOutlined
                 color="primary"

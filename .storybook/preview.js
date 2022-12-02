@@ -18,7 +18,7 @@ export const parameters = {
       },
       {
         name: 'dark',
-        value: theme.palette.neutral[900],
+        value: theme.palette.neutral[800],
       },
     ],
   },
