@@ -134,9 +134,8 @@ export const DefaultSearch = () => {
   const renderLedger = (data: any, target: string) => (
     <Box mt={1}>
       {data.items.map((item: any, index: number) => (
-        <>
+        <React.Fragment key={index}>
           <Box
-            key={index}
             sx={{
               display: 'flex',
               paddingTop: 1,
@@ -164,7 +163,7 @@ export const DefaultSearch = () => {
               sx={{ '& .MuiChip-icon': ({ palette }) => palette.neutral[300] }}
             />
           </Box>
-        </>
+        </React.Fragment>
       ))}
       {data.viewAll && (
         <Box display="flex" justifyContent="center" mt={1} mb={1}>
