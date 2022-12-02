@@ -74,7 +74,6 @@ export const SelectMultiple: FunctionComponent<SelectMultipleProps> = ({
                 height: item.length > 2 ? 'auto' : '40px',
                 '& fieldset': {
                   borderRadius: '6px',
-                  borderWidth: '2px',
                   borderColor: ({ palette }) => palette.neutral[200],
                 },
               }}

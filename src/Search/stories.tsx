@@ -182,7 +182,4 @@ export const DefaultSearch = () => {
   );
 };
 DefaultSearch.storyName = 'Default';
-DefaultSearch.parameters = {
-  ...storyDocsParameters,
-  backgrounds: { default: 'light' },
-};
+DefaultSearch.parameters = storyDocsParameters;

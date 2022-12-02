@@ -1,6 +1,6 @@
 import React, { FunctionComponent, ReactElement } from 'react';
 
-import { Box, Typography } from '@mui/material';
+import { Paper, Typography } from '@mui/material';
 
 export type ActionCardProps = {
   title: string;
@@ -17,12 +17,12 @@ export const ActionCard: FunctionComponent<ActionCardProps> = ({
   width,
   children,
 }) => (
-  <Box
+  <Paper
+    elevation={0}
+    variant="outlined"
     sx={{
       width: width || '45%',
-      borderRadius: '6px',
       p: '26px',
-      background: ({ palette }) => palette.neutral[0],
     }}
   >
     <Typography
@@ -44,5 +44,5 @@ export const ActionCard: FunctionComponent<ActionCardProps> = ({
       {description}
     </Typography>
     {children}
-  </Box>
+  </Paper>
 );

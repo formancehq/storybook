@@ -105,6 +105,7 @@ const palette = {
     50: 'hsl(0, 0%, 98%)',
     100: 'hsl(220, 26%, 95%)',
     200: 'hsl(220, 14%, 90%)',
+    300: 'hsl(220, 13%, 85%)',
     400: 'hsl(220, 10%, 69%)',
     500: 'hsl(220, 7%, 56%)',
     600: 'hsl(220, 7%, 31%)',
@@ -112,7 +113,6 @@ const palette = {
     800: 'hsl(220, 8%, 15%)',
     900: 'hsl(220, 6%, 9%)',
   },
-
   primary: {
     main: 'hsl(220, 6%, 9%)',
     light: 'hsl(220, 7%, 56%)',
@@ -319,6 +319,7 @@ export const theme = createTheme({
         root: {
           backgroundColor: palette.neutral[0],
           borderRadius: '6px',
+          border: `1px solid ${palette.neutral[100]}`,
         },
       },
     },

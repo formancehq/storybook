@@ -63,10 +63,7 @@ LightAutocompleteCheckbox.parameters = storyDocsParameters;
 
 export const DefaultAutocompleteCheckbox = () => <AutocompleteCheckbox />;
 DefaultAutocompleteCheckbox.storyName = 'Default';
-DefaultAutocompleteCheckbox.parameters = {
-  ...storyDocsParameters,
-  backgrounds: { default: 'light' },
-};
+DefaultAutocompleteCheckbox.parameters = storyDocsParameters;
 
 export const DarkAutocompleteCheckbox = () => (
   <Box sx={{ height: 100, p: 3 }}>

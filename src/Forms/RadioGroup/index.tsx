@@ -39,13 +39,13 @@ export const RadioGroup: FunctionComponent<RadioGroupProps> = ({
 
   const getBorder = (error = false, disabled = false): string => {
     if (error) {
-      return `2px solid ${palette.red.normal}`;
+      return `1px solid ${palette.red.normal}`;
     }
     if (disabled) {
-      return `2px solid ${palette.neutral[400]}`;
+      return `1px solid ${palette.neutral[400]}`;
     }
 
-    return `2px solid ${palette.neutral[900]}`;
+    return `1px solid ${palette.neutral[900]}`;
   };
 
   return (

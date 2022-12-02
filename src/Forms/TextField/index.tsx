@@ -24,7 +24,7 @@ export const TextField: FunctionComponent<TextFieldProps> = ({
       ...props.sx,
       '& fieldset': {
         borderRadius: '6px',
-        borderWidth: '2px',
+        borderWidth: '1px',
         borderColor: ({ palette }) => palette.neutral[200],
       },
     }}
