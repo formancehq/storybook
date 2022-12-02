@@ -316,6 +316,12 @@ export const Table: FunctionComponent<TableProps> = ({
                     disabled={hasPrevious}
                     onClick={handlePreviousButtonClick}
                     endIcon={<ArrowLeft />}
+                    variant="transparent"
+                    sx={{
+                      '&.Mui-disabled': {
+                        background: 'transparent',
+                      },
+                    }}
                   />
                 )}
                 {onNext && (
@@ -324,6 +330,12 @@ export const Table: FunctionComponent<TableProps> = ({
                     disabled={!hasMore}
                     onClick={handleNextButtonClick}
                     endIcon={<ArrowRight />}
+                    variant="transparent"
+                    sx={{
+                      '&.Mui-disabled': {
+                        background: 'transparent',
+                      },
+                    }}
                   />
                 )}
               </Box>

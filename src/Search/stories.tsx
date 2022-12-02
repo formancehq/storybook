@@ -177,6 +177,7 @@ export const DefaultSearch = () => {
     <Search
       open={open}
       onClose={handleClose}
+      placeholder="Search anything"
       renderChildren={(value) => renderChildren(value)}
     />
   );
