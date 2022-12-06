@@ -44,7 +44,7 @@ export const Page: FunctionComponent<PageProps> = ({
   };
 
   return (
-    <Box id={id} p="26px" sx={{ ...sx }}>
+    <Box id={id} p="0 24px 24px 24px" sx={{ ...sx }}>
       {header && (
         <Box display="flex" justifyContent="space-between" alignItems="center">
           <Box>
