@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React from 'react';
 
 import { AccountBalance, CreditCard } from '@mui/icons-material';
 import { Box, Typography } from '@mui/material';
@@ -74,11 +74,7 @@ const transactions: Suggestion<any> = {
 };
 
 export const DefaultSearch = () => {
-  const [open, setOpen] = useState(false);
-  // eslint-disable-next-line @typescript-eslint/no-unused-vars
-  const handleClose = () => setOpen(false);
-
-  const renderChildren = (value: string) => (
+  const renderChildren = (value: string, onClose: () => void) => (
     <Box
       sx={{
         overflowY: 'auto',
@@ -125,13 +121,13 @@ export const DefaultSearch = () => {
         <Typography variant="bold">
           Result for {value} accross ledgers
         </Typography>
-        {renderLedger(accounts, 'Account')}
-        {renderLedger(transactions, 'Transaction')}
+        {renderLedger(accounts, 'Account', onClose)}
+        {renderLedger(transactions, 'Transaction', onClose)}
       </Box>
     </Box>
   );
 
-  const renderLedger = (data: any, target: string) => (
+  const renderLedger = (data: any, target: string, onClose: () => void) => (
     <Box mt={1}>
       {data.items.map((item: any, index: number) => (
         <React.Fragment key={index}>
@@ -167,7 +163,7 @@ export const DefaultSearch = () => {
       ))}
       {data.viewAll && (
         <Box display="flex" justifyContent="center" mt={1} mb={1}>
-          <LoadingButton content={`View all ${target}`} />
+          <LoadingButton content={`View all ${target}`} onClick={onClose} />
         </Box>
       )}
     </Box>
@@ -175,10 +171,8 @@ export const DefaultSearch = () => {
 
   return (
     <Search
-      open={open}
-      onClose={handleClose}
       placeholder="Search anything"
-      renderChildren={(value) => renderChildren(value)}
+      renderChildren={(value, onClose) => renderChildren(value, onClose)}
     />
   );
 };
