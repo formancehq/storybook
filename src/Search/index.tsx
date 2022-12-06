@@ -10,9 +10,7 @@ import {
 import { isEmpty } from 'lodash';
 
 export type SearchProps = TextFieldProps & {
-  open: boolean;
-  onClose: () => void;
-  renderChildren: (value: string) => ReactElement;
+  renderChildren: (value: string, onClose: () => void) => ReactElement;
 };
 
 export const Search: FunctionComponent<SearchProps> = ({
@@ -91,7 +89,9 @@ export const Search: FunctionComponent<SearchProps> = ({
           }}
           {...props}
         />
-        {openDropdown && searchValue && renderChildren(searchValue)}
+        {openDropdown &&
+          searchValue &&
+          renderChildren(searchValue, () => setOpenDropdown(false))}
       </Box>
     </ClickAwayListener>
   );
