@@ -3,7 +3,7 @@ import React, { useState } from 'react';
 import { Box } from '@mui/material';
 import { get, reverse, sortBy } from 'lodash';
 
-import { LightAutocompleteCheckbox } from './Filters/AutocompleteSelect/stories';
+import { DefaultAutocompleteCheckbox } from './Filters/AutocompleteSelect/stories';
 
 import { Row, Table } from './index';
 
@@ -198,9 +198,9 @@ SimpleTable.parameters = storyDocsParameters;
 export const ActiveFiltersTable = () => (
   <>
     <Box component="span" display="flex" gap="26px" flexWrap="wrap" mb={2}>
-      <LightAutocompleteCheckbox />
-      <LightAutocompleteCheckbox />
-      <LightAutocompleteCheckbox />
+      <DefaultAutocompleteCheckbox />
+      <DefaultAutocompleteCheckbox />
+      <DefaultAutocompleteCheckbox />
     </Box>
     <Table
       labels={labels}
