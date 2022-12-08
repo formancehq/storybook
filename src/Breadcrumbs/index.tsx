@@ -56,7 +56,6 @@ export const Breadcrumbs: FunctionComponent<BreadcrumbsProps> = ({
                     ? palette.neutral[800]
                     : palette.neutral[500],
                   cursor: link.onClick ? 'pointer' : 'initial',
-                  fontWeight: 500,
                 },
                 color,
               }}
