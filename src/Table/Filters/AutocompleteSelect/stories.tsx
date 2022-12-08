@@ -1,7 +1,6 @@
 import React from 'react';
 
 import { ImportExport } from '@mui/icons-material';
-import { Box } from '@mui/material';
 import Checkbox from '@mui/material/Checkbox';
 
 import { storyDocsParameters } from '../../../utils';
@@ -38,7 +37,6 @@ const data = [
 const AutocompleteCheckbox = () => (
   <AutocompleteSelect
     noOptionsText="Sorry"
-    variant="light"
     placeholder="Search a ledger"
     name="ledgers"
     multiple
@@ -57,39 +55,6 @@ const AutocompleteCheckbox = () => (
   />
 );
 
-export const LightAutocompleteCheckbox = () => <AutocompleteCheckbox />;
-LightAutocompleteCheckbox.storyName = 'Light';
-LightAutocompleteCheckbox.parameters = storyDocsParameters;
-
 export const DefaultAutocompleteCheckbox = () => <AutocompleteCheckbox />;
 DefaultAutocompleteCheckbox.storyName = 'Default';
 DefaultAutocompleteCheckbox.parameters = storyDocsParameters;
-
-export const DarkAutocompleteCheckbox = () => (
-  <Box sx={{ height: 100, p: 3 }}>
-    <AutocompleteSelect
-      noOptionsText="Sorry"
-      variant="dark"
-      placeholder="Search a ledger"
-      name="ledgers"
-      multiple
-      id="checkboxes-tags-demo"
-      options={data}
-      icon={<ImportExport />}
-      disableCloseOnSelect
-      getOptionLabel={(option: AutocompleteOption) => option.label}
-      renderOption={(props, option: AutocompleteOption, { selected }) => (
-        <li {...props}>
-          <Checkbox style={{ marginRight: 8 }} checked={selected} />
-          {option.label}
-        </li>
-      )}
-      style={{ width: 500 }}
-    />
-  </Box>
-);
-DarkAutocompleteCheckbox.storyName = 'Dark';
-DarkAutocompleteCheckbox.parameters = {
-  ...storyDocsParameters,
-  backgrounds: { default: 'dark' },
-};
