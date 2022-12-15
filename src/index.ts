@@ -31,6 +31,8 @@ export * from './Alerts/Snackbar';
 export * from './Viewers/Json';
 export * from './Viewers/Shell';
 
+export * from './Code';
+
 export * from './Dataviz/StatsCard';
 
 export * from './Chip';
