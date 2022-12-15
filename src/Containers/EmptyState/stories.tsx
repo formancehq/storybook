@@ -22,6 +22,16 @@ export const LightEmptyState = () => (
 LightEmptyState.storyName = 'Light';
 LightEmptyState.parameters = storyDocsParameters;
 
+export const LightWithBorderEmptyState = () => (
+  <EmptyState
+    border
+    title="Choose a ledger to get started"
+    description="Lorem Ipsum is simply dummy text of the printing and typesetting industry."
+  />
+);
+LightWithBorderEmptyState.storyName = 'Light with border';
+LightWithBorderEmptyState.parameters = storyDocsParameters;
+
 export const DarkEmptyState = () => (
   <EmptyState
     variant="dark"
