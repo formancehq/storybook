@@ -1,11 +1,11 @@
 import React from 'react';
 
+import { storyDocsParameters } from '../../utils';
+
 import { Code } from './index';
 
-import { storyDocsParameters } from '../utils';
-
 export default {
-  title: 'Design System/Code',
+  title: 'Design System/Forms/Code',
   component: Code,
 };
 
@@ -30,3 +30,10 @@ export const CodeEditor = () => <Code code={json} editor />;
 
 CodeEditor.storyName = 'Editor';
 CodeEditor.parameters = storyDocsParameters;
+
+export const CodeEditorError = () => (
+  <Code code={json} editor error errorMessage="Oops" height={500} />
+);
+
+CodeEditorError.storyName = 'Editor with error';
+CodeEditorError.parameters = storyDocsParameters;

@@ -5,7 +5,11 @@ import Highlight, { defaultProps } from 'prism-react-renderer';
 import theme from 'prism-react-renderer/themes/nightOwl';
 import Editor from 'react-simple-code-editor';
 
-export type CodeProps = {
+import { FormFieldErrorProps } from '../../types';
+
+import { FormHelper } from '../FormHelper';
+
+export type CodeProps = FormFieldErrorProps & {
   code: string;
   height?: number | string;
   width?: number | string;
@@ -21,6 +25,8 @@ export const Code: FunctionComponent<CodeProps> = ({
   editor = false,
   onChange,
   onInit,
+  error,
+  errorMessage,
 }) => {
   const { typography, palette } = useTheme();
   const [value, setValue] = useState<string>(code);
@@ -39,7 +45,6 @@ export const Code: FunctionComponent<CodeProps> = ({
       sx={{
         borderRadius: '6px',
         ...typography.money,
-        backgroundColor: `${palette.neutral[900]} !important`,
         textAlign: editor ? 'left' : 'center',
         pre: !editor
           ? {
@@ -50,7 +55,6 @@ export const Code: FunctionComponent<CodeProps> = ({
               overflow: 'auto',
               height,
               width,
-              backgroundColor: `${palette.neutral[900]} !important`,
               '.token-line': {
                 ...typography.money,
               },
@@ -118,18 +122,38 @@ export const Code: FunctionComponent<CodeProps> = ({
   return (
     <>
       {editor ? (
-        <Editor
-          value={value}
-          onValueChange={handleChange}
-          highlight={renderHighlight}
-          padding={10}
-          style={{
-            ...theme.plain,
-            boxSizing: 'border-box',
-            ...typography.money,
-            borderRadius: '6px',
+        <Box
+          sx={{
+            'textarea:focus-visible': {
+              outlineColor: error ? palette.red.normal : palette.neutral[900],
+            },
+            'textarea:hover': {
+              border: `1px solid ${
+                error ? palette.red.normal : palette.neutral[900]
+              } !important`,
+            },
+            pre: {
+              border: `2px solid ${
+                error ? palette.red.normal : 'transparent'
+              } !important`,
+              borderRadius: '6px',
+            },
           }}
-        />
+        >
+          <Editor
+            value={value}
+            onValueChange={handleChange}
+            highlight={renderHighlight}
+            padding={10}
+            style={{
+              ...theme.plain,
+              boxSizing: 'border-box',
+              ...typography.money,
+              borderRadius: '6px',
+            }}
+          />
+          <FormHelper error={error} errorMessage={errorMessage} />
+        </Box>
       ) : (
         renderHighlight(value)
       )}
