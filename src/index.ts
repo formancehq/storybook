@@ -25,13 +25,12 @@ export * from './Forms/Pickers/DatePicker';
 export * from './Forms/Pickers/DateTimePicker';
 export * from './Forms/RadioGroup';
 export * from './Forms/DebouncedAutocomplete';
+export * from './Forms/Code';
 
 export * from './Alerts/Snackbar';
 
 export * from './Viewers/Json';
 export * from './Viewers/Shell';
-
-export * from './Code';
 
 export * from './Dataviz/StatsCard';
 
