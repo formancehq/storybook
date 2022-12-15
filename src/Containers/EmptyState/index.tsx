@@ -9,6 +9,7 @@ export type EmptyStateProps = {
   variant?: 'dark' | 'light';
   children?: ReactElement;
   sx?: SxProps<Theme>;
+  border?: boolean;
 };
 
 export const Placeholder: FunctionComponent = () => (
@@ -66,17 +67,18 @@ export const EmptyState: FunctionComponent<EmptyStateProps> = ({
   children,
   variant,
   sx,
+  border = false,
 }) => {
   const { palette } = useTheme();
   const variantsMap = {
     light: {
-      border: palette.neutral[200],
+      border: border ? palette.neutral[200] : 'transparent',
       title: palette.neutral[800],
       description: palette.neutral[600],
       backgroundColor: palette.neutral[0],
     },
     dark: {
-      border: palette.neutral[800],
+      border: border ? palette.neutral[800] : 'transparent',
       title: palette.neutral[200],
       description: palette.neutral[400],
       backgroundColor: palette.neutral[800],
