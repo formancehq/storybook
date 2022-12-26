@@ -8,13 +8,16 @@ import { ObjectOf } from '../../types';
 export type JsonViewerProps = {
   jsonData: ObjectOf<any>;
   theme?: ObjectOf<string>;
+  expanded?: boolean;
 };
 
 export const JsonViewer: FunctionComponent<JsonViewerProps> = ({
   jsonData,
   theme,
+  expanded = true,
 }) => {
   const { typography } = useTheme();
+  const expand = expanded ? undefined : () => false;
 
   // TODO use palette
 
@@ -59,7 +62,11 @@ export const JsonViewer: FunctionComponent<JsonViewerProps> = ({
         borderRadius: '6px',
       }}
     >
-      <JSONTree data={jsonData} theme={theme || defaultTheme} />
+      <JSONTree
+        data={jsonData}
+        theme={theme || defaultTheme}
+        shouldExpandNode={expand}
+      />
     </Box>
   );
 };

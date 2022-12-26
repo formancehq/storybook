@@ -35,10 +35,17 @@ const theme = {
   base0F: '#cc6633',
 };
 
-export const Simple = () => <JsonViewer jsonData={jsonData} />;
+export const Expanded = () => <JsonViewer jsonData={jsonData} />;
 
-Simple.storyName = 'Simple';
-Simple.parameters = storyDocsParameters;
+Expanded.storyName = 'Expanded';
+Expanded.parameters = storyDocsParameters;
+
+export const NotExpanded = () => (
+  <JsonViewer jsonData={jsonData} expanded={false} />
+);
+
+NotExpanded.storyName = 'Not expanded';
+NotExpanded.parameters = storyDocsParameters;
 
 export const WithTheme = () => <JsonViewer jsonData={jsonData} theme={theme} />;
 
