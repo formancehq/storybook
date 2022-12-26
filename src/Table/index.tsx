@@ -173,9 +173,22 @@ export const Table: FunctionComponent<TableProps> = ({
       setData(items);
       const total = get(results, 'total.value', 1);
       if (withPagination) {
+        // TODO remove fallback on camel or snake when API services will be ready.
+        //  Compatibility issue (search is camelCase, other services are snake_case)
+        const pageSizeRaw = get(
+          results,
+          'page_size',
+          get(results, 'pageSize', paginationSize)
+        );
+        const hasMoreRaw = get(
+          results,
+          'has_more',
+          get(results, 'hasMore', false)
+        );
+        // End to do
         setTotal(total);
-        setHasMore(get(results, 'hasMore', false));
-        setPageSize(get(results, 'pageSize', paginationSize));
+        setHasMore(hasMoreRaw);
+        setPageSize(pageSizeRaw);
         setHasPrevious(isEmpty(get(results, 'previous', false)));
       }
     }
@@ -239,7 +252,7 @@ export const Table: FunctionComponent<TableProps> = ({
                           <TableCell
                             key={column.key}
                             sx={{
-                              width: `${column.width}%`,
+                              width: `${column.width || 100}%`,
                               borderColor: ({ palette }) =>
                                 palette.neutral[200],
                             }}

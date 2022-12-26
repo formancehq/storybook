@@ -41,6 +41,7 @@ export const JsonViewer: FunctionComponent<JsonViewerProps> = ({
 
   return (
     <Box
+      component="span"
       sx={{
         display: 'flex',
         background: ({ palette }) => palette.neutral[900],
