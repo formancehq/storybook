@@ -56,7 +56,12 @@ export const StatsCard: FunctionComponent<StatsCardProps> = ({
     >
       <Box display="flex" alignItems="center" justifyContent="space-between">
         <Box
-          sx={{ width: 40, height: 40, backgroundColor: color }}
+          sx={{
+            width: 40,
+            height: 40,
+            backgroundColor: color,
+            borderRadius: '6px',
+          }}
           display="flex"
           justifyContent="center"
         >
@@ -68,7 +73,9 @@ export const StatsCard: FunctionComponent<StatsCardProps> = ({
             {icon}
           </Box>
         </Box>
-        {chipValue && <Chip label={chipValue} color={variant} />}
+        {chipValue && (
+          <Chip label={chipValue} color={variant} variant="square" />
+        )}
       </Box>
       <Box mt={3}>
         <Typography
