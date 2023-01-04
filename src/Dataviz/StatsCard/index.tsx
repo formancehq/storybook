@@ -14,6 +14,7 @@ export type StatsCardProps = {
   title2: string;
   value1: string;
   value2: string;
+  type?: 'light' | 'dark';
 };
 
 export const StatsCard: FunctionComponent<StatsCardProps> = ({
@@ -24,6 +25,7 @@ export const StatsCard: FunctionComponent<StatsCardProps> = ({
   title1,
   value2,
   value1,
+  type = 'dark',
 }) => {
   const { palette } = useTheme();
   const variantsMap = {
@@ -48,7 +50,9 @@ export const StatsCard: FunctionComponent<StatsCardProps> = ({
       sx={{
         width: 258,
         height: 212,
-        backgroundColor: palette.neutral[800],
+        border: type === 'dark' ? 'none' : `2px solid ${palette.neutral[100]}`,
+        backgroundColor:
+          type === 'dark' ? palette.neutral[800] : palette.neutral[0],
         borderRadius: '6px',
       }}
       display="flex"
@@ -83,7 +87,12 @@ export const StatsCard: FunctionComponent<StatsCardProps> = ({
         >
           {title1}
         </Typography>
-        <Typography variant="h1" sx={{ color: palette.neutral[0] }}>
+        <Typography
+          variant="h1"
+          sx={{
+            color: type === 'dark' ? palette.neutral[0] : palette.neutral[900],
+          }}
+        >
           {value1}
         </Typography>
       </Box>
@@ -93,7 +102,12 @@ export const StatsCard: FunctionComponent<StatsCardProps> = ({
         >
           {title2}
         </Typography>
-        <Typography variant="h1" sx={{ color: palette.neutral[0] }}>
+        <Typography
+          variant="h1"
+          sx={{
+            color: type === 'dark' ? palette.neutral[0] : palette.neutral[900],
+          }}
+        >
           {value2}
         </Typography>
       </Box>
