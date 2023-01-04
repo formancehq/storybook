@@ -93,3 +93,19 @@ export const StatsCardLight = () => (
 );
 StatsCardLight.storyName = 'Light';
 StatsCardLight.parameters = storyDocsParameters;
+
+export const StatsCardLarge = () => (
+  <StatsCard
+    type="light"
+    sx={{ width: '90%' }}
+    icon={<Topic />}
+    variant="violet"
+    title1="Transaction volume"
+    value1="69,453.12 $"
+    title2="Account volume"
+    value2="69,453.12 $"
+    chipValue="+24%"
+  />
+);
+StatsCardLarge.storyName = 'Large';
+StatsCardLarge.parameters = storyDocsParameters;

@@ -1,6 +1,6 @@
 import React, { FunctionComponent, ReactElement } from 'react';
 
-import { Box, Typography, useTheme } from '@mui/material';
+import { Box, SxProps, Typography, useTheme } from '@mui/material';
 import { get } from 'lodash';
 
 import { Chip } from '../../Chip';
@@ -15,6 +15,7 @@ export type StatsCardProps = {
   value1: string;
   value2: string;
   type?: 'light' | 'dark';
+  sx?: SxProps;
 };
 
 export const StatsCard: FunctionComponent<StatsCardProps> = ({
@@ -26,6 +27,7 @@ export const StatsCard: FunctionComponent<StatsCardProps> = ({
   value2,
   value1,
   type = 'dark',
+  sx,
 }) => {
   const { palette } = useTheme();
   const variantsMap = {
@@ -54,6 +56,7 @@ export const StatsCard: FunctionComponent<StatsCardProps> = ({
         backgroundColor:
           type === 'dark' ? palette.neutral[800] : palette.neutral[0],
         borderRadius: '6px',
+        ...sx,
       }}
       display="flex"
       flexDirection="column"
