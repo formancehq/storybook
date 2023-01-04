@@ -78,3 +78,18 @@ export const StatsCardWithoutChip = () => (
 );
 StatsCardWithoutChip.storyName = 'Without chip';
 StatsCardWithoutChip.parameters = storyDocsParameters;
+
+export const StatsCardLight = () => (
+  <StatsCard
+    type="light"
+    icon={<Topic />}
+    variant="violet"
+    title1="Transaction volume"
+    value1="69,453.12 $"
+    title2="Account volume"
+    value2="69,453.12 $"
+    chipValue="+24%"
+  />
+);
+StatsCardLight.storyName = 'Light';
+StatsCardLight.parameters = storyDocsParameters;
