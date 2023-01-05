@@ -9,6 +9,7 @@ export * from './Sections/DividerWithSpace';
 export * from './Sections/SourceDestination';
 export * from './Sections/Txid';
 export * from './Sections/TitleWithBar';
+export * from './Sections/CopyPasteTooltip';
 
 export * from './Containers/EmptyState';
 export * from './Containers/Page';
