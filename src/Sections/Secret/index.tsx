@@ -1,10 +1,11 @@
 import React, { FunctionComponent, useState } from 'react';
 
-import { Box, Tooltip, useTheme } from '@mui/material';
+import { Box, useTheme } from '@mui/material';
 
 import { Chip } from '../../Chip';
 import { ColorVariants } from '../../types';
-import { copyTokenToClipboard } from '../../utils';
+
+import { CopyPasteTooltip } from '../CopyPasteTooltip';
 
 export type SecretProps = {
   lastDigits?: string;
@@ -34,16 +35,9 @@ export const Secret: FunctionComponent<SecretProps> = ({
   return (
     <Box component="span" display="flex" alignItems="center">
       {tooltipMessage ? (
-        <Tooltip
-          title={copiedMessage}
-          onClick={async () => {
-            await copyTokenToClipboard(secret);
-            setCopiedMessage(tooltipMessage);
-          }}
-          onClose={() => setCopiedMessage('')}
-        >
+        <CopyPasteTooltip value={secret} tooltipMessage={tooltipMessage}>
           {renderChip()}
-        </Tooltip>
+        </CopyPasteTooltip>
       ) : (
         renderChip()
       )}
