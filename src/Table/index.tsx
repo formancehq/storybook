@@ -173,8 +173,8 @@ export const Table: FunctionComponent<TableProps> = ({
       setData(items);
       if (withPagination) {
         setTotal(get(results, 'total.value'));
-        setHasMore(get(results, 'pageSize'));
-        setPageSize(get(results, 'hasMore'));
+        setHasMore(get(results, 'hasMore'));
+        setPageSize(get(results, 'pageSize'));
         setHasPrevious(isEmpty(get(results, 'previous', false)));
       }
     }
