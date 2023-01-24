@@ -171,24 +171,10 @@ export const Table: FunctionComponent<TableProps> = ({
       const items = get(results, path, results.length > 0 ? results : []);
       setMetas(results);
       setData(items);
-      const total = get(results, 'total.value', 1);
       if (withPagination) {
-        // TODO remove fallback on camel or snake when API services will be ready.
-        //  Compatibility issue (search is camelCase, other services are snake_case)
-        const pageSizeRaw = get(
-          results,
-          'page_size',
-          get(results, 'pageSize', paginationSize)
-        );
-        const hasMoreRaw = get(
-          results,
-          'has_more',
-          get(results, 'hasMore', false)
-        );
-        // End to do
-        setTotal(total);
-        setHasMore(hasMoreRaw);
-        setPageSize(pageSizeRaw);
+        setTotal(get(results, 'total.value'));
+        setHasMore(get(results, 'pageSize'));
+        setPageSize(get(results, 'hasMore'));
         setHasPrevious(isEmpty(get(results, 'previous', false)));
       }
     }
@@ -315,15 +301,17 @@ export const Table: FunctionComponent<TableProps> = ({
           {withPagination && data.length > 0 && (
             <Box
               display="flex"
-              justifyContent="space-between"
+              justifyContent={total ? 'space-between' : 'right'}
               alignItems="center"
               mt={2}
             >
-              <Box>
-                <Typography color="primary.light" sx={{ opacity: 0.4 }}>
-                  {`${labels.pagination.showing} ${pageSize} ${labels.pagination.separator} ${total} ${labels.pagination.results}`}
-                </Typography>
-              </Box>
+              {total && (
+                <Box>
+                  <Typography color="primary.light" sx={{ opacity: 0.4 }}>
+                    {`${labels.pagination.showing} ${pageSize} ${labels.pagination.separator} ${total} ${labels.pagination.results}`}
+                  </Typography>
+                </Box>
+              )}
               <Box>
                 {onPrevious && (
                   <LoadingButton
