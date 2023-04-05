@@ -26,7 +26,7 @@ export const ShellViewer: FunctionComponent<ShellViewerProps> = ({
       padding: '16.5px 14px',
       minHeight: '200px',
       maxHeight: scroll ? '250px' : 'auto',
-      overflow: 'scroll',
+      overflow: 'auto',
       borderRadius: '6px',
     }}
   >
