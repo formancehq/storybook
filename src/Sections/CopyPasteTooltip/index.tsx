@@ -1,6 +1,6 @@
 import React, { FunctionComponent, ReactElement, useState } from 'react';
 
-import { Tooltip, TooltipProps } from '@mui/material';
+import { Box, Tooltip, TooltipProps } from '@mui/material';
 
 import { copyTokenToClipboard } from '../../utils';
 
@@ -28,7 +28,7 @@ export const CopyPasteTooltip: FunctionComponent<CopyPasteTooltipProps> = ({
       }}
       onClose={() => setCopiedMessage('')}
     >
-      {children}
+      <Box component="span">{children}</Box>
     </Tooltip>
   );
 };
