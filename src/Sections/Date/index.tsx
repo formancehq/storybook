@@ -32,7 +32,9 @@ export const Date: FunctionComponent<DateProps> = ({
   return (
     <Box display="flex" alignItems="center" component="span">
       {tooltip ? (
-        <Tooltip title={`${timestamp}`}>{renderTypo()}</Tooltip>
+        <Tooltip title={`${timestamp}`}>
+          <Box component="span">{renderTypo()}</Box>
+        </Tooltip>
       ) : (
         renderTypo()
       )}
