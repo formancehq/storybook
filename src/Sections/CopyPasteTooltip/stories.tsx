@@ -1,7 +1,5 @@
 import React from 'react';
 
-import { Typography } from '@mui/material';
-
 import { LoadingButton } from '../../Buttons/LoadingButton';
 import { storyDocsParameters } from '../../utils';
 
