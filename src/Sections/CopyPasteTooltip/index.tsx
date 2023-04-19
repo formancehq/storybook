@@ -28,7 +28,9 @@ export const CopyPasteTooltip: FunctionComponent<CopyPasteTooltipProps> = ({
       }}
       onClose={() => setCopiedMessage('')}
     >
-      <Box component="span">{children}</Box>
+      <Box component="span" sx={{ cursor: 'pointer' }}>
+        {children}
+      </Box>
     </Tooltip>
   );
 };

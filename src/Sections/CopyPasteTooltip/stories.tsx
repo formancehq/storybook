@@ -1,5 +1,7 @@
 import React from 'react';
 
+import { Typography } from '@mui/material';
+
 import { LoadingButton } from '../../Buttons/LoadingButton';
 import { storyDocsParameters } from '../../utils';
 
@@ -12,8 +14,16 @@ export default {
 
 export const DefaultCopyPasteTooltip = () => (
   <CopyPasteTooltip value="FOO" tooltipMessage="Copied!">
-    <LoadingButton content="copy me" />
+    <Typography>Copy me !</Typography>
   </CopyPasteTooltip>
 );
 DefaultCopyPasteTooltip.storyName = 'Default';
 DefaultCopyPasteTooltip.parameters = storyDocsParameters;
+
+export const ButtonCopyPasteTooltip = () => (
+  <CopyPasteTooltip value="FOO" tooltipMessage="Copied!">
+    <LoadingButton content="Copy me" />
+  </CopyPasteTooltip>
+);
+ButtonCopyPasteTooltip.storyName = 'Button';
+ButtonCopyPasteTooltip.parameters = storyDocsParameters;
