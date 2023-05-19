@@ -5,7 +5,8 @@ export type ButtonVariants =
   | 'secondary'
   | 'dark'
   | 'transparent'
-  | 'error';
+  | 'error'
+  | 'yellow';
 export type ColorVariants =
   | 'red'
   | 'blue'
