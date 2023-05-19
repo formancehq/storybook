@@ -97,6 +97,19 @@ export const LoadingButton: FunctionComponent<LoadingButtonProps> = ({
     },
   } as SxProps;
 
+  const yellowStyles = {
+    ...commonStyles,
+    backgroundColor: theme.palette.yellow.bright,
+    color: theme.palette.neutral[900],
+    ':hover': {
+      backgroundColor: theme.palette.yellow.light,
+      color: theme.palette.neutral[600],
+    },
+    ':focus': {
+      backgroundColor: theme.palette.yellow.light,
+    },
+  } as SxProps;
+
   const transparentStyles = {
     ...commonStyles,
     background: 'transparent',
@@ -125,6 +138,7 @@ export const LoadingButton: FunctionComponent<LoadingButtonProps> = ({
     transparent: transparentStyles,
     dark: darkStyles,
     error: errorStyles,
+    yellow: yellowStyles,
   };
 
   useEffect(
