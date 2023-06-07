@@ -78,11 +78,11 @@ export const LoadingButton: FunctionComponent<LoadingButtonProps> = ({
   } as SxProps;
   const primaryStyles = {
     ...commonStyles,
-    backgroundColor: theme.palette.default.bright,
+    backgroundColor: theme.palette.default.normal,
     color: theme.palette.neutral[900],
     ':hover': {
-      backgroundColor: theme.palette.default.normal,
-      color: theme.palette.neutral[0],
+      backgroundColor: theme.palette.default.darker,
+      color: theme.palette.neutral[900],
     },
   } as SxProps;
   const darkStyles = {
@@ -102,11 +102,11 @@ export const LoadingButton: FunctionComponent<LoadingButtonProps> = ({
     backgroundColor: theme.palette.yellow.bright,
     color: theme.palette.neutral[900],
     ':hover': {
-      backgroundColor: theme.palette.yellow.light,
+      backgroundColor: theme.palette.yellow.normal,
       color: theme.palette.neutral[600],
     },
     ':focus': {
-      backgroundColor: theme.palette.yellow.light,
+      backgroundColor: theme.palette.yellow.normal,
     },
   } as SxProps;
 
