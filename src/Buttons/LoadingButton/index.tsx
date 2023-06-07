@@ -124,10 +124,10 @@ export const LoadingButton: FunctionComponent<LoadingButtonProps> = ({
     background: theme.palette.red.normal,
     color: theme.palette.neutral[0],
     ':hover': {
-      backgroundColor: theme.palette.red.bright,
+      backgroundColor: theme.palette.red.darker,
     },
     ':focus': {
-      backgroundColor: theme.palette.red.bright,
+      backgroundColor: theme.palette.red.darker,
     },
   };
 
