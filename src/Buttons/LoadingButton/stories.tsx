@@ -577,6 +577,102 @@ export const YellowLoadingButtons = () => (
 YellowLoadingButtons.storyName = 'Yellow';
 YellowLoadingButtons.parameters = storyDocsParameters;
 
+export const RedLoadingButtons = () => (
+  <>
+    <Box>
+      <LoadingButton
+        id="red"
+        variant="error"
+        onClick={() => true}
+        content="Show yellow"
+      />
+      <LoadingButton
+        id="red-disabled"
+        variant="error"
+        onClick={() => true}
+        content="Show yellow disabled"
+        disabled
+      />
+    </Box>
+    <Box mt={2}>
+      <LoadingButton
+        id="red-content-start-end-icon"
+        variant="error"
+        onClick={() => true}
+        content="Show red start end icon"
+        startIcon={<AddOutlined />}
+        endIcon={<ArrowDropDown />}
+      />
+      <LoadingButton
+        id="red-content-start-icon-end-disabled"
+        variant="error"
+        onClick={() => true}
+        content="Show red start icon end disabled"
+        startIcon={<AddOutlined />}
+        endIcon={<ArrowDropDown />}
+        disabled
+      />
+    </Box>
+    <Box mt={2}>
+      <LoadingButton
+        id="red-content-start-icon"
+        variant="error"
+        onClick={() => true}
+        content="Show red start icon"
+        startIcon={<AddOutlined />}
+      />
+      <LoadingButton
+        id="red-content-start-icon-disabled"
+        variant="error"
+        onClick={() => true}
+        content="Show red start icon disabled"
+        startIcon={<AddOutlined />}
+        disabled
+      />
+    </Box>
+    <Box mt={2}>
+      <LoadingButton
+        id="red-content-end-icon"
+        variant="error"
+        onClick={() => true}
+        content="Show red end icon"
+        endIcon={<DeleteOutlined />}
+      />
+      <LoadingButton
+        id="red-content-end-icon-disabled"
+        variant="error"
+        onClick={() => true}
+        content="Show red end icon disabled"
+        disabled
+        endIcon={<DeleteOutlined />}
+      />
+    </Box>
+    <Box mt={2}>
+      <LoadingButton
+        id="red-start-icon"
+        variant="error"
+        onClick={() => true}
+        startIcon={<AddOutlined />}
+      />
+      <LoadingButton
+        id="red-end-icon"
+        variant="error"
+        onClick={() => true}
+        endIcon={<DeleteOutlined />}
+      />
+      <LoadingButton
+        id="red-end-icon-disabled"
+        variant="error"
+        onClick={() => true}
+        disabled
+        endIcon={<DeleteOutlined />}
+      />
+    </Box>
+  </>
+);
+RedLoadingButtons.storyName = 'Red';
+RedLoadingButtons.parameters = storyDocsParameters;
+
 export const HrefButton = () => (
   <Link
     href="https://docs.formance.com/oss/payments/reference/api"
