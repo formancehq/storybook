@@ -240,7 +240,7 @@ export const Table: FunctionComponent<TableProps> = ({
                             sx={{
                               width: `${column.width || 100}%`,
                               borderColor: ({ palette }) =>
-                                palette.neutral[200],
+                                palette.neutral[100],
                             }}
                           >
                             <Box
@@ -275,7 +275,7 @@ export const Table: FunctionComponent<TableProps> = ({
                 <TableBody
                   sx={{
                     '& td': {
-                      borderColor: ({ palette }) => palette.neutral[100],
+                      borderColor: ({ palette }) => palette.neutral[50],
                     },
                   }}
                 >
