@@ -31,7 +31,7 @@ export const StatsCard: FunctionComponent<StatsCardProps> = ({
 }) => {
   const { palette } = useTheme();
   const variantsMap = {
-    green: palette.green.bright,
+    green: palette.green.normal,
     brown: palette.brown.bright,
     blue: palette.blue.bright,
     violet: palette.violet.bright,

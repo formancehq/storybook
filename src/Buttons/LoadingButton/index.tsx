@@ -61,10 +61,10 @@ export const LoadingButton: FunctionComponent<LoadingButtonProps> = ({
   } as SxProps;
   const lightStyles = {
     ...commonStyles,
-    backgroundColor: theme.palette.neutral[0],
+    backgroundColor: theme.palette.neutral[50],
     color: theme.palette.neutral[900],
     ':hover': {
-      backgroundColor: theme.palette.neutral[50],
+      backgroundColor: theme.palette.neutral[100],
     },
   } as SxProps;
   const strokeStyles = {
