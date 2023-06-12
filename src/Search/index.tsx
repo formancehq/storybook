@@ -58,10 +58,10 @@ export const Search: FunctionComponent<SearchProps> = ({
           InputProps={{
             sx: {
               '& ::placeholder': {
-                color: ({ palette }) => `${palette.neutral[500]} !important`,
+                color: ({ palette }) => `${palette.neutral[300]} !important`,
                 opacity: 1 /* Firefox */,
               },
-              color: ({ palette }) => `${palette.neutral[500]} !important`,
+              color: ({ palette }) => `${palette.neutral[100]} !important`,
               borderRadius: '6px',
               '& fieldset': {
                 borderColor: ({ palette }) =>
