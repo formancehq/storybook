@@ -42,7 +42,7 @@ export const TextField: FunctionComponent<TextFieldProps> = ({
         },
 
         '&:focus': {
-          borderColor: ({ palette }) => palette.neutral[800],
+          borderColor: ({ palette }) => palette.neutral[900],
         },
       },
       '& fieldset': {
