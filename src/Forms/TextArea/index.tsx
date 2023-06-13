@@ -54,7 +54,7 @@ export const TextArea: FunctionComponent<TextAreaProps> = ({
           border: `1px solid ${
             error ? palette.red.normal : palette.neutral[100]
           }`,
-          borderRadius: '6px',
+          borderRadius: '4px',
           padding: '14px',
           transition: 'all 0.2s ease-in-out',
           ...typo,
