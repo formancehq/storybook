@@ -28,13 +28,21 @@ export const TextArea: FunctionComponent<TextAreaProps> = ({
   return (
     <Box
       sx={{
-        'textarea:focus-visible': {
-          outlineColor: error ? palette.red.normal : palette.neutral[900],
-        },
-        'textarea:hover': {
+        'textarea:focus': {
+          borderSize: '1px',
           border: `1px solid ${
             error ? palette.red.normal : palette.neutral[900]
           } !important`,
+          outline: 'none',
+        },
+        'textarea:hover': {
+          border: `1px solid ${
+            error ? palette.red.normal : palette.neutral[500]
+          } !important`,
+        },
+        '.Mui-error': {
+          mx: 0,
+          mt: 0.5,
         },
       }}
     >
@@ -44,10 +52,11 @@ export const TextArea: FunctionComponent<TextAreaProps> = ({
         style={{
           width: '100%',
           border: `1px solid ${
-            error ? palette.red.normal : palette.neutral[200]
+            error ? palette.red.normal : palette.neutral[100]
           }`,
           borderRadius: '6px',
-          padding: '16.5px 14px',
+          padding: '14px',
+          transition: 'all 0.2s ease-in-out',
           ...typo,
         }}
         {...props}
