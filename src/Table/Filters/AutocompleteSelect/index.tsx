@@ -28,14 +28,24 @@ export const AutocompleteSelect: FunctionComponent<FilterProps> = ({
     multiple
     size="small"
     limitTags={2}
+    open
     PaperComponent={PaperComponent}
     sx={{
       '& .MuiOutlinedInput-root': {
-        padding: '0px !important',
+        padding: '4px!important',
+        height: 'auto',
+        minHeight: '40px',
       },
 
       '& input': {
         padding: '0px 8px !important',
+      },
+
+      '& fieldset': {
+        borderWidth: '1px !important',
+        transition: 'border-color 200ms ease-in-out',
+        minHeight: '40px',
+        height: 'auto',
       },
     }}
     renderInput={(params) => (
@@ -45,7 +55,16 @@ export const AutocompleteSelect: FunctionComponent<FilterProps> = ({
             {props.label}
           </InputLabel>
         )}
-        <TextField {...params} placeholder={props.placeholder} />
+        <TextField
+          {...params}
+          placeholder={props.placeholder}
+          sx={{
+            '& input': {
+              border: 'none',
+              height: 'auto',
+            },
+          }}
+        />
       </>
     )}
   />
