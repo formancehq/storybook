@@ -50,7 +50,17 @@ export const SelectMultiple: FunctionComponent<SelectMultipleProps> = ({
   return (
     <>
       <FormControl sx={{ mt: 1, width: 548 }}>
-        <InputLabel id={id} shrink error={error}>
+        <InputLabel
+          id={id}
+          shrink
+          error={error}
+          sx={{
+            position: 'static',
+            transform: 'none',
+            fontSize: '12px',
+            mb: 0.5,
+          }}
+        >
           {label}
         </InputLabel>
         <MuiSelect
@@ -71,18 +81,49 @@ export const SelectMultiple: FunctionComponent<SelectMultipleProps> = ({
               id="select-event"
               label={outlinedInputLabel}
               sx={{
-                height: item.length > 2 ? 'auto' : '40px',
+                //height: item.length > 2 ? 'auto' : '40px',
                 '& fieldset': {
+                  top: 0,
                   borderRadius: '6px',
-                  borderColor: ({ palette }) => palette.neutral[200],
+                  borderWidth: '1px!important',
+                  borderColor: ({ palette }) => palette.neutral[100],
+                  transition: 'all 0.2s ease-in-out',
+
+                  '&:hover': {
+                    borderColor: ({ palette }) => palette.neutral[500],
+                  },
+
+                  '& legend': {
+                    display: 'none',
+                  },
+                },
+
+                '& .MuiSelect-select': {
+                  minHeight: '40px',
+                  padding: 0,
                 },
               }}
             />
           }
           renderValue={(selected) => (
-            <Box sx={{ display: 'flex', flexWrap: 'wrap', gap: 0.5 }}>
+            <Box
+              sx={{
+                display: 'flex',
+                flexWrap: 'wrap',
+                gap: 0.5,
+                padding: '4px',
+              }}
+            >
               {selected.map((value) => (
-                <Chip key={value} label={value} variant="square" />
+                <Chip
+                  key={value}
+                  label={value}
+                  variant="square"
+                  sx={{
+                    borderRadius: '4px',
+                    padding: 0,
+                  }}
+                />
               ))}
             </Box>
           )}
@@ -91,6 +132,20 @@ export const SelectMultiple: FunctionComponent<SelectMultipleProps> = ({
               style: {
                 maxHeight: 48 * 4.5 + 8,
                 width: 250,
+              },
+
+              sx: {
+                boxShadow: 'none!important',
+                mt: 1,
+
+                '& .MuiList-root': {
+                  padding: '13px',
+                  boxSizing: 'border-box',
+                  my: 0,
+                  display: 'flex',
+                  flexDirection: 'column',
+                  gap: '4px',
+                },
               },
             },
           }}
