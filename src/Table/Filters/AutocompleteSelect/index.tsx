@@ -28,7 +28,6 @@ export const AutocompleteSelect: FunctionComponent<FilterProps> = ({
     multiple
     size="small"
     limitTags={2}
-    open
     PaperComponent={PaperComponent}
     sx={{
       '& .MuiOutlinedInput-root': {
