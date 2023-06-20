@@ -5,7 +5,6 @@ export * from './Buttons/Tabs';
 export * from './Sections/Amount';
 export * from './Sections/Secret';
 export * from './Sections/Date';
-export * from './Sections/DividerWithSpace';
 export * from './Sections/SourceDestination';
 export * from './Sections/Txid';
 export * from './Sections/CopyPasteTooltip';
