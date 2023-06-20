@@ -9,6 +9,7 @@ export * from './Sections/SourceDestination';
 export * from './Sections/Txid';
 export * from './Sections/CopyPasteTooltip';
 
+export * from './Containers/EmptyState';
 export * from './Containers/Page';
 export * from './Containers/SectionWrapper';
 export * from './Containers/ActionZone';
