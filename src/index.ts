@@ -25,7 +25,6 @@ export * from './Forms/TextArea';
 export * from './Forms/Pickers/DatePicker';
 export * from './Forms/Pickers/DateTimePicker';
 export * from './Forms/RadioGroup';
-export * from './Forms/DebouncedAutocomplete';
 export * from './Forms/Code';
 
 export * from './Alerts/Snackbar';
