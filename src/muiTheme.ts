@@ -102,7 +102,7 @@ export const titleFontFamily = 'Roboto';
 const palette = {
   neutral: {
     0: 'hsl(0, 0%, 99%)',
-    50: 'hsl(240, 2%, 93%)',
+    50: 'hsl(240, 2%, 96%)',
     100: 'hsl(220, 3%, 86%)',
     200: 'hsl(216, 3%, 67%)',
     300: 'hsl(214, 3%, 56%)',
