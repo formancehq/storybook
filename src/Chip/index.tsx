@@ -24,7 +24,7 @@ export const Chip: FunctionComponent<ChipProps> = ({ color, sx, ...props }) => {
     : palette.neutral[50];
   const fontColor = color
     ? get(palette, `${color}.${darkKey(color)}`)
-    : palette.neutral[900];
+    : palette.neutral[600];
 
   return (
     <MuiChip
