@@ -137,7 +137,7 @@ const palette = {
     light: 'hsl(23, 59%, 80%)',
   },
   blue: {
-    darker: 'hsl(200, 91%, 58%)',
+    darker: 'hsl(200, 91%, 48%)',
     normal: 'hsl(200, 89%, 71%)',
     bright: 'hsl(200, 92%, 80%)',
     light: 'hsl(200, 88%, 90%)',
@@ -149,7 +149,7 @@ const palette = {
     light: 'hsl(267, 80%, 90%)',
   },
   green: {
-    darker: 'hsl(156, 87%, 60%)',
+    darker: 'hsl(156, 87%, 45%)',
     normal: 'hsl(152, 83%, 74%)',
     bright: 'hsl(149, 88%, 84%)',
     light: 'hsl(152, 87%, 91%)',
@@ -161,7 +161,7 @@ const palette = {
     light: 'hsl(0, 82%, 84%)',
   },
   yellow: {
-    darker: 'hsl(50, 91%, 58%)',
+    darker: 'hsl(50, 90%, 40%)',
     normal: 'hsl(50, 100%, 66%)',
     bright: 'hsl(50, 86%, 78%)',
     light: 'hsl(50, 96%, 88%)',
