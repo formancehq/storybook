@@ -160,8 +160,6 @@ export const LoadingButton: FunctionComponent<LoadingButtonProps> = ({
     }
   };
 
-  console.log(content);
-
   return (
     <MuiLoadingButton
       id={id}
