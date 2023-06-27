@@ -9,7 +9,13 @@ export default {
   component: SelectMultiple,
 };
 
-const items = ['event 1', 'event 2', 'event 3', 'event 4', 'event long char 1'];
+const items = [
+  'event 1',
+  'event 2 event 2 event 2',
+  'event 3 event 3 event 3 event 3 event 3 ',
+  'event 4 event 4 event 4 event 4 event 4 event 4 ',
+  'event long char 1',
+];
 
 export const DefaultSelectMultiple = () => (
   <SelectMultiple

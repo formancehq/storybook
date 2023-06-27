@@ -49,7 +49,16 @@ export const SelectMultiple: FunctionComponent<SelectMultipleProps> = ({
 
   return (
     <>
-      <FormControl sx={{ mt: 1, width: 548 }}>
+      <FormControl
+        sx={{
+          mt: 1,
+          width: 548,
+          '& .MuiOutlinedInput-root': {
+            height: 'auto',
+            minHeight: '40px',
+          },
+        }}
+      >
         <InputLabel
           id={id}
           shrink
