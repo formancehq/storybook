@@ -160,11 +160,17 @@ export const LoadingButton: FunctionComponent<LoadingButtonProps> = ({
     }
   };
 
+  console.log(content);
+
   return (
     <MuiLoadingButton
       id={id}
       data-testid={id}
-      sx={get(variantsMap, variant)}
+      sx={{
+        ...get(variantsMap, variant),
+        width: content ? 'auto!important' : '40px!important',
+        padding: content ? '8px 16px' : '0px!important',
+      }}
       loading={loading}
       onClick={handleClick}
       {...props}
