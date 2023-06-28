@@ -19,6 +19,8 @@ interface NeutralPalette {
   700: string;
   800: string;
   900: string;
+  white: string;
+  black: string;
 }
 
 declare module '@mui/material/styles/createPalette' {
@@ -101,6 +103,8 @@ export const titleFontFamily = 'Roboto';
 
 const palette = {
   neutral: {
+    white: 'hsl(0, 0%, 100%)',
+    black: 'hsl(0, 0%,0%)',
     0: 'hsl(0, 0%, 99%)',
     50: 'hsl(240, 2%, 96%)',
     100: 'hsl(220, 3%, 86%)',
