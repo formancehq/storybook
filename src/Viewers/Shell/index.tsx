@@ -22,7 +22,7 @@ export const ShellViewer: FunctionComponent<ShellViewerProps> = ({
   <Box
     sx={{
       background: (theme) => theme.palette.neutral[900],
-      color: (theme) => theme.palette.default.bright,
+      color: (theme) => theme.palette.default.darker,
       padding: '16.5px 14px',
       minHeight: '200px',
       maxHeight: scroll ? '250px' : 'auto',
