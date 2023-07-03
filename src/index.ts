@@ -35,6 +35,7 @@ export * from './Chip';
 export * from './Search';
 export * from './Breadcrumbs';
 export * from './Modal';
+export * from './Popover';
 
 export * from './Table';
 export * from './Table/Filters/AutocompleteSelect';
