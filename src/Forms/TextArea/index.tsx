@@ -13,7 +13,7 @@ import { FormFieldErrorProps } from '../../types';
 import { FormHelper } from '../FormHelper';
 
 export type TextAreaProps = TextareaAutosizeProps &
-  FormFieldErrorProps & { json?: boolean; label?: string };
+  FormFieldErrorProps & { json?: boolean; label?: string; required?: boolean };
 
 export const TextArea: FunctionComponent<TextAreaProps> = ({
   errorMessage,
@@ -21,6 +21,7 @@ export const TextArea: FunctionComponent<TextAreaProps> = ({
   minRows = 5,
   json = false,
   label,
+  required = false,
   ...props
 }) => {
   const { palette, typography } = useTheme();
@@ -48,16 +49,7 @@ export const TextArea: FunctionComponent<TextAreaProps> = ({
         },
       }}
     >
-      {label && (
-        <FormLabel
-          sx={{
-            color: ({ palette }) =>
-              error ? palette.red.normal : palette.neutral[100],
-          }}
-        >
-          Label
-        </FormLabel>
-      )}
+      {label && <FormLabel required={required}>Label</FormLabel>}
       <TextareaAutosize
         aria-label="text-area"
         minRows={minRows}

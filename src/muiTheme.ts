@@ -353,6 +353,13 @@ export const theme = createTheme({
         },
       },
     },
+    MuiFormLabel: {
+      styleOverrides: {
+        root: {
+          color: palette.neutral[400],
+        },
+      },
+    },
     MuiList: {
       styleOverrides: {
         root: {
