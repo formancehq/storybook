@@ -71,3 +71,16 @@ export const TextAreaWithLabelError = () => (
 );
 TextAreaWithLabelError.storyName = 'With label error';
 TextAreaWithLabelError.parameters = storyDocsParameters;
+
+export const TextAreaRequired = () => (
+  <TextArea
+    label="Metadata"
+    name="metadata"
+    minRows={5}
+    placeholder="Add some metadata"
+    value="foo"
+    required
+  />
+);
+TextAreaRequired.storyName = 'Required';
+TextAreaRequired.parameters = storyDocsParameters;
