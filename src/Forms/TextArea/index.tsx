@@ -2,6 +2,7 @@ import React, { FunctionComponent } from 'react';
 
 import {
   Box,
+  FormLabel,
   TextareaAutosize,
   TextareaAutosizeProps,
   useTheme,
@@ -12,13 +13,14 @@ import { FormFieldErrorProps } from '../../types';
 import { FormHelper } from '../FormHelper';
 
 export type TextAreaProps = TextareaAutosizeProps &
-  FormFieldErrorProps & { json?: boolean };
+  FormFieldErrorProps & { json?: boolean; label?: string };
 
 export const TextArea: FunctionComponent<TextAreaProps> = ({
   errorMessage,
   error = false,
   minRows = 5,
   json = false,
+  label,
   ...props
 }) => {
   const { palette, typography } = useTheme();
@@ -46,11 +48,22 @@ export const TextArea: FunctionComponent<TextAreaProps> = ({
         },
       }}
     >
+      {label && (
+        <FormLabel
+          sx={{
+            color: ({ palette }) =>
+              error ? palette.red.normal : palette.neutral[100],
+          }}
+        >
+          Label
+        </FormLabel>
+      )}
       <TextareaAutosize
         aria-label="text-area"
         minRows={minRows}
         style={{
           width: '100%',
+          marginTop: label ? 4 : 0,
           border: `1px solid ${
             error ? palette.red.normal : palette.neutral[100]
           }`,
