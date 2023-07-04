@@ -49,7 +49,7 @@ export const TextArea: FunctionComponent<TextAreaProps> = ({
         },
       }}
     >
-      {label && <FormLabel required={required}>Label</FormLabel>}
+      {label && <FormLabel required={required}>{label}</FormLabel>}
       <TextareaAutosize
         aria-label="text-area"
         minRows={minRows}

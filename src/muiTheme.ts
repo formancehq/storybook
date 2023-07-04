@@ -357,6 +357,7 @@ export const theme = createTheme({
       styleOverrides: {
         root: {
           color: palette.neutral[400],
+          fontSize: 12,
         },
       },
     },
