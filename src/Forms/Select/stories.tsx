@@ -1,5 +1,7 @@
 import React from 'react';
 
+import { Typography } from '@mui/material';
+
 import { storyDocsParameters } from '../../utils';
 
 import { SelectItems, Select } from './index';
@@ -49,3 +51,16 @@ export const ErrorSelect = () => (
 );
 ErrorSelect.storyName = 'Error';
 ErrorSelect.parameters = storyDocsParameters;
+
+export const CustomRenderOption = () => (
+  <Select
+    select={{ name: 'default' }}
+    items={items}
+    placeholder="Select a foobar"
+    renderOption={(item) => (
+      <Typography style={{ fontWeight: 'bold' }}>{item.label}</Typography>
+    )}
+  />
+);
+CustomRenderOption.storyName = 'Custom option';
+CustomRenderOption.parameters = storyDocsParameters;

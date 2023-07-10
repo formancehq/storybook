@@ -22,6 +22,7 @@ export type SelectProps = {
   select: MuiSelectProps;
   items: SelectItems[];
   placeholder: string;
+  renderOption?: (item: SelectItems) => ReactNode;
 } & FormFieldErrorProps;
 
 export const Select: FunctionComponent<SelectProps> = ({
@@ -30,6 +31,7 @@ export const Select: FunctionComponent<SelectProps> = ({
   placeholder,
   error,
   errorMessage,
+  renderOption,
 }) => {
   const [value, setValue] = React.useState(placeholder);
 
@@ -118,7 +120,7 @@ export const Select: FunctionComponent<SelectProps> = ({
           </MenuItem>
           {items.map((item) => (
             <MenuItem key={item.id} value={item.id} sx={menuItemSx}>
-              {item.label}
+              {renderOption ? renderOption(item) : item.label}
             </MenuItem>
           ))}
         </MuiSelect>
