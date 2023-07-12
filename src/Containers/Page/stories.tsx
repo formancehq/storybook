@@ -26,6 +26,28 @@ export const PageWithAction = () => (
 );
 PageWithAction.storyName = 'Page with action';
 PageWithAction.parameters = storyDocsParameters;
+export const PageWithShortTitle = () => (
+  <Page id="page-with-action" title="Title">
+    <></>
+  </Page>
+);
+PageWithShortTitle.storyName = 'Page with short title';
+PageWithShortTitle.parameters = storyDocsParameters;
+
+export const PageWithLongTitle = () => (
+  <Page
+    id="page-with-action"
+    actionLabel="Add lorem"
+    actionId="add-lorem"
+    onClick={() => noop()}
+    actionEvent="add_lorem_action"
+    title="PageTitle:with:long:char:ozefzeoiuaarhfiueazhfiufhiuezhf:azefifuheziufhizueahfiuzehfiuzhef:hiuazehfiuezhfiuzehfiuzehafiu:hfiuzhfiuhzeaiuhfiuazhfiuzahfiuhzaiuf:zaioeufhizuefhiuzahfiuzaehfiuzaeh:hiufhzaiuhfazieufhzaeiufheziu"
+  >
+    <></>
+  </Page>
+);
+PageWithLongTitle.storyName = 'Page with long title';
+PageWithLongTitle.parameters = storyDocsParameters;
 
 export const PageWithActionWithoutTitle = () => (
   <Page
