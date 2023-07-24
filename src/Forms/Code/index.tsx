@@ -31,6 +31,14 @@ export const Code: FunctionComponent<CodeProps> = ({
   const { typography, palette } = useTheme();
   const [value, setValue] = useState<string>(code);
 
+  const tokenColor = {
+    punctuation: '#91979c',
+    ['literal-property']: '#de6fca',
+    string: '#4fcfe8',
+    boolean: '#2ce310',
+    number: '#eb914d',
+  };
+
   const handleChange = (val: string) => {
     setValue(val);
     onChange && onChange(val);
@@ -103,11 +111,20 @@ export const Code: FunctionComponent<CodeProps> = ({
                 {tokens.map((line, i) => (
                   <Box key={i} {...getLineProps({ line, key: i })}>
                     {line.map((token, key) => (
-                      <Box
-                        key={key}
-                        component="span"
-                        {...getTokenProps({ token, key })}
-                      />
+                      <>
+                        <Box
+                          key={key}
+                          component="span"
+                          sx={{
+                            color:
+                              tokenColor[
+                                token
+                                  .types[0] as unknown as keyof typeof tokenColor
+                              ] + '!important',
+                          }}
+                          {...getTokenProps({ token, key })}
+                        />
+                      </>
                     ))}
                   </Box>
                 ))}
