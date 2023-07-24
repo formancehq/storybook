@@ -14,6 +14,7 @@ const jsonData = {
   apiresource: {
     lastresponse: null,
   },
+  test: true,
 };
 
 const theme = {
@@ -52,7 +53,7 @@ export const WithTheme = () => <JsonViewer jsonData={jsonData} theme={theme} />;
 WithTheme.storyName = 'With Theme';
 WithTheme.parameters = storyDocsParameters;
 
-export const Empty = () => <JsonViewer jsonData={{}} theme={theme} />;
+export const Empty = () => <JsonViewer jsonData={{}} />;
 
 Empty.storyName = 'Empty';
 Empty.parameters = storyDocsParameters;
