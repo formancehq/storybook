@@ -47,13 +47,13 @@ export const JsonViewer: FunctionComponent<JsonViewerProps> = ({
       component="span"
       sx={{
         display: 'flex',
-        background: ({ palette }) => palette.neutral[900],
+        background: '#011627',
         justifyContent: 'space-between',
         alignItems: 'self-start',
         p: 1,
         '& ul': {
           margin: '0 !important',
-          background: ({ palette }) => `${palette.neutral[900]} !important`,
+          background: `#011627!important`,
         },
         '& li': {
           paddingTop: '0 !important',
