@@ -52,6 +52,7 @@ export default [
       '@mui/icons-material',
       '@mui/lab',
       '@mui/material',
+      /\.css$/,
     ],
     plugins: [dts()],
   },
