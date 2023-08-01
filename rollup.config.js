@@ -2,6 +2,7 @@ import commonjs from '@rollup/plugin-commonjs';
 import resolve from '@rollup/plugin-node-resolve';
 import typescript from '@rollup/plugin-typescript';
 import dts from 'rollup-plugin-dts';
+import css from 'rollup-plugin-import-css';
 import { terser } from 'rollup-plugin-terser';
 
 // eslint-disable-next-line @typescript-eslint/no-var-requires,no-undef
@@ -28,6 +29,7 @@ export default [
       commonjs(),
       typescript({ tsconfig: './tsconfig.json' }),
       terser(),
+      css(),
     ],
     external: [
       'react',
