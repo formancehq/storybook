@@ -1,0 +1,62 @@
+.cmdk-list-no-value [cmdk-list-sizer] {
+  display: grid;
+  width: 100%;
+  box-sizing: border-box;
+  gap: 16px;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+}
+
+.cmdk-list-value [cmdk-list-sizer] {
+  display: grid;
+  width: 100%;
+  box-sizing: border-box;
+  gap: 16px;
+  grid-template-columns: repeat(1, minmax(0, 1fr));
+}
+
+.cmdk-list-loading [cmdk-list-sizer] {
+  grid-template-columns: repeat(1, minmax(0, 1fr));
+}
+
+[cmdk-group] {
+  flex-grow: 1;
+}
+
+[cmdk-root] {
+  animation: slideUp 0.2s ease-out;
+  width: 40%;
+  min-width: 600px;
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  background: rgb(12, 13, 13);
+  border-radius: 8px;
+  box-shadow: 0px 10px 18px rgba(0, 0, 0, 0.25);
+  box-sizing: border-box;
+  overflow: hidden;
+  color: white;
+}
+
+[cmdk-input] {
+  width: 100%;
+  height: 56px;
+  background: transparent;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.2);
+  color: #fff;
+  box-sizing: border-box;
+  outline: none;
+  padding: 0 16px;
+  font-size: 20px;
+  border-right: none;
+  border-left: none;
+}
+
+@keyframes slideUp {
+  from {
+    top: calc(50% - 12px);
+  }
+  to {
+    top: 50%;
+  }
+}

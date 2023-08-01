@@ -1,180 +1,198 @@
 import React from 'react';
 
-import { AccountBalance, CreditCard } from '@mui/icons-material';
-import { Box, Typography } from '@mui/material';
+import { Box, SxProps, Typography } from '@mui/material';
 
-import { Search } from './index';
+import { Search, SearchGroup, SearchTrigger } from '.';
 
-import { LoadingButton } from '../Buttons/LoadingButton';
 import { Chip } from '../Chip';
-import { Txid } from '../Sections/Txid';
 import { storyDocsParameters } from '../utils';
 
 export default {
-  title: 'Design System/SearchBar',
+  title: 'Design System/Search',
   component: Search,
 };
 
-const onClick = (id: number | string) => id;
-type Suggestion<T> = {
-  label?: string;
-  viewAll: boolean;
-  items: T[] | [];
+const ledgersStyle: SxProps = {
+  width: '100%',
+  height: '40px',
+  background: '#2B2D2F',
+  borderRadius: '4px',
+  display: 'flex',
+  alignItems: 'center',
+  padding: '0 12px',
+  boxSizing: 'border-box',
+  cursor: 'pointer',
+  transition: 'background 200ms ease-in-out',
+
+  '&:hover': {
+    background: '#3C3F41',
+  },
 };
 
-const accounts: Suggestion<any> = {
-  viewAll: true,
+const transationsStyle: SxProps = {
+  width: '100%',
+  height: '40px',
+  background: '#2B2D2F',
+  borderRadius: '4px',
+  display: 'flex',
+  alignItems: 'center',
+  padding: '0 4px 0 12px',
+  boxSizing: 'border-box',
+  cursor: 'pointer',
+  transition: 'background 200ms ease-in-out',
+  justifyContent: 'space-between',
+
+  '&:hover': {
+    background: '#3C3F41',
+  },
+};
+
+const ledgersElements: SearchGroup = {
+  title: 'Ledgers',
   items: [
-    {
-      id: 1,
-      label: 'world:000679472',
-      ledger: 'main-production',
-      onClick,
-    },
-    {
-      id: 2,
-      label: 'world:000679473',
-      ledger: 'production',
-      onClick,
-    },
-    {
-      id: 2,
-      label: 'world:000679476',
-      ledger: 'production',
-      onClick,
-    },
+    <Box key="1" sx={ledgersStyle}>
+      <Typography>wallet-002</Typography>
+    </Box>,
+    <Box key="2" sx={ledgersStyle}>
+      <Typography>wallet-003</Typography>
+    </Box>,
   ],
-};
-
-const transactions: Suggestion<any> = {
-  viewAll: true,
-  items: [
-    {
-      id: 1,
-      ledger: 'main-production',
-      source: 'world:0006',
-      label: '1',
-      onClick,
-    },
-    {
-      id: 2,
-      ledger: 'production',
-      source: 'world:0006',
-      label: '2',
-      onClick,
-    },
-    {
-      id: 3,
-      label: '3',
-      ledger: 'production',
-      source: 'world:0006',
-      onClick,
-    },
-  ],
-};
-
-export const DefaultSearch = () => {
-  const renderChildren = (value: string, onClose: () => void) => (
-    <Box
+  showMore: (
+    <Typography
       sx={{
-        overflowY: 'auto',
-        display: 'flex',
-        width: 600,
-        mt: 2,
+        opacity: 0.5,
+        fontSize: 12,
+        textDecoration: 'underline',
       }}
     >
-      <Box
-        p={2}
-        sx={{
-          width: 60,
-          display: 'flex',
-          flexDirection: 'column',
-          backgroundColor: ({ palette }) => palette.neutral[50],
-          borderRight: ({ palette }) => `1px solid ${palette.neutral[200]}`,
-        }}
-      >
-        <LoadingButton
-          variant="dark"
-          startIcon={<AccountBalance />}
-          sx={{ width: 50, marginTop: 2 }}
-        />
-        <LoadingButton
-          variant="stroke"
-          startIcon={<CreditCard />}
-          sx={{ width: 50, marginTop: 2 }}
-        />
-        <LoadingButton
-          variant="stroke"
-          content={<Typography variant="bold">R</Typography>}
-          sx={{ width: 50, marginTop: 2 }}
-        />
-      </Box>
-      <Box
-        sx={{
-          backgroundColor: ({ palette }) => palette.neutral[0],
-          width: 740,
-          height: 400,
-          p: 2,
-          overflowY: 'auto',
-        }}
-      >
-        <Typography variant="bold">
-          Result for {value} accross ledgers
-        </Typography>
-        {renderLedger(accounts, 'Account', onClose)}
-        {renderLedger(transactions, 'Transaction', onClose)}
-      </Box>
-    </Box>
-  );
-
-  const renderLedger = (data: any, target: string, onClose: () => void) => (
-    <Box mt={1}>
-      {data.items.map((item: any, index: number) => (
-        <React.Fragment key={index}>
-          <Box
-            sx={{
-              display: 'flex',
-              paddingTop: 1,
-              paddingBottom: 1,
-              columnGap: '100px',
-            }}
-          >
-            <Chip
-              label={target === 'Account' ? 'Account' : 'Transaction'}
-              color={target === 'Account' ? 'default' : 'blue'}
-              variant="square"
-            />
-            {target === 'Account' ? (
-              <Typography>{item.label}</Typography>
-            ) : (
-              <Box display="inline-flex" alignItems="center">
-                <Txid id={item.label} />
-                <Typography ml={1}>{item.source}</Typography>
-              </Box>
-            )}
-            <Chip
-              label={item.ledger}
-              variant="square"
-              icon={<AccountBalance fontSize="small" />}
-              sx={{ '& .MuiChip-icon': ({ palette }) => palette.neutral[300] }}
-            />
-          </Box>
-        </React.Fragment>
-      ))}
-      {data.viewAll && (
-        <Box display="flex" justifyContent="center" mt={1} mb={1}>
-          <LoadingButton content={`View all ${target}`} onClick={onClose} />
-        </Box>
-      )}
-    </Box>
-  );
-
-  return (
-    <Search
-      placeholder="Search anything"
-      renderChildren={(value, onClose) => renderChildren(value, onClose)}
-    />
-  );
+      Show more
+    </Typography>
+  ),
 };
-DefaultSearch.storyName = 'Default';
-DefaultSearch.parameters = storyDocsParameters;
+
+const transactionsElements: SearchGroup = {
+  title: 'Transations',
+  items: [
+    <Box key="1" sx={transationsStyle}>
+      <Typography>transation-1</Typography>
+      <Chip label="001" color="blue" variant="square" />
+    </Box>,
+    <Box key="1" sx={transationsStyle}>
+      <Typography>test-2</Typography>
+      <Chip label="006" color="blue" variant="square" />
+    </Box>,
+  ],
+  showMore: (
+    <Typography
+      sx={{
+        opacity: 0.5,
+        fontSize: 12,
+        textDecoration: 'underline',
+      }}
+    >
+      Show more
+    </Typography>
+  ),
+};
+
+export const Default = () => (
+  <Search
+    placeholder="Search an element"
+    elements={[ledgersElements, transactionsElements]}
+    trigger={<SearchTrigger>Search an element</SearchTrigger>}
+  />
+);
+
+Default.storyName = 'Default';
+Default.parameters = storyDocsParameters;
+
+export const WithNavigation = () => (
+  <Search
+    placeholder="Search an element"
+    elements={[ledgersElements, transactionsElements]}
+    trigger={<SearchTrigger>Search an element</SearchTrigger>}
+    navigation={
+      <Box
+        sx={{ padding: '16px', borderBottom: '1px solid hsl(210, 4%, 18%)' }}
+      >
+        <Typography
+          sx={{
+            color: '#FFFFFF',
+            mb: '8px',
+            opacity: 0.4,
+            textTransform: 'uppercase',
+          }}
+        >
+          Navigation
+        </Typography>
+        <Box sx={{ display: 'flex', gap: '12px' }}>
+          <Box sx={{ flexGrow: 1 }}>
+            <Typography
+              sx={{
+                color: '#FFFFFF',
+                textTransform: 'uppercase',
+                opacity: 0.6,
+                mb: '8px',
+              }}
+            >
+              Ledgers
+            </Typography>
+            <Box>
+              <Typography sx={{ color: '#FFFFFF' }}>Ledgers</Typography>
+              <Typography sx={{ color: '#FFFFFF' }}>Transactions</Typography>
+              <Typography sx={{ color: '#FFFFFF' }}>Accounts</Typography>
+            </Box>
+          </Box>
+          <Box sx={{ flexGrow: 1 }}>
+            <Typography
+              sx={{
+                color: '#FFFFFF',
+                textTransform: 'uppercase',
+                opacity: 0.6,
+                mb: '8px',
+              }}
+            >
+              Payments
+            </Typography>
+            <Box>
+              <Typography sx={{ color: '#FFFFFF' }}>Payments</Typography>
+              <Typography sx={{ color: '#FFFFFF' }}>Accounts</Typography>
+              <Typography sx={{ color: '#FFFFFF' }}>Wallets</Typography>
+            </Box>
+          </Box>
+          <Box sx={{ flexGrow: 1 }}>
+            <Typography
+              sx={{
+                color: '#FFFFFF',
+                textTransform: 'uppercase',
+                opacity: 0.6,
+                mb: '8px',
+              }}
+            >
+              Flows
+            </Typography>
+            <Box>
+              <Typography sx={{ color: '#FFFFFF' }}>Workflows</Typography>
+              <Typography sx={{ color: '#FFFFFF' }}>Instances</Typography>
+            </Box>
+          </Box>
+        </Box>
+      </Box>
+    }
+  />
+);
+
+WithNavigation.storyName = 'With navigation';
+WithNavigation.parameters = storyDocsParameters;
+
+export const WithLoading = () => (
+  <Search
+    placeholder="Search an element"
+    elements={[ledgersElements, transactionsElements]}
+    trigger={<SearchTrigger>Search an element</SearchTrigger>}
+    isLoading
+  />
+);
+
+WithLoading.storyName = 'With loading';
+WithLoading.parameters = storyDocsParameters;
