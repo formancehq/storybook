@@ -101,6 +101,7 @@
     "rimraf": "^3.0.2",
     "rollup": "^2.77.2",
     "rollup-plugin-dts": "^4.2.2",
+    "rollup-plugin-import-css": "^3.3.1",
     "rollup-plugin-terser": "^7.0.2",
     "typescript": "^4.7.4",
     "web-vitals": "^2.1.4",
