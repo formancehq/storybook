@@ -1,6 +1,7 @@
 import React, { FunctionComponent } from 'react';
 
-import { Box, SxProps, Theme, Tooltip } from '@mui/material';
+import { Box, SxProps, Theme, Tooltip, useTheme } from '@mui/material';
+import { get } from 'lodash';
 
 import { Chip } from '../../Chip';
 import { ColorVariants } from '../../types';
@@ -28,9 +29,20 @@ export const SourceDestination: FunctionComponent<SourceDestinationProps> = ({
           label.split(':')[1]
         }`
       : label;
+  const { palette } = useTheme();
 
   return (
-    <Box display="flex" alignItems="center" component="span">
+    <Box
+      display="flex"
+      alignItems="center"
+      component="span"
+      sx={{
+        '& .MuiButtonBase-root.MuiChip-root:hover': {
+          backgroundColor: get(palette, `${color}.darker`),
+          color: get(palette, `${color}.light`),
+        },
+      }}
+    >
       <Tooltip title={label}>
         <Box component="span">
           <Chip
