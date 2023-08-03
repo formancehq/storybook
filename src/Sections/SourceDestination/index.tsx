@@ -38,8 +38,8 @@ export const SourceDestination: FunctionComponent<SourceDestinationProps> = ({
       component="span"
       sx={{
         '& .MuiButtonBase-root.MuiChip-root:hover': {
-          backgroundColor: get(palette, `${color}.darker`),
-          color: get(palette, `${color}.light`),
+          backgroundColor: get(palette, `${color}.bright`),
+          color: get(palette, `${color}.darker`),
         },
       }}
     >
