@@ -27,7 +27,23 @@
     "prettier": "prettier . -w",
     "prepare": "husky install",
     "storybook": "start-storybook -p 6006",
-    "build-storybook": "build-storybook"
+    "build-storybook": "build-storybook",
+    "local-publish": "yarn build && yalc push"
+  },
+  "exports": {
+    ".": {
+      "import": "./dist/esm/index.js",
+      "require": "./dist/cjs/index.js"
+    },
+    "./dist/global.css": {
+      "import": "./*.css",
+      "require": "./*.css"
+    },
+    "./package.json": "./package.json",
+    "./dist/*": "./dist/*",
+    "./dist/esm/*": "./dist/esm/*",
+    "./dist/cjs/*": "./dist/cjs/*",
+    "./dist/index.d.ts": "./dist/index.d.ts"
   },
   "eslintConfig": {
     "extends": [
@@ -108,6 +124,7 @@
     "webpack": "^5.73.0"
   },
   "dependencies": {
-    "cmdk": "^0.2.0"
+    "cmdk": "^0.2.0",
+    "framer-motion": "^10.16.1"
   }
 }

@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 
 import { Box, SxProps, Typography } from '@mui/material';
 
@@ -185,14 +185,48 @@ export const WithNavigation = () => (
 WithNavigation.storyName = 'With navigation';
 WithNavigation.parameters = storyDocsParameters;
 
-export const WithLoading = () => (
-  <Search
-    placeholder="Search an element"
-    elements={[ledgersElements, transactionsElements]}
-    trigger={<SearchTrigger>Search an element</SearchTrigger>}
-    isLoading
-  />
-);
+export const WithLoading = () => {
+  const [isLoading, setIsLoading] = useState(false);
+
+  useEffect(() => {
+    setIsLoading(true);
+    setTimeout(() => {
+      setIsLoading(false);
+    }, 3500);
+  }, []);
+
+  return (
+    <Search
+      placeholder="Search an element"
+      elements={[ledgersElements, transactionsElements]}
+      trigger={<SearchTrigger>Search an element</SearchTrigger>}
+      isLoading={isLoading}
+    />
+  );
+};
 
 WithLoading.storyName = 'With loading';
 WithLoading.parameters = storyDocsParameters;
+
+export const WithNoResults = () => {
+  const [isLoading, setIsLoading] = useState(false);
+
+  useEffect(() => {
+    setIsLoading(true);
+    setTimeout(() => {
+      setIsLoading(false);
+    }, 3500);
+  }, []);
+
+  return (
+    <Search
+      placeholder="Search an element"
+      elements={[]}
+      trigger={<SearchTrigger>Search an element</SearchTrigger>}
+      isLoading={isLoading}
+    />
+  );
+};
+
+WithNoResults.storyName = 'With no results';
+WithNoResults.parameters = storyDocsParameters;
