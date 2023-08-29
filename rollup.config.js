@@ -29,7 +29,7 @@ export default [
       commonjs(),
       typescript({ tsconfig: './tsconfig.json' }),
       terser(),
-      css(),
+      css({ include: ['**/*.css'], output: 'bundle.css' }),
     ],
     external: [
       'react',

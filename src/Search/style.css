@@ -18,6 +18,10 @@
   grid-template-columns: repeat(1, minmax(0, 1fr));
 }
 
+.cmdk-list-no-value {
+  display: none;
+}
+
 [cmdk-group] {
   flex-grow: 1;
 }
@@ -36,6 +40,7 @@
   box-sizing: border-box;
   overflow: hidden;
   color: white;
+  max-height: 388px;
 }
 
 [cmdk-input] {
