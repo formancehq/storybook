@@ -29,7 +29,7 @@ const ledgersStyle: SxProps = {
   },
 };
 
-const transationsStyle: SxProps = {
+const transactionsStyle: SxProps = {
   width: '100%',
   height: '40px',
   background: '#2B2D2F',
@@ -73,11 +73,11 @@ const ledgersElements: SearchGroup = {
 const transactionsElements: SearchGroup = {
   title: 'Transations',
   items: [
-    <Box key="1" sx={transationsStyle}>
+    <Box key="1" sx={transactionsStyle}>
       <Typography>transation-1</Typography>
       <Chip label="001" color="blue" variant="square" />
     </Box>,
-    <Box key="1" sx={transationsStyle}>
+    <Box key="1" sx={transactionsStyle}>
       <Typography>test-2</Typography>
       <Chip label="006" color="blue" variant="square" />
     </Box>,
@@ -117,7 +117,7 @@ export const WithNavigation = () => (
       >
         <Typography
           sx={{
-            color: '#FFFFFF',
+            color: (ds) => ds.palette.common.white,
             mb: '8px',
             opacity: 0.4,
             textTransform: 'uppercase',
@@ -146,7 +146,7 @@ export const WithNavigation = () => (
           <Box sx={{ flexGrow: 1 }}>
             <Typography
               sx={{
-                color: '#FFFFFF',
+                color: (ds) => ds.palette.common.white,
                 textTransform: 'uppercase',
                 opacity: 0.6,
                 mb: '8px',
@@ -155,15 +155,21 @@ export const WithNavigation = () => (
               Payments
             </Typography>
             <Box>
-              <Typography sx={{ color: '#FFFFFF' }}>Payments</Typography>
-              <Typography sx={{ color: '#FFFFFF' }}>Accounts</Typography>
-              <Typography sx={{ color: '#FFFFFF' }}>Wallets</Typography>
+              <Typography sx={{ color: (ds) => ds.palette.common.white }}>
+                Payments
+              </Typography>
+              <Typography sx={{ color: (ds) => ds.palette.common.white }}>
+                Accounts
+              </Typography>
+              <Typography sx={{ color: (ds) => ds.palette.common.white }}>
+                Wallets
+              </Typography>
             </Box>
           </Box>
           <Box sx={{ flexGrow: 1 }}>
             <Typography
               sx={{
-                color: '#FFFFFF',
+                color: (ds) => ds.palette.common.white,
                 textTransform: 'uppercase',
                 opacity: 0.6,
                 mb: '8px',
@@ -172,8 +178,12 @@ export const WithNavigation = () => (
               Flows
             </Typography>
             <Box>
-              <Typography sx={{ color: '#FFFFFF' }}>Workflows</Typography>
-              <Typography sx={{ color: '#FFFFFF' }}>Instances</Typography>
+              <Typography sx={{ color: (ds) => ds.palette.common.white }}>
+                Workflows
+              </Typography>
+              <Typography sx={{ color: (ds) => ds.palette.common.white }}>
+                Instances
+              </Typography>
             </Box>
           </Box>
         </Box>
