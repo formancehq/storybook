@@ -84,12 +84,13 @@ export const Modal: FunctionComponent<ModalProps> = ({
           sx={{
             ...paperSx,
             minWidth: '300px',
-            overflow: 'visible',
+            overflowY: 'visible',
 
             '& .MuiPaper-root': {
               backgroundColor: 'transparent',
               border: 'none',
               boxShadow: 'none',
+              overflowY: 'visible',
             },
           }}
         >
