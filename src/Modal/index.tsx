@@ -8,6 +8,8 @@ import {
   DialogContent,
   DialogProps,
   DialogTitle,
+  SxProps,
+  Theme,
   useTheme,
 } from '@mui/material';
 import { motion, AnimatePresence } from 'framer-motion';
@@ -69,6 +71,7 @@ export const Modal: FunctionComponent<ModalProps> = ({
   const paperSx = PaperProps ? PaperProps.sx : {};
 
   const modalContainerStyle: CSSProperties = {
+    ...(paperSx as CSSProperties),
     backgroundColor: palette.common.white,
     borderRadius: '8px',
     boxShadow: '0 25px 50px -12px rgb(0 0 0 / 0.25)',
@@ -82,15 +85,21 @@ export const Modal: FunctionComponent<ModalProps> = ({
           onClose={onClose}
           id={id}
           sx={{
-            ...paperSx,
-            minWidth: '300px',
+            width: '100vw',
+            maxWidth: 'none',
             overflowY: 'visible',
+            ...paperSx,
 
             '& .MuiPaper-root': {
               backgroundColor: 'transparent',
               border: 'none',
               boxShadow: 'none',
               overflowY: 'visible',
+              maxWidth: 'none',
+            },
+
+            '& .MuiDialog-container': {
+              width: '100vw',
             },
           }}
         >

@@ -34,7 +34,12 @@ export const DefaultModal = () => {
   return (
     <>
       <LoadingButton content="Open modal" onClick={handleOpen} variant="dark" />
-      <Modal open={open} onClose={handleClose} title="Update foo">
+      <Modal
+        open={open}
+        onClose={handleClose}
+        title="Update foo"
+        PaperProps={{ sx: { width: '800px' } }}
+      >
         <Form />
       </Modal>
     </>
