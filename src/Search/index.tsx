@@ -104,6 +104,7 @@ export const Search: FunctionComponent<SearchProps> = (props: SearchProps) => {
       </span>
       <Command.Dialog
         open={open}
+        onClick={() => setOpen(false)}
         onOpenChange={(open) => {
           setOpen(open);
           onOpenChange && onOpenChange(open);
