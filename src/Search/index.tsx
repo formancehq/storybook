@@ -120,7 +120,7 @@ export const Search: FunctionComponent<SearchProps> = (props: SearchProps) => {
           }}
         />
 
-        {navigation && value === '' && navigation}
+        {navigation && value.length < 3 && navigation}
 
         <Command.List
           className={`${
@@ -128,7 +128,7 @@ export const Search: FunctionComponent<SearchProps> = (props: SearchProps) => {
           } ${isLoading ? 'cmdk-list-loading' : ''}`}
           style={{ padding: '16px', width: '100%', boxSizing: 'border-box' }}
         >
-          {!isLoading && value !== '' && elements.length === 0 && (
+          {!isLoading && value.length >= 3 && elements.length === 0 && (
             <motion.div
               variants={modalAnimation}
               initial="initial"
@@ -180,7 +180,7 @@ export const Search: FunctionComponent<SearchProps> = (props: SearchProps) => {
           )}
 
           <AnimatePresence>
-            {!isLoading && value !== '' && elements.length > 0 && (
+            {!isLoading && value.length >= 3 && elements.length > 0 && (
               <motion.div
                 variants={modalAnimation}
                 initial="initial"
