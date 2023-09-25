@@ -196,34 +196,40 @@ export const Search: FunctionComponent<SearchProps> = (props: SearchProps) => {
                 }}
               >
                 {elements.map((group, index) => (
-                  <Command.Group key={Math.random() + index}>
-                    <Box
-                      sx={{
-                        display: 'flex',
-                        alignItems: 'center',
-                        justifyContent: 'space-between',
-                        mb: '8px',
-                      }}
-                    >
-                      <Typography sx={{ color: palette.neutral[300] }}>
-                        {group.title}
-                      </Typography>
-                      {group.showMore && <>{group.showMore}</>}
-                    </Box>
-                    <Box
-                      sx={{
-                        display: 'flex',
-                        flexDirection: 'column',
-                        gap: '8px',
-                      }}
-                    >
-                      {group.items.map((item, index) => (
-                        <Command.Item key={item?.toString() + index.toString()}>
-                          {item}
-                        </Command.Item>
-                      ))}
-                    </Box>
-                  </Command.Group>
+                  <>
+                    {group.items.length > 0 && (
+                      <Command.Group key={Math.random() + index}>
+                        <Box
+                          sx={{
+                            display: 'flex',
+                            alignItems: 'center',
+                            justifyContent: 'space-between',
+                            mb: '8px',
+                          }}
+                        >
+                          <Typography sx={{ color: palette.neutral[300] }}>
+                            {group.title}
+                          </Typography>
+                          {group.showMore && <>{group.showMore}</>}
+                        </Box>
+                        <Box
+                          sx={{
+                            display: 'flex',
+                            flexDirection: 'column',
+                            gap: '8px',
+                          }}
+                        >
+                          {group.items.map((item, index) => (
+                            <Command.Item
+                              key={item?.toString() + index.toString()}
+                            >
+                              {item}
+                            </Command.Item>
+                          ))}
+                        </Box>
+                      </Command.Group>
+                    )}
+                  </>
                 ))}
               </motion.div>
             )}
