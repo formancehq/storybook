@@ -104,7 +104,6 @@ export const Search: FunctionComponent<SearchProps> = (props: SearchProps) => {
       </span>
       <Command.Dialog
         open={open}
-        onClick={() => setOpen(false)}
         onOpenChange={(open) => {
           setOpen(open);
           onOpenChange && onOpenChange(open);
@@ -126,7 +125,6 @@ export const Search: FunctionComponent<SearchProps> = (props: SearchProps) => {
           className={`${
             value === '' ? 'cmdk-list-no-value' : 'cmdk-list-value'
           } ${isLoading ? 'cmdk-list-loading' : ''}`}
-          style={{ padding: '16px', width: '100%', boxSizing: 'border-box' }}
         >
           {!isLoading && value.length >= 3 && elements.length === 0 && (
             <motion.div
@@ -134,6 +132,7 @@ export const Search: FunctionComponent<SearchProps> = (props: SearchProps) => {
               initial="initial"
               exit="out"
               animate="in"
+              className="TEST-BLOCK"
               style={{
                 height: '300px',
                 display: 'flex',
@@ -141,13 +140,11 @@ export const Search: FunctionComponent<SearchProps> = (props: SearchProps) => {
                 alignItems: 'center',
               }}
             >
-              <Command.Empty>
-                <Typography
-                  sx={{ color: palette.neutral[300], textAlign: 'center' }}
-                >
-                  {noResults}
-                </Typography>
-              </Command.Empty>
+              <Typography
+                sx={{ color: palette.neutral[300], textAlign: 'center' }}
+              >
+                {noResults}
+              </Typography>
             </motion.div>
           )}
 
@@ -182,6 +179,7 @@ export const Search: FunctionComponent<SearchProps> = (props: SearchProps) => {
           <AnimatePresence>
             {!isLoading && value.length >= 3 && elements.length > 0 && (
               <motion.div
+                onClick={() => setOpen(false)}
                 variants={modalAnimation}
                 initial="initial"
                 exit="out"
@@ -192,6 +190,9 @@ export const Search: FunctionComponent<SearchProps> = (props: SearchProps) => {
                   gap: '12px',
                   height: '300px',
                   overflowY: 'auto',
+                  padding: '16px',
+                  width: '100%',
+                  boxSizing: 'border-box',
                 }}
               >
                 {elements.map((group, index) => (
