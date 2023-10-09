@@ -3,10 +3,11 @@ import React, {
   FunctionComponent,
   useEffect,
   useState,
+  useRef,
 } from 'react';
 
 import { Box, Typography, useTheme, CircularProgress } from '@mui/material';
-import { Command } from 'cmdk';
+import * as Dialog from '@radix-ui/react-dialog';
 import { motion, AnimatePresence } from 'framer-motion';
 import './style.css';
 
@@ -72,173 +73,185 @@ export const Search: FunctionComponent<SearchProps> = (props: SearchProps) => {
 
   const [open, setOpen] = useState<boolean>(isOpen);
   const [value, setValue] = useState<string>('');
+  const triggerContainer = useRef<HTMLSpanElement | null>(null);
 
   const { palette } = useTheme();
 
+  const handleDialogClose = () => {
+    setOpen(false);
+    onOpenChange && onOpenChange(false);
+  };
+
   useEffect(() => {
     const down = (e: KeyboardEvent) => {
+      console.log('down');
       if (e.key === 'k' && (e.metaKey || e.ctrlKey)) {
         e.preventDefault();
-        setOpen((open) => !open);
+        setOpen((o) => !o);
       }
     };
 
     document.addEventListener('keydown', down);
 
     return () => document.removeEventListener('keydown', down);
-  }, []);
+  }, [open, isOpen]);
 
   useEffect(() => {
     setOpen(isOpen);
   }, [isOpen]);
 
   return (
-    <>
-      <span
-        onClick={() => {
-          setOpen(true);
-          onOpenChange && onOpenChange(true);
-        }}
-      >
-        {trigger}
-      </span>
-      <Command.Dialog
-        open={open}
-        onOpenChange={(open) => {
-          setOpen(open);
-          onOpenChange && onOpenChange(open);
-        }}
-        shouldFilter={false}
-      >
-        <Command.Input
-          placeholder={placeholder}
-          value={value}
-          onValueChange={(value) => {
-            setValue(value);
-            onValueChange && onValueChange(value);
+    <Dialog.Root
+      open={open}
+      onOpenChange={(o) => {
+        setOpen(o);
+        onOpenChange?.(o);
+      }}
+    >
+      <Dialog.Trigger asChild>
+        <span
+          ref={triggerContainer}
+          onClick={() => {
+            setOpen(true);
+            onOpenChange && onOpenChange(true);
           }}
-        />
-
-        {navigation && value.length < 3 && (
-          <div onClick={() => setOpen(false)}>{navigation}</div>
-        )}
-
-        <Command.List
-          className={`${
-            value === '' ? 'cmdk-list-no-value' : 'cmdk-list-value'
-          } ${isLoading ? 'cmdk-list-loading' : ''}`}
         >
-          {!isLoading && value.length >= 3 && elements.length === 0 && (
-            <motion.div
-              variants={modalAnimation}
-              initial="initial"
-              exit="out"
-              animate="in"
-              className="TEST-BLOCK"
-              style={{
-                height: '300px',
-                display: 'flex',
-                justifyContent: 'center',
-                alignItems: 'center',
-              }}
-            >
-              <Typography
-                sx={{ color: palette.neutral[300], textAlign: 'center' }}
-              >
-                {noResults}
-              </Typography>
-            </motion.div>
+          {trigger}
+        </span>
+      </Dialog.Trigger>
+      <Dialog.Portal>
+        <Dialog.Overlay />
+        <Dialog.Content className="search-dialog">
+          <input
+            placeholder={placeholder}
+            value={value}
+            onChange={(value) => {
+              setValue(value.target.value);
+              onValueChange && onValueChange(value.target.value);
+            }}
+          />
+
+          {navigation && value.length < 3 && (
+            <div onClick={() => setOpen(false)}>{navigation}</div>
           )}
 
-          {isLoading && (
-            <motion.div
-              variants={modalAnimation}
-              initial="initial"
-              exit="out"
-              animate="in"
-              style={{
-                height: '300px',
-                display: 'flex',
-                justifyContent: 'center',
-                alignItems: 'center',
-              }}
-            >
-              <Command.Loading>
-                <Box
-                  sx={{
-                    display: 'flex',
-                    justifyContent: 'center',
-                    width: '100%',
-                    color: palette.neutral[300],
-                  }}
-                >
-                  <CircularProgress sx={{ color: palette.neutral[700] }} />
-                </Box>
-              </Command.Loading>
-            </motion.div>
-          )}
-
-          <AnimatePresence>
-            {!isLoading && value.length >= 3 && elements.length > 0 && (
+          <div
+            className={`${
+              value === '' ? 'cmdk-list-no-value' : 'cmdk-list-value'
+            } ${isLoading ? 'cmdk-list-loading' : ''}`}
+          >
+            {!isLoading && value.length >= 3 && elements.length === 0 && (
               <motion.div
-                onClick={() => setOpen(false)}
                 variants={modalAnimation}
                 initial="initial"
                 exit="out"
                 animate="in"
                 style={{
-                  display: 'flex',
-                  flexDirection: 'column',
-                  gap: '12px',
                   height: '300px',
-                  overflowY: 'auto',
-                  padding: '16px',
-                  width: '100%',
-                  boxSizing: 'border-box',
+                  display: 'flex',
+                  justifyContent: 'center',
+                  alignItems: 'center',
                 }}
               >
-                {elements.map((group, index) => (
-                  <>
-                    {group.items.length > 0 && (
-                      <Command.Group key={Math.random() + index}>
-                        <Box
-                          sx={{
-                            display: 'flex',
-                            alignItems: 'center',
-                            justifyContent: 'space-between',
-                            mb: '8px',
-                          }}
-                        >
-                          <Typography sx={{ color: palette.neutral[300] }}>
-                            {group.title}
-                          </Typography>
-                          {group.showMore && <>{group.showMore}</>}
-                        </Box>
-                        <Box
-                          sx={{
-                            display: 'flex',
-                            flexDirection: 'column',
-                            gap: '8px',
-                          }}
-                        >
-                          {group.items.map((item, index) => (
-                            <Command.Item
-                              key={item?.toString() + index.toString()}
-                            >
-                              {item}
-                            </Command.Item>
-                          ))}
-                        </Box>
-                      </Command.Group>
-                    )}
-                  </>
-                ))}
+                <Typography
+                  sx={{ color: palette.neutral[300], textAlign: 'center' }}
+                >
+                  {noResults}
+                </Typography>
               </motion.div>
             )}
-          </AnimatePresence>
-        </Command.List>
-      </Command.Dialog>
-    </>
+
+            {isLoading && (
+              <motion.div
+                variants={modalAnimation}
+                initial="initial"
+                exit="out"
+                animate="in"
+                style={{
+                  height: '300px',
+                  display: 'flex',
+                  justifyContent: 'center',
+                  alignItems: 'center',
+                }}
+              >
+                <div>
+                  <Box
+                    sx={{
+                      display: 'flex',
+                      justifyContent: 'center',
+                      width: '100%',
+                      color: palette.neutral[300],
+                    }}
+                  >
+                    <CircularProgress sx={{ color: palette.neutral[700] }} />
+                  </Box>
+                </div>
+              </motion.div>
+            )}
+
+            <AnimatePresence>
+              {!isLoading && value.length >= 3 && elements.length > 0 && (
+                <motion.div
+                  variants={modalAnimation}
+                  initial="initial"
+                  exit="out"
+                  animate="in"
+                  style={{
+                    display: 'flex',
+                    flexDirection: 'column',
+                    gap: '12px',
+                    height: '300px',
+                    overflowY: 'auto',
+                    padding: '16px',
+                    width: '100%',
+                    boxSizing: 'border-box',
+                  }}
+                >
+                  {elements.map((group, index) => (
+                    <>
+                      {group.items.length > 0 && (
+                        <div key={Math.random() + index}>
+                          <Box
+                            sx={{
+                              display: 'flex',
+                              alignItems: 'center',
+                              justifyContent: 'space-between',
+                              mb: '8px',
+                            }}
+                          >
+                            <Typography sx={{ color: palette.neutral[300] }}>
+                              {group.title}
+                            </Typography>
+                            {group.showMore && <>{group.showMore}</>}
+                          </Box>
+                          <Box
+                            sx={{
+                              display: 'flex',
+                              flexDirection: 'column',
+                              gap: '8px',
+                            }}
+                          >
+                            {group.items.map((item, index) => (
+                              <div
+                                className="test-click"
+                                onClick={() => handleDialogClose()}
+                                key={item?.toString() + index.toString()}
+                              >
+                                {item}
+                              </div>
+                            ))}
+                          </Box>
+                        </div>
+                      )}
+                    </>
+                  ))}
+                </motion.div>
+              )}
+            </AnimatePresence>
+          </div>
+        </Dialog.Content>
+      </Dialog.Portal>
+    </Dialog.Root>
   );
 };
 

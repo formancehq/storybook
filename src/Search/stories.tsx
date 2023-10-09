@@ -23,6 +23,8 @@ const ledgersStyle: SxProps = {
   boxSizing: 'border-box',
   cursor: 'pointer',
   transition: 'background 200ms ease-in-out',
+  color: '#fff',
+  textDecoration: 'none',
 
   '&:hover': {
     background: '#3C3F41',
@@ -41,6 +43,8 @@ const transactionsStyle: SxProps = {
   cursor: 'pointer',
   transition: 'background 200ms ease-in-out',
   justifyContent: 'space-between',
+  color: '#fff',
+  textDecoration: 'none',
 
   '&:hover': {
     background: '#3C3F41',
@@ -50,12 +54,16 @@ const transactionsStyle: SxProps = {
 const ledgersElements: SearchGroup = {
   title: 'Ledgers',
   items: [
-    <Box key="1" sx={ledgersStyle}>
-      <Typography>wallet-002</Typography>
-    </Box>,
-    <Box key="2" sx={ledgersStyle}>
-      <Typography>wallet-003</Typography>
-    </Box>,
+    <a href="#" key="1" style={{ textDecoration: 'none' }}>
+      <Box sx={ledgersStyle}>
+        <Typography>wallet-002</Typography>
+      </Box>
+    </a>,
+    <a href="#" key="2" style={{ textDecoration: 'none' }}>
+      <Box sx={ledgersStyle}>
+        <Typography>wallet-003</Typography>
+      </Box>
+    </a>,
   ],
   showMore: (
     <Typography
@@ -73,14 +81,18 @@ const ledgersElements: SearchGroup = {
 const transactionsElements: SearchGroup = {
   title: 'Transations',
   items: [
-    <Box key="1" sx={transactionsStyle}>
-      <Typography>transation-1</Typography>
-      <Chip label="001" color="blue" variant="square" />
-    </Box>,
-    <Box key="1" sx={transactionsStyle}>
-      <Typography>test-2</Typography>
-      <Chip label="006" color="blue" variant="square" />
-    </Box>,
+    <a href="#" key="3" style={{ textDecoration: 'none' }}>
+      <Box sx={transactionsStyle}>
+        <Typography>transation-1</Typography>
+        <Chip label="001" color="blue" variant="square" />
+      </Box>
+    </a>,
+    <a href="#" key="4" style={{ textDecoration: 'none' }}>
+      <Box sx={transactionsStyle}>
+        <Typography>test-2</Typography>
+        <Chip label="006" color="blue" variant="square" />
+      </Box>
+    </a>,
   ],
   showMore: (
     <Typography
@@ -95,13 +107,19 @@ const transactionsElements: SearchGroup = {
   ),
 };
 
-export const Default = () => (
-  <Search
-    placeholder="Search an element"
-    elements={[ledgersElements, transactionsElements]}
-    trigger={<SearchTrigger>Search an element</SearchTrigger>}
-  />
-);
+export const Default = () => {
+  const [open, setOpen] = useState<boolean>(false);
+
+  return (
+    <Search
+      isOpen={open}
+      onOpenChange={setOpen}
+      placeholder="Search an element"
+      elements={[ledgersElements, transactionsElements]}
+      trigger={<SearchTrigger>Search an element</SearchTrigger>}
+    />
+  );
+};
 
 Default.storyName = 'Default';
 Default.parameters = storyDocsParameters;
