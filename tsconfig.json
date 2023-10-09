@@ -1,6 +1,7 @@
 {
   "compilerOptions": {
-    "target": "es5",
+    "lib": ["DOM", "DOM.Iterable", "ESNext"],
+    "target": "ESNext",
     "module": "esnext",
     "jsx": "react",
     "sourceMap": true,
@@ -14,5 +15,6 @@
     "declaration": true,
     "declarationDir": "types",
     "emitDeclarationOnly": true
-  }
+  },
+  "include": ["src"],
 }
