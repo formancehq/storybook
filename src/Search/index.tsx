@@ -12,7 +12,7 @@ import { motion, AnimatePresence } from 'framer-motion';
 import './style.css';
 
 export type SearchGroup = {
-  title: string;
+  title: React.ReactNode;
   items: React.ReactNode[];
   showMore?: React.ReactNode;
 };
@@ -84,7 +84,6 @@ export const Search: FunctionComponent<SearchProps> = (props: SearchProps) => {
 
   useEffect(() => {
     const down = (e: KeyboardEvent) => {
-      console.log('down');
       if (e.key === 'k' && (e.metaKey || e.ctrlKey)) {
         e.preventDefault();
         setOpen((o) => !o);
