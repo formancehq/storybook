@@ -26,6 +26,11 @@
   flex-grow: 1;
 }
 
+.cursor-el-active {
+  border: 1px solid rgba(255, 255, 255, 0.4);
+  border-radius: 4px;
+}
+
 .search-dialog {
   animation: slideUp 0.2s ease-out;
   width: 40%;

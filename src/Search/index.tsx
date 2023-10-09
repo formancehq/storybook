@@ -4,6 +4,7 @@ import React, {
   useEffect,
   useState,
   useRef,
+  Fragment,
 } from 'react';
 
 import { Box, Typography, useTheme, CircularProgress } from '@mui/material';
@@ -73,6 +74,15 @@ export const Search: FunctionComponent<SearchProps> = (props: SearchProps) => {
 
   const [open, setOpen] = useState<boolean>(isOpen);
   const [value, setValue] = useState<string>('');
+  const [cursor, setCursor] = useState<{
+    element: number;
+    group: number;
+    item: number;
+  }>({
+    group: 0,
+    element: 0,
+    item: 0,
+  });
   const triggerContainer = useRef<HTMLSpanElement | null>(null);
 
   const { palette } = useTheme();
@@ -80,6 +90,69 @@ export const Search: FunctionComponent<SearchProps> = (props: SearchProps) => {
   const handleDialogClose = () => {
     setOpen(false);
     onOpenChange && onOpenChange(false);
+  };
+
+  const handleKeyDown = (e: React.KeyboardEvent<HTMLInputElement>) => {
+    // add keyboard navigation behavior on each item that is a map from groups arrays that is map for elements array
+    // and each element is a map from items array
+
+    // if the user press the arrow down key
+    if (e.key === 'ArrowDown') {
+      // if the cursor is not on the last element of the group
+      if (cursor.element < elements[cursor.group].items.length - 1) {
+        // move the cursor to the next element
+        setCursor((c) => ({
+          ...c,
+          element: c.element + 1,
+        }));
+      } else {
+        // if the cursor is on the last element of the group
+        // and the cursor is not on the last group
+        if (cursor.group < elements.length - 1) {
+          // move the cursor to the first element of the next group
+          setCursor((c) => ({
+            ...c,
+            group: c.group + 1,
+            element: 0,
+          }));
+        }
+      }
+    }
+
+    // if the user press the arrow up key
+    if (e.key === 'ArrowUp') {
+      // if the cursor is not on the first element of the group
+      if (cursor.element > 0) {
+        // move the cursor to the previous element
+        setCursor((c) => ({
+          ...c,
+          element: c.element - 1,
+        }));
+      } else {
+        // if the cursor is on the first element of the group
+        // and the cursor is not on the first group
+        if (cursor.group > 0) {
+          // move the cursor to the last element of the previous group
+          setCursor((c) => ({
+            ...c,
+            group: c.group - 1,
+            element: elements[c.group - 1].items.length - 1,
+          }));
+        }
+      }
+    }
+
+    // if the user press the arrow enter key
+    if (e.key === 'Enter') {
+      // if the cursor is on an element
+      if (elements[cursor.group].items[cursor.element]) {
+        const link = document.querySelector(
+          `[data-search-group="${cursor.group}"] [data-search-item="${cursor.element}"] a`
+        ) as HTMLAnchorElement;
+
+        if (link) link.click();
+      }
+    }
   };
 
   useEffect(() => {
@@ -123,6 +196,7 @@ export const Search: FunctionComponent<SearchProps> = (props: SearchProps) => {
         <Dialog.Content className="search-dialog">
           <input
             placeholder={placeholder}
+            onKeyDown={handleKeyDown}
             value={value}
             onChange={(value) => {
               setValue(value.target.value);
@@ -191,6 +265,7 @@ export const Search: FunctionComponent<SearchProps> = (props: SearchProps) => {
             <AnimatePresence>
               {!isLoading && value.length >= 3 && elements.length > 0 && (
                 <motion.div
+                  onClick={() => handleDialogClose()}
                   variants={modalAnimation}
                   initial="initial"
                   exit="out"
@@ -207,9 +282,14 @@ export const Search: FunctionComponent<SearchProps> = (props: SearchProps) => {
                   }}
                 >
                   {elements.map((group, index) => (
-                    <>
+                    <Fragment key={index}>
                       {group.items.length > 0 && (
-                        <div key={Math.random() + index}>
+                        <div
+                          data-search-group={index}
+                          className={
+                            cursor.group === index ? 'cursor-active' : ''
+                          }
+                        >
                           <Box
                             sx={{
                               display: 'flex',
@@ -229,11 +309,16 @@ export const Search: FunctionComponent<SearchProps> = (props: SearchProps) => {
                               flexDirection: 'column',
                               gap: '8px',
                             }}
+                            role="listbox"
                           >
-                            {group.items.map((item, index) => (
+                            {group.items.map((item, i) => (
                               <div
-                                className="test-click"
-                                onClick={() => handleDialogClose()}
+                                className={
+                                  cursor.group === index && cursor.element === i
+                                    ? 'cursor-el-active'
+                                    : ''
+                                }
+                                data-search-item={i}
                                 key={item?.toString() + index.toString()}
                               >
                                 {item}
@@ -242,7 +327,7 @@ export const Search: FunctionComponent<SearchProps> = (props: SearchProps) => {
                           </Box>
                         </div>
                       )}
-                    </>
+                    </Fragment>
                   ))}
                 </motion.div>
               )}
