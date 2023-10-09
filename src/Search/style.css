@@ -26,7 +26,7 @@
   flex-grow: 1;
 }
 
-[cmdk-root] {
+.search-dialog {
   animation: slideUp 0.2s ease-out;
   width: 40%;
   min-width: 600px;
@@ -43,7 +43,7 @@
   max-height: 388px;
 }
 
-[cmdk-input] {
+.search-dialog input {
   width: 100%;
   height: 56px;
   background: transparent;
