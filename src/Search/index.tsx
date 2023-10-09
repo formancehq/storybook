@@ -119,7 +119,9 @@ export const Search: FunctionComponent<SearchProps> = (props: SearchProps) => {
           }}
         />
 
-        {navigation && value.length < 3 && navigation}
+        {navigation && value.length < 3 && (
+          <div onClick={() => setOpen(false)}>{navigation}</div>
+        )}
 
         <Command.List
           className={`${
