@@ -289,64 +289,72 @@ export const Search: FunctionComponent<SearchProps> = (props: SearchProps) => {
                 >
                   {elements.map((group, index) => (
                     <Fragment key={index}>
-                      {index === 0 && (
-                        <Typography
-                          sx={{ fontSize: '1.3rem', marginBottom: '-8px' }}
-                        >
-                          {group.groupTitle}
-                        </Typography>
-                      )}
-                      {index !== 0 &&
-                        elements[index - 1].groupTitle !== group.groupTitle && (
-                          <Typography
-                            sx={{ fontSize: '1.3rem', marginBottom: '-8px' }}
-                          >
-                            {group.groupTitle}
-                          </Typography>
-                        )}
                       {group.items.length > 0 && (
-                        <div
-                          data-search-group={index}
-                          className={
-                            cursor.group === index ? 'cursor-active' : ''
-                          }
-                        >
-                          <Box
-                            sx={{
-                              display: 'flex',
-                              alignItems: 'center',
-                              justifyContent: 'space-between',
-                              mb: '8px',
-                            }}
-                          >
-                            <Typography sx={{ color: palette.neutral[300] }}>
-                              {group.title}
+                        <>
+                          {index === 0 && (
+                            <Typography
+                              sx={{ fontSize: '1.3rem', marginBottom: '-8px' }}
+                            >
+                              {group.groupTitle}
                             </Typography>
-                            {group.showMore && <>{group.showMore}</>}
-                          </Box>
-                          <Box
-                            sx={{
-                              display: 'flex',
-                              flexDirection: 'column',
-                              gap: '8px',
-                            }}
-                            role="listbox"
-                          >
-                            {group.items.map((item, i) => (
-                              <div
-                                className={
-                                  cursor.group === index && cursor.element === i
-                                    ? 'cursor-el-active'
-                                    : ''
-                                }
-                                data-search-item={i}
-                                key={item?.toString() + index.toString()}
+                          )}
+                          {index !== 0 &&
+                            elements[index - 1].groupTitle !==
+                              group.groupTitle && (
+                              <Typography
+                                sx={{
+                                  fontSize: '1.3rem',
+                                  marginBottom: '-8px',
+                                }}
                               >
-                                {item}
-                              </div>
-                            ))}
-                          </Box>
-                        </div>
+                                {group.groupTitle}
+                              </Typography>
+                            )}
+
+                          <div
+                            data-search-group={index}
+                            className={
+                              cursor.group === index ? 'cursor-active' : ''
+                            }
+                          >
+                            <Box
+                              sx={{
+                                display: 'flex',
+                                alignItems: 'center',
+                                justifyContent: 'space-between',
+                                mb: '8px',
+                              }}
+                            >
+                              <Typography sx={{ color: palette.neutral[300] }}>
+                                {group.title}
+                              </Typography>
+                              {group.showMore && <>{group.showMore}</>}
+                            </Box>
+                            <Box
+                              sx={{
+                                display: 'flex',
+                                flexDirection: 'column',
+                                gap: '8px',
+                              }}
+                              role="listbox"
+                            >
+                              {group.items.map((item, i) => (
+                                <div
+                                  className={
+                                    cursor.group === index &&
+                                    cursor.element === i
+                                      ? 'cursor-el-active'
+                                      : ''
+                                  }
+                                  data-search-item={i}
+                                  key={item?.toString() + index.toString()}
+                                >
+                                  {item}
+                                </div>
+                              ))}
+                            </Box>
+                          </div>
+                        </>
                       )}
                     </Fragment>
                   ))}
