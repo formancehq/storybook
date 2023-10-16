@@ -209,7 +209,6 @@ export const WithNavigation = () => (
         </Box>
       </Box>
     }
-    //titles={[{ id: 'ledger', title: <Typography>Ledgers</Typography> }]}
   />
 );
 
@@ -232,7 +231,6 @@ export const WithLoading = () => {
       elements={[ledgersElements, transactionsElements]}
       trigger={<SearchTrigger>Search an element</SearchTrigger>}
       isLoading={isLoading}
-      //titles={[{ id: 'ledger', title: <Typography>Ledgers</Typography> }]}
     />
   );
 };
@@ -256,7 +254,6 @@ export const WithNoResults = () => {
       elements={[]}
       trigger={<SearchTrigger>Search an element</SearchTrigger>}
       isLoading={isLoading}
-      //titles={[{ id: 'ledger', title: <Typography>Ledgers</Typography> }]}
     />
   );
 };
