@@ -8,7 +8,7 @@ import React, {
 } from 'react';
 
 import { Box, Typography, useTheme, CircularProgress } from '@mui/material';
-import * as Dialog from '@radix-ui/react-dialog';
+import Dialog from '@mui/material/Dialog';
 import { motion, AnimatePresence } from 'framer-motion';
 import './style.css';
 
@@ -90,6 +90,7 @@ export const Search: FunctionComponent<SearchProps> = (props: SearchProps) => {
     item: 0,
   });
   const triggerContainer = useRef<HTMLSpanElement | null>(null);
+  const inputSearch = useRef<HTMLInputElement | null>(null);
 
   const { palette } = useTheme();
 
@@ -99,23 +100,14 @@ export const Search: FunctionComponent<SearchProps> = (props: SearchProps) => {
   };
 
   const handleKeyDown = (e: React.KeyboardEvent<HTMLInputElement>) => {
-    // add keyboard navigation behavior on each item that is a map from groups arrays that is map for elements array
-    // and each element is a map from items array
-
-    // if the user press the arrow down key
     if (e.key === 'ArrowDown') {
-      // if the cursor is not on the last element of the group
       if (cursor.element < elements[cursor.group].items.length - 1) {
-        // move the cursor to the next element
         setCursor((c) => ({
           ...c,
           element: c.element + 1,
         }));
       } else {
-        // if the cursor is on the last element of the group
-        // and the cursor is not on the last group
         if (cursor.group < elements.length - 1) {
-          // move the cursor to the first element of the next group
           setCursor((c) => ({
             ...c,
             group: c.group + 1,
@@ -125,20 +117,14 @@ export const Search: FunctionComponent<SearchProps> = (props: SearchProps) => {
       }
     }
 
-    // if the user press the arrow up key
     if (e.key === 'ArrowUp') {
-      // if the cursor is not on the first element of the group
       if (cursor.element > 0) {
-        // move the cursor to the previous element
         setCursor((c) => ({
           ...c,
           element: c.element - 1,
         }));
       } else {
-        // if the cursor is on the first element of the group
-        // and the cursor is not on the first group
         if (cursor.group > 0) {
-          // move the cursor to the last element of the previous group
           setCursor((c) => ({
             ...c,
             group: c.group - 1,
@@ -148,9 +134,7 @@ export const Search: FunctionComponent<SearchProps> = (props: SearchProps) => {
       }
     }
 
-    // if the user press the arrow enter key
     if (e.key === 'Enter') {
-      // if the cursor is on an element
       if (elements[cursor.group].items[cursor.element]) {
         const link = document.querySelector(
           `[data-search-group="${cursor.group}"] [data-search-item="${cursor.element}"] a`
@@ -166,6 +150,9 @@ export const Search: FunctionComponent<SearchProps> = (props: SearchProps) => {
       if (e.key === 'k' && (e.metaKey || e.ctrlKey)) {
         e.preventDefault();
         setOpen((o) => !o);
+        setTimeout(() => {
+          inputSearch.current?.focus();
+        }, 1);
       }
     };
 
@@ -179,28 +166,28 @@ export const Search: FunctionComponent<SearchProps> = (props: SearchProps) => {
   }, [isOpen]);
 
   return (
-    <Dialog.Root
-      open={open}
-      onOpenChange={(o) => {
-        setOpen(o);
-        onOpenChange?.(o);
-      }}
-    >
-      <Dialog.Trigger asChild>
-        <span
-          ref={triggerContainer}
-          onClick={() => {
-            setOpen(true);
-            onOpenChange && onOpenChange(true);
-          }}
-        >
-          {trigger}
-        </span>
-      </Dialog.Trigger>
-      <Dialog.Portal>
-        <Dialog.Overlay />
-        <Dialog.Content className="search-dialog">
+    <>
+      <div
+        onClick={() => {
+          setOpen(true);
+          onOpenChange && onOpenChange(true);
+          setTimeout(() => {
+            inputSearch.current?.focus();
+          }, 1);
+        }}
+      >
+        <span ref={triggerContainer}>{trigger}</span>
+      </div>
+      <Dialog
+        open={open}
+        onClose={() => {
+          setOpen(false);
+          onOpenChange && onOpenChange(false);
+        }}
+      >
+        <div className="search-dialog">
           <input
+            ref={inputSearch}
             placeholder={placeholder}
             onKeyDown={handleKeyDown}
             value={value}
@@ -293,7 +280,10 @@ export const Search: FunctionComponent<SearchProps> = (props: SearchProps) => {
                         <>
                           {index === 0 && (
                             <Typography
-                              sx={{ fontSize: '1.3rem', marginBottom: '-8px' }}
+                              sx={{
+                                fontSize: '1.3rem',
+                                marginBottom: '-8px',
+                              }}
                             >
                               {group.groupTitle}
                             </Typography>
@@ -362,9 +352,9 @@ export const Search: FunctionComponent<SearchProps> = (props: SearchProps) => {
               )}
             </AnimatePresence>
           </div>
-        </Dialog.Content>
-      </Dialog.Portal>
-    </Dialog.Root>
+        </div>
+      </Dialog>
+    </>
   );
 };
 
