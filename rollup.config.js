@@ -39,7 +39,6 @@ export default [
       '@mui/icons-material',
       '@mui/lab',
       '@mui/material',
-      '@radix-ui/react-dialog',
     ],
   },
   {
@@ -53,7 +52,6 @@ export default [
       '@mui/icons-material',
       '@mui/lab',
       '@mui/material',
-      '@radix-ui/react-dialog',
       /\.css$/,
     ],
     plugins: [dts()],
