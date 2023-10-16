@@ -13,9 +13,15 @@ import { motion, AnimatePresence } from 'framer-motion';
 import './style.css';
 
 export type SearchGroup = {
+  groupTitle: string;
   title: React.ReactNode;
   items: React.ReactNode[];
   showMore?: React.ReactNode;
+};
+
+export type SearchGroupTitle = {
+  id: string;
+  title: React.ReactNode;
 };
 
 export type SearchProps = {
@@ -283,6 +289,21 @@ export const Search: FunctionComponent<SearchProps> = (props: SearchProps) => {
                 >
                   {elements.map((group, index) => (
                     <Fragment key={index}>
+                      {index === 0 && (
+                        <Typography
+                          sx={{ fontSize: '1.3rem', marginBottom: '-8px' }}
+                        >
+                          {group.groupTitle}
+                        </Typography>
+                      )}
+                      {index !== 0 &&
+                        elements[index - 1].groupTitle !== group.groupTitle && (
+                          <Typography
+                            sx={{ fontSize: '1.3rem', marginBottom: '-8px' }}
+                          >
+                            {group.groupTitle}
+                          </Typography>
+                        )}
                       {group.items.length > 0 && (
                         <div
                           data-search-group={index}

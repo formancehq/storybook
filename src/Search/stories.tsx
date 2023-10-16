@@ -52,6 +52,7 @@ const transactionsStyle: SxProps = {
 };
 
 const ledgersElements: SearchGroup = {
+  groupTitle: 'Ledgers',
   title: 'Ledgers',
   items: [
     <a href="#" key="1" style={{ textDecoration: 'none' }}>
@@ -79,6 +80,7 @@ const ledgersElements: SearchGroup = {
 };
 
 const transactionsElements: SearchGroup = {
+  groupTitle: 'Ledgers',
   title: 'Transations',
   items: [
     <a href="#" key="3" style={{ textDecoration: 'none' }}>
@@ -207,6 +209,7 @@ export const WithNavigation = () => (
         </Box>
       </Box>
     }
+    //titles={[{ id: 'ledger', title: <Typography>Ledgers</Typography> }]}
   />
 );
 
@@ -229,6 +232,7 @@ export const WithLoading = () => {
       elements={[ledgersElements, transactionsElements]}
       trigger={<SearchTrigger>Search an element</SearchTrigger>}
       isLoading={isLoading}
+      //titles={[{ id: 'ledger', title: <Typography>Ledgers</Typography> }]}
     />
   );
 };
@@ -252,6 +256,7 @@ export const WithNoResults = () => {
       elements={[]}
       trigger={<SearchTrigger>Search an element</SearchTrigger>}
       isLoading={isLoading}
+      //titles={[{ id: 'ledger', title: <Typography>Ledgers</Typography> }]}
     />
   );
 };
