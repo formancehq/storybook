@@ -97,6 +97,7 @@ export const Search: FunctionComponent<SearchProps> = (props: SearchProps) => {
   const handleDialogClose = () => {
     setOpen(false);
     onOpenChange && onOpenChange(false);
+    setValue('');
   };
 
   const handleKeyDown = (e: React.KeyboardEvent<HTMLInputElement>) => {
@@ -171,6 +172,7 @@ export const Search: FunctionComponent<SearchProps> = (props: SearchProps) => {
         e.preventDefault();
         setOpen((o) => !o);
         setTimeout(() => {
+          setValue('');
           inputSearch.current?.focus();
         }, 1);
       }
@@ -203,6 +205,7 @@ export const Search: FunctionComponent<SearchProps> = (props: SearchProps) => {
         onClose={() => {
           setOpen(false);
           onOpenChange && onOpenChange(false);
+          setValue('');
         }}
       >
         <div className="search-dialog">
