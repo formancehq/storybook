@@ -127,7 +127,9 @@ export const Default = () => {
   return (
     <Search
       isOpen={open}
-      onOpenChange={setOpen}
+      onOpenChange={(o) => {
+        setOpen(o);
+      }}
       placeholder="Search an element"
       elements={[ledgersElements, transactionsElements]}
       trigger={<SearchTrigger>Search an element</SearchTrigger>}
