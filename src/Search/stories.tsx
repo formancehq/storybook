@@ -95,6 +95,18 @@ const transactionsElements: SearchGroup = {
         <Chip label="006" color="blue" variant="square" />
       </Box>
     </a>,
+    <a href="#" key="5" style={{ textDecoration: 'none' }}>
+      <Box sx={transactionsStyle}>
+        <Typography>transation-4</Typography>
+        <Chip label="001" color="blue" variant="square" />
+      </Box>
+    </a>,
+    <a href="#" key="6" style={{ textDecoration: 'none' }}>
+      <Box sx={transactionsStyle}>
+        <Typography>test-5</Typography>
+        <Chip label="006" color="blue" variant="square" />
+      </Box>
+    </a>,
   ],
   showMore: (
     <Typography

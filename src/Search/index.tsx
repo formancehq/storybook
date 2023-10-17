@@ -106,6 +106,12 @@ export const Search: FunctionComponent<SearchProps> = (props: SearchProps) => {
           ...c,
           element: c.element + 1,
         }));
+        const e = document.querySelector(
+          `[data-search-group="${cursor.group}"] [data-search-item="${
+            cursor.element + 1
+          }"]`
+        ) as HTMLDivElement;
+        e.scrollIntoView();
       } else {
         if (cursor.group < elements.length - 1) {
           setCursor((c) => ({
@@ -113,6 +119,10 @@ export const Search: FunctionComponent<SearchProps> = (props: SearchProps) => {
             group: c.group + 1,
             element: 0,
           }));
+          const e = document.querySelector(
+            `[data-search-group="${cursor.group}"] [data-search-item="0"]`
+          ) as HTMLDivElement;
+          e.scrollIntoView();
         }
       }
     }
@@ -123,6 +133,12 @@ export const Search: FunctionComponent<SearchProps> = (props: SearchProps) => {
           ...c,
           element: c.element - 1,
         }));
+        const e = document.querySelector(
+          `[data-search-group="${cursor.group}"] [data-search-item="${
+            cursor.element - 1
+          }"]`
+        ) as HTMLDivElement;
+        e.scrollIntoView();
       } else {
         if (cursor.group > 0) {
           setCursor((c) => ({
@@ -130,6 +146,10 @@ export const Search: FunctionComponent<SearchProps> = (props: SearchProps) => {
             group: c.group - 1,
             element: elements[c.group - 1].items.length - 1,
           }));
+          const e = document.querySelector(
+            `[data-search-group="${cursor.group}"] [data-search-item="0"]`
+          ) as HTMLDivElement;
+          e.scrollIntoView();
         }
       }
     }
@@ -275,7 +295,7 @@ export const Search: FunctionComponent<SearchProps> = (props: SearchProps) => {
                   }}
                 >
                   {elements.map((group, index) => (
-                    <Fragment key={index}>
+                    <Fragment key={`group${index}`}>
                       {group.items.length > 0 && (
                         <>
                           {index === 0 && (
@@ -337,7 +357,7 @@ export const Search: FunctionComponent<SearchProps> = (props: SearchProps) => {
                                       : ''
                                   }
                                   data-search-item={i}
-                                  key={item?.toString() + index.toString()}
+                                  key={`item${index}${i}`}
                                 >
                                   {item}
                                 </div>
