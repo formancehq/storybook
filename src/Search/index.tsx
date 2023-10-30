@@ -353,12 +353,12 @@ export const Search: FunctionComponent<SearchProps> = (props: SearchProps) => {
                             >
                               {group.items.map((item, i) => (
                                 <div
-                                  className={
+                                  className={`search__element ${
                                     cursor.group === index &&
                                     cursor.element === i
                                       ? 'cursor-el-active'
                                       : ''
-                                  }
+                                  }`}
                                   data-search-item={i}
                                   key={`item${index}${i}`}
                                 >
