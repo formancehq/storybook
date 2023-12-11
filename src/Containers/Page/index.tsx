@@ -47,9 +47,11 @@ export const Page: FunctionComponent<PageProps> = ({
     <Box id={id} p="0 24px 24px 24px" sx={{ ...sx }}>
       {header && (
         <Box display="flex" justifyContent="space-between" alignItems="center">
-          <Box sx={{
-            width: '100%',
-          }}>
+          <Box
+            sx={{
+              width: '100%',
+            }}
+          >
             {renderTitle()}
             {subtitle && (
               <Typography variant="h2" color="primary" mr={1}>
