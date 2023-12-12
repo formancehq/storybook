@@ -23,3 +23,5 @@ Install the Storybook package locally on a project (you need to run this on cons
 After installation, each time you run the build and push command, the package will be automatically updated on all projects where the package was installed with Yalc
 
 **Be careful to modify the package.json on console before putting it into production!**
+
+When you add the package with Yalc, the package.json will transform from `"@numary/storybook": "^1.1.x"` to `"@numary/storybook": "file/.yalc..."` so remember to change it before putting it into production
