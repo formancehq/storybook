@@ -1,5 +1,7 @@
 import React from 'react';
 
+import { Box } from '@mui/material';
+
 import { storyDocsParameters } from '../../utils';
 
 import { JsonViewer } from './index';
@@ -14,6 +16,12 @@ const jsonData = {
   apiresource: {
     lastresponse: null,
   },
+  eyJDb25uZWN0b3JJRCI6eyJQcm92aWRlciI6IkFUTEFSIiwiUmVmZXJlbmNlIjoiMzhhYzQ1YTctOWU5My00YTM4LWI4NjMtNzgzOTI1NWQ5MjQ1In0sIlJlZmVyZW5jZSI6IjBmZmZmM2M4LThmZjYtMTFlZS1iZGU5LWYyZjIyNjU5MWE1NiIsIlR5cGUiOiJQQVktSU4ifQ:
+    {
+      longKey: 'longKey',
+    },
+  longValue:
+    'eyJDb25uZWN0b3JJRCI6eyJQcm92aWRlciI6IkFUTEFSIiwiUmVmZXJlbmNlIjoiMzhhYzQ1YTctOWU5My00YTM4LWI4NjMtNzgzOTI1NWQ5MjQ1In0sIlJlZmVyZW5jZSI6IjBmZmZmM2M4LThmZjYtMTFlZS1iZGU5LWYyZjIyNjU5MWE1NiIsIlR5cGUiOiJQQVktSU4ifQ',
   test: true,
 };
 
@@ -57,3 +65,11 @@ export const Empty = () => <JsonViewer jsonData={{}} />;
 
 Empty.storyName = 'Empty';
 Empty.parameters = storyDocsParameters;
+export const Small = () => (
+  <Box sx={{ width: 150 }}>
+    <JsonViewer jsonData={jsonData} />
+  </Box>
+);
+
+Small.storyName = 'Small';
+Small.parameters = storyDocsParameters;
