@@ -58,6 +58,9 @@ export const JsonViewer: FunctionComponent<JsonViewerProps> = ({
         '& li': {
           paddingTop: '0 !important',
           ...typography.money,
+          '& label': {
+            wordBreak: 'break-word',
+          },
         },
         borderRadius: '6px',
       }}
