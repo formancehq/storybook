@@ -697,3 +697,9 @@ export const LoadingStateButton = () => (
 );
 LoadingStateButton.storyName = 'Loading';
 LoadingStateButton.parameters = storyDocsParameters;
+
+export const FullWidthButton = () => (
+  <LoadingButton variant="dark" content="Full width !" fullWidth />
+);
+FullWidthButton.storyName = 'FullWidth';
+FullWidthButton.parameters = storyDocsParameters;
