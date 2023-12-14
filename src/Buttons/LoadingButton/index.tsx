@@ -28,6 +28,7 @@ export const LoadingButton: FunctionComponent<LoadingButtonProps> = ({
   id,
   onClick,
   sx,
+  fullWidth,
   ...props
 }) => {
   const [loading, setLoading] = useState(false);
@@ -160,17 +161,24 @@ export const LoadingButton: FunctionComponent<LoadingButtonProps> = ({
     }
   };
 
+  let width = content ? 'auto!important' : '40px!important';
+
+  if (fullWidth) {
+    width = '100%';
+  }
+
   return (
     <MuiLoadingButton
       id={id}
       data-testid={id}
       sx={{
         ...get(variantsMap, variant),
-        width: content ? 'auto!important' : '40px!important',
+        width,
         padding: content ? '8px 16px' : '0px!important',
       }}
       loading={loading}
       onClick={handleClick}
+      fullWidth={fullWidth}
       {...props}
     >
       {content}
