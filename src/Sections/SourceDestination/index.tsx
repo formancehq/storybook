@@ -8,27 +8,97 @@ import { ColorVariants } from '../../types';
 
 export type SourceDestinationProps = {
   label: string;
-  ellipse?: boolean;
   onClick?: () => void;
   sx?: SxProps<Theme>;
   color?: ColorVariants;
 };
 
+export function format(str: string) {
+  const maxLength = 30;
+  const maxSegments = 5;
+
+  if (str.length <= maxLength) {
+    return str;
+  }
+
+  const segments: string[] = str.split(':');
+  const output: string[] = [];
+
+  // optimisation pass
+  const budget = Math.floor(maxLength / maxSegments);
+  let free = 0;
+  const budgets: {
+    key: number;
+    segment: string;
+    value: number;
+    score: number;
+  }[] = segments.map((s, i) => {
+    const score = s.length > 10 ? 0 : 1;
+
+    if (s.length <= budget) {
+      free += budget - s.length;
+
+      return {
+        key: i,
+        segment: s,
+        value: s.length,
+        score: score,
+      };
+    }
+
+    return {
+      key: i,
+      segment: s,
+      value: budget,
+      score: score,
+    };
+  });
+
+  // distribute free budget in multiple passes,
+  // segments with highest score get priority,
+  // start from the end of the list
+  const pass = (): boolean => {
+    let missing = false;
+
+    budgets
+      .filter((b) => b.score > 0)
+      .reverse()
+      .forEach((b) => {
+        if (free > 0 && b.value < b.segment.length) {
+          console.log('redistributing', b.segment, b.value);
+          b.value++;
+          free--;
+          if (b.value < b.segment.length) {
+            missing = true;
+          }
+        }
+      });
+
+    return !missing;
+  };
+
+  while (free > 0) {
+    if (pass()) {
+      break;
+    }
+  }
+
+  // truncate according to budget for each segment
+  segments.forEach((s, i) => {
+    output.push(s.substring(0, budgets[i].value));
+  });
+
+  return output.join(':');
+}
+
 export const SourceDestination: FunctionComponent<SourceDestinationProps> = ({
   label,
-  ellipse = true,
   onClick,
   sx,
   color,
 }) => {
   if (!label) return null;
-  const length = label.length;
-  const name =
-    ellipse && length > 20
-      ? `${label.substring(0, Math.floor((length * 15) / 100))}...:${
-          label.split(':')[1]
-        }`
-      : label;
+  const name = format(label);
   const { palette } = useTheme();
 
   return (
