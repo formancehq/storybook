@@ -40,3 +40,15 @@ export const ErrorSelectMultiple = () => (
 );
 ErrorSelectMultiple.storyName = 'Error';
 ErrorSelectMultiple.parameters = storyDocsParameters;
+
+export const DefaultValueSelectMultiple = () => (
+  <SelectMultiple
+    label="Events"
+    items={items}
+    outlinedInputLabel="events"
+    id="label-event"
+    selectedValues={['event 1']}
+  />
+);
+DefaultValueSelectMultiple.storyName = 'Default value';
+DefaultValueSelectMultiple.parameters = storyDocsParameters;

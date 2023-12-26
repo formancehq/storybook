@@ -65,7 +65,6 @@ export function format(str: string) {
       .reverse()
       .forEach((b) => {
         if (free > 0 && b.value < b.segment.length) {
-          console.log('redistributing', b.segment, b.value);
           b.value++;
           free--;
           if (b.value < b.segment.length) {

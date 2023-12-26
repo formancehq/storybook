@@ -23,6 +23,7 @@ export type SelectMultipleProps = {
   ref?: any;
   id: string;
   outlinedInputLabel: string;
+  selectedValues?: string[];
 } & FormFieldErrorProps;
 
 export const SelectMultiple: FunctionComponent<SelectMultipleProps> = ({
@@ -34,8 +35,9 @@ export const SelectMultiple: FunctionComponent<SelectMultipleProps> = ({
   outlinedInputLabel,
   ref,
   errorMessage,
+  selectedValues,
 }) => {
-  const [item, setItem] = useState<string[]>([]);
+  const [item, setItem] = useState<string[]>(selectedValues || []);
   const { typography } = useTheme();
   const handleChange = (selectedItem: SelectChangeEvent<typeof item>) => {
     const {
@@ -123,7 +125,7 @@ export const SelectMultiple: FunctionComponent<SelectMultipleProps> = ({
                 padding: '4px',
               }}
             >
-              {selected.map((value) => (
+              {selected.map((value: string) => (
                 <Chip
                   key={value}
                   label={value}
