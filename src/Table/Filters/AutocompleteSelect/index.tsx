@@ -25,7 +25,7 @@ export const AutocompleteSelect: FunctionComponent<FilterProps> = ({
 }) => (
   <Autocomplete
     {...props}
-    multiple
+    multiple={props.multiple}
     size="small"
     limitTags={2}
     PaperComponent={PaperComponent}

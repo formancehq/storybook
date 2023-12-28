@@ -56,5 +56,18 @@ const AutocompleteCheckbox = () => (
 );
 
 export const DefaultAutocompleteCheckbox = () => <AutocompleteCheckbox />;
-DefaultAutocompleteCheckbox.storyName = 'Default';
+DefaultAutocompleteCheckbox.storyName = 'Checkbox';
 DefaultAutocompleteCheckbox.parameters = storyDocsParameters;
+
+export const DefaultAutocompleteSimple = () => (
+  <AutocompleteSelect
+    name="simple"
+    disablePortal
+    multiple={false}
+    id="combo-box-demo"
+    options={data}
+    sx={{ width: 300 }}
+  />
+);
+DefaultAutocompleteSimple.storyName = 'DefaultSimple';
+DefaultAutocompleteSimple.parameters = storyDocsParameters;
