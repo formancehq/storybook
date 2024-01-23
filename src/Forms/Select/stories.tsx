@@ -64,3 +64,27 @@ export const CustomRenderOption = () => (
 );
 CustomRenderOption.storyName = 'Custom option';
 CustomRenderOption.parameters = storyDocsParameters;
+
+export const LabelSelect = () => (
+  <Select
+    select={{ name: 'default' }}
+    items={items}
+    placeholder="Select a foobar"
+    label="Label select"
+    required
+  />
+);
+LabelSelect.storyName = 'Label';
+LabelSelect.parameters = storyDocsParameters;
+
+export const LabelRequiredSelect = () => (
+  <Select
+    select={{ name: 'default' }}
+    items={items}
+    placeholder="Select a foobar"
+    label="Label select required"
+    required
+  />
+);
+LabelRequiredSelect.storyName = 'Label required';
+LabelRequiredSelect.parameters = storyDocsParameters;
