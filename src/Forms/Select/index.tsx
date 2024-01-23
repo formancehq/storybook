@@ -7,6 +7,7 @@ import {
   Select as MuiSelect,
   SelectChangeEvent,
   useTheme,
+  FormLabel,
 } from '@mui/material';
 
 import { FormFieldErrorProps } from '../../types';
@@ -23,6 +24,8 @@ export type SelectProps = {
   items: SelectItems[];
   placeholder: string;
   renderOption?: (item: SelectItems) => ReactNode;
+  label?: string;
+  required?: boolean;
 } & FormFieldErrorProps;
 
 export const Select: FunctionComponent<SelectProps> = ({
@@ -32,6 +35,8 @@ export const Select: FunctionComponent<SelectProps> = ({
   error,
   errorMessage,
   renderOption,
+  label,
+  required = false,
 }) => {
   const [value, setValue] = React.useState(placeholder);
 
@@ -64,6 +69,7 @@ export const Select: FunctionComponent<SelectProps> = ({
           },
         }}
       >
+        {label && <FormLabel required={required}>{label}</FormLabel>}
         <MuiSelect
           displayEmpty
           value={value}
