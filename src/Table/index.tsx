@@ -68,7 +68,7 @@ export type RowProps = {
   keys: Array<string | ((item: any) => void) | null | ReactElement>;
   item: any;
   id?: string;
-  renderActions?: () => any;
+  renderActions?: () => Promise<any> | any;
   sx?: SxProps<Theme>;
 };
 
@@ -78,7 +78,19 @@ export const Row: FunctionComponent<RowProps> = ({
   renderActions,
   sx,
 }) => {
+  const [actions, setActions] = useState();
   const pSx = sx || {};
+
+  useEffect(() => {
+    (async () => {
+      if (renderActions) {
+        const renderActionsPromise = await renderActions();
+        if (renderActionsPromise) {
+          setActions(renderActionsPromise);
+        }
+      }
+    })();
+  }, []);
 
   const styles = {
     whiteSpace: 'nowrap',
@@ -124,7 +136,7 @@ export const Row: FunctionComponent<RowProps> = ({
             }
           }
         })}
-        {renderActions && <TableCell>{renderActions()}</TableCell>}
+        {actions && renderActions && <TableCell>{actions}</TableCell>}
       </>
     </TableRow>
   );
