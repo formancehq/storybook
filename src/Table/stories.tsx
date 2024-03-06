@@ -1,13 +1,12 @@
 import React, { useState } from 'react';
 
 import { Box } from '@mui/material';
-import { get, reverse, sortBy, uniqueId } from 'lodash';
+import { get, reverse, sortBy } from 'lodash';
 
 import { DefaultAutocompleteCheckbox } from './Filters/AutocompleteSelect/stories';
 
 import { Row, Table } from './index';
 
-import { LoadingButton } from '../Buttons/LoadingButton';
 import { Chip } from '../Chip';
 import { SourceDestination } from '../Sections/SourceDestination';
 import { storyDocsParameters } from '../utils';
@@ -83,87 +82,6 @@ export const DefaultTable = () => (
 );
 DefaultTable.storyName = 'Default';
 DefaultTable.parameters = storyDocsParameters;
-
-const getDumbPromise = async () => new Promise((resolve) => resolve('Async'));
-
-export const AsyncActionTable = () => {
-  const renderActionsItem = async (user: User) => {
-    const label = await getDumbPromise();
-    const onClick = () => {
-      alert('work');
-    };
-
-    return (
-      <Box component="span" sx={{ float: 'right' }}>
-        <LoadingButton content={`${label} & ${user.name}`} onClick={onClick} />
-      </Box>
-    );
-  };
-
-  return (
-    <Table
-      labels={labels}
-      id="default"
-      items={items}
-      columns={[
-        { key: 'name', label: 'Lastname', width: 20 },
-        { key: 'actions', label: '', width: 80 },
-      ]}
-      onNext={() => null}
-      onPrevious={() => null}
-      renderItem={(user: User, index) => (
-        <Row
-          key={index}
-          keys={['name']}
-          renderActions={async () => await renderActionsItem(user)}
-          item={user}
-        />
-      )}
-    />
-  );
-};
-
-AsyncActionTable.storyName = 'Async Action';
-AsyncActionTable.parameters = storyDocsParameters;
-
-export const ActionTable = () => {
-  const renderActionsItem = (user: User) => {
-    const onClick = () => {
-      alert('work');
-    };
-
-    return (
-      <Box component="span" sx={{ float: 'right' }}>
-        <LoadingButton content={user.name} onClick={onClick} />
-      </Box>
-    );
-  };
-
-  return (
-    <Table
-      labels={labels}
-      id="default"
-      items={items}
-      columns={[
-        { key: 'name', label: 'Lastname', width: 20 },
-        { key: 'actions', label: '', width: 80 },
-      ]}
-      onNext={() => null}
-      onPrevious={() => null}
-      renderItem={(user: User, index) => (
-        <Row
-          key={index}
-          keys={['name']}
-          renderActions={() => renderActionsItem(user)}
-          item={user}
-        />
-      )}
-    />
-  );
-};
-
-ActionTable.storyName = 'Action';
-ActionTable.parameters = storyDocsParameters;
 
 export const SortTable = () => {
   const [data, setData] = useState(items);
