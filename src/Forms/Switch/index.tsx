@@ -2,6 +2,7 @@ import React, { FunctionComponent } from 'react';
 
 import {
   Box,
+  FormLabel,
   Switch as MuiSwitch,
   SwitchProps as MuiSwitchProps,
   useTheme,
@@ -14,12 +15,14 @@ import { darkKey, normalKey } from '../../utils';
 import { FormHelper } from '../FormHelper';
 
 export type SwitchProps = Omit<MuiSwitchProps, 'color'> &
-  FormFieldErrorProps & { variant?: ColorVariants };
+  FormFieldErrorProps & { variant?: ColorVariants; label?: string };
 
 export const Switch: FunctionComponent<SwitchProps> = ({
   error,
   errorMessage,
   variant = 'primary',
+  label,
+  required = false,
   ...props
 }) => {
   const { palette } = useTheme();
@@ -29,6 +32,7 @@ export const Switch: FunctionComponent<SwitchProps> = ({
 
   return (
     <Box sx={{}}>
+      {label && <FormLabel required={required}>{label}</FormLabel>}
       <MuiSwitch
         {...props}
         sx={{
