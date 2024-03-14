@@ -22,6 +22,20 @@ export const DefaultSwitch = () => {
 };
 DefaultSwitch.storyName = 'Default';
 DefaultSwitch.parameters = storyDocsParameters;
+export const SwitchWithLabel = () => {
+  const [checked, setChecked] = useState<boolean>(false);
+
+  return (
+    <Switch
+      label="A label"
+      checked={checked}
+      onChange={() => setChecked(!checked)}
+      variant="violet"
+    />
+  );
+};
+SwitchWithLabel.storyName = 'SwitchWithLabel';
+SwitchWithLabel.parameters = storyDocsParameters;
 
 export const SwitchWithError = () => (
   <Switch onChange={() => alert('changed')} error errorMessage="Oops" />
